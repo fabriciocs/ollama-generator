@@ -1,0 +1,1 @@
+export { materialTheme } from './materialTheme';
