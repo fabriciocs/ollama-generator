@@ -1,3 +1,5 @@
+import { GeneratedFileRecord } from '../../../core/types/api.types';
+
 export type GeneratedFilesListProps = {
-  files: Array<{ fileName: string; sizeBytes: number; relativePath: string }>;
+  files: GeneratedFileRecord[];
 };

@@ -17,6 +17,7 @@ export const StepStatusList = ({ steps }: StepStatusListProps) => (
         <ListItem key={step.id} divider disableGutters sx={{ py: 1.5 }}>
           <ListItemText
             primary={`${index + 1}. ${step.title}`}
+            secondaryTypographyProps={{ component: 'div' }}
             secondary={
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" mt={0.5}>
                 <span>{step.outputFile}</span>

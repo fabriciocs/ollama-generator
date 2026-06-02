@@ -12,7 +12,7 @@ export const GeneratedFilesList = ({ files }: GeneratedFilesListProps) => (
     </Typography>
     <List dense disablePadding>
       {files.map((file) => (
-        <ListItem key={file.relativePath} divider disableGutters>
+        <ListItem key={file.id} divider disableGutters>
           <ListItemText primary={file.fileName} secondary={`${file.sizeBytes} bytes`} />
         </ListItem>
       ))}

@@ -14,25 +14,20 @@
   .\gerar-mensagem-commit.ps1
 
 .EXAMPLE
-  .\gerar-mensagem-commit.ps1 -QuietGitWarnings
-
-.EXAMPLE
-  .\gerar-mensagem-commit.ps1 -OllamaHost "192.168.0.103" -Model "llama3.1:8b"
+  .\gerar-mensagem-commit.ps1 -OllamaHost "192.168.0.103" -Model "qwen2.5:1.5b"
 #>
 
 param(
   [string]$OllamaHost = "192.168.0.103",
   [int]$OllamaPort = 11434,
-  [string]$Model = "llama3.1:8b",
-  [int]$MaxDiffChars = 1200,
-  [int]$MaxStatusLines = 16,
-  [int]$MaxRecentCommits = 2,
-  [int]$MaxFileLines = 12,
-  [int]$NumCtx = 2048,
-  [int]$NumPredict = 120,
-  [switch]$IncludeUntrackedNames,
+  [string]$Model = "qwen2.5:1.5b",
+  [int]$MaxDiffChars = 6000,
+  [int]$MaxStatusLines = 30,
+  [int]$MaxFileLines = 40,
+  [int]$NumCtx = 8192,
+  [int]$NumPredict = 80,
+  [bool]$IncludeUntrackedNames = $true,
   [switch]$IncludeDiffBody,
-  [switch]$QuietGitWarnings,
   [switch]$DebugMode
 )
 
@@ -47,17 +42,25 @@ try {
 
 function Write-Info {
   param([string]$Message)
-  Write-Host "[INFO] $Message" -ForegroundColor Cyan
+  Write-DebugLog -Message $Message
 }
 
 function Write-Warn {
   param([string]$Message)
-  Write-Host "[WARN] $Message" -ForegroundColor Yellow
+  Write-DebugLog -Message "WARN: $Message"
 }
 
 function Write-Err {
   param([string]$Message)
   Write-Host "[ERRO] $Message" -ForegroundColor Red
+}
+
+function Ensure-DebugLogPath {
+  param([string]$RepositoryRoot)
+
+  $logDir = Join-Path $RepositoryRoot "logs"
+  New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+  return Join-Path $logDir "commit-message-generator.log"
 }
 
 function Write-DebugLog {
@@ -66,7 +69,7 @@ function Write-DebugLog {
     [object]$Data
   )
 
-  if (-not $DebugMode) {
+  if (-not $script:DebugLogPath) {
     return
   }
 
@@ -78,11 +81,11 @@ function Write-DebugLog {
       $serialized = [string]$Data
     }
 
-    Write-Host "[DEBUG][$timestamp] $Message :: $serialized" -ForegroundColor DarkGray
+    Add-Content -Path $script:DebugLogPath -Value "[DEBUG][$timestamp] $Message :: $serialized"
     return
   }
 
-  Write-Host "[DEBUG][$timestamp] $Message" -ForegroundColor DarkGray
+  Add-Content -Path $script:DebugLogPath -Value "[DEBUG][$timestamp] $Message"
 }
 
 function ConvertTo-ProcessArgumentString {
@@ -157,9 +160,11 @@ function Invoke-GitCommand {
     throw "Falha ao executar: $cmd`n$details"
   }
 
-  if (-not [string]::IsNullOrWhiteSpace($stderr) -and -not $QuietGitWarnings) {
-    Write-Warn "Git retornou aviso ao executar: git $($Arguments -join ' ')"
-    Write-Warn $stderr.Trim()
+  if (-not [string]::IsNullOrWhiteSpace($stderr)) {
+    Write-DebugLog -Message "Git retornou stderr" -Data @{
+      command = $cmd
+      stderr = $stderr.Trim()
+    }
   }
 
   if ($null -eq $stdout) {
@@ -256,12 +261,20 @@ function Assert-GitRepository {
 
 try {
   $scriptStartedAt = Get-Date
+  $repoRootForLog = ""
+  try {
+    $repoRootForLog = (Invoke-GitCommand -Arguments @("rev-parse", "--show-toplevel"))
+  } catch {
+    $repoRootForLog = (Get-Location).Path
+  }
+  $script:DebugLogPath = Ensure-DebugLogPath -RepositoryRoot $repoRootForLog
+  Set-Content -Path $script:DebugLogPath -Value "Inicio do log em $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss.fff')"
   Write-DebugLog -Message "Inicio da execucao do script" -Data @{
     workingDirectory = (Get-Location).Path
     model = $Model
     ollamaHost = $OllamaHost
     ollamaPort = $OllamaPort
-    includeDiffBody = [bool]$IncludeDiffBody
+    includeDiffBody = $true
     includeUntrackedNames = [bool]$IncludeUntrackedNames
     numCtx = $NumCtx
     numPredict = $NumPredict
@@ -272,16 +285,8 @@ try {
   $ollamaUrl = "http://$OllamaHost`:$OllamaPort/api/chat"
   Write-DebugLog -Message "Repositorio Git validado"
 
-  Write-Info "Coletando contexto do repositorio Git..."
-
-  $branch = Get-GitValue -Arguments @("rev-parse", "--abbrev-ref", "HEAD")
   $repoRoot = Get-GitValue -Arguments @("rev-parse", "--show-toplevel")
   $status = Get-GitValue -Arguments @("status", "--short")
-  $lastCommits = Get-GitValue -Arguments @(
-    "log",
-    "-$MaxRecentCommits",
-    "--pretty=format:%h %s"
-  )
 
   $diffNameOnly = Get-GitValue -Arguments @("diff", "--name-only")
   $diffCachedNameOnly = Get-GitValue -Arguments @("diff", "--cached", "--name-only")
@@ -289,36 +294,34 @@ try {
   $diffStat = Get-GitValue -Arguments @("diff", "--shortstat")
   $diffCachedStat = Get-GitValue -Arguments @("diff", "--cached", "--shortstat")
 
-  $diff = ""
-  $diffCached = ""
-  if ($IncludeDiffBody) {
-    $diff = Get-GitValue -Arguments @(
-      "diff",
-      "--",
-      ".",
-      ":!package-lock.json",
-      ":!pnpm-lock.yaml",
-      ":!yarn.lock",
-      ":!dist",
-      ":!build",
-      ":!.next",
-      ":!node_modules"
-    )
+  $diff = Get-GitValue -Arguments @(
+    "diff",
+    "--unified=1",
+    "--",
+    ".",
+    ":!package-lock.json",
+    ":!pnpm-lock.yaml",
+    ":!yarn.lock",
+    ":!dist",
+    ":!build",
+    ":!.next",
+    ":!node_modules"
+  )
 
-    $diffCached = Get-GitValue -Arguments @(
-      "diff",
-      "--cached",
-      "--",
-      ".",
-      ":!package-lock.json",
-      ":!pnpm-lock.yaml",
-      ":!yarn.lock",
-      ":!dist",
-      ":!build",
-      ":!.next",
-      ":!node_modules"
-    )
-  }
+  $diffCached = Get-GitValue -Arguments @(
+    "diff",
+    "--cached",
+    "--unified=1",
+    "--",
+    ".",
+    ":!package-lock.json",
+    ":!pnpm-lock.yaml",
+    ":!yarn.lock",
+    ":!dist",
+    ":!build",
+    ":!.next",
+    ":!node_modules"
+  )
 
   $untrackedFiles = ""
   if ($IncludeUntrackedNames) {
@@ -330,14 +333,12 @@ try {
     [string]::IsNullOrWhiteSpace($diff) -and
     [string]::IsNullOrWhiteSpace($diffCached)
   ) {
-    Write-Warn "Nenhuma alteracao detectada no repositorio."
+    throw "Nenhuma alteracao detectada no repositorio."
   }
 
   Write-DebugLog -Message "Resumo do contexto coletado" -Data @{
-    branch = $branch
     repoRoot = $repoRoot
     statusLength = if ($null -eq $status) { 0 } else { $status.Length }
-    recentCommitsLength = if ($null -eq $lastCommits) { 0 } else { $lastCommits.Length }
     diffNameOnlyLength = if ($null -eq $diffNameOnly) { 0 } else { $diffNameOnly.Length }
     diffCachedNameOnlyLength = if ($null -eq $diffCachedNameOnly) { 0 } else { $diffCachedNameOnly.Length }
     diffStatLength = if ($null -eq $diffStat) { 0 } else { $diffStat.Length }
@@ -352,9 +353,7 @@ try {
   $limitedDiffCachedStat = Limit-Lines -Text $diffCachedStat -MaxLines $MaxFileLines
   $limitedUntrackedFiles = Limit-Lines -Text $untrackedFiles -MaxLines $MaxFileLines
 
-  $limitedDiff = ""
-  if ($IncludeDiffBody) {
-    $combinedDiff = @"
+  $combinedDiff = @"
 DIFF NAO STAGED:
 $diff
 
@@ -362,8 +361,7 @@ DIFF STAGED:
 $diffCached
 "@
 
-    $limitedDiff = Limit-Text -Text $combinedDiff -MaxChars $MaxDiffChars
-  }
+  $limitedDiff = Limit-Text -Text $combinedDiff -MaxChars $MaxDiffChars
 
   Write-DebugLog -Message "Contexto resumido apos truncamento" -Data @{
     limitedStatusLength = $limitedStatus.Length
@@ -375,29 +373,26 @@ $diffCached
   }
 
   $prompt = @"
-Gere uma mensagem de commit em portugues do Brasil usando Conventional Commits.
+Gere uma mensagem de commit apenas a partir das alteracoes abaixo.
 
 Regras:
 - responda somente com a mensagem final
-- sem markdown, sem explicacoes
+- sem markdown, sem introducao e sem explicacoes fora da mensagem
 - primeira linha no formato tipo(escopo): descricao curta
-- use escopo apenas se estiver claro
-- seja especifico
-- se precisar de detalhes extras, use poucas linhas com "- "
+- use escopo apenas se estiver claro no diff
+- descreva o que foi alterado de fato
+- destaque os principais ajustes tecnicos quando isso ajudar
+- se houver detalhes relevantes, adicione poucas linhas extras com "- "
+- nao invente comportamento, arquivo ou motivacao
 
 Tipos possiveis: feat, fix, refactor, docs, style, test, chore, build, ci, perf.
 
-Contexto:
-- branch: $branch
-- raiz: $repoRoot
+Alteracoes detectadas:
 
-Commits recentes:
-$lastCommits
-
-Status:
+Status resumido:
 $limitedStatus
 
-Arquivos nao staged:
+Arquivos alterados:
 $limitedDiffNameOnly
 
 Arquivos staged:
@@ -406,13 +401,11 @@ $limitedDiffCachedNameOnly
 Arquivos nao rastreados:
 $limitedUntrackedFiles
 
-Diff stat nao staged:
+Resumo das alteracoes:
 $limitedDiffStat
-
-Diff stat staged:
 $limitedDiffCachedStat
 
-Diff opcional:
+Diff resumido:
 $limitedDiff
 "@
 
@@ -422,7 +415,7 @@ $limitedDiff
     messages = @(
       @{
         role = "system"
-        content = "Voce cria mensagens de commit curtas e precisas com Conventional Commits. Responda apenas com a mensagem final."
+        content = "Voce gera mensagens de commit em portugues do Brasil no padrao Conventional Commits. Baseie-se estritamente nas alteracoes fornecidas, escreva uma linha principal clara e, quando houver mais de uma mudanca relevante, inclua poucos detalhes em linhas iniciadas por '- '. Nao use markdown, nao explique seu raciocinio e nao invente informacoes."
       },
       @{
         role = "user"
@@ -433,12 +426,8 @@ $limitedDiff
       temperature = 0
       num_ctx = $NumCtx
       num_predict = $NumPredict
-      top_p = 0.9
-      stop = @(
-        "<|start_header_id|>",
-        "<|end_header_id|>",
-        "<|eot_id|>"
-      )
+      top_p = 0.8
+      repeat_penalty = 1.05
     }
   } | ConvertTo-Json -Depth 20
 
@@ -450,9 +439,8 @@ $limitedDiff
     numCtx = $NumCtx
     numPredict = $NumPredict
     hasDiffBody = [bool]$IncludeDiffBody
+    requestBody = $body
   }
-
-  Write-Info "Enviando contexto para Ollama em $ollamaUrl usando o modelo $Model..."
 
   $requestStartedAt = Get-Date
 
@@ -478,16 +466,26 @@ $limitedDiff
   }
 
   $commitMessage = $response.message.content.Trim()
+  $commitMessage = ($commitMessage -replace '^\s*```[\w-]*\s*', '') -replace '\s*```\s*$', ''
+  $commitMessage = $commitMessage.Trim()
+
+  if ([string]::IsNullOrWhiteSpace($commitMessage)) {
+    throw "O modelo retornou uma mensagem de commit vazia."
+  }
+
   Write-DebugLog -Message "Mensagem de commit gerada" -Data @{
     length = $commitMessage.Length
+    content = $commitMessage
     totalDurationMs = [int]((Get-Date) - $scriptStartedAt).TotalMilliseconds
   }
 
-  Write-Host ""
-  Write-Host "Mensagem de commit sugerida:" -ForegroundColor Green
-  Write-Host ""
   Write-Output $commitMessage
 } catch {
+  if ($script:DebugLogPath) {
+    Write-DebugLog -Message "Falha na execucao" -Data @{
+      error = $_.Exception.Message
+    }
+  }
   Write-Err $_.Exception.Message
   exit 1
 }

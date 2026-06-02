@@ -9,10 +9,23 @@ async function request<T>(input: string, init?: RequestInit): Promise<T> {
   const startedAt = performance.now();
   traceHttpStart(url, method);
 
-  const response = await fetch(url, {
-    headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
-    ...init,
-  });
+  let response: Response;
+  try {
+    response = await fetch(url, {
+      headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
+      ...init,
+    });
+  } catch (error) {
+    const durationMs = performance.now() - startedAt;
+    traceHttpEnd(url, method, 0, durationMs);
+    logger.error('http:network-error', {
+      url,
+      method,
+      durationMs,
+      error: error instanceof Error ? error.message : String(error),
+    });
+    throw new ApiError('Nao foi possivel conectar ao backend.', 0);
+  }
 
   traceHttpEnd(url, method, response.status, performance.now() - startedAt);
   if (!response.ok) {

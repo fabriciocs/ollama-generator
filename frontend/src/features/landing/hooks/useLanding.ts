@@ -17,23 +17,42 @@ export const useLanding = () => {
   const [files, setFiles] = useState<GeneratedFileRecord[]>([]);
   const [health, setHealth] = useState<HealthResponse | null>(null);
   const [debug, setDebug] = useState<DebugResponse | null>(null);
+  const [pollingPaused, setPollingPaused] = useState(false);
   const generationIdRef = useRef<string | null>(null);
 
   const refreshSupportData = async () => {
-    const [healthData, debugData] = await Promise.all([healthApi.get(), debugApi.recent()]);
-    setHealth(healthData);
-    setDebug(debugData);
+    try {
+      const [healthData, debugData] = await Promise.all([healthApi.get(), debugApi.recent()]);
+      setHealth(healthData);
+      setDebug(debugData);
+    } catch (error) {
+      setHealth(null);
+      setDebug(null);
+      logger.warn('support-data:unavailable', {
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
   };
 
   const refreshGeneration = async () => {
     if (!generationIdRef.current) {
       return;
     }
-    const next = await generationsApi.get(generationIdRef.current);
-    setGeneration(next);
-    const nextFiles = await generatedFilesApi.list(generationIdRef.current);
-    setFiles(nextFiles);
-    logger.debug('generation:poll', { id: generationIdRef.current, status: next.status });
+    try {
+      const next = await generationsApi.get(generationIdRef.current);
+      setGeneration(next);
+      const nextFiles = await generatedFilesApi.list(generationIdRef.current);
+      setFiles(nextFiles);
+      setPollingPaused(false);
+      logger.debug('generation:poll', { id: generationIdRef.current, status: next.status });
+    } catch (error) {
+      setPollingPaused(true);
+      logger.warn('generation:poll:paused', {
+        id: generationIdRef.current,
+        error: error instanceof Error ? error.message : String(error),
+      });
+      throw error;
+    }
   };
 
   useEffect(() => {
@@ -48,22 +67,33 @@ export const useLanding = () => {
   }, [generation?.id]);
 
   useEffect(() => {
-    if (!generation?.id || generation.status === 'completed' || generation.status === 'error') {
+    if (
+      !generation?.id ||
+      generation.status === 'completed' ||
+      generation.status === 'error' ||
+      pollingPaused
+    ) {
       return;
     }
     const handle = window.setInterval(() => {
-      void refreshGeneration();
+      void refreshGeneration().catch(() => undefined);
     }, pollingIntervalMs);
     return () => window.clearInterval(handle);
-  }, [generation?.id, generation?.status]);
+  }, [generation?.id, generation?.status, pollingPaused]);
 
   const createGeneration = async (idea: string) => {
     logger.info('generation:create:click', { ideaLength: idea.length });
     const created = await generationsApi.create(idea);
+    setPollingPaused(false);
     setGeneration(created);
     setFiles([]);
     await refreshSupportData();
     return created;
+  };
+
+  const refreshGenerationManually = async () => {
+    setPollingPaused(false);
+    await refreshGeneration();
   };
 
   return {
@@ -72,7 +102,7 @@ export const useLanding = () => {
     health,
     debug,
     createGeneration,
-    refreshGeneration,
+    refreshGeneration: refreshGenerationManually,
     refreshSupportData,
   };
 };
