@@ -1,5 +1,23 @@
 import { GenerationStatus, StepStatus } from './status.types';
 
+export type GenerationStepExecution = {
+  id: string;
+  generationId: string;
+  stepId: string;
+  attemptNumber: number;
+  status: StepStatus;
+  promptPath: string | null;
+  outputFile: string | null;
+  inputSnapshotJson: string | null;
+  outputHash: string | null;
+  startedAt: string | null;
+  finishedAt: string | null;
+  durationMs: number | null;
+  errorMessage: string | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
 export type GenerationStep = {
   id: string;
   stepKey: string;
@@ -12,6 +30,7 @@ export type GenerationStep = {
   durationMs: number | null;
   errorMessage: string | null;
   orderIndex: number;
+  executions?: GenerationStepExecution[];
 };
 
 export type GenerationRecord = {

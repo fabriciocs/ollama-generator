@@ -14,6 +14,15 @@ export class GeneratedFileRepository {
     return this.repository.save(entity);
   }
 
+  findOneByGenerationIdAndFileName(
+    generationId: string,
+    fileName: string,
+  ): Promise<GeneratedFileEntity | null> {
+    return this.repository.findOne({
+      where: { generationId, fileName },
+    });
+  }
+
   findByGenerationId(generationId: string): Promise<GeneratedFileEntity[]> {
     return this.repository.find({
       where: { generationId },

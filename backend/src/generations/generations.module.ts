@@ -6,8 +6,10 @@ import { PromptsModule } from '../prompts/prompts.module';
 import { OllamaModule } from '../ollama/ollama.module';
 import { GenerationsController } from './controllers/generations.controller';
 import { GenerationEntity } from './entities/generation.entity';
+import { GenerationStepExecutionEntity } from './entities/generation-step-execution.entity';
 import { GenerationStepEntity } from './entities/generation-step.entity';
 import { GenerationRepository } from './repositories/generation.repository';
+import { GenerationStepExecutionRepository } from './repositories/generation-step-execution.repository';
 import { GenerationStepRepository } from './repositories/generation-step.repository';
 import { GenerationContextService } from './services/generation-context.service';
 import { GenerationRunnerService } from './services/generation-runner.service';
@@ -17,7 +19,11 @@ import { GenerationStepOrchestratorService } from './services/generation-step-or
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([GenerationEntity, GenerationStepEntity]),
+    TypeOrmModule.forFeature([
+      GenerationEntity,
+      GenerationStepEntity,
+      GenerationStepExecutionEntity,
+    ]),
     PromptsModule,
     OllamaModule,
     GeneratedFilesModule,
@@ -27,6 +33,7 @@ import { GenerationStepOrchestratorService } from './services/generation-step-or
   providers: [
     GenerationRepository,
     GenerationStepRepository,
+    GenerationStepExecutionRepository,
     GenerationContextService,
     GenerationStatusService,
     GenerationStepOrchestratorService,

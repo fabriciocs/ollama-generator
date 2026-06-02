@@ -6,4 +6,11 @@ export const generationsApi = {
     apiClient.post<GenerationRecord>('/api/generations', { idea }),
   list: () => apiClient.get<GenerationRecord[]>('/api/generations'),
   get: (id: string) => apiClient.get<GenerationRecord>(`/api/generations/${id}`),
+  resume: (id: string) =>
+    apiClient.post<GenerationRecord>(`/api/generations/${id}/resume`, {}),
+  retryStep: (generationId: string, stepId: string) =>
+    apiClient.post<GenerationRecord>(
+      `/api/generations/${generationId}/steps/${stepId}/retry`,
+      {},
+    ),
 };

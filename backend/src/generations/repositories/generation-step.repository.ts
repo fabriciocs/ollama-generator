@@ -25,6 +25,15 @@ export class GenerationStepRepository {
     });
   }
 
+  findOneByGenerationIdAndStepId(
+    generationId: string,
+    stepId: string,
+  ): Promise<GenerationStepEntity | null> {
+    return this.repository.findOne({
+      where: { generationId, id: stepId },
+    });
+  }
+
   findOne(id: string): Promise<GenerationStepEntity | null> {
     return this.repository.findOne({ where: { id } });
   }

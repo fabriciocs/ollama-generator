@@ -20,4 +20,17 @@ export class GenerationsController {
   getStatus(@Param('generationId') generationId: string) {
     return this.generationsService.getStatus(generationId);
   }
+
+  @Post(':generationId/resume')
+  resume(@Param('generationId') generationId: string) {
+    return this.generationsService.resume(generationId);
+  }
+
+  @Post(':generationId/steps/:stepId/retry')
+  retryStep(
+    @Param('generationId') generationId: string,
+    @Param('stepId') stepId: string,
+  ) {
+    return this.generationsService.retryStep(generationId, stepId);
+  }
 }

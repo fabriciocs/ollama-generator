@@ -91,6 +91,32 @@ export const useLanding = () => {
     return created;
   };
 
+  const resumeGeneration = async () => {
+    if (!generationIdRef.current) {
+      return;
+    }
+    const next = await generationsApi.resume(generationIdRef.current);
+    setPollingPaused(false);
+    setGeneration(next);
+    const nextFiles = await generatedFilesApi.list(generationIdRef.current);
+    setFiles(nextFiles);
+    await refreshSupportData();
+    return next;
+  };
+
+  const retryStep = async (stepId: string) => {
+    if (!generationIdRef.current) {
+      return;
+    }
+    const next = await generationsApi.retryStep(generationIdRef.current, stepId);
+    setPollingPaused(false);
+    setGeneration(next);
+    const nextFiles = await generatedFilesApi.list(generationIdRef.current);
+    setFiles(nextFiles);
+    await refreshSupportData();
+    return next;
+  };
+
   const refreshGenerationManually = async () => {
     setPollingPaused(false);
     await refreshGeneration();
@@ -102,6 +128,8 @@ export const useLanding = () => {
     health,
     debug,
     createGeneration,
+    resumeGeneration,
+    retryStep,
     refreshGeneration: refreshGenerationManually,
     refreshSupportData,
   };

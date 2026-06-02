@@ -14,10 +14,14 @@ export const IdeaWorkbenchForm = ({
   onSubmit,
   outputDir,
   onRefresh,
+  onResume,
+  generationStatus,
 }: {
   onSubmit: (idea: string) => Promise<void>;
   outputDir?: string;
   onRefresh: () => void;
+  onResume: () => void;
+  generationStatus?: string | null;
 }) => {
   const [idea, setIdea] = useState('');
   const { run, isLoading, error } = useAsyncAction(onSubmit);
@@ -59,6 +63,11 @@ export const IdeaWorkbenchForm = ({
           >
             Atualizar status
           </AppButton>
+          {generationStatus === 'error' ? (
+            <AppButton variant="outlined" onClick={onResume}>
+              Continuar execucao
+            </AppButton>
+          ) : null}
           <AppButton
             variant="outlined"
             startIcon={<ContentCopyIcon />}

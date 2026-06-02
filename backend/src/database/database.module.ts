@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GenerationLogEntity } from '../generation-logs/entities/generation-log.entity';
 import { GeneratedFileEntity } from '../generated-files/entities/generated-file.entity';
 import { GenerationEntity } from '../generations/entities/generation.entity';
+import { GenerationStepExecutionEntity } from '../generations/entities/generation-step-execution.entity';
 import { GenerationStepEntity } from '../generations/entities/generation-step.entity';
 import { PromptFileEntity } from '../prompts/entities/prompt-file.entity';
 
@@ -21,6 +22,7 @@ import { PromptFileEntity } from '../prompts/entities/prompt-file.entity';
           entities: [
             GenerationEntity,
             GenerationStepEntity,
+            GenerationStepExecutionEntity,
             GeneratedFileEntity,
             GenerationLogEntity,
             PromptFileEntity,

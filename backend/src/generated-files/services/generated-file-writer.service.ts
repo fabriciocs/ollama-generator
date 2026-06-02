@@ -25,15 +25,19 @@ export class GeneratedFileWriterService {
       params.content,
     );
     const stat = await this.filesystemService.statFile(absolutePath);
-    const entity = Object.assign(new GeneratedFileEntity(), {
-      generationId: params.generationId,
-      stepId: params.stepId ?? null,
-      fileName: params.fileName,
-      relativePath: params.fileName,
-      absolutePath: path.resolve(absolutePath),
-      sizeBytes: stat.size,
-      mimeType: params.mimeType ?? 'text/markdown',
-    });
+    const existing =
+      await this.generatedFileRepository.findOneByGenerationIdAndFileName(
+        params.generationId,
+        params.fileName,
+      );
+    const entity = existing ?? new GeneratedFileEntity();
+    entity.generationId = params.generationId;
+    entity.stepId = params.stepId ?? null;
+    entity.fileName = params.fileName;
+    entity.relativePath = params.fileName;
+    entity.absolutePath = path.resolve(absolutePath);
+    entity.sizeBytes = stat.size;
+    entity.mimeType = params.mimeType ?? 'text/markdown';
     return this.generatedFileRepository.save(entity);
   }
 }

@@ -19,7 +19,16 @@ import { useLanding } from '../hooks/useLanding';
 
 export const LandingPage = () => {
   traceRender('LandingPage');
-  const { generation, files, health, debug, createGeneration, refreshGeneration } =
+  const {
+    generation,
+    files,
+    health,
+    debug,
+    createGeneration,
+    refreshGeneration,
+    resumeGeneration,
+    retryStep,
+  } =
     useLanding();
 
   const frontendSummary = useMemo(
@@ -43,6 +52,8 @@ export const LandingPage = () => {
                 }}
                 outputDir={generation?.outputDir}
                 onRefresh={() => void refreshGeneration()}
+                onResume={() => void resumeGeneration()}
+                generationStatus={generation?.status}
               />
               {!generation ? (
                 <EmptyState message="Digite uma ideia para iniciar a primeira linha de producao documental." />
@@ -58,7 +69,12 @@ export const LandingPage = () => {
             <Stack spacing={3}>
               <HealthStatusWidget health={health} />
               <ProgressTimeline generation={generation} />
-              {generation?.steps?.length ? <StepStatusList steps={generation.steps} /> : null}
+              {generation?.steps?.length ? (
+                <StepStatusList
+                  steps={generation.steps}
+                  onRetryStep={(stepId) => void retryStep(stepId)}
+                />
+              ) : null}
               {files.length ? <GeneratedFilesList files={files} /> : null}
             </Stack>
           </Grid>

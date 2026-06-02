@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { randomUUID } from 'node:crypto';
 import { GenerationStepEntity } from './generation-step.entity';
+import { GenerationStepExecutionEntity } from './generation-step-execution.entity';
 
 @Entity({ name: 'generations' })
 export class GenerationEntity {
@@ -46,4 +47,10 @@ export class GenerationEntity {
 
   @OneToMany(() => GenerationStepEntity, (step) => step.generation)
   steps!: GenerationStepEntity[];
+
+  @OneToMany(
+    () => GenerationStepExecutionEntity,
+    (execution) => execution.generation,
+  )
+  executions!: GenerationStepExecutionEntity[];
 }

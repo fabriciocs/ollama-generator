@@ -7,9 +7,11 @@ import {
   ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { randomUUID } from 'node:crypto';
 import { GenerationEntity } from './generation.entity';
+import { GenerationStepExecutionEntity } from './generation-step-execution.entity';
 
 @Entity({ name: 'generation_steps' })
 @Index(['generationId', 'orderIndex'])
@@ -49,6 +51,9 @@ export class GenerationStepEntity {
 
   @Column('text', { nullable: true })
   errorMessage!: string | null;
+
+  @OneToMany(() => GenerationStepExecutionEntity, (execution) => execution.step)
+  executions!: GenerationStepExecutionEntity[];
 
   @CreateDateColumn()
   createdAt!: Date;
