@@ -25,24 +25,24 @@ export class GenerationStepOrchestratorService {
     completedSteps: GenerationStepEntity[];
     artifacts: Record<string, string>;
   }): Promise<string> {
-    const prompt = await this.promptReaderService.readPrompt(
+    const systemPrompt = await this.promptReaderService.readPrompt(
       params.step.promptPath,
     );
     await this.generationLogWriterService.write({
       generationId: params.generationId,
       stepId: params.step.id,
       level: 'debug',
-      message: 'Prompt read successfully',
+      message: 'System prompt read successfully',
       metadata: {
-        promptPath: prompt.absolutePath,
-        sizeBytes: prompt.sizeBytes,
-        hash: prompt.hash,
+        promptPath: systemPrompt.absolutePath,
+        sizeBytes: systemPrompt.sizeBytes,
+        hash: systemPrompt.hash,
       },
     });
 
     const content = await this.ollamaChatService.chat(
       this.generationContextService.buildMessages({
-        promptContent: prompt.content,
+        systemPromptContent: systemPrompt.content,
         idea: params.idea,
         productName: params.productName,
         completedSteps: params.completedSteps,

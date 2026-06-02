@@ -11,6 +11,17 @@ export class PromptFileRepository {
   ) {}
 
   async upsert(entity: PromptFileEntity): Promise<PromptFileEntity> {
+    const existing = await this.repository.findOne({
+      where: { fileName: entity.fileName },
+    });
+
+    if (existing) {
+      existing.absolutePath = entity.absolutePath;
+      existing.relativePath = entity.relativePath;
+      existing.sizeBytes = entity.sizeBytes;
+      return this.repository.save(existing);
+    }
+
     return this.repository.save(entity);
   }
 }

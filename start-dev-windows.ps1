@@ -1,5 +1,7 @@
 param(
-  [string]$ProjectRoot = (Resolve-Path $PSScriptRoot).Path
+  [string]$ProjectRoot = (Resolve-Path $PSScriptRoot).Path,
+  [ValidateSet('all', 'verify', 'build', 'install')]
+  [string]$Run = 'all'
 )
 
 $backendScript = Join-Path $ProjectRoot 'scripts\run-backend-dev.ps1'
@@ -57,17 +59,20 @@ Start-Process powershell.exe -ArgumentList @(
   '-NoExit',
   '-ExecutionPolicy', 'Bypass',
   '-File', $backendScript,
-  '-ProjectRoot', $ProjectRoot
+  '-ProjectRoot', $ProjectRoot,
+  '-Run', $Run
 ) -WorkingDirectory $ProjectRoot -WindowStyle Normal
 
 Start-Process powershell.exe -ArgumentList @(
   '-NoExit',
   '-ExecutionPolicy', 'Bypass',
   '-File', $frontendScript,
-  '-ProjectRoot', $ProjectRoot
+  '-ProjectRoot', $ProjectRoot,
+  '-Run', $Run
 ) -WorkingDirectory $ProjectRoot -WindowStyle Normal
 
 Write-Host 'Janelas de backend e frontend abertas.' -ForegroundColor Green
+Write-Host "Run selecionado: $Run" -ForegroundColor Cyan
 Write-Host 'Logs de sessao:' -ForegroundColor Cyan
 Write-Host "  backend  -> $(Join-Path $ProjectRoot 'backend\logs\backend-session.log')"
 Write-Host "  frontend -> $(Join-Path $ProjectRoot 'frontend\logs\frontend-session.log')"

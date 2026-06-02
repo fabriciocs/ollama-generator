@@ -4,7 +4,7 @@ import { GenerationStepEntity } from '../entities/generation-step.entity';
 @Injectable()
 export class GenerationContextService {
   buildMessages(params: {
-    promptContent: string;
+    systemPromptContent: string;
     idea: string;
     productName: string;
     completedSteps: GenerationStepEntity[];
@@ -21,7 +21,7 @@ export class GenerationContextService {
     return [
       {
         role: 'system',
-        content: params.promptContent,
+        content: params.systemPromptContent,
       },
       {
         role: 'user',

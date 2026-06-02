@@ -13,7 +13,7 @@ Aplicacao full-stack para transformar uma ideia inicial em uma cadeia sequencial
 - Node.js 22+
 - npm 11+
 - Ollama acessivel em `http://192.168.0.103:11434`
-- Pasta de prompts local configurada em `PROMPTS_BASE_DIR`
+- Os arquivos em `backend/prompts/` sao usados como system prompts locais, com caminho configurado em `PROMPTS_BASE_DIR`
 
 ## Configuracao do Ollama
 

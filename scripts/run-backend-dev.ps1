@@ -1,5 +1,7 @@
 param(
-  [string]$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+  [string]$ProjectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path,
+  [ValidateSet('all', 'verify', 'build', 'install')]
+  [string]$Run = 'all'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -39,13 +41,25 @@ function Invoke-NpmCommand {
 Write-Host 'Backend runner iniciado.' -ForegroundColor Green
 Write-Host "Diretorio: $backendDir" -ForegroundColor DarkGray
 Write-Host "Log da sessao: $sessionLog" -ForegroundColor DarkGray
+Write-Host "Run selecionado: $Run" -ForegroundColor DarkGray
 
 Invoke-NpmCommand -Label 'configure' -Arguments 'run configure'
-Invoke-NpmCommand -Label 'install' -Arguments 'install'
-Invoke-NpmCommand -Label 'build' -Arguments 'run build'
-Invoke-NpmCommand -Label 'verify' -Arguments 'run verify'
 
-Write-Host ''
-Write-Host '[start:dev] npm run start:dev' -ForegroundColor Yellow
+if ($Run -in @('all', 'verify', 'build', 'install')) {
+  Invoke-NpmCommand -Label 'install' -Arguments 'install'
+}
 
-Invoke-NpmCommand -Label 'start:dev' -Arguments 'run start:dev'
+if ($Run -in @('all', 'verify', 'build')) {
+  Invoke-NpmCommand -Label 'build' -Arguments 'run build'
+}
+
+if ($Run -in @('all', 'verify')) {
+  Invoke-NpmCommand -Label 'verify' -Arguments 'run verify'
+}
+
+if ($Run -eq 'all') {
+  Write-Host ''
+  Write-Host '[start:dev] npm run start:dev' -ForegroundColor Yellow
+
+  Invoke-NpmCommand -Label 'start:dev' -Arguments 'run start:dev'
+}
