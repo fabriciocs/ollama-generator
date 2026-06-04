@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6F0E7"/>
+      <stop offset="1" stop-color="#EEDFCB"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#5B4B37" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <circle cx="1400" cy="140" r="170" fill="#315C4D" fill-opacity="0.08"/>
+  <circle cx="160" cy="960" r="170" fill="#B46A3C" fill-opacity="0.08"/>
+  <g transform="translate(84 56)">
+    <text x="0" y="0" fill="#315C4D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13" letter-spacing="2" font-weight="700">OLLAMA GENERATOR / ARQUIVOS</text>
+    <text x="0" y="42" fill="#1F2421" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Arquivos gerados</text>
+    <text x="0" y="74" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="18">Lista de artefatos persistidos no disco, com foco em rastreabilidade.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="84" y="140" width="1432" height="86" rx="28" fill="#FFFDF7" stroke="#D8CDBB"/>
+  </g>
+  <g transform="translate(124 166)">
+    <text x="0" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Landing</text>
+    <text x="96" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Geracoes</text>
+    <text x="212" y="0" fill="#315C4D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">Arquivos</text>
+    <text x="322" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Prompts</text>
+    <text x="418" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Health</text>
+    <text x="508" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Debug</text>
+    <text x="586" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Configuracoes</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="84" y="248" width="1432" height="752" rx="32" fill="#FFFDF7" stroke="#D8CDBB"/>
+  </g>
+  <g transform="translate(124 300)">
+    <text x="0" y="0" fill="#B46A3C" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13" letter-spacing="2" font-weight="700">CONTEUDO PERSISTIDO</text>
+    <text x="0" y="42" fill="#1F2421" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Linha do tempo dos artefatos</text>
+    <text x="0" y="74" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="16">Os arquivos ajudam a auditar o que foi gerado e em qual ordem.</text>
+
+    <rect x="0" y="112" width="1360" height="80" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="148" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">_generation-status.json</text>
+    <text x="24" y="172" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Estado atual, step key, mensagens e timestamps.</text>
+
+    <rect x="0" y="206" width="1360" height="80" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="242" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">_contexto-resumido.md</text>
+    <text x="24" y="266" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Resumo consolidado do contexto do produto.</text>
+
+    <rect x="0" y="300" width="1360" height="80" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="336" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">_logs.md</text>
+    <text x="24" y="360" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Saidas por etapa e eventos relevantes do fluxo.</text>
+
+    <rect x="0" y="394" width="1360" height="214" rx="24" fill="#FFFDF7" stroke="#D8CDBB"/>
+    <text x="24" y="430" fill="#315C4D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13" letter-spacing="2" font-weight="700">ARQUIVOS POR ETAPA</text>
+    <g transform="translate(24 452)">
+      <rect width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="20" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">0-estetica-inicial-ollama-generator.md</text>
+      <rect x="430" width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="450" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">1-especificacao-inicial.md</text>
+      <rect x="860" width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="880" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">2-pesquisa-de-mercado.md</text>
+    </g>
+    <g transform="translate(24 530)">
+      <rect width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="20" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">3-analise-estrategica.md</text>
+      <rect x="430" width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="450" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">4-especificacao-funcional.md</text>
+      <rect x="860" width="408" height="64" rx="16" fill="#F7F0E4" stroke="#D8CDBB"/>
+      <text x="880" y="40" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">5-modelo-de-dados.md</text>
+    </g>
+    <g transform="translate(0 632)">
+      <rect width="1360" height="90" rx="20" fill="#315C4D"/>
+      <text x="24" y="38" fill="#FFFFFF" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="16" font-weight="700">Artefatos de entrega</text>
+      <text x="24" y="62" fill="#F7F0E4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Markdown, HTML e organizacao por etapa com contexto preservado.</text>
+    </g>
+  </g>
+</svg>

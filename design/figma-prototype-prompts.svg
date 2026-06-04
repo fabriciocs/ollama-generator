@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6F0E7"/>
+      <stop offset="1" stop-color="#EEDFCB"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#5B4B37" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <circle cx="1440" cy="140" r="170" fill="#B46A3C" fill-opacity="0.08"/>
+  <circle cx="160" cy="960" r="170" fill="#315C4D" fill-opacity="0.08"/>
+  <g transform="translate(84 56)">
+    <text x="0" y="0" fill="#315C4D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13" letter-spacing="2" font-weight="700">OLLAMA GENERATOR / PROMPTS</text>
+    <text x="0" y="42" fill="#1F2421" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Catalogo de prompts</text>
+    <text x="0" y="74" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="18">Arquivos locais lidos pelo backend, organizados como material de referencia.</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="84" y="140" width="1432" height="86" rx="28" fill="#FFFDF7" stroke="#D8CDBB"/>
+  </g>
+  <g transform="translate(124 166)">
+    <text x="0" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Landing</text>
+    <text x="96" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Geracoes</text>
+    <text x="212" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Arquivos</text>
+    <text x="322" y="0" fill="#315C4D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14" font-weight="700">Prompts</text>
+    <text x="418" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Health</text>
+    <text x="508" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Debug</text>
+    <text x="586" y="0" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="14">Configuracoes</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="84" y="248" width="1432" height="752" rx="32" fill="#FFFDF7" stroke="#D8CDBB"/>
+  </g>
+  <g transform="translate(124 300)">
+    <text x="0" y="0" fill="#B46A3C" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13" letter-spacing="2" font-weight="700">PROMPTS LOCAIS</text>
+    <text x="0" y="42" fill="#1F2421" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Arquivos do backend</text>
+    <text x="0" y="74" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="16">A lista funciona como catalogo tecnico e historico do sistema de geracao.</text>
+
+    <rect x="0" y="114" width="1360" height="78" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="148" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">etapa-0-12-prompt.md</text>
+    <text x="24" y="172" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">3,2 KB</text>
+    <text x="460" y="148" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Direcao esttica e checklist anti-slop</text>
+    <text x="980" y="148" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">backend/prompts/etapa-0-12-prompt.md</text>
+
+    <rect x="0" y="206" width="1360" height="78" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="240" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">etapa-1-3-prompt.md</text>
+    <text x="24" y="264" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">4,1 KB</text>
+    <text x="460" y="240" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Leitura inicial e enquadramento do problema</text>
+    <text x="980" y="240" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">backend/prompts/etapa-1-3-prompt.md</text>
+
+    <rect x="0" y="298" width="1360" height="78" rx="20" fill="#F7F0E4" stroke="#D8CDBB"/>
+    <text x="24" y="332" fill="#1F2421" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="15" font-weight="700">etapa-0-8-prompt.md</text>
+    <text x="24" y="356" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">5,6 KB</text>
+    <text x="460" y="332" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">Componentes com identidade, estados e diferenca anti-slop</text>
+    <text x="980" y="332" fill="#6D746D" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">backend/prompts/etapa-0-8-prompt.md</text>
+
+    <rect x="0" y="404" width="1360" height="112" rx="24" fill="#315C4D"/>
+    <text x="24" y="442" fill="#FFFFFF" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="16" font-weight="700">Leitura em camadas</text>
+    <text x="24" y="468" fill="#F7F0E4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">O prompt 0 define a estetica; os demais prompts a aplicam em contexto funcional.</text>
+    <text x="24" y="494" fill="#F7F0E4" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="13">O catalogo deve reforcar essa ordem, sem parecer biblioteca vazia.</text>
+  </g>
+</svg>
