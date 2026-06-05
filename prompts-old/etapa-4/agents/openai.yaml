@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 4"
+  short_description: "Especificacao funcional estruturada"
+  default_prompt: "Use $etapa-4 para estruturar a especificacao funcional da Etapa 4."
+
+policy:
+  allow_implicit_invocation: true

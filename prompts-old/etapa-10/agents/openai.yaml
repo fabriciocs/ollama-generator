@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 10"
+  short_description: "Seguranca, privacidade, compliance e governanca"
+  default_prompt: "Use $etapa-10 para revisar seguranca, privacidade e governanca."
+
+policy:
+  allow_implicit_invocation: true

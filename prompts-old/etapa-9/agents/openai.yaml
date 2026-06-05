@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 9"
+  short_description: "Arquitetura tecnica e solucao"
+  default_prompt: "Use $etapa-9 para definir a arquitetura tecnica e a solucao."
+
+policy:
+  allow_implicit_invocation: true

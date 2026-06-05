@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 2"
+  short_description: "Pesquisa de mercado e benchmarking"
+  default_prompt: "Use $etapa-2 para produzir a analise de mercado e benchmarking da Etapa 2."
+
+policy:
+  allow_implicit_invocation: true

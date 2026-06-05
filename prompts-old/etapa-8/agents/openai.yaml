@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 8"
+  short_description: "Backlog, plano de implementacao e QA"
+  default_prompt: "Use $etapa-8 para organizar backlog, implementacao e QA da Etapa 8."
+
+policy:
+  allow_implicit_invocation: true

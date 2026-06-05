@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 1.2"
+  short_description: "Respostas as perguntas em aberto da Etapa 1"
+  default_prompt: "Use $etapa-1.2 para responder as perguntas em aberto da Etapa 1."
+
+policy:
+  allow_implicit_invocation: true

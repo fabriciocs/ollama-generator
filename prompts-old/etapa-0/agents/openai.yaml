@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 0"
+  short_description: "Direcao estetica inicial anti-slop"
+  default_prompt: "Use $etapa-0 para gerar a Etapa 0 do produto a partir de uma descricao inicial."
+
+policy:
+  allow_implicit_invocation: true

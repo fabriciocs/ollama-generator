@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 6"
+  short_description: "UX, fluxos, jornadas e prototipacao"
+  default_prompt: "Use $etapa-6 para criar fluxos, jornadas e prototipos da Etapa 6."
+
+policy:
+  allow_implicit_invocation: true

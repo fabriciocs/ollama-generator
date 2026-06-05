@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 11"
+  short_description: "Documentacao final, operacao e evolucao"
+  default_prompt: "Use $etapa-11 para consolidar a documentacao final e o handoff."
+
+policy:
+  allow_implicit_invocation: true

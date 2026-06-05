@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 3"
+  short_description: "Analise estrategica e especificacao inicial"
+  default_prompt: "Use $etapa-3 para consolidar a analise estrategica da Etapa 3."
+
+policy:
+  allow_implicit_invocation: true

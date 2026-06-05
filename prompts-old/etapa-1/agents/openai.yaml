@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 1"
+  short_description: "Ideia inicial e enquadramento do problema"
+  default_prompt: "Use $etapa-1 para transformar a ideia inicial em um dashboard HTML da Etapa 1."
+
+policy:
+  allow_implicit_invocation: true

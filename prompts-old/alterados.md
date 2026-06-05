@@ -1,0 +1,1 @@
+Arquivos alterados:\n\n- [12-prompt.md](C:/repos/ollama-generator/prompts-old/12-prompt.md)\n- [13-prompt.md](C:/repos/ollama-generator/prompts-old/13-prompt.md)\n- [13.1-prompt.md](C:/repos/ollama-generator/prompts-old/13.1-prompt.md)

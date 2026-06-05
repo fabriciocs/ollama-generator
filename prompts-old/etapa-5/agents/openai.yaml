@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 5"
+  short_description: "Modelo de dados e arquitetura da informacao"
+  default_prompt: "Use $etapa-5 para definir o modelo de dados e a arquitetura da informacao."
+
+policy:
+  allow_implicit_invocation: true

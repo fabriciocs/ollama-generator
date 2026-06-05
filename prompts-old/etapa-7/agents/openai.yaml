@@ -1,0 +1,7 @@
+interface:
+  display_name: "Etapa 7"
+  short_description: "Design visual UI e prototipo navegavel"
+  default_prompt: "Use $etapa-7 para desenhar a interface visual e o prototipo navegavel."
+
+policy:
+  allow_implicit_invocation: true
