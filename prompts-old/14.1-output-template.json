@@ -1,0 +1,2034 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 14.1 - Execução Completa do Stitch e Exportação do Projeto",
+  "description": "Schema JSON que representa semanticamente a saída final esperada pela Etapa 14.1. O artefato deve descrever a execução completa do workflow do Google Stitch, incluindo as fontes de entrada, o contexto do produto, as regras operacionais, o inventário dos arquivos de especificação, as referências HTML, o processo sequencial de construção das telas, o controle de conclusão por arquivo e a exportação final do projeto em ./stitch/screens/.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "fontes_de_entrada",
+    "contexto_do_produto",
+    "regras_gerais",
+    "arquivos_de_especificacao",
+    "referencias_html",
+    "processo_execucao",
+    "inventario_de_execucao",
+    "artefatos_gerados",
+    "criterios_de_conclusao",
+    "exportacao_final"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "number",
+      "title": "Número da Etapa",
+      "description": "Identificador da etapa inferido automaticamente a partir do prompt de entrada. Para este schema, o valor deve ser 14.1, pois a saída corresponde à Etapa 14.1 - Execução Completa do Stitch e Exportação do Projeto.",
+      "const": 14.1
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como referência oficial para esta etapa.",
+      "const": "14.1-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo JSON final produzido por esta etapa.",
+      "const": "14.1-output-template.json"
+    },
+    "fontes_de_entrada": {
+      "$ref": "#/$defs/fontes_de_entrada"
+    },
+    "contexto_do_produto": {
+      "$ref": "#/$defs/contexto_do_produto"
+    },
+    "regras_gerais": {
+      "type": "array",
+      "title": "Regras Gerais",
+      "description": "Conjunto de regras universais que orientam a execução do Stitch nesta etapa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/regra_item"
+      }
+    },
+    "arquivos_de_especificacao": {
+      "type": "array",
+      "title": "Arquivos de Especificação",
+      "description": "Lista ordenada dos arquivos ./stitch/*-stitch.md que precisam ser processados em sequência, com o estado de execução e os artefatos associados a cada um.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/arquivo_stitch_item"
+      }
+    },
+    "referencias_html": {
+      "$ref": "#/$defs/referencias_html"
+    },
+    "processo_execucao": {
+      "$ref": "#/$defs/processo_execucao"
+    },
+    "inventario_de_execucao": {
+      "$ref": "#/$defs/inventario_de_execucao"
+    },
+    "artefatos_gerados": {
+      "$ref": "#/$defs/artefatos_gerados"
+    },
+    "criterios_de_conclusao": {
+      "type": "array",
+      "title": "Critérios de Conclusão",
+      "description": "Conjunto de condições que determinam quando o workflow pode ser considerado concluído.",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "title": "Critério",
+        "description": "Uma condição objetiva de conclusão da etapa.",
+        "minLength": 1
+      }
+    },
+    "exportacao_final": {
+      "$ref": "#/$defs/exportacao_final"
+    }
+  },
+  "$defs": {
+    "arquivo_basico": {
+      "type": "object",
+      "title": "Arquivo",
+      "description": "Referência semântica para um arquivo de entrada, apoio ou entrega associada ao workflow.",
+      "required": [
+        "caminho",
+        "papel",
+        "descricao"
+      ],
+      "properties": {
+        "caminho": {
+          "type": "string",
+          "title": "Caminho",
+          "description": "Caminho relativo ou absoluto do arquivo referido.",
+          "minLength": 1
+        },
+        "papel": {
+          "type": "string",
+          "title": "Papel",
+          "description": "Função do arquivo dentro do workflow, como entrada, referência, suporte ou entrega.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição semântica do que o arquivo representa no processo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "regra_item": {
+      "type": "object",
+      "title": "Regra",
+      "description": "Regra operacional ou de produto que deve ser respeitada durante a execução do Stitch.",
+      "required": [
+        "numero",
+        "titulo",
+        "descricao"
+      ],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "title": "Número",
+          "description": "Posição ordinal da regra na lista de regras gerais.",
+          "minimum": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Nome curto da regra.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Texto completo da regra, explicando o comportamento esperado ou a restrição a ser respeitada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fontes_de_entrada": {
+      "type": "object",
+      "title": "Fontes de Entrada",
+      "description": "Conjunto de arquivos e padrões de leitura que alimentam a execução da etapa.",
+      "required": [
+        "arquivo_projeto",
+        "arquivo_navegacao",
+        "padrao_arquivos_stitch",
+        "arquivos_referencia_html",
+        "papel_das_fontes"
+      ],
+      "properties": {
+        "arquivo_projeto": {
+          "$ref": "#/$defs/arquivo_basico"
+        },
+        "arquivo_navegacao": {
+          "$ref": "#/$defs/arquivo_basico"
+        },
+        "padrao_arquivos_stitch": {
+          "$ref": "#/$defs/arquivo_basico"
+        },
+        "arquivos_referencia_html": {
+          "type": "array",
+          "title": "Arquivos de Referência HTML",
+          "description": "Lista dos arquivos HTML usados como referência para extração de campos, padrões e componentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/arquivo_basico"
+          }
+        },
+        "papel_das_fontes": {
+          "type": "object",
+          "title": "Papel das Fontes",
+          "description": "Descrição semântica do papel de cada fonte obrigatória no workflow.",
+          "required": [
+            "projeto",
+            "navegacao",
+            "especificacoes",
+            "referencias_html"
+          ],
+          "properties": {
+            "projeto": {
+              "type": "string",
+              "title": "Papel do Projeto",
+              "description": "Como o arquivo 0-projeto.md orienta domínio, escopo e contexto do produto.",
+              "minLength": 1
+            },
+            "navegacao": {
+              "type": "string",
+              "title": "Papel da Navegação",
+              "description": "Como o inventário de navegação orienta menus, submenus e hierarquia de telas.",
+              "minLength": 1
+            },
+            "especificacoes": {
+              "type": "string",
+              "title": "Papel das Especificações",
+              "description": "Como os arquivos ./stitch/*-stitch.md orientam a criação das telas e estados de cada funcionalidade.",
+              "minLength": 1
+            },
+            "referencias_html": {
+              "type": "string",
+              "title": "Papel das Referências HTML",
+              "description": "Como os arquivos 4.1.html, 5.html e 6.html enriquecem campos, padrões e componentes.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "contexto_do_produto": {
+      "type": "object",
+      "title": "Contexto do Produto",
+      "description": "Resumo do produto e do escopo obrigatório que precisam ser preservados durante toda a execução do Stitch.",
+      "required": [
+        "plataforma",
+        "publico_alvo",
+        "escopo_obrigatorio",
+        "variacoes_de_escopo",
+        "areas_de_cobertura",
+        "restricoes_de_consistencia"
+      ],
+      "properties": {
+        "plataforma": {
+          "type": "string",
+          "title": "Plataforma",
+          "description": "Descrição da plataforma sendo construída.",
+          "const": "SaaS de superadministrador"
+        },
+        "publico_alvo": {
+          "type": "string",
+          "title": "Público-Alvo",
+          "description": "Público principal que utiliza a experiência criada no Stitch.",
+          "minLength": 1
+        },
+        "escopo_obrigatorio": {
+          "type": "array",
+          "title": "Escopo Obrigatório",
+          "description": "Lista dos fluxos, áreas e experiências que precisam estar cobertos pelas telas criadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de Escopo",
+            "description": "Um domínio, fluxo, área ou capacidade obrigatória.",
+            "minLength": 1
+          }
+        },
+        "variacoes_de_escopo": {
+          "type": "array",
+          "title": "Variações de Escopo",
+          "description": "Variações funcionais e de acesso que precisam coexistir na mesma base de telas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Variação",
+            "description": "Uma variação de escopo, contexto ou permissão.",
+            "minLength": 1
+          }
+        },
+        "areas_de_cobertura": {
+          "type": "array",
+          "title": "Áreas de Cobertura",
+          "description": "Áreas de interface que precisam ser cobertas pelo conjunto de telas final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Área",
+            "description": "Uma área funcional ou de navegação coberta pelo projeto.",
+            "minLength": 1
+          }
+        },
+        "restricoes_de_consistencia": {
+          "type": "array",
+          "title": "Restrições de Consistência",
+          "description": "Restrições globais que evitam divergências de linguagem visual, navegação e nomenclatura.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição a ser preservada durante toda a execução.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "arquivo_stitch_item": {
+      "type": "object",
+      "title": "Arquivo Stitch",
+      "description": "Especificação semântica de um arquivo ./stitch/*-stitch.md e do resultado esperado após seu processamento no Stitch.",
+      "required": [
+        "arquivo",
+        "ordem",
+        "status_processamento",
+        "modulo",
+        "objetivo",
+        "telas_esperadas",
+        "telas_criadas",
+        "componentes_criados",
+        "modais_criados",
+        "drawers_criados",
+        "estados_criados",
+        "pendencias",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Caminho do arquivo de especificação dentro de ./stitch.",
+          "minLength": 1,
+          "pattern": "^\\.\\/stitch\\/[^\\s]+-stitch\\.md$"
+        },
+        "ordem": {
+          "type": "integer",
+          "title": "Ordem",
+          "description": "Ordem alfabética ou sequencial de processamento do arquivo.",
+          "minimum": 1
+        },
+        "status_processamento": {
+          "type": "string",
+          "title": "Status de Processamento",
+          "description": "Estado atual do arquivo dentro do fluxo de execução.",
+          "enum": [
+            "pendente",
+            "em_andamento",
+            "concluido",
+            "com_pendencias"
+          ]
+        },
+        "modulo": {
+          "type": "string",
+          "title": "Módulo",
+          "description": "Módulo funcional associado ao arquivo de especificação.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo funcional do arquivo processado e das telas geradas a partir dele.",
+          "minLength": 1
+        },
+        "telas_esperadas": {
+          "type": "array",
+          "title": "Telas Esperadas",
+          "description": "Lista das telas que a especificação exige ou sugere.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Tela Esperada",
+            "description": "Nome semântico de uma tela esperada para o arquivo.",
+            "minLength": 1
+          }
+        },
+        "telas_criadas": {
+          "type": "array",
+          "title": "Telas Criadas",
+          "description": "Lista das telas efetivamente criadas no Stitch para este arquivo.",
+          "items": {
+            "type": "string",
+            "title": "Tela Criada",
+            "description": "Nome semântico de uma tela criada.",
+            "minLength": 1
+          }
+        },
+        "componentes_criados": {
+          "type": "array",
+          "title": "Componentes Criados",
+          "description": "Lista dos componentes criados ou reutilizados para atender a especificação.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Nome semântico de um componente.",
+            "minLength": 1
+          }
+        },
+        "modais_criados": {
+          "type": "array",
+          "title": "Modais Criados",
+          "description": "Lista dos modais necessários para este arquivo.",
+          "items": {
+            "type": "string",
+            "title": "Modal",
+            "description": "Nome semântico de um modal criado.",
+            "minLength": 1
+          }
+        },
+        "drawers_criados": {
+          "type": "array",
+          "title": "Drawers Criados",
+          "description": "Lista dos drawers necessários para este arquivo.",
+          "items": {
+            "type": "string",
+            "title": "Drawer",
+            "description": "Nome semântico de um drawer criado.",
+            "minLength": 1
+          }
+        },
+        "estados_criados": {
+          "type": "array",
+          "title": "Estados Criados",
+          "description": "Lista dos estados de tela criados ou preservados no processo.",
+          "items": {
+            "type": "string",
+            "title": "Estado",
+            "description": "Nome semântico de um estado de interface.",
+            "minLength": 1
+          }
+        },
+        "pendencias": {
+          "type": "array",
+          "title": "Pendências",
+          "description": "Itens não resolvidos ou dependências remanescentes após o processamento do arquivo.",
+          "items": {
+            "type": "string",
+            "title": "Pendência",
+            "description": "Uma pendência identificada.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Notas de consistência, integração ou validação referentes ao arquivo processado.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação relevante sobre o processamento.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "referencias_html": {
+      "type": "object",
+      "title": "Referências HTML",
+      "description": "Conjunto das referências HTML utilizadas como base para extração de padrões visuais e de interface.",
+      "required": [
+        "arquivos",
+        "extracoes_consolidadas"
+      ],
+      "properties": {
+        "arquivos": {
+          "type": "array",
+          "title": "Arquivos",
+          "description": "Lista dos arquivos HTML analisados como referência.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/referencia_html_item"
+          }
+        },
+        "extracoes_consolidadas": {
+          "$ref": "#/$defs/extracoes_html_consolidadas"
+        }
+      },
+      "additionalProperties": false
+    },
+    "referencia_html_item": {
+      "type": "object",
+      "title": "Arquivo HTML de Referência",
+      "description": "Descrição semântica de um arquivo HTML de referência e das categorias de interface extraídas dele.",
+      "required": [
+        "arquivo",
+        "papel",
+        "componentes",
+        "padroes",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Caminho do arquivo HTML de referência.",
+          "minLength": 1
+        },
+        "papel": {
+          "type": "string",
+          "title": "Papel",
+          "description": "Papel específico da referência no enriquecimento das telas.",
+          "minLength": 1
+        },
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Campos identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Campo",
+            "description": "Um campo extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "labels": {
+          "type": "array",
+          "title": "Labels",
+          "description": "Labels identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Label",
+            "description": "Um rótulo extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "placeholders": {
+          "type": "array",
+          "title": "Placeholders",
+          "description": "Placeholders identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Placeholder",
+            "description": "Um placeholder extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "mascaras": {
+          "type": "array",
+          "title": "Máscaras",
+          "description": "Máscaras de entrada identificadas na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Máscara",
+            "description": "Uma máscara de campo extraída da referência.",
+            "minLength": 1
+          }
+        },
+        "validacoes": {
+          "type": "array",
+          "title": "Validações",
+          "description": "Validações identificadas na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Validação",
+            "description": "Uma validação extraída da referência.",
+            "minLength": 1
+          }
+        },
+        "tooltips": {
+          "type": "array",
+          "title": "Tooltips",
+          "description": "Tooltips identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Tooltip",
+            "description": "Uma dica contextual extraída da referência.",
+            "minLength": 1
+          }
+        },
+        "mensagens_de_erro": {
+          "type": "array",
+          "title": "Mensagens de Erro",
+          "description": "Mensagens de erro identificadas na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Mensagem de Erro",
+            "description": "Uma mensagem de erro extraída da referência.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Componentes e padrões de interface observados na referência.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente identificado na referência.",
+            "minLength": 1
+          }
+        },
+        "padroes": {
+          "type": "array",
+          "title": "Padrões",
+          "description": "Padrões de layout e interação identificados na referência HTML.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Padrão",
+            "description": "Um padrão visual ou interacional extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "estruturas_visuais": {
+          "type": "array",
+          "title": "Estruturas Visuais",
+          "description": "Estruturas visuais identificadas na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Estrutura Visual",
+            "description": "Uma estrutura visual extraída da referência.",
+            "minLength": 1
+          }
+        },
+        "padroes_formulario": {
+          "type": "array",
+          "title": "Padrões de Formulário",
+          "description": "Padrões de formulário identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Formulário",
+            "description": "Um padrão de formulário extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "padroes_tabela": {
+          "type": "array",
+          "title": "Padrões de Tabela",
+          "description": "Padrões de tabela identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Tabela",
+            "description": "Um padrão de tabela extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "padroes_filtro": {
+          "type": "array",
+          "title": "Padrões de Filtro",
+          "description": "Padrões de filtro identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Filtro",
+            "description": "Um padrão de filtro extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "padroes_dashboard": {
+          "type": "array",
+          "title": "Padrões de Dashboard",
+          "description": "Padrões de dashboard identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Dashboard",
+            "description": "Um padrão de dashboard extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "padroes_navegacao": {
+          "type": "array",
+          "title": "Padrões de Navegação",
+          "description": "Padrões de navegação identificados na referência HTML.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Navegação",
+            "description": "Um padrão de navegação extraído da referência.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações relevantes sobre a referência analisada.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação associada à referência.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "extracoes_html_consolidadas": {
+      "type": "object",
+      "title": "Extrações HTML Consolidadas",
+      "description": "Conjunto consolidado das categorias de interface extraídas das três referências HTML.",
+      "required": [
+        "campos",
+        "labels",
+        "placeholders",
+        "mascaras",
+        "validacoes",
+        "tooltips",
+        "mensagens_de_erro",
+        "componentes",
+        "estruturas_visuais",
+        "padroes_formulario",
+        "padroes_tabela",
+        "padroes_filtro",
+        "padroes_dashboard",
+        "padroes_navegacao"
+      ],
+      "properties": {
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Lista consolidada dos campos extraídos das referências.",
+          "items": {
+            "type": "string",
+            "title": "Campo",
+            "description": "Um campo consolidado.",
+            "minLength": 1
+          }
+        },
+        "labels": {
+          "type": "array",
+          "title": "Labels",
+          "description": "Lista consolidada dos labels extraídos das referências.",
+          "items": {
+            "type": "string",
+            "title": "Label",
+            "description": "Um label consolidado.",
+            "minLength": 1
+          }
+        },
+        "placeholders": {
+          "type": "array",
+          "title": "Placeholders",
+          "description": "Lista consolidada dos placeholders extraídos das referências.",
+          "items": {
+            "type": "string",
+            "title": "Placeholder",
+            "description": "Um placeholder consolidado.",
+            "minLength": 1
+          }
+        },
+        "mascaras": {
+          "type": "array",
+          "title": "Máscaras",
+          "description": "Lista consolidada das máscaras extraídas das referências.",
+          "items": {
+            "type": "string",
+            "title": "Máscara",
+            "description": "Uma máscara consolidada.",
+            "minLength": 1
+          }
+        },
+        "validacoes": {
+          "type": "array",
+          "title": "Validações",
+          "description": "Lista consolidada das validações extraídas das referências.",
+          "items": {
+            "type": "string",
+            "title": "Validação",
+            "description": "Uma validação consolidada.",
+            "minLength": 1
+          }
+        },
+        "tooltips": {
+          "type": "array",
+          "title": "Tooltips",
+          "description": "Lista consolidada dos tooltips extraídos das referências.",
+          "items": {
+            "type": "string",
+            "title": "Tooltip",
+            "description": "Um tooltip consolidado.",
+            "minLength": 1
+          }
+        },
+        "mensagens_de_erro": {
+          "type": "array",
+          "title": "Mensagens de Erro",
+          "description": "Lista consolidada das mensagens de erro extraídas das referências.",
+          "items": {
+            "type": "string",
+            "title": "Mensagem de Erro",
+            "description": "Uma mensagem de erro consolidada.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Lista consolidada dos componentes observados nas referências.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente consolidado.",
+            "minLength": 1
+          }
+        },
+        "estruturas_visuais": {
+          "type": "array",
+          "title": "Estruturas Visuais",
+          "description": "Lista consolidada das estruturas visuais observadas nas referências.",
+          "items": {
+            "type": "string",
+            "title": "Estrutura Visual",
+            "description": "Uma estrutura visual consolidada.",
+            "minLength": 1
+          }
+        },
+        "padroes_formulario": {
+          "type": "array",
+          "title": "Padrões de Formulário",
+          "description": "Lista consolidada dos padrões de formulário.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Formulário",
+            "description": "Um padrão de formulário consolidado.",
+            "minLength": 1
+          }
+        },
+        "padroes_tabela": {
+          "type": "array",
+          "title": "Padrões de Tabela",
+          "description": "Lista consolidada dos padrões de tabela.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Tabela",
+            "description": "Um padrão de tabela consolidado.",
+            "minLength": 1
+          }
+        },
+        "padroes_filtro": {
+          "type": "array",
+          "title": "Padrões de Filtro",
+          "description": "Lista consolidada dos padrões de filtro.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Filtro",
+            "description": "Um padrão de filtro consolidado.",
+            "minLength": 1
+          }
+        },
+        "padroes_dashboard": {
+          "type": "array",
+          "title": "Padrões de Dashboard",
+          "description": "Lista consolidada dos padrões de dashboard.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Dashboard",
+            "description": "Um padrão de dashboard consolidado.",
+            "minLength": 1
+          }
+        },
+        "padroes_navegacao": {
+          "type": "array",
+          "title": "Padrões de Navegação",
+          "description": "Lista consolidada dos padrões de navegação.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de Navegação",
+            "description": "Um padrão de navegação consolidado.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "processo_execucao": {
+      "type": "object",
+      "title": "Processo de Execução",
+      "description": "Sequência estruturada das fases exigidas pelo prompt para construir, validar e exportar o projeto Stitch.",
+      "required": [
+        "fase_1",
+        "fase_2",
+        "fase_3",
+        "fase_4",
+        "fase_5",
+        "fase_6",
+        "fase_7"
+      ],
+      "properties": {
+        "fase_1": {
+          "$ref": "#/$defs/fase_1_item"
+        },
+        "fase_2": {
+          "$ref": "#/$defs/fase_2_item"
+        },
+        "fase_3": {
+          "$ref": "#/$defs/fase_3_item"
+        },
+        "fase_4": {
+          "$ref": "#/$defs/fase_4_item"
+        },
+        "fase_5": {
+          "$ref": "#/$defs/fase_5_item"
+        },
+        "fase_6": {
+          "$ref": "#/$defs/fase_6_item"
+        },
+        "fase_7": {
+          "$ref": "#/$defs/fase_7_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fase_base": {
+      "type": "object",
+      "title": "Fase",
+      "description": "Estrutura base reutilizável para representar uma fase do workflow do Stitch.",
+      "required": [
+        "numero",
+        "titulo",
+        "objetivo",
+        "entradas",
+        "acoes",
+        "saidas",
+        "criterios_de_conclusao",
+        "detalhes"
+      ],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "title": "Número da Fase",
+          "description": "Identificador ordinal da fase dentro do workflow.",
+          "minimum": 1,
+          "maximum": 7
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Nome curto da fase.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal da fase.",
+          "minLength": 1
+        },
+        "entradas": {
+          "type": "array",
+          "title": "Entradas",
+          "description": "Lista das fontes, arquivos ou dados usados como entrada da fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Entrada",
+            "description": "Uma entrada da fase.",
+            "minLength": 1
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Lista das ações executadas na fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Ação",
+            "description": "Uma ação da fase.",
+            "minLength": 1
+          }
+        },
+        "saidas": {
+          "type": "array",
+          "title": "Saídas",
+          "description": "Lista dos artefatos, decisões ou registros produzidos na fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Saída",
+            "description": "Uma saída da fase.",
+            "minLength": 1
+          }
+        },
+        "criterios_de_conclusao": {
+          "type": "array",
+          "title": "Critérios de Conclusão",
+          "description": "Condições específicas que determinam o encerramento correto da fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Um critério de conclusão da fase.",
+            "minLength": 1
+          }
+        },
+        "detalhes": {
+          "type": "object",
+          "title": "Detalhes",
+          "description": "Detalhes específicos da fase, usados para representar regras, lotes, estados ou mapeamentos relevantes.",
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "fase_1_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 1
+            },
+            "titulo": {
+              "const": "Análise da Especificação"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 1",
+              "description": "Detalhes específicos da análise da especificação do arquivo atual.",
+              "required": [
+                "objetivo_funcional",
+                "modulo",
+                "casos_de_uso",
+                "personas",
+                "funcionalidades",
+                "fluxos",
+                "regras_de_negocio",
+                "permissoes",
+                "integracoes",
+                "estados_da_tela",
+                "componentes_necessarios",
+                "quantidade_estimada_de_telas",
+                "variantes_necessarias"
+              ],
+              "properties": {
+                "objetivo_funcional": {
+                  "type": "string",
+                  "title": "Objetivo Funcional",
+                  "description": "Objetivo funcional sintetizado a partir da especificação lida.",
+                  "minLength": 1
+                },
+                "modulo": {
+                  "type": "string",
+                  "title": "Módulo",
+                  "description": "Módulo funcional principal ao qual a especificação pertence.",
+                  "minLength": 1
+                },
+                "casos_de_uso": {
+                  "type": "array",
+                  "title": "Casos de Uso",
+                  "description": "Casos de uso identificados na especificação.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Caso de Uso",
+                    "description": "Um caso de uso identificado.",
+                    "minLength": 1
+                  }
+                },
+                "personas": {
+                  "type": "array",
+                  "title": "Personas",
+                  "description": "Personas afetadas pelo conjunto de telas.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Persona",
+                    "description": "Uma persona identificada.",
+                    "minLength": 1
+                  }
+                },
+                "funcionalidades": {
+                  "type": "array",
+                  "title": "Funcionalidades",
+                  "description": "Funcionalidades que precisam ser contempladas na tela ou no conjunto de telas.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Funcionalidade",
+                    "description": "Uma funcionalidade identificada.",
+                    "minLength": 1
+                  }
+                },
+                "fluxos": {
+                  "type": "array",
+                  "title": "Fluxos",
+                  "description": "Fluxos de navegação e interação necessários.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Fluxo",
+                    "description": "Um fluxo identificado.",
+                    "minLength": 1
+                  }
+                },
+                "regras_de_negocio": {
+                  "type": "array",
+                  "title": "Regras de Negócio",
+                  "description": "Regras de negócio que precisam ser preservadas na experiência.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Regra de Negócio",
+                    "description": "Uma regra de negócio.",
+                    "minLength": 1
+                  }
+                },
+                "permissoes": {
+                  "type": "array",
+                  "title": "Permissões",
+                  "description": "Permissões necessárias para visualizar ou operar a tela.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Permissão",
+                    "description": "Uma permissão.",
+                    "minLength": 1
+                  }
+                },
+                "integracoes": {
+                  "type": "array",
+                  "title": "Integrações",
+                  "description": "Integrações externas ou internas citadas na especificação.",
+                  "items": {
+                    "type": "string",
+                    "title": "Integração",
+                    "description": "Uma integração identificada.",
+                    "minLength": 1
+                  }
+                },
+                "estados_da_tela": {
+                  "type": "array",
+                  "title": "Estados da Tela",
+                  "description": "Estados visuais e funcionais que a interface deve contemplar.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Estado",
+                    "description": "Um estado de tela identificado.",
+                    "minLength": 1
+                  }
+                },
+                "componentes_necessarios": {
+                  "type": "array",
+                  "title": "Componentes Necessários",
+                  "description": "Componentes de interface necessários para atender a especificação.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Componente",
+                    "description": "Um componente necessário.",
+                    "minLength": 1
+                  }
+                },
+                "quantidade_estimada_de_telas": {
+                  "type": "integer",
+                  "title": "Quantidade Estimada de Telas",
+                  "description": "Estimativa do número de telas necessárias para o arquivo analisado.",
+                  "minimum": 1
+                },
+                "variantes_necessarias": {
+                  "type": "array",
+                  "title": "Variantes Necessárias",
+                  "description": "Variantes de telas, modais, estados ou fluxos necessárias para cobrir a especificação.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Variante",
+                    "description": "Uma variante necessária.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_2_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 2
+            },
+            "titulo": {
+              "const": "Análise das Referências HTML"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 2",
+              "description": "Detalhes específicos da análise das referências HTML.",
+              "required": [
+                "arquivos",
+                "campos_extraidos",
+                "labels",
+                "placeholders",
+                "mascaras",
+                "validacoes",
+                "tooltips",
+                "mensagens_de_erro",
+                "componentes",
+                "estruturas_visuais",
+                "padroes_formulario",
+                "padroes_tabela",
+                "padroes_filtro",
+                "padroes_dashboard",
+                "padroes_navegacao"
+              ],
+              "properties": {
+                "arquivos": {
+                  "type": "array",
+                  "title": "Arquivos",
+                  "description": "Arquivos HTML de referência analisados na fase.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Arquivo",
+                    "description": "Um arquivo de referência HTML.",
+                    "minLength": 1
+                  }
+                },
+                "campos_extraidos": {
+                  "type": "array",
+                  "title": "Campos Extraídos",
+                  "description": "Campos extraídos das referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Campo",
+                    "description": "Um campo extraído.",
+                    "minLength": 1
+                  }
+                },
+                "labels": {
+                  "type": "array",
+                  "title": "Labels",
+                  "description": "Labels extraídos das referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Label",
+                    "description": "Um label extraído.",
+                    "minLength": 1
+                  }
+                },
+                "placeholders": {
+                  "type": "array",
+                  "title": "Placeholders",
+                  "description": "Placeholders extraídos das referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Placeholder",
+                    "description": "Um placeholder extraído.",
+                    "minLength": 1
+                  }
+                },
+                "mascaras": {
+                  "type": "array",
+                  "title": "Máscaras",
+                  "description": "Máscaras extraídas das referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Máscara",
+                    "description": "Uma máscara extraída.",
+                    "minLength": 1
+                  }
+                },
+                "validacoes": {
+                  "type": "array",
+                  "title": "Validações",
+                  "description": "Validações extraídas das referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Validação",
+                    "description": "Uma validação extraída.",
+                    "minLength": 1
+                  }
+                },
+                "tooltips": {
+                  "type": "array",
+                  "title": "Tooltips",
+                  "description": "Tooltips extraídos das referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Tooltip",
+                    "description": "Um tooltip extraído.",
+                    "minLength": 1
+                  }
+                },
+                "mensagens_de_erro": {
+                  "type": "array",
+                  "title": "Mensagens de Erro",
+                  "description": "Mensagens de erro extraídas das referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Mensagem de Erro",
+                    "description": "Uma mensagem de erro extraída.",
+                    "minLength": 1
+                  }
+                },
+                "componentes": {
+                  "type": "array",
+                  "title": "Componentes",
+                  "description": "Componentes e padrões observados nas referências HTML.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Componente",
+                    "description": "Um componente observado.",
+                    "minLength": 1
+                  }
+                },
+                "estruturas_visuais": {
+                  "type": "array",
+                  "title": "Estruturas Visuais",
+                  "description": "Estruturas visuais observadas nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Estrutura Visual",
+                    "description": "Uma estrutura visual observada.",
+                    "minLength": 1
+                  }
+                },
+                "padroes_formulario": {
+                  "type": "array",
+                  "title": "Padrões de Formulário",
+                  "description": "Padrões de formulário observados nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Padrão de Formulário",
+                    "description": "Um padrão de formulário observado.",
+                    "minLength": 1
+                  }
+                },
+                "padroes_tabela": {
+                  "type": "array",
+                  "title": "Padrões de Tabela",
+                  "description": "Padrões de tabela observados nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Padrão de Tabela",
+                    "description": "Um padrão de tabela observado.",
+                    "minLength": 1
+                  }
+                },
+                "padroes_filtro": {
+                  "type": "array",
+                  "title": "Padrões de Filtro",
+                  "description": "Padrões de filtro observados nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Padrão de Filtro",
+                    "description": "Um padrão de filtro observado.",
+                    "minLength": 1
+                  }
+                },
+                "padroes_dashboard": {
+                  "type": "array",
+                  "title": "Padrões de Dashboard",
+                  "description": "Padrões de dashboard observados nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Padrão de Dashboard",
+                    "description": "Um padrão de dashboard observado.",
+                    "minLength": 1
+                  }
+                },
+                "padroes_navegacao": {
+                  "type": "array",
+                  "title": "Padrões de Navegação",
+                  "description": "Padrões de navegação observados nas referências HTML.",
+                  "items": {
+                    "type": "string",
+                    "title": "Padrão de Navegação",
+                    "description": "Um padrão de navegação observado.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_3_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 3
+            },
+            "titulo": {
+              "const": "Descoberta de Telas Necessárias"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 3",
+              "description": "Detalhes específicos da descoberta das telas necessárias para o produto.",
+              "required": [
+                "telas_principais",
+                "telas_auxiliares",
+                "modais",
+                "drawers",
+                "estados",
+                "variacoes_necessarias"
+              ],
+              "properties": {
+                "telas_principais": {
+                  "type": "array",
+                  "title": "Telas Principais",
+                  "description": "Telas principais que precisam existir no conjunto final.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Tela Principal",
+                    "description": "Uma tela principal.",
+                    "minLength": 1
+                  }
+                },
+                "telas_auxiliares": {
+                  "type": "array",
+                  "title": "Telas Auxiliares",
+                  "description": "Telas auxiliares, complementares ou de apoio.",
+                  "items": {
+                    "type": "string",
+                    "title": "Tela Auxiliar",
+                    "description": "Uma tela auxiliar.",
+                    "minLength": 1
+                  }
+                },
+                "modais": {
+                  "type": "array",
+                  "title": "Modais",
+                  "description": "Modais necessários para a funcionalidade do módulo.",
+                  "items": {
+                    "type": "string",
+                    "title": "Modal",
+                    "description": "Um modal necessário.",
+                    "minLength": 1
+                  }
+                },
+                "drawers": {
+                  "type": "array",
+                  "title": "Drawers",
+                  "description": "Drawers necessários para a funcionalidade do módulo.",
+                  "items": {
+                    "type": "string",
+                    "title": "Drawer",
+                    "description": "Um drawer necessário.",
+                    "minLength": 1
+                  }
+                },
+                "estados": {
+                  "type": "array",
+                  "title": "Estados",
+                  "description": "Estados obrigatórios que precisam ser modelados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Estado",
+                    "description": "Um estado necessário.",
+                    "minLength": 1
+                  }
+                },
+                "variacoes_necessarias": {
+                  "type": "array",
+                  "title": "Variações Necessárias",
+                  "description": "Variações de tela ou comportamento necessárias para cobrir o escopo.",
+                  "items": {
+                    "type": "string",
+                    "title": "Variação",
+                    "description": "Uma variação necessária.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_4_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 4
+            },
+            "titulo": {
+              "const": "Construção no Stitch"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 4",
+              "description": "Detalhes específicos da construção das telas no Google Stitch.",
+              "required": [
+                "layout",
+                "componentes",
+                "formularios",
+                "tabelas",
+                "consistencia_de_arquivos"
+              ],
+              "properties": {
+                "layout": {
+                  "type": "array",
+                  "title": "Layout",
+                  "description": "Elementos de layout que precisam ser aplicados em cada tela.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Item de Layout",
+                    "description": "Um elemento de layout.",
+                    "minLength": 1
+                  }
+                },
+                "componentes": {
+                  "type": "array",
+                  "title": "Componentes",
+                  "description": "Componentes que precisam ser materializados durante a construção.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Componente",
+                    "description": "Um componente da construção.",
+                    "minLength": 1
+                  }
+                },
+                "formularios": {
+                  "type": "array",
+                  "title": "Formulários",
+                  "description": "Requisitos de formulários que precisam ser implementados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Formulário",
+                    "description": "Um requisito de formulário.",
+                    "minLength": 1
+                  }
+                },
+                "tabelas": {
+                  "type": "array",
+                  "title": "Tabelas",
+                  "description": "Requisitos de tabelas que precisam ser implementados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Tabela",
+                    "description": "Um requisito de tabela.",
+                    "minLength": 1
+                  }
+                },
+                "consistencia_de_arquivos": {
+                  "type": "array",
+                  "title": "Consistência de Arquivos",
+                  "description": "Verificações e cuidados para manter consistência entre os arquivos processados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Verificação",
+                    "description": "Uma verificação de consistência.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_5_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 5
+            },
+            "titulo": {
+              "const": "Consistência Global"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 5",
+              "description": "Detalhes específicos da verificação de consistência global do projeto.",
+              "required": [
+                "criterios_verificados",
+                "inconsistencias_procuradas",
+                "ajustes_previstos"
+              ],
+              "properties": {
+                "criterios_verificados": {
+                  "type": "array",
+                  "title": "Critérios Verificados",
+                  "description": "Critérios de consistência que devem ser checados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Critério",
+                    "description": "Um critério verificado.",
+                    "minLength": 1
+                  }
+                },
+                "inconsistencias_procuradas": {
+                  "type": "array",
+                  "title": "Inconsistências Procuradas",
+                  "description": "Tipos de inconsistência que a fase precisa procurar e corrigir.",
+                  "items": {
+                    "type": "string",
+                    "title": "Inconsistência",
+                    "description": "Uma inconsistência procurada.",
+                    "minLength": 1
+                  }
+                },
+                "ajustes_previstos": {
+                  "type": "array",
+                  "title": "Ajustes Previstos",
+                  "description": "Ajustes ou refinamentos previstos caso inconsistências sejam encontradas.",
+                  "items": {
+                    "type": "string",
+                    "title": "Ajuste",
+                    "description": "Um ajuste previsto.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_6_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 6
+            },
+            "titulo": {
+              "const": "Validação Cruzada"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 6",
+              "description": "Detalhes específicos da comparação cruzada entre as telas criadas e as fontes de referência.",
+              "required": [
+                "artefatos_comparados",
+                "nada_omitido",
+                "registros_de_discrepancia"
+              ],
+              "properties": {
+                "artefatos_comparados": {
+                  "type": "array",
+                  "title": "Artefatos Comparados",
+                  "description": "Artefatos utilizados na validação cruzada.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Artefato",
+                    "description": "Um artefato comparado.",
+                    "minLength": 1
+                  }
+                },
+                "nada_omitido": {
+                  "type": "boolean",
+                  "title": "Nada Omitido",
+                  "description": "Indica se nenhuma exigência da especificação foi omitida na validação."
+                },
+                "registros_de_discrepancia": {
+                  "type": "array",
+                  "title": "Registros de Discrepância",
+                  "description": "Lista das diferenças encontradas entre o que foi especificado e o que foi criado.",
+                  "items": {
+                    "type": "string",
+                    "title": "Discrepância",
+                    "description": "Uma discrepância registrada.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_7_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 7
+            },
+            "titulo": {
+              "const": "Conclusão do Arquivo Atual"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 7",
+              "description": "Detalhes específicos do fechamento do arquivo atual e da continuidade para o próximo arquivo.",
+              "required": [
+                "acao_de_fechamento",
+                "telas_registradas",
+                "componentes_registrados",
+                "pendencias_registradas",
+                "proximo_arquivo",
+                "criterio_de_continuacao"
+              ],
+              "properties": {
+                "acao_de_fechamento": {
+                  "type": "string",
+                  "title": "Ação de Fechamento",
+                  "description": "Ação executada para marcar o arquivo atual como concluído.",
+                  "minLength": 1
+                },
+                "telas_registradas": {
+                  "type": "array",
+                  "title": "Telas Registradas",
+                  "description": "Telas registradas como resultado do processamento do arquivo atual.",
+                  "items": {
+                    "type": "string",
+                    "title": "Tela Registrada",
+                    "description": "Uma tela registrada.",
+                    "minLength": 1
+                  }
+                },
+                "componentes_registrados": {
+                  "type": "array",
+                  "title": "Componentes Registrados",
+                  "description": "Componentes registrados como resultado do processamento do arquivo atual.",
+                  "items": {
+                    "type": "string",
+                    "title": "Componente Registrado",
+                    "description": "Um componente registrado.",
+                    "minLength": 1
+                  }
+                },
+                "pendencias_registradas": {
+                  "type": "array",
+                  "title": "Pendências Registradas",
+                  "description": "Pendências identificadas e registradas ao final do arquivo.",
+                  "items": {
+                    "type": "string",
+                    "title": "Pendência Registrada",
+                    "description": "Uma pendência registrada.",
+                    "minLength": 1
+                  }
+                },
+                "proximo_arquivo": {
+                  "type": "string",
+                  "title": "Próximo Arquivo",
+                  "description": "Arquivo seguinte em ordem alfabética ou sequencial a ser processado.",
+                  "minLength": 1
+                },
+                "criterio_de_continuacao": {
+                  "type": "string",
+                  "title": "Critério de Continuação",
+                  "description": "Condição que autoriza seguir para o próximo arquivo.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "inventario_de_execucao": {
+      "type": "object",
+      "title": "Inventário de Execução",
+      "description": "Resumo consolidado do que foi descoberto, criado e pendente ao longo do processamento dos arquivos.",
+      "required": [
+        "telas_principais",
+        "telas_auxiliares",
+        "modais",
+        "drawers",
+        "estados",
+        "componentes",
+        "pendencias_abertas"
+      ],
+      "properties": {
+        "telas_principais": {
+          "type": "array",
+          "title": "Telas Principais",
+          "description": "Conjunto consolidado de telas principais presentes no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Tela Principal",
+            "description": "Uma tela principal consolidada.",
+            "minLength": 1
+          }
+        },
+        "telas_auxiliares": {
+          "type": "array",
+          "title": "Telas Auxiliares",
+          "description": "Conjunto consolidado de telas auxiliares e de apoio.",
+          "items": {
+            "type": "string",
+            "title": "Tela Auxiliar",
+            "description": "Uma tela auxiliar consolidada.",
+            "minLength": 1
+          }
+        },
+        "modais": {
+          "type": "array",
+          "title": "Modais",
+          "description": "Conjunto consolidado de modais existentes no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Modal",
+            "description": "Um modal consolidado.",
+            "minLength": 1
+          }
+        },
+        "drawers": {
+          "type": "array",
+          "title": "Drawers",
+          "description": "Conjunto consolidado de drawers existentes no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Drawer",
+            "description": "Um drawer consolidado.",
+            "minLength": 1
+          }
+        },
+        "estados": {
+          "type": "array",
+          "title": "Estados",
+          "description": "Conjunto consolidado de estados de interface existentes no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Estado",
+            "description": "Um estado consolidado.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Conjunto consolidado de componentes reutilizáveis presentes no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente consolidado.",
+            "minLength": 1
+          }
+        },
+        "pendencias_abertas": {
+          "type": "array",
+          "title": "Pendências Abertas",
+          "description": "Lista consolidada das pendências que permanecem abertas após a execução.",
+          "items": {
+            "type": "string",
+            "title": "Pendência",
+            "description": "Uma pendência aberta.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "artefatos_gerados": {
+      "type": "object",
+      "title": "Artefatos Gerados",
+      "description": "Principais artefatos que o workflow precisa produzir ou manter até a exportação final.",
+      "required": [
+        "projeto_stitch",
+        "screens",
+        "componentes",
+        "assets",
+        "exports",
+        "documentacao"
+      ],
+      "properties": {
+        "projeto_stitch": {
+          "$ref": "#/$defs/projeto_stitch"
+        },
+        "screens": {
+          "type": "array",
+          "title": "Screens",
+          "description": "Lista dos arquivos ou pastas de telas exportadas pelo Stitch.",
+          "items": {
+            "type": "string",
+            "title": "Tela Exportada",
+            "description": "Uma tela ou arquivo de tela exportado.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Lista dos componentes exportados ou reaproveitados no projeto.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente exportado.",
+            "minLength": 1
+          }
+        },
+        "assets": {
+          "type": "array",
+          "title": "Assets",
+          "description": "Lista dos assets gerados ou preservados na exportação.",
+          "items": {
+            "type": "string",
+            "title": "Asset",
+            "description": "Um asset exportado.",
+            "minLength": 1
+          }
+        },
+        "exports": {
+          "type": "array",
+          "title": "Exports",
+          "description": "Lista dos arquivos de exportação do projeto Stitch.",
+          "items": {
+            "type": "string",
+            "title": "Export",
+            "description": "Um artefato de exportação.",
+            "minLength": 1
+          }
+        },
+        "documentacao": {
+          "type": "array",
+          "title": "Documentação",
+          "description": "Lista dos arquivos de documentação produzidos no processo.",
+          "items": {
+            "type": "string",
+            "title": "Documento",
+            "description": "Um documento gerado.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "projeto_stitch": {
+      "type": "object",
+      "title": "Projeto Stitch",
+      "description": "Metadados do projeto criado ou atualizado no Google Stitch.",
+      "required": [
+        "nome_do_projeto",
+        "project_id",
+        "link_do_projeto",
+        "data",
+        "resumo"
+      ],
+      "properties": {
+        "nome_do_projeto": {
+          "type": "string",
+          "title": "Nome do Projeto",
+          "description": "Nome atribuído ao projeto Stitch.",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "title": "Project ID",
+          "description": "Identificador interno do projeto no Stitch.",
+          "minLength": 1
+        },
+        "link_do_projeto": {
+          "type": "string",
+          "title": "Link do Projeto",
+          "description": "URL ou referência de acesso ao projeto criado.",
+          "minLength": 1
+        },
+        "data": {
+          "type": "string",
+          "title": "Data",
+          "description": "Data de criação ou consolidação do projeto.",
+          "minLength": 1
+        },
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da estrutura, escopo e propósito do projeto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "exportacao_final": {
+      "type": "object",
+      "title": "Exportação Final",
+      "description": "Destino e estrutura esperada para o pacote exportado do projeto Stitch ao término do workflow.",
+      "required": [
+        "diretorio",
+        "estrutura_esperada",
+        "criterios"
+      ],
+      "properties": {
+        "diretorio": {
+          "type": "string",
+          "title": "Diretório",
+          "description": "Diretório final para salvar o projeto exportado.",
+          "const": "./stitch/screens/"
+        },
+        "estrutura_esperada": {
+          "type": "array",
+          "title": "Estrutura Esperada",
+          "description": "Pastas e blocos esperados dentro da exportação final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item da Estrutura",
+            "description": "Uma pasta ou bloco da exportação.",
+            "minLength": 1
+          }
+        },
+        "criterios": {
+          "type": "array",
+          "title": "Critérios",
+          "description": "Critérios que a exportação final precisa cumprir para ser considerada concluída.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Um critério da exportação final.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

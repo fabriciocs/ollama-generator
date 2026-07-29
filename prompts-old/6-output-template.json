@@ -1,0 +1,2550 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saida da Etapa 6 - UX, Fluxos, Jornadas e Prototipacao",
+  "description": "Schema JSON que representa semanticamente a saida final esperada pela Etapa 6. O artefato deve descrever o conteudo integral do dashboard HTML 6.html, incluindo cabecalho, referencia estetica, cards de indicadores, resumo executivo, contexto consolidado do produto, fontes de entrada, personas, jornadas, fluxos, navegação, telas, wireframes, estados, microcopy, padroes de interacao, permissoes, UX multi-tenant, UX billing, UX IA, UX integracoes, acessibilidade, metricas, riscos, lacunas, diretrizes de UX/UI, recomendacoes, referencias, proximos passos, interatividade, progresso visual, destaques e contadores.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "cabecalho",
+    "referencia_estetica",
+    "cards_de_indicadores",
+    "resumo_executivo",
+    "contexto_consolidado_do_produto",
+    "fontes_e_documentos_de_entrada",
+    "personas_e_perfis_de_uso",
+    "jornadas_por_persona",
+    "fluxos_principais",
+    "detalhamento_sequencial_dos_fluxos",
+    "arquitetura_de_navegacao",
+    "telas_por_fluxo",
+    "estrutura_de_cada_tela",
+    "wireframes_conceituais_textuais",
+    "estados_de_interface",
+    "microcopy_e_mensagens",
+    "padroes_de_interacao",
+    "permissoes_refletidas_na_interface",
+    "ux_multi_tenant_multiempresa_matriz_e_filial",
+    "ux_billing_planos_e_limites",
+    "ux_ia_e_automacoes",
+    "ux_integracoes_e_sincronizacoes",
+    "acessibilidade_e_responsividade",
+    "metricas_de_ux_e_usabilidade",
+    "riscos_de_ux",
+    "lacunas_e_pendencias",
+    "diretrizes_ux_ui",
+    "recomendacoes_para_etapa_7",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Numero da Etapa",
+      "description": "Identificador numerico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 6.",
+      "const": 6
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como referencia oficial para a geracao desta saida.",
+      "const": "6-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saida",
+      "description": "Nome do arquivo final produzido pela etapa.",
+      "const": "6.html"
+    },
+    "cabecalho": {
+      "title": "Cabecalho do Dashboard",
+      "description": "Bloco de identificacao no topo do dashboard com nome do produto, etapa, arquivos usados, data, contexto e contagens chave da consolidacao.",
+      "$ref": "#/$defs/Cabecalho"
+    },
+    "referencia_estetica": {
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo o status do arquivo 0-estetica-inicial.md e as restricoes aplicadas quando a referencia nao estiver disponivel.",
+      "$ref": "#/$defs/ReferenciaEstetica"
+    },
+    "cards_de_indicadores": {
+      "title": "Cards de Indicadores",
+      "description": "Conjunto de indicadores resumidos exibidos no topo do dashboard para leitura rapida da consolidacao da Etapa 6.",
+      "type": "array",
+      "minItems": 11,
+      "items": {
+        "$ref": "#/$defs/CardIndicador"
+      }
+    },
+    "resumo_executivo": {
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 6 com leitura consolidada do que foi modelado, do escopo considerado e das limitacoes da documentacao.",
+      "$ref": "#/$defs/ResumoExecutivo"
+    },
+    "contexto_consolidado_do_produto": {
+      "title": "Contexto Consolidado do Produto",
+      "description": "Conjunto consolidado de informacoes sobre nome, tipo de sistema, segmento, publico, problema, proposta de valor, dominios, modulos, perfis, restricoes, dados e direcao estetica herdados das etapas anteriores.",
+      "$ref": "#/$defs/ContextoConsolidado"
+    },
+    "fontes_e_documentos_de_entrada": {
+      "title": "Fontes e Documentos de Entrada",
+      "description": "Lista rastreavel dos documentos e materiais usados como entrada oficial para a documentacao de UX desta etapa.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DocumentoEntrada"
+      }
+    },
+    "personas_e_perfis_de_uso": {
+      "title": "Personas e Perfis de Uso",
+      "description": "Tabela das personas, papeis e perfis de uso considerados para a Etapa 6.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PersonaPerfil"
+      }
+    },
+    "jornadas_por_persona": {
+      "title": "Jornadas por Persona",
+      "description": "Tabela das jornadas relevantes, agrupadas por persona, com objetivos, dores, pontos criticos e resultados esperados.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/JornadaPersona"
+      }
+    },
+    "fluxos_principais": {
+      "title": "Fluxos Principais",
+      "description": "Tabela dos fluxos de ponta a ponta considerados essenciais, avancados, futuros, experimentais ou dependentes de validacao.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FluxoPrincipal"
+      }
+    },
+    "detalhamento_sequencial_dos_fluxos": {
+      "title": "Detalhamento Sequencial dos Fluxos",
+      "description": "Tabela detalhada dos fluxos principais, com caminho principal, alternativas, excecoes, estados de interface e eventos auditaveis.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FluxoDetalhado"
+      }
+    },
+    "arquitetura_de_navegacao": {
+      "title": "Arquitetura de Navegacao",
+      "description": "Tabela da organizacao da navegacao do produto, incluindo areas, menus, submenus, rotas conceituais, telas e acessos por perfil.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/NavegacaoItem"
+      }
+    },
+    "telas_por_fluxo": {
+      "title": "Telas por Fluxo",
+      "description": "Tabela das telas mapeadas por fluxo, com objetivo da tela, entradas, saidas, acoes e estados necessarios.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TelaPorFluxo"
+      }
+    },
+    "estrutura_de_cada_tela": {
+      "title": "Estrutura de Cada Tela",
+      "description": "Tabela da composicao interna de cada tela, incluindo secoes, componentes, dados, acoes e regras de visibilidade.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EstruturaTela"
+      }
+    },
+    "wireframes_conceituais_textuais": {
+      "title": "Wireframes Conceituais Textuais",
+      "description": "Representacao textual das telas principais em formato de wireframe conceitual, adaptado a estetica oficial do produto.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/WireframeTextual"
+      }
+    },
+    "estados_de_interface": {
+      "title": "Estados de Interface",
+      "description": "Tabela dos estados de interface, com situacao, mensagem, acao disponivel e observacoes.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EstadoInterface"
+      }
+    },
+    "microcopy_e_mensagens": {
+      "title": "Microcopy e Mensagens",
+      "description": "Tabela de microcopy, mensagens de feedback, textos de alerta e orientacoes de comunicacao da interface.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/MicrocopyMensagem"
+      }
+    },
+    "padroes_de_interacao": {
+      "title": "Padroes de Interacao",
+      "description": "Tabela dos padroes de interacao recomendados e de seus riscos quando aplicados de forma incorreta.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PadraoInteracao"
+      }
+    },
+    "permissoes_refletidas_na_interface": {
+      "title": "Permissoes Refletidas na Interface",
+      "description": "Tabela que mostra como cada perfil percebe e interage com a interface de acordo com permissoes, escopo, plano e acesso aos dados.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PermissaoInterface"
+      }
+    },
+    "ux_multi_tenant_multiempresa_matriz_e_filial": {
+      "title": "UX Multi-Tenant, Multiempresa, Matriz e Filial",
+      "description": "Tabela dos cenarios de contexto e troca de escopo relacionados a tenant, empresa, matriz e filial.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/UXMultiEscopo"
+      }
+    },
+    "ux_billing_planos_e_limites": {
+      "title": "UX para Billing, Planos e Limites",
+      "description": "Tabela dos cenarios de assinatura, planos, limites e bloqueios de recurso quando aplicaveis.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/UXBilling"
+      }
+    },
+    "ux_ia_e_automacoes": {
+      "title": "UX para IA e Automacoes",
+      "description": "Tabela dos recursos de IA e automacoes, com interacao, feedback, revisao humana e mitigacao de riscos de confianca cega.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/UXIA"
+      }
+    },
+    "ux_integracoes_e_sincronizacoes": {
+      "title": "UX para Integracoes e Sincronizacoes",
+      "description": "Tabela das integracoes, estados exibidos e rotas de recuperacao para falhas, divergencias e sincronizacao.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/UXIntegracao"
+      }
+    },
+    "acessibilidade_e_responsividade": {
+      "title": "Acessibilidade e Responsividade",
+      "description": "Tabela dos requisitos de acessibilidade e de comportamento responsivo por area ou componente.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/AcessibilidadeResponsividade"
+      }
+    },
+    "metricas_de_ux_e_usabilidade": {
+      "title": "Metricas de UX e Usabilidade",
+      "description": "Tabela das metricas que devem ser monitoradas para avaliar o desempenho da experiencia do usuario.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/MetricaUX"
+      }
+    },
+    "riscos_de_ux": {
+      "title": "Riscos de UX",
+      "description": "Inventario dos riscos de experiencia mais relevantes, com impacto, probabilidade, criticidade e mitigacao.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RiscoUX"
+      }
+    },
+    "lacunas_e_pendencias": {
+      "title": "Lacunas e Pendencias",
+      "description": "Tabela das lacunas, pendencias e pontos que ainda precisam de validacao, decisão ou evidencia adicional.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/LacunaPendencia"
+      }
+    },
+    "diretrizes_ux_ui": {
+      "title": "Diretrizes de UX/UI",
+      "description": "Registro das diretrizes visuais aplicadas ao dashboard com base no arquivo estetico oficial ou, se ausente, em uma diretriz provisoria e neutra.",
+      "$ref": "#/$defs/DiretrizesUXUI"
+    },
+    "recomendacoes_para_etapa_7": {
+      "title": "Recomendacoes para a Etapa 7",
+      "description": "Lista de recomendacoes para a proxima etapa de prototipacao visual, validacao, design system e testes.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RecomendacaoEtapa7"
+      }
+    },
+    "fontes_e_referencias": {
+      "title": "Fontes, Evidencias e Referencias",
+      "description": "Lista rastreavel das fontes, evidencias e referencias usadas na consolidacao da etapa.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FonteReferencia"
+      }
+    },
+    "proximos_passos": {
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "$ref": "#/$defs/ProximosPassos"
+    },
+    "interatividade": {
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "$ref": "#/$defs/Interatividade"
+    },
+    "progresso_visual": {
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "$ref": "#/$defs/ProgressoVisual"
+    },
+    "destaques": {
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard, incluindo fluxos essenciais, estados criticos, riscos altos, lacunas criticas e pontos relacionados a multi-tenant, billing, permissoes, integracoes e IA.",
+      "$ref": "#/$defs/Destaques"
+    },
+    "contadores": {
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "$ref": "#/$defs/Contadores"
+    }
+  },
+  "$defs": {
+    "lista_texto": {
+      "type": "array",
+      "title": "Lista de Texto",
+      "description": "Lista semanticamente simples de textos relacionados ao item pai.",
+      "items": {
+        "type": "string",
+        "title": "Item de Texto",
+        "description": "Texto individual da lista.",
+        "minLength": 1
+      }
+    },
+    "Cabecalho": {
+      "type": "object",
+      "title": "Cabecalho",
+      "description": "Identificacao principal do dashboard com nome do produto, etapa, arquivos, data, contexto e contagens chave.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "nome_da_etapa",
+        "arquivos_de_entrada",
+        "arquivo_estetico_usado",
+        "arquivo_de_saida",
+        "data_de_geracao",
+        "segmento_analisado",
+        "quantidade_personas",
+        "quantidade_jornadas",
+        "quantidade_fluxos",
+        "quantidade_telas",
+        "quantidade_wireframes",
+        "quantidade_estados",
+        "quantidade_padroes",
+        "quantidade_riscos",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado nesta etapa.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando existir. Quando nao houver codigo formal, use um texto neutro e rastreavel.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rotulo textual da etapa representada no dashboard.",
+          "const": "Etapa 6 - UX, Fluxos, Jornadas e Prototipacao"
+        },
+        "arquivos_de_entrada": {
+          "type": "array",
+          "title": "Arquivos de Entrada",
+          "description": "Lista dos arquivos e materiais usados como entrada oficial no dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Arquivo de Entrada",
+            "description": "Nome ou caminho de um arquivo de entrada.",
+            "minLength": 1
+          }
+        },
+        "arquivo_estetico_usado": {
+          "type": "string",
+          "title": "Arquivo Estetico Usado",
+          "description": "Arquivo de estetica usado para orientar a construcao visual do dashboard.",
+          "const": "0-estetica-inicial.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saida",
+          "description": "Nome do arquivo final produzido pela etapa.",
+          "const": "6.html"
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geracao",
+          "description": "Data e hora de geracao do dashboard em formato legivel e rastreavel.",
+          "minLength": 1
+        },
+        "segmento_analisado": {
+          "type": "string",
+          "title": "Segmento Analisado",
+          "description": "Segmento, nicho ou contexto de mercado consolidado na etapa.",
+          "minLength": 1
+        },
+        "quantidade_personas": {
+          "type": "integer",
+          "title": "Quantidade de Personas",
+          "description": "Quantidade total de personas e perfis de uso considerados.",
+          "minimum": 0
+        },
+        "quantidade_jornadas": {
+          "type": "integer",
+          "title": "Quantidade de Jornadas",
+          "description": "Quantidade total de jornadas mapeadas.",
+          "minimum": 0
+        },
+        "quantidade_fluxos": {
+          "type": "integer",
+          "title": "Quantidade de Fluxos",
+          "description": "Quantidade total de fluxos de ponta a ponta mapeados.",
+          "minimum": 0
+        },
+        "quantidade_telas": {
+          "type": "integer",
+          "title": "Quantidade de Telas",
+          "description": "Quantidade total de telas mapeadas.",
+          "minimum": 0
+        },
+        "quantidade_wireframes": {
+          "type": "integer",
+          "title": "Quantidade de Wireframes",
+          "description": "Quantidade total de wireframes conceituais textuais produzidos.",
+          "minimum": 0
+        },
+        "quantidade_estados": {
+          "type": "integer",
+          "title": "Quantidade de Estados",
+          "description": "Quantidade total de estados de interface consolidados.",
+          "minimum": 0
+        },
+        "quantidade_padroes": {
+          "type": "integer",
+          "title": "Quantidade de Padroes",
+          "description": "Quantidade total de padroes de interacao consolidados.",
+          "minimum": 0
+        },
+        "quantidade_riscos": {
+          "type": "integer",
+          "title": "Quantidade de Riscos",
+          "description": "Quantidade total de riscos de UX identificados.",
+          "minimum": 0
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa sugerida a partir da consolidacao desta saida.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenciaEstetica": {
+      "type": "object",
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo disponibilidade, decisao visual e restricoes derivadas de 0-estetica-inicial.md.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "direcao_visual_sintetica",
+        "diretrizes_aplicadas",
+        "restricoes_visuais",
+        "observacao"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo de estetica que deve orientar a implementacao visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Indica se a referencia estetica estava disponivel, ausente ou usada apenas como base provisoria.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "direcao_visual_sintetica": {
+          "type": "string",
+          "title": "Direcao Visual Sintetica",
+          "description": "Resumo da direcao visual aplicada ao dashboard, descrevendo tema, densidade, ritmo e linguagem geral.",
+          "minLength": 1
+        },
+        "diretrizes_aplicadas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "restricoes_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a disponibilidade da referencia estetica e os limites de aplicacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CardIndicador": {
+      "type": "object",
+      "title": "Card de Indicador",
+      "description": "Indicador resumido exibido no topo do dashboard para leitura rapida da Etapa 6.",
+      "required": [
+        "id",
+        "titulo",
+        "valor",
+        "descricao",
+        "destaque",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do indicador.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo curto do indicador.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor exibido no card. Pode representar numero, percentual ou estado sintetico.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao contextual do indicador e do que ele resume.",
+          "minLength": 1
+        },
+        "destaque": {
+          "type": "boolean",
+          "title": "Destaque",
+          "description": "Indica se o card deve ser destacado visualmente.",
+          "default": false
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre o indicador.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResumoExecutivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva do objetivo da documentacao de UX, do escopo coberto, das decisoes assumidas e das limitacoes da etapa.",
+      "required": [
+        "objetivo_da_documentacao_de_ux",
+        "escopo_considerado",
+        "principais_perfis_de_usuario",
+        "principais_jornadas",
+        "principais_fluxos",
+        "principais_riscos_de_experiencia",
+        "decisoes_de_ux_assumidas",
+        "limitacoes_da_documentacao",
+        "relacao_com_etapas_anteriores",
+        "relacao_com_proximas_etapas",
+        "nivel_de_maturidade_da_ux",
+        "como_a_estetica_oficial_orientou_a_construcao_visual"
+      ],
+      "properties": {
+        "objetivo_da_documentacao_de_ux": {
+          "type": "string",
+          "title": "Objetivo da Documentacao de UX",
+          "description": "Descricao objetiva de por que esta documentacao existe e o que ela precisa habilitar.",
+          "minLength": 1
+        },
+        "escopo_considerado": {
+          "type": "string",
+          "title": "Escopo Considerado",
+          "description": "Resumo do escopo funcional, organizacional e de experiencia coberto pela etapa.",
+          "minLength": 1
+        },
+        "principais_perfis_de_usuario": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_jornadas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_fluxos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_riscos_de_experiencia": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "decisoes_de_ux_assumidas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "limitacoes_da_documentacao": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "relacao_com_etapas_anteriores": {
+          "type": "string",
+          "title": "Relacao com Etapas Anteriores",
+          "description": "Como a Etapa 6 depende e evolui o que veio das etapas anteriores.",
+          "minLength": 1
+        },
+        "relacao_com_proximas_etapas": {
+          "type": "string",
+          "title": "Relacao com Proximas Etapas",
+          "description": "Como a Etapa 6 prepara a Etapa 7 e outros desdobramentos.",
+          "minLength": 1
+        },
+        "nivel_de_maturidade_da_ux": {
+          "type": "string",
+          "title": "Nivel de Maturidade da UX",
+          "description": "Leitura sintetica da maturidade da documentacao e da experiencia mapeada.",
+          "minLength": 1
+        },
+        "como_a_estetica_oficial_orientou_a_construcao_visual": {
+          "type": "string",
+          "title": "Como a Estetica Oficial Orientou a Construcao Visual",
+          "description": "Resumo de como a referencia estetica oficial influenciou layout, densidade, componentes e comportamento visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContextoConsolidado": {
+      "type": "object",
+      "title": "Contexto Consolidado do Produto",
+      "description": "Visao consolidada do produto e do contexto de uso que orienta as decisoes de UX, navegação e prototipacao.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "tipo_de_sistema",
+        "segmento",
+        "publico_alvo",
+        "problema_principal",
+        "proposta_de_valor",
+        "stakeholders",
+        "perfis_e_permissoes_principais",
+        "dominios_funcionais",
+        "modulos",
+        "funcionalidades_criticas",
+        "telas_criticas",
+        "regras_de_negocio_relevantes",
+        "configuracoes_relevantes",
+        "entidades_e_relacionamentos",
+        "hierarquia_de_escopos",
+        "dados_sensiveis",
+        "integracoes",
+        "automacoes_e_ia",
+        "relatorios_e_dashboards",
+        "estados_e_mensagens",
+        "recomendacoes_da_etapa_5",
+        "direcao_estetica_oficial",
+        "limitacoes_e_lacunas",
+        "observacoes"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando houver.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria do sistema, como SaaS, plataforma interna, portal, marketplace ou aplicacao operacional.",
+          "minLength": 1
+        },
+        "segmento": {
+          "type": "string",
+          "title": "Segmento",
+          "description": "Segmento de mercado ou contexto organizacional do produto.",
+          "minLength": 1
+        },
+        "publico_alvo": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "problema_principal": {
+          "type": "string",
+          "title": "Problema Principal",
+          "description": "Problema central que o produto precisa resolver.",
+          "minLength": 1
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Promessa de valor do produto para o usuario e para o negocio.",
+          "minLength": 1
+        },
+        "stakeholders": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "perfis_e_permissoes_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "dominios_funcionais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "modulos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "funcionalidades_criticas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "telas_criticas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "regras_de_negocio_relevantes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "configuracoes_relevantes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "entidades_e_relacionamentos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "hierarquia_de_escopos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "dados_sensiveis": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "integracoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "automacoes_e_ia": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "relatorios_e_dashboards": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados_e_mensagens": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "recomendacoes_da_etapa_5": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "direcao_estetica_oficial": {
+          "type": "string",
+          "title": "Direcao Estetica Oficial",
+          "description": "Resumo da direcao estetica a ser respeitada no dashboard.",
+          "minLength": 1
+        },
+        "limitacoes_e_lacunas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o contexto consolidado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentoEntrada": {
+      "type": "object",
+      "title": "Documento de Entrada",
+      "description": "Registro rastreavel de um documento, arquivo ou material usado como entrada oficial da etapa.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "arquivo_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da entrada, como md, html, historico, zip, pesquisa ou referencia.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo legivel do documento ou material de entrada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou local de onde a entrada foi obtida.",
+          "minLength": 1
+        },
+        "arquivo_ou_url": {
+          "type": "string",
+          "title": "Arquivo ou URL",
+          "description": "Caminho, URL ou referencia documental do item.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre confianca, cobertura ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PersonaPerfil": {
+      "type": "object",
+      "title": "Persona ou Perfil de Uso",
+      "description": "Registro de uma persona, papel ou perfil relevante para a experiencia do produto.",
+      "required": [
+        "persona_ou_perfil",
+        "descricao",
+        "objetivo_principal",
+        "dor_principal",
+        "frequencia_de_uso",
+        "contexto_de_uso",
+        "permissoes_relevantes",
+        "observacoes"
+      ],
+      "properties": {
+        "persona_ou_perfil": {
+          "type": "string",
+          "title": "Persona ou Perfil",
+          "description": "Nome da persona, cargo ou perfil analisado.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao objetiva do perfil e de sua responsabilidade principal.",
+          "minLength": 1
+        },
+        "objetivo_principal": {
+          "type": "string",
+          "title": "Objetivo Principal",
+          "description": "Resultado principal que a persona busca no produto.",
+          "minLength": 1
+        },
+        "dor_principal": {
+          "type": "string",
+          "title": "Dor Principal",
+          "description": "Maior friccao ou dificuldade observada para este perfil.",
+          "minLength": 1
+        },
+        "frequencia_de_uso": {
+          "type": "string",
+          "title": "Frequencia de Uso",
+          "description": "Frequencia estimada de uso no contexto real do produto.",
+          "minLength": 1
+        },
+        "contexto_de_uso": {
+          "type": "string",
+          "title": "Contexto de Uso",
+          "description": "Contexto operacional, administrativo ou analitico em que o perfil atua.",
+          "minLength": 1
+        },
+        "permissoes_relevantes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais, incluindo dependencias, restricoes ou incertezas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "JornadaPersona": {
+      "type": "object",
+      "title": "Jornada por Persona",
+      "description": "Mapa de uma jornada critica de uso, com contexto, motivacao, passos, friccoes e resultados.",
+      "required": [
+        "jornada",
+        "persona",
+        "objetivo",
+        "inicio",
+        "contexto",
+        "motivacao",
+        "gatilho",
+        "etapas_principais",
+        "duvidas",
+        "emocoes",
+        "pontos_de_dor",
+        "oportunidades",
+        "momentos_criticos",
+        "resultado_esperado",
+        "falhas_possiveis",
+        "metricas_de_sucesso",
+        "observacoes"
+      ],
+      "properties": {
+        "jornada": {
+          "type": "string",
+          "title": "Jornada",
+          "description": "Nome curto da jornada mapeada.",
+          "minLength": 1
+        },
+        "persona": {
+          "type": "string",
+          "title": "Persona",
+          "description": "Persona ou perfil associado a esta jornada.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal da jornada.",
+          "minLength": 1
+        },
+        "inicio": {
+          "type": "string",
+          "title": "Inicio",
+          "description": "Ponto de partida da jornada.",
+          "minLength": 1
+        },
+        "contexto": {
+          "type": "string",
+          "title": "Contexto",
+          "description": "Contexto situacional ou organizacional da jornada.",
+          "minLength": 1
+        },
+        "motivacao": {
+          "type": "string",
+          "title": "Motivacao",
+          "description": "Motivo que leva a persona a iniciar a jornada.",
+          "minLength": 1
+        },
+        "gatilho": {
+          "type": "string",
+          "title": "Gatilho",
+          "description": "Evento, alerta ou necessidade que dispara a jornada.",
+          "minLength": 1
+        },
+        "etapas_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "duvidas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "emocoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "pontos_de_dor": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "oportunidades": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "momentos_criticos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado que define o sucesso da jornada.",
+          "minLength": 1
+        },
+        "falhas_possiveis": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "metricas_de_sucesso": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a jornada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FluxoPrincipal": {
+      "type": "object",
+      "title": "Fluxo Principal",
+      "description": "Fluxo de ponta a ponta com classificacao de prioridade e relacao com perfis e pre-condicoes.",
+      "required": [
+        "fluxo",
+        "classificacao",
+        "objetivo",
+        "perfis_envolvidos",
+        "pre_condicoes",
+        "passos_principais",
+        "fluxos_alternativos",
+        "pos_condicoes",
+        "observacoes"
+      ],
+      "properties": {
+        "fluxo": {
+          "type": "string",
+          "title": "Fluxo",
+          "description": "Nome do fluxo mapeado.",
+          "minLength": 1
+        },
+        "classificacao": {
+          "type": "string",
+          "title": "Classificacao",
+          "description": "Classificacao do fluxo para priorizacao de UX e prototipacao.",
+          "enum": [
+            "essencial",
+            "avancado",
+            "futuro",
+            "experimental",
+            "dependente_de_validacao"
+          ]
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal do fluxo.",
+          "minLength": 1
+        },
+        "perfis_envolvidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "pre_condicoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "passos_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "fluxos_alternativos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "pos_condicoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o fluxo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FluxoDetalhado": {
+      "type": "object",
+      "title": "Fluxo Detalhado",
+      "description": "Detalhamento sequencial de um fluxo principal com caminho, excecoes, estados e auditoria.",
+      "required": [
+        "fluxo",
+        "objetivo",
+        "perfis_envolvidos",
+        "pre_condicoes",
+        "caminho_principal",
+        "fluxos_alternativos",
+        "excecoes",
+        "estados_de_interface",
+        "pos_condicoes",
+        "eventos_auditaveis"
+      ],
+      "properties": {
+        "fluxo": {
+          "type": "string",
+          "title": "Fluxo",
+          "description": "Nome do fluxo detalhado.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do fluxo detalhado.",
+          "minLength": 1
+        },
+        "perfis_envolvidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "pre_condicoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "caminho_principal": {
+          "type": "array",
+          "title": "Caminho Principal",
+          "description": "Sequencia principal do fluxo, detalhada por passo.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/PassoFluxo"
+          }
+        },
+        "fluxos_alternativos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "excecoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados_de_interface": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "pos_condicoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "eventos_auditaveis": {
+          "$ref": "#/$defs/lista_texto"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PassoFluxo": {
+      "type": "object",
+      "title": "Passo de Fluxo",
+      "description": "Passo individual de um fluxo principal detalhado.",
+      "required": [
+        "numero",
+        "acao_do_usuario",
+        "resposta_do_sistema",
+        "validacoes",
+        "feedback",
+        "observacoes"
+      ],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "title": "Numero",
+          "description": "Ordem sequencial do passo dentro do fluxo.",
+          "minimum": 1
+        },
+        "acao_do_usuario": {
+          "type": "string",
+          "title": "Acao do Usuario",
+          "description": "Acao executada pelo usuario no passo.",
+          "minLength": 1
+        },
+        "resposta_do_sistema": {
+          "type": "string",
+          "title": "Resposta do Sistema",
+          "description": "Resposta esperada do sistema para a acao do usuario.",
+          "minLength": 1
+        },
+        "validacoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "feedback": {
+          "type": "string",
+          "title": "Feedback",
+          "description": "Retorno apresentado ao usuario neste passo.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre este passo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "NavegacaoItem": {
+      "type": "object",
+      "title": "Item de Navegacao",
+      "description": "Linha da arquitetura de navegacao do produto.",
+      "required": [
+        "area",
+        "menu_principal",
+        "submenu",
+        "rota_conceitual",
+        "tela",
+        "perfis_com_acesso",
+        "observacoes"
+      ],
+      "properties": {
+        "area": {
+          "type": "string",
+          "title": "Area",
+          "description": "Area funcional ou contextual da navegacao.",
+          "minLength": 1
+        },
+        "menu_principal": {
+          "type": "string",
+          "title": "Menu Principal",
+          "description": "Menu principal associado a area.",
+          "minLength": 1
+        },
+        "submenu": {
+          "type": "string",
+          "title": "Submenu",
+          "description": "Submenu, se houver, associado a rota.",
+          "minLength": 1
+        },
+        "rota_conceitual": {
+          "type": "string",
+          "title": "Rota Conceitual",
+          "description": "Rota ou caminho conceitual para a tela.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Tela ou pagina de destino.",
+          "minLength": 1
+        },
+        "perfis_com_acesso": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a navegacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TelaPorFluxo": {
+      "type": "object",
+      "title": "Tela por Fluxo",
+      "description": "Mapa de telas por fluxo, com entradas, saidas, acoes e estados necessarios.",
+      "required": [
+        "fluxo",
+        "tela",
+        "objetivo_da_tela",
+        "entrada_de_dados",
+        "saida_esperada",
+        "acoes_principais",
+        "estados_necessarios",
+        "observacoes"
+      ],
+      "properties": {
+        "fluxo": {
+          "type": "string",
+          "title": "Fluxo",
+          "description": "Fluxo ao qual a tela pertence.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela.",
+          "minLength": 1
+        },
+        "objetivo_da_tela": {
+          "type": "string",
+          "title": "Objetivo da Tela",
+          "description": "Objetivo principal da tela no fluxo.",
+          "minLength": 1
+        },
+        "entrada_de_dados": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "saida_esperada": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "acoes_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados_necessarios": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a tela.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EstruturaTela": {
+      "type": "object",
+      "title": "Estrutura de Tela",
+      "description": "Estrutura interna de uma tela principal, incluindo secoes, componentes, dados e regras de visibilidade.",
+      "required": [
+        "tela",
+        "secoes_principais",
+        "componentes",
+        "dados_exibidos",
+        "acoes_disponiveis",
+        "regras_de_visibilidade",
+        "observacoes"
+      ],
+      "properties": {
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela.",
+          "minLength": 1
+        },
+        "secoes_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "componentes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "dados_exibidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "acoes_disponiveis": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "regras_de_visibilidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a estrutura da tela.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "WireframeTextual": {
+      "type": "object",
+      "title": "Wireframe Textual",
+      "description": "Representacao textual simples de uma tela principal, em formato de wireframe conceitual.",
+      "required": [
+        "tela",
+        "contexto",
+        "wireframe_textual",
+        "observacoes"
+      ],
+      "properties": {
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela representada.",
+          "minLength": 1
+        },
+        "contexto": {
+          "type": "string",
+          "title": "Contexto",
+          "description": "Contexto ou finalidade do wireframe.",
+          "minLength": 1
+        },
+        "wireframe_textual": {
+          "type": "string",
+          "title": "Wireframe Textual",
+          "description": "Representacao textual do wireframe, incluindo blocos, hierarquia e areas principais.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o wireframe textual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EstadoInterface": {
+      "type": "object",
+      "title": "Estado de Interface",
+      "description": "Estado visual e funcional de uma tela ou fluxo.",
+      "required": [
+        "tela_ou_fluxo",
+        "estado",
+        "quando_ocorre",
+        "mensagem_sugerida",
+        "acao_disponivel",
+        "observacoes"
+      ],
+      "properties": {
+        "tela_ou_fluxo": {
+          "type": "string",
+          "title": "Tela ou Fluxo",
+          "description": "Tela ou fluxo ao qual o estado se aplica.",
+          "minLength": 1
+        },
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Nome do estado de interface.",
+          "minLength": 1
+        },
+        "quando_ocorre": {
+          "type": "string",
+          "title": "Quando Ocorre",
+          "description": "Cenario em que o estado aparece.",
+          "minLength": 1
+        },
+        "mensagem_sugerida": {
+          "type": "string",
+          "title": "Mensagem Sugerida",
+          "description": "Mensagem que deve acompanhar o estado.",
+          "minLength": 1
+        },
+        "acao_disponivel": {
+          "type": "string",
+          "title": "Acao Disponivel",
+          "description": "Acao que o usuario pode executar neste estado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o estado de interface.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "MicrocopyMensagem": {
+      "type": "object",
+      "title": "Microcopy e Mensagem",
+      "description": "Mensagem de interface usada para orientar, validar, alertar ou confirmar uma acao do usuario.",
+      "required": [
+        "contexto",
+        "tipo_de_mensagem",
+        "texto_sugerido",
+        "tom",
+        "acao_associada",
+        "observacoes"
+      ],
+      "properties": {
+        "contexto": {
+          "type": "string",
+          "title": "Contexto",
+          "description": "Contexto da mensagem na interface.",
+          "minLength": 1
+        },
+        "tipo_de_mensagem": {
+          "type": "string",
+          "title": "Tipo de Mensagem",
+          "description": "Categoria da mensagem.",
+          "minLength": 1
+        },
+        "texto_sugerido": {
+          "type": "string",
+          "title": "Texto Sugerido",
+          "description": "Texto recomendado para a mensagem.",
+          "minLength": 1
+        },
+        "tom": {
+          "type": "string",
+          "title": "Tom",
+          "description": "Tom de voz que a mensagem deve seguir.",
+          "minLength": 1
+        },
+        "acao_associada": {
+          "type": "string",
+          "title": "Acao Associada",
+          "description": "Acao ou proximi passo associado a mensagem.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a mensagem.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PadraoInteracao": {
+      "type": "object",
+      "title": "Padrao de Interacao",
+      "description": "Padrao recomendado de interacao, com local de uso, funcionamento e risco de aplicacao incorreta.",
+      "required": [
+        "padrao",
+        "onde_usar",
+        "como_funciona",
+        "beneficio",
+        "risco_se_mal_aplicado"
+      ],
+      "properties": {
+        "padrao": {
+          "type": "string",
+          "title": "Padrao",
+          "description": "Nome do padrao de interacao.",
+          "minLength": 1
+        },
+        "onde_usar": {
+          "type": "string",
+          "title": "Onde Usar",
+          "description": "Onde o padrao deve aparecer na experiencia.",
+          "minLength": 1
+        },
+        "como_funciona": {
+          "type": "string",
+          "title": "Como Funciona",
+          "description": "Descricao de funcionamento do padrao.",
+          "minLength": 1
+        },
+        "beneficio": {
+          "type": "string",
+          "title": "Beneficio",
+          "description": "Beneficio pratico do padrao para a experiencia.",
+          "minLength": 1
+        },
+        "risco_se_mal_aplicado": {
+          "type": "string",
+          "title": "Risco se Mal Aplicado",
+          "description": "Risco caso o padrao seja usado de forma incorreta.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PermissaoInterface": {
+      "type": "object",
+      "title": "Permissao na Interface",
+      "description": "Leitura da interface por perfil, considerando visibilidade, permissoes e estados bloqueados.",
+      "required": [
+        "perfil",
+        "tela",
+        "elemento_da_interface",
+        "visibilidade",
+        "acoes_permitidas",
+        "estado_quando_bloqueado",
+        "observacoes"
+      ],
+      "properties": {
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Perfil ou papel de acesso.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Tela onde a permissao aparece.",
+          "minLength": 1
+        },
+        "elemento_da_interface": {
+          "type": "string",
+          "title": "Elemento da Interface",
+          "description": "Elemento afetado pela permissao, como botao, card, tabela ou acao.",
+          "minLength": 1
+        },
+        "visibilidade": {
+          "type": "string",
+          "title": "Visibilidade",
+          "description": "Como o elemento aparece para o perfil.",
+          "minLength": 1
+        },
+        "acoes_permitidas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estado_quando_bloqueado": {
+          "type": "string",
+          "title": "Estado Quando Bloqueado",
+          "description": "Estado exibido quando a permissao nao estiver disponivel.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o comportamento da permissao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "UXMultiEscopo": {
+      "type": "object",
+      "title": "UX Multi-escopo",
+      "description": "Cenario de experiencia relacionado a tenant, empresa, matriz ou filial.",
+      "required": [
+        "cenario",
+        "elemento_ux",
+        "comportamento_esperado",
+        "risco",
+        "mitigacao"
+      ],
+      "properties": {
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Cenario de uso ou de troca de contexto.",
+          "minLength": 1
+        },
+        "elemento_ux": {
+          "type": "string",
+          "title": "Elemento UX",
+          "description": "Elemento ou padrao de interface relacionado ao cenario.",
+          "minLength": 1
+        },
+        "comportamento_esperado": {
+          "type": "string",
+          "title": "Comportamento Esperado",
+          "description": "Comportamento que a interface deve apresentar.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco de confusao, vazamento ou erro de contexto.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Mitigacao recomendada para reduzir o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "UXBilling": {
+      "type": "object",
+      "title": "UX de Billing",
+      "description": "Cenario de assinatura, plano, limite ou bloqueio de funcionalidade.",
+      "required": [
+        "cenario_de_billing",
+        "tela_ou_componente",
+        "mensagem",
+        "acao_principal",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario_de_billing": {
+          "type": "string",
+          "title": "Cenario de Billing",
+          "description": "Situacao de billing, plano ou limite analisada.",
+          "minLength": 1
+        },
+        "tela_ou_componente": {
+          "type": "string",
+          "title": "Tela ou Componente",
+          "description": "Tela ou componente onde o cenario aparece.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem exibida para o usuario.",
+          "minLength": 1
+        },
+        "acao_principal": {
+          "type": "string",
+          "title": "Acao Principal",
+          "description": "Acao principal que o usuario pode tomar.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a experiencia de billing.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "UXIA": {
+      "type": "object",
+      "title": "UX de IA e Automacoes",
+      "description": "Cenario de uso de IA ou automacao, com feedback, revisao humana e mitigacao de risco.",
+      "required": [
+        "recurso_de_ia",
+        "tela",
+        "interacao",
+        "feedback",
+        "revisao_humana",
+        "risco_ux",
+        "mitigacao"
+      ],
+      "properties": {
+        "recurso_de_ia": {
+          "type": "string",
+          "title": "Recurso de IA",
+          "description": "Funcao de IA ou automacao analisada.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Tela onde a IA aparece.",
+          "minLength": 1
+        },
+        "interacao": {
+          "type": "string",
+          "title": "Interacao",
+          "description": "Como o usuario aciona ou interage com o recurso.",
+          "minLength": 1
+        },
+        "feedback": {
+          "type": "string",
+          "title": "Feedback",
+          "description": "Feedback que o sistema apresenta sobre a acao da IA.",
+          "minLength": 1
+        },
+        "revisao_humana": {
+          "type": "string",
+          "title": "Revisao Humana",
+          "description": "Como a saida da IA deve ser revisada ou corrigida por humanos.",
+          "minLength": 1
+        },
+        "risco_ux": {
+          "type": "string",
+          "title": "Risco UX",
+          "description": "Risco de experiencia associado ao recurso.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Mitigacao recomendada para o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "UXIntegracao": {
+      "type": "object",
+      "title": "UX de Integracao",
+      "description": "Cenario de integracao ou sincronizacao e a forma como o usuario percebe o estado e recupera falhas.",
+      "required": [
+        "integracao",
+        "tela",
+        "estado_exibido",
+        "acao_do_usuario",
+        "mensagem_de_erro",
+        "recuperacao"
+      ],
+      "properties": {
+        "integracao": {
+          "type": "string",
+          "title": "Integracao",
+          "description": "Nome da integracao ou sincronizacao.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Tela onde a integracao aparece.",
+          "minLength": 1
+        },
+        "estado_exibido": {
+          "type": "string",
+          "title": "Estado Exibido",
+          "description": "Estado percebido pelo usuario.",
+          "minLength": 1
+        },
+        "acao_do_usuario": {
+          "type": "string",
+          "title": "Acao do Usuario",
+          "description": "Acao disponivel para o usuario.",
+          "minLength": 1
+        },
+        "mensagem_de_erro": {
+          "type": "string",
+          "title": "Mensagem de Erro",
+          "description": "Mensagem apresentada quando a integracao falha ou diverge.",
+          "minLength": 1
+        },
+        "recuperacao": {
+          "type": "string",
+          "title": "Recuperacao",
+          "description": "Caminho de recuperacao ou retry.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "AcessibilidadeResponsividade": {
+      "type": "object",
+      "title": "Acessibilidade e Responsividade",
+      "description": "Requisitos de acessibilidade e responsividade para uma area ou componente.",
+      "required": [
+        "area_ou_componente",
+        "requisito_de_acessibilidade",
+        "requisito_responsivo",
+        "observacoes"
+      ],
+      "properties": {
+        "area_ou_componente": {
+          "type": "string",
+          "title": "Area ou Componente",
+          "description": "Area ou componente avaliado.",
+          "minLength": 1
+        },
+        "requisito_de_acessibilidade": {
+          "type": "string",
+          "title": "Requisito de Acessibilidade",
+          "description": "Requisito de acessibilidade a ser atendido.",
+          "minLength": 1
+        },
+        "requisito_responsivo": {
+          "type": "string",
+          "title": "Requisito Responsivo",
+          "description": "Comportamento esperado em telas pequenas ou grandes.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a acessibilidade e responsividade.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "MetricaUX": {
+      "type": "object",
+      "title": "Metrica de UX",
+      "description": "Metrica usada para medir qualidade, eficiencia ou adoção da experiencia.",
+      "required": [
+        "metrica",
+        "objetivo",
+        "como_medir",
+        "fluxo_relacionado",
+        "observacoes"
+      ],
+      "properties": {
+        "metrica": {
+          "type": "string",
+          "title": "Metrica",
+          "description": "Nome da metrica.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "O que a metrica precisa demonstrar.",
+          "minLength": 1
+        },
+        "como_medir": {
+          "type": "string",
+          "title": "Como Medir",
+          "description": "Metodo recomendado para medicao.",
+          "minLength": 1
+        },
+        "fluxo_relacionado": {
+          "type": "string",
+          "title": "Fluxo Relacionado",
+          "description": "Fluxo ou tela associado a esta metrica.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a metrica.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RiscoUX": {
+      "type": "object",
+      "title": "Risco de UX",
+      "description": "Risco de experiencia identificado na etapa.",
+      "required": [
+        "risco",
+        "descricao",
+        "area_afetada",
+        "impacto",
+        "probabilidade",
+        "criticidade",
+        "mitigacao",
+        "observacoes"
+      ],
+      "properties": {
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Nome curto do risco.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada do risco.",
+          "minLength": 1
+        },
+        "area_afetada": {
+          "type": "string",
+          "title": "Area Afetada",
+          "description": "Area, fluxo ou tela mais afetada.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado se o risco ocorrer.",
+          "minLength": 1
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Estimativa qualitativa de probabilidade.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Nivel de criticidade para priorizacao.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Acao sugerida para reduzir o risco.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "LacunaPendencia": {
+      "type": "object",
+      "title": "Lacuna ou Pendencia",
+      "description": "Registro de uma lacuna, decisao pendente ou informacao faltante na consolidacao.",
+      "required": [
+        "item",
+        "tipo",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome resumido da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da pendencia, como decisao, validacao, evidencia, dependencia ou risco.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da lacuna na consolidacao ou na implementacao.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade para resolucao da lacuna ou pendencia.",
+          "enum": [
+            "essencial",
+            "importante",
+            "avancada",
+            "futura",
+            "experimental",
+            "dependente_de_validacao"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a pendencia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiretrizesUXUI": {
+      "type": "object",
+      "title": "Diretrizes de UX/UI",
+      "description": "Diretrizes visuais e de experiencia derivadas do arquivo estetico oficial ou de uma diretriz provisoria quando a referencia nao estiver disponivel.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "principios_aplicados",
+        "diretrizes_de_layout",
+        "diretrizes_de_componentes",
+        "diretrizes_de_densidade",
+        "diretrizes_de_responsividade",
+        "diretrizes_de_acessibilidade",
+        "diretrizes_de_microcopy",
+        "padroes_proibidos",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo estetico que orienta as decisoes de UX/UI.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Status de disponibilidade do arquivo estetico.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "principios_aplicados": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_layout": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_componentes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_densidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_responsividade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_acessibilidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_microcopy": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "padroes_proibidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a aplicacao visual e suas restricoes.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacaoEtapa7": {
+      "type": "object",
+      "title": "Recomendacao para a Etapa 7",
+      "description": "Recomendacao para os fluxos, jornadas, wireframes, estados e backlog da proxima etapa.",
+      "required": [
+        "foco",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "foco": {
+          "type": "string",
+          "title": "Foco",
+          "description": "Area ou assunto que deve ser tratado na Etapa 7.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao objetiva da recomendacao.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado da recomendacao no produto ou na continuidade do trabalho.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade sugerida para executar a recomendacao.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a recomendacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FonteReferencia": {
+      "type": "object",
+      "title": "Fonte e Referencia",
+      "description": "Registro rastreavel de uma fonte, documento ou referencia usada na consolidacao.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "documento_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo de fonte, como documento, arquivo local, pesquisa, benchmark, site oficial ou observacao.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo ou nome da fonte consultada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou organizacao responsavel pela fonte.",
+          "minLength": 1
+        },
+        "documento_ou_url": {
+          "type": "string",
+          "title": "Documento ou URL",
+          "description": "URL, caminho de arquivo ou referencia documental usada como fonte.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a qualidade, confianca ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProximosPassos": {
+      "type": "object",
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "required": [
+        "acoes_imediatas",
+        "prioridades",
+        "riscos_a_monitorar",
+        "questoes_em_aberto",
+        "observacoes"
+      ],
+      "properties": {
+        "acoes_imediatas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "prioridades": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "riscos_a_monitorar": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "questoes_em_aberto": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes finais sobre continuidade e sequenciamento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "required": [
+        "alternar_tema",
+        "expandir_recolher_secoes",
+        "filtros",
+        "busca_textual",
+        "copiar_resumo_executivo",
+        "copiar_fluxos_principais",
+        "copiar_wireframes_textuais",
+        "copiar_tabelas_principais",
+        "exportar_markdown",
+        "imprimir_ou_pdf",
+        "mostrar_progresso_visual",
+        "destacar_fluxos_essenciais",
+        "destacar_estados_criticos",
+        "destacar_riscos_altos",
+        "destacar_lacunas_criticas",
+        "destacar_itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_ia"
+      ],
+      "properties": {
+        "alternar_tema": {
+          "type": "object",
+          "title": "Alternar Tema",
+          "description": "Configuracao da possibilidade de alternar tema claro e escuro, quando compativel com a estetica oficial.",
+          "required": [
+            "disponivel",
+            "tema_padrao",
+            "justificativa"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a alternancia de tema esta disponivel no dashboard.",
+              "default": false
+            },
+            "tema_padrao": {
+              "type": "string",
+              "title": "Tema Padrao",
+              "description": "Tema padrao escolhido para a interface.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Justificativa para a decisao sobre tema.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "expandir_recolher_secoes": {
+          "type": "boolean",
+          "title": "Expandir e Recolher Secoes",
+          "description": "Indica se as secoes podem ser expandidas e recolhidas.",
+          "default": true
+        },
+        "filtros": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "busca_textual": {
+          "type": "object",
+          "title": "Busca Textual",
+          "description": "Configuracao da busca livre em todo o dashboard.",
+          "required": [
+            "disponivel",
+            "escopo",
+            "comportamento"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a busca textual global esta disponivel.",
+              "default": true
+            },
+            "escopo": {
+              "type": "string",
+              "title": "Escopo",
+              "description": "Escopo da busca textual dentro do dashboard.",
+              "minLength": 1
+            },
+            "comportamento": {
+              "type": "string",
+              "title": "Comportamento",
+              "description": "Descricao de como a busca deve localizar e destacar resultados.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "copiar_resumo_executivo": {
+          "type": "boolean",
+          "title": "Copiar Resumo Executivo",
+          "description": "Indica se o usuario pode copiar o resumo executivo.",
+          "default": true
+        },
+        "copiar_fluxos_principais": {
+          "type": "boolean",
+          "title": "Copiar Fluxos Principais",
+          "description": "Indica se o usuario pode copiar os fluxos principais.",
+          "default": true
+        },
+        "copiar_wireframes_textuais": {
+          "type": "boolean",
+          "title": "Copiar Wireframes Textuais",
+          "description": "Indica se o usuario pode copiar os wireframes textuais.",
+          "default": true
+        },
+        "copiar_tabelas_principais": {
+          "type": "boolean",
+          "title": "Copiar Tabelas Principais",
+          "description": "Indica se o usuario pode copiar as tabelas principais.",
+          "default": true
+        },
+        "exportar_markdown": {
+          "type": "boolean",
+          "title": "Exportar Markdown",
+          "description": "Indica se o dashboard permite exportacao em Markdown.",
+          "default": true
+        },
+        "imprimir_ou_pdf": {
+          "type": "boolean",
+          "title": "Imprimir ou PDF",
+          "description": "Indica se o dashboard permite impressao ou salvamento em PDF.",
+          "default": true
+        },
+        "mostrar_progresso_visual": {
+          "type": "boolean",
+          "title": "Mostrar Progresso Visual",
+          "description": "Indica se a interface exibe progresso visual da etapa.",
+          "default": true
+        },
+        "destacar_fluxos_essenciais": {
+          "type": "boolean",
+          "title": "Destacar Fluxos Essenciais",
+          "description": "Indica se os fluxos essenciais devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_estados_criticos": {
+          "type": "boolean",
+          "title": "Destacar Estados Criticos",
+          "description": "Indica se os estados criticos devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_riscos_altos": {
+          "type": "boolean",
+          "title": "Destacar Riscos Altos",
+          "description": "Indica se os riscos altos devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_lacunas_criticas": {
+          "type": "boolean",
+          "title": "Destacar Lacunas Criticas",
+          "description": "Indica se as lacunas criticas devem ser destacadas visualmente.",
+          "default": true
+        },
+        "destacar_itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_ia": {
+          "type": "boolean",
+          "title": "Destacar Itens Transversais",
+          "description": "Indica se itens relacionados a multi-tenant, billing, permissoes, integracoes e IA devem ser destacados.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProgressoVisual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "required": [
+        "percentual_conclusao",
+        "status",
+        "marcos",
+        "indicadores",
+        "proxima_etapa_recomendada",
+        "observacoes"
+      ],
+      "properties": {
+        "percentual_conclusao": {
+          "type": "integer",
+          "title": "Percentual de Conclusao",
+          "description": "Percentual visual de completude da etapa.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status sintetico do progresso.",
+          "enum": [
+            "nao_iniciado",
+            "em_andamento",
+            "parcial",
+            "concluido"
+          ]
+        },
+        "marcos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "indicadores": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa recomendada.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o progresso visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard.",
+      "required": [
+        "fluxos_essenciais",
+        "estados_criticos",
+        "riscos_altos",
+        "lacunas_criticas",
+        "itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_ia"
+      ],
+      "properties": {
+        "fluxos_essenciais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados_criticos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "riscos_altos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "lacunas_criticas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_ia": {
+          "$ref": "#/$defs/lista_texto"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "required": [
+        "documentos_entrada",
+        "personas",
+        "jornadas",
+        "fluxos",
+        "telas",
+        "wireframes",
+        "estados",
+        "padroes_de_interacao",
+        "riscos",
+        "nivel_maturidade_da_ux",
+        "secoes"
+      ],
+      "properties": {
+        "documentos_entrada": {
+          "type": "integer",
+          "title": "Documentos de Entrada",
+          "description": "Quantidade de documentos de entrada considerados.",
+          "minimum": 0
+        },
+        "personas": {
+          "type": "integer",
+          "title": "Personas",
+          "description": "Quantidade de personas e perfis de uso mapeados.",
+          "minimum": 0
+        },
+        "jornadas": {
+          "type": "integer",
+          "title": "Jornadas",
+          "description": "Quantidade de jornadas mapeadas.",
+          "minimum": 0
+        },
+        "fluxos": {
+          "type": "integer",
+          "title": "Fluxos",
+          "description": "Quantidade de fluxos mapeados.",
+          "minimum": 0
+        },
+        "telas": {
+          "type": "integer",
+          "title": "Telas",
+          "description": "Quantidade de telas mapeadas.",
+          "minimum": 0
+        },
+        "wireframes": {
+          "type": "integer",
+          "title": "Wireframes",
+          "description": "Quantidade de wireframes conceituais textuais produzidos.",
+          "minimum": 0
+        },
+        "estados": {
+          "type": "integer",
+          "title": "Estados",
+          "description": "Quantidade total de estados de interface consolidados.",
+          "minimum": 0
+        },
+        "padroes_de_interacao": {
+          "type": "integer",
+          "title": "Padroes de Interacao",
+          "description": "Quantidade total de padroes de interacao consolidados.",
+          "minimum": 0
+        },
+        "riscos": {
+          "type": "integer",
+          "title": "Riscos",
+          "description": "Quantidade total de riscos de UX identificados.",
+          "minimum": 0
+        },
+        "nivel_maturidade_da_ux": {
+          "type": "string",
+          "title": "Nivel de Maturidade da UX",
+          "description": "Leitura sintetica do nivel de maturidade da UX documentada.",
+          "minLength": 1
+        },
+        "secoes": {
+          "type": "integer",
+          "title": "Secoes",
+          "description": "Quantidade de secoes principais do dashboard.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

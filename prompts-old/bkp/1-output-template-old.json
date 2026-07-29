@@ -1,0 +1,705 @@
+{
+    "prompt_analysis": {
+        "title": "Etapa 1 — Ideia Inicial e Enquadramento do Problema",
+        "description": "Prompt para transformar uma ideia inicial de produto digital em um dashboard HTML interativo contendo documentos estratégicos de descoberta, hipóteses, riscos, oportunidades e direcionamentos para a próxima etapa.",
+        "objective": "Estruturar uma ideia inicial de sistema/produto em uma visão estratégica analisável, gerando um dashboard HTML consolidado da Etapa 1.",
+        "artifact_type": "Dashboard HTML Interativo",
+        "output_format": "HTML",
+        "complexity": "Muito Alta",
+        "confidence_score": 0.99
+    },
+    "sections": [
+        {
+            "id": "context_analysis",
+            "name": "Análise de Contexto",
+            "description": "Análise do histórico da conversa e documentos existentes.",
+            "purpose": "Construir contexto antes da geração dos artefatos.",
+            "required": true,
+            "generation_rules": [
+                "Analisar histórico completo",
+                "Utilizar arquivos .md e .html existentes",
+                "Usar 0-estetica-inicial.md quando disponível",
+                "Marcar inferências como hipótese"
+            ],
+            "expected_content": "Resumo do contexto identificado.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "initial_idea_document",
+            "name": "Documento de Ideia Inicial",
+            "description": "Registro estruturado da ideia principal.",
+            "purpose": "Formalizar a visão inicial do produto.",
+            "required": true,
+            "generation_rules": [
+                "Não aprofundar implementação técnica"
+            ],
+            "expected_content": "Nome, categoria, segmento, descrição e posicionamento.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "product_canvas",
+            "name": "Canvas Inicial do Produto",
+            "description": "Visão resumida do produto.",
+            "purpose": "Organizar a proposta inicial.",
+            "required": true,
+            "generation_rules": [
+                "Baseado em evidências e hipóteses"
+            ],
+            "expected_content": "Problema, público, valor e objetivos.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "problem_framing",
+            "name": "Enquadramento do Problema",
+            "description": "Análise do problema principal e secundários.",
+            "purpose": "Definir a motivação do produto.",
+            "required": true,
+            "generation_rules": [
+                "Separar evidências e hipóteses"
+            ],
+            "expected_content": "Problemas, impactos e contexto.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "target_audience",
+            "name": "Público-Alvo Inicial",
+            "description": "Usuários, stakeholders e decisores.",
+            "purpose": "Definir quem será impactado.",
+            "required": true,
+            "generation_rules": [
+                "Identificar perfis iniciais"
+            ],
+            "expected_content": "Personas estratégicas e grupos envolvidos.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "value_proposition",
+            "name": "Proposta de Valor Inicial",
+            "description": "Benefícios esperados.",
+            "purpose": "Definir diferenciação e valor.",
+            "required": true,
+            "generation_rules": [
+                "Relacionar valor às dores"
+            ],
+            "expected_content": "Proposta de valor resumida.",
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "business_goals",
+            "name": "Objetivos de Negócio",
+            "description": "Metas estratégicas do produto.",
+            "purpose": "Direcionar o sucesso do negócio.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "user_goals",
+            "name": "Objetivos dos Usuários",
+            "description": "Resultados esperados pelos usuários.",
+            "purpose": "Garantir alinhamento com necessidades.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "hypotheses",
+            "name": "Hipóteses Iniciais",
+            "description": "Hipóteses estratégicas do produto.",
+            "purpose": "Registrar incertezas.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "pain_map",
+            "name": "Mapa de Dores e Necessidades",
+            "description": "Dores identificadas.",
+            "purpose": "Relacionar problemas e oportunidades.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "opportunity_map",
+            "name": "Mapa de Oportunidades",
+            "description": "Oportunidades identificadas.",
+            "purpose": "Orientar futuras validações.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "risk_map",
+            "name": "Mapa de Riscos e Restrições",
+            "description": "Riscos e restrições iniciais.",
+            "purpose": "Antecipar ameaças ao produto.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "assumptions",
+            "name": "Premissas",
+            "description": "Premissas consideradas válidas.",
+            "purpose": "Registrar bases da análise.",
+            "required": true,
+            "field_schema": {
+                "type": "array"
+            }
+        },
+        {
+            "id": "open_questions",
+            "name": "Perguntas em Aberto",
+            "description": "Questões pendentes de validação.",
+            "purpose": "Guiar próximas descobertas.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "organizational_context",
+            "name": "Contexto Organizacional e Escalabilidade",
+            "description": "Avaliação estratégica de crescimento e governança.",
+            "purpose": "Antecipar requisitos organizacionais.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "governance_security",
+            "name": "Hipóteses de Governança e Segurança",
+            "description": "Governança, auditoria e segregação.",
+            "purpose": "Avaliar maturidade futura.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "billing",
+            "name": "Hipóteses de Monetização e Billing",
+            "description": "Monetização recorrente e planos.",
+            "purpose": "Explorar sustentabilidade financeira.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "ai_automation",
+            "name": "Hipóteses de IA e Automação",
+            "description": "Uso potencial de IA e automações.",
+            "purpose": "Identificar diferenciação futura.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "organizational_structure",
+            "name": "Hipóteses de Estrutura Organizacional",
+            "description": "Multiempresa, matriz e filiais.",
+            "purpose": "Avaliar estrutura organizacional futura.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        },
+        {
+            "id": "executive_summary",
+            "name": "Resumo Executivo",
+            "description": "Síntese estratégica da etapa.",
+            "purpose": "Facilitar entendimento executivo.",
+            "required": true,
+            "field_schema": {
+                "type": "string"
+            }
+        },
+        {
+            "id": "next_steps",
+            "name": "Próximos Passos — Etapa 2",
+            "description": "Direcionamento para benchmarking e pesquisa.",
+            "purpose": "Preparar continuidade do discovery.",
+            "required": true,
+            "field_schema": {
+                "type": "object"
+            }
+        }
+    ],
+    "response_hierarchy": {
+        "dashboard_html": {
+            "context_analysis": {},
+            "initial_idea_document": {},
+            "product_canvas": {},
+            "problem_framing": {},
+            "target_audience": {},
+            "value_proposition": {},
+            "business_goals": [],
+            "user_goals": [],
+            "hypotheses": [],
+            "pain_map": [],
+            "opportunity_map": [],
+            "risk_map": [],
+            "assumptions": [],
+            "open_questions": {},
+            "organizational_context": {},
+            "governance_security": {},
+            "billing": {},
+            "ai_automation": {},
+            "organizational_structure": {},
+            "executive_summary": "",
+            "next_steps": {},
+            "interactive_features": []
+        }
+    },
+    "business_rules": [
+        "Gerar arquivo denominado 1.html",
+        "Produzir dashboard HTML interativo",
+        "Utilizar histórico e documentos anteriores",
+        "Utilizar 0-estetica-inicial.md quando disponível",
+        "Marcar inferências como hipótese",
+        "Não gerar especificação funcional completa",
+        "Não gerar arquitetura técnica detalhada",
+        "Não gerar banco de dados",
+        "Não gerar APIs",
+        "Avaliar hipóteses de SaaS, multi-tenant, IA, billing, governança e auditoria",
+        "Incluir filtros e interatividade obrigatórios"
+    ],
+    "validation_rules": [
+        "Todas as 20 seções obrigatórias devem existir",
+        "Toda inferência deve ser marcada como hipótese",
+        "Perguntas em aberto devem ser agrupadas por categoria",
+        "Tabelas obrigatórias devem ser geradas",
+        "Dashboard deve possuir tema claro/escuro",
+        "Dashboard deve permitir exportação Markdown",
+        "Dashboard deve permitir impressão/PDF",
+        "Dashboard deve exibir progresso da etapa",
+        "Dashboard deve possuir filtros por hipótese, risco e oportunidade",
+        "HTML deve ser autoconsistente e revisado"
+    ],
+    "output_json_schema": {
+        "type": "object",
+        "title": "Etapa1DashboardSpecification",
+        "properties": {
+            "file_name": {
+                "type": "string",
+                "const": "1.html"
+            },
+            "artifact_type": {
+                "type": "string",
+                "const": "dashboard_html"
+            },
+            "source_context": {
+                "type": "object",
+                "properties": {
+                    "chat_history_used": {
+                        "type": "boolean"
+                    },
+                    "existing_documents": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "visual_guideline_source": {
+                        "type": "string"
+                    },
+                    "limitations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "product_overview": {
+                "type": "object",
+                "properties": {
+                    "provisional_name": {
+                        "type": "string"
+                    },
+                    "system_category": {
+                        "type": "string"
+                    },
+                    "market_segment": {
+                        "type": "string"
+                    },
+                    "short_description": {
+                        "type": "string"
+                    },
+                    "positioning_statement": {
+                        "type": "string"
+                    },
+                    "executive_summary": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "provisional_name",
+                    "system_category"
+                ]
+            },
+            "problem_framing": {
+                "type": "object",
+                "properties": {
+                    "main_problem": {
+                        "type": "string"
+                    },
+                    "secondary_problems": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "audience": {
+                "type": "object",
+                "properties": {
+                    "target_audience": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "impacted_users": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "stakeholders": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "decision_makers": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "value_proposition": {
+                "type": "string"
+            },
+            "business_goals": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "user_goals": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "hypotheses": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        },
+                        "hypothesis": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "problema",
+                                "publico",
+                                "valor",
+                                "monetizacao",
+                                "adocao",
+                                "operacao",
+                                "tecnologia",
+                                "diferenciacao"
+                            ]
+                        },
+                        "impact": {
+                            "type": "string"
+                        },
+                        "uncertainty": {
+                            "type": "string"
+                        },
+                        "priority": {
+                            "type": "string"
+                        },
+                        "validation_method": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "hypothesis"
+                    ]
+                }
+            },
+            "structural_hypotheses": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "theme": {
+                            "type": "string"
+                        },
+                        "hypothesis": {
+                            "type": "string"
+                        },
+                        "current_evidence": {
+                            "type": "string"
+                        },
+                        "confidence_level": {
+                            "type": "string"
+                        },
+                        "future_impact": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "pain_map": {
+                "type": "array",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "opportunity_map": {
+                "type": "array",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "risk_map": {
+                "type": "array",
+                "items": {
+                    "type": "object"
+                }
+            },
+            "assumptions": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "open_questions": {
+                "type": "object",
+                "properties": {
+                    "business": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "market": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "operations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "technology": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "monetization": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "legal": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "security": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "governance": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "integrations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ai": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "compliance": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "organizational_context": {
+                "type": "object",
+                "properties": {
+                    "multi_tenant_assessment": {
+                        "type": "string"
+                    },
+                    "multi_company_assessment": {
+                        "type": "string"
+                    },
+                    "branch_assessment": {
+                        "type": "string"
+                    },
+                    "data_isolation_assessment": {
+                        "type": "string"
+                    },
+                    "governance_assessment": {
+                        "type": "string"
+                    },
+                    "audit_assessment": {
+                        "type": "string"
+                    },
+                    "billing_assessment": {
+                        "type": "string"
+                    },
+                    "ai_assessment": {
+                        "type": "string"
+                    },
+                    "integration_assessment": {
+                        "type": "string"
+                    }
+                }
+            },
+            "next_steps": {
+                "type": "object",
+                "properties": {
+                    "next_stage": {
+                        "type": "string",
+                        "const": "Etapa 2 — Pesquisa de Mercado e Benchmarking"
+                    },
+                    "competitors_to_research": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "priority_risks": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "priority_hypotheses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "user_validations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "operational_validations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "governance_validations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "security_validations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "scalability_validations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "interactive_features": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "required": [
+            "file_name",
+            "artifact_type",
+            "product_overview",
+            "problem_framing",
+            "audience",
+            "value_proposition",
+            "business_goals",
+            "user_goals",
+            "hypotheses",
+            "structural_hypotheses",
+            "pain_map",
+            "opportunity_map",
+            "risk_map",
+            "assumptions",
+            "open_questions",
+            "organizational_context",
+            "next_steps",
+            "interactive_features"
+        ]
+    }
+}

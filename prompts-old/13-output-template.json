@@ -1,0 +1,952 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 13 - Árvore Canônica do Superadministrador",
+  "description": "Schema JSON que representa semanticamente o arquivo 13.json. A saída final deve consolidar o dashboard, a navegação, as rotas, o catálogo global e a árvore hierárquica completa de domínios, módulos, funcionalidades, telas, seções, subseções e componentes da plataforma de superadministrador.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "metadata",
+    "dashboard",
+    "menu",
+    "routes",
+    "catalogo",
+    "dominios"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 13.",
+      "const": 13
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do artefato. Deve apontar para o texto-base da Etapa 13.",
+      "const": "13-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo JSON final produzido pela etapa. Deve permanecer fixo em 13.json, conforme o prompt.",
+      "const": "13.json"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "dashboard": {
+      "$ref": "#/$defs/dashboard"
+    },
+    "menu": {
+      "type": "array",
+      "title": "Menu",
+      "description": "Árvore de navegação gerada automaticamente a partir da estrutura canônica do sistema.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/menu_item"
+      }
+    },
+    "routes": {
+      "type": "array",
+      "title": "Rotas",
+      "description": "Lista de rotas identificadas a partir da hierarquia funcional do sistema.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/route_item"
+      }
+    },
+    "catalogo": {
+      "$ref": "#/$defs/catalogo"
+    },
+    "dominios": {
+      "type": "array",
+      "title": "Domínios",
+      "description": "Árvore principal do sistema, organizada em domínios, módulos, funcionalidades, telas, seções, subseções e componentes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/domain_item"
+      }
+    }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "title": "Metadados",
+      "description": "Informações de rastreabilidade e consolidação do arquivo 13.json.",
+      "required": [
+        "arquivo",
+        "versao",
+        "origem",
+        "geradoEm",
+        "totalDominios",
+        "totalModulos",
+        "totalFuncionalidades",
+        "totalTelas"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Nome do arquivo final gerado pela etapa.",
+          "const": "13.json"
+        },
+        "versao": {
+          "type": "string",
+          "title": "Versão",
+          "description": "Versão semântica do artefato canônico consolidado.",
+          "const": "1.0"
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem documental do conteúdo consolidado. Deve indicar que o arquivo deriva da análise de HTML e Markdown.",
+          "const": "Analise dos arquivos HTML e Markdown"
+        },
+        "geradoEm": {
+          "type": "string",
+          "title": "Gerado Em",
+          "description": "Data e hora de geração do arquivo em formato legível e rastreável.",
+          "minLength": 1
+        },
+        "totalDominios": {
+          "type": "integer",
+          "title": "Total de Domínios",
+          "description": "Quantidade total de domínios consolidados na árvore final.",
+          "minimum": 0
+        },
+        "totalModulos": {
+          "type": "integer",
+          "title": "Total de Módulos",
+          "description": "Quantidade total de módulos consolidados na árvore final.",
+          "minimum": 0
+        },
+        "totalFuncionalidades": {
+          "type": "integer",
+          "title": "Total de Funcionalidades",
+          "description": "Quantidade total de funcionalidades consolidadas na árvore final.",
+          "minimum": 0
+        },
+        "totalTelas": {
+          "type": "integer",
+          "title": "Total de Telas",
+          "description": "Quantidade total de telas consolidadas na árvore final.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "dashboard": {
+      "type": "object",
+      "title": "Dashboard",
+      "description": "Bloco raiz da visão consolidada da plataforma. Deve representar uma síntese executiva do sistema canônico e orientar a leitura inicial do artefato.",
+      "required": [
+        "id",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do dashboard canônico.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título semântico do dashboard principal do sistema.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal do dashboard como visão de operação, controle e leitura executiva.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual completo associado ao dashboard canônico.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "menu_item": {
+      "type": "object",
+      "title": "Item de Menu",
+      "description": "Item da navegação hierárquica, com rótulo visível, rota associada, ícone e filhos recursivos.",
+      "required": [
+        "id",
+        "label",
+        "rota",
+        "icone",
+        "filhos"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do item de navegação.",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto exibido ao usuário no menu.",
+          "minLength": 1
+        },
+        "rota": {
+          "type": "string",
+          "title": "Rota",
+          "description": "Caminho de navegação associado ao item de menu.",
+          "minLength": 1
+        },
+        "icone": {
+          "type": "string",
+          "title": "Ícone",
+          "description": "Nome, chave ou referência do ícone visual usado no menu.",
+          "minLength": 1
+        },
+        "filhos": {
+          "type": "array",
+          "title": "Filhos",
+          "description": "Subitens do menu para representar a hierarquia de navegação.",
+          "items": {
+            "$ref": "#/$defs/menu_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "route_item": {
+      "type": "object",
+      "title": "Rota",
+      "description": "Registro de rota identificado a partir da árvore funcional do sistema.",
+      "required": [
+        "id",
+        "path",
+        "titulo",
+        "origem"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da rota.",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "title": "Path",
+          "description": "Caminho da rota no sistema.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título legível da rota.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem estrutural ou documental da rota, indicando de onde ela foi inferida.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalogo": {
+      "type": "object",
+      "title": "Catálogo Global",
+      "description": "Catálogo consolidado dos elementos semânticos extraídos da árvore canônica, incluindo domínios, módulos, funcionalidades, telas, seções, componentes, eventos, ações e endpoints.",
+      "required": [
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "telas",
+        "secoes",
+        "componentes",
+        "eventos",
+        "acoes",
+        "endpoints"
+      ],
+      "properties": {
+        "dominios": {
+          "type": "array",
+          "title": "Domínios",
+          "description": "Itens do catálogo que representam domínios consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_domain_item"
+          }
+        },
+        "modulos": {
+          "type": "array",
+          "title": "Módulos",
+          "description": "Itens do catálogo que representam módulos consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_module_item"
+          }
+        },
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Itens do catálogo que representam funcionalidades consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_feature_item"
+          }
+        },
+        "telas": {
+          "type": "array",
+          "title": "Telas",
+          "description": "Itens do catálogo que representam telas consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_screen_item"
+          }
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções",
+          "description": "Itens do catálogo que representam seções consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_section_item"
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Itens do catálogo que representam componentes consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_component_item"
+          }
+        },
+        "eventos": {
+          "type": "array",
+          "title": "Eventos",
+          "description": "Itens do catálogo que representam eventos identificados na documentação.",
+          "items": {
+            "$ref": "#/$defs/catalog_event_item"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Itens do catálogo que representam ações identificadas na documentação.",
+          "items": {
+            "$ref": "#/$defs/catalog_action_item"
+          }
+        },
+        "endpoints": {
+          "type": "array",
+          "title": "Endpoints",
+          "description": "Itens do catálogo que representam endpoints identificados na documentação.",
+          "items": {
+            "$ref": "#/$defs/catalog_endpoint_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "domain_item": {
+      "type": "object",
+      "title": "Domínio",
+      "description": "Nó de primeiro nível da árvore canônica, responsável por agrupar módulos e representar uma área funcional maior do sistema.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "modulos"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do domínio.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação usada para referenciar o domínio.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como domain para representar o primeiro nível da árvore.",
+          "const": "domain"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do domínio funcional.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do domínio dentro da plataforma canônica.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral extraído ou consolidado para esse domínio.",
+          "minLength": 1
+        },
+        "modulos": {
+          "type": "array",
+          "title": "Módulos",
+          "description": "Lista de módulos pertencentes ao domínio.",
+          "items": {
+            "$ref": "#/$defs/module_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "module_item": {
+      "type": "object",
+      "title": "Módulo",
+      "description": "Agrupamento intermediário abaixo do domínio, usado para organizar funcionalidades relacionadas.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "funcionalidades"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do módulo.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação do módulo.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como module.",
+          "const": "module"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do módulo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do módulo dentro do domínio.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado ao módulo.",
+          "minLength": 1
+        },
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Lista de funcionalidades agrupadas pelo módulo.",
+          "items": {
+            "$ref": "#/$defs/feature_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "feature_item": {
+      "type": "object",
+      "title": "Funcionalidade",
+      "description": "Agrupamento funcional abaixo do módulo, responsável por organizar telas e experiências de uso.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "telas"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da funcionalidade.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da funcionalidade.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como feature.",
+          "const": "feature"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da funcionalidade.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo prático da funcionalidade.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à funcionalidade.",
+          "minLength": 1
+        },
+        "telas": {
+          "type": "array",
+          "title": "Telas",
+          "description": "Lista de telas pertencentes à funcionalidade.",
+          "items": {
+            "$ref": "#/$defs/screen_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "screen_item": {
+      "type": "object",
+      "title": "Tela",
+      "description": "Unidade de interface de usuário que pode conter componentes e seções.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "componentes",
+        "secoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da tela.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da tela.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como screen.",
+          "const": "screen"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da tela.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da tela no fluxo do usuário.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à tela.",
+          "minLength": 1
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Lista de componentes visíveis ou relacionados à tela.",
+          "items": {
+            "$ref": "#/$defs/component_item"
+          }
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções",
+          "description": "Lista de seções presentes na tela.",
+          "items": {
+            "$ref": "#/$defs/section_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "section_item": {
+      "type": "object",
+      "title": "Seção",
+      "description": "Agrupamento interno de uma tela, usado para organizar blocos de conteúdo e subseções.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "subsecoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da seção.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da seção.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como section.",
+          "const": "section"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da seção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da seção dentro da tela.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à seção.",
+          "minLength": 1
+        },
+        "subsecoes": {
+          "type": "array",
+          "title": "Subseções",
+          "description": "Lista de subseções contidas na seção.",
+          "items": {
+            "$ref": "#/$defs/subsection_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "subsection_item": {
+      "type": "object",
+      "title": "Subseção",
+      "description": "Nível mais granular da hierarquia textual e estrutural, usado para detalhar uma seção.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da subseção.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da subseção.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como subsection.",
+          "const": "subsection"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da subseção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo específico da subseção.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual integral associado à subseção.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "component_item": {
+      "type": "object",
+      "title": "Componente",
+      "description": "Elemento de interface reutilizável ou atômico associado a uma tela.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do componente.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação do componente.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como component.",
+          "const": "component"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do componente.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do componente dentro da interface.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado ao componente.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalog_item_base": {
+      "type": "object",
+      "title": "Item de Catálogo",
+      "description": "Registro semântico genérico usado no catálogo global para representar entidades extraídas da árvore canônica.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do item do catálogo.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico do item.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo semântico do item do catálogo.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do item do catálogo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo ou papel semântico do item.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual integral relacionado ao item.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalog_domain_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "domain"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_module_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "module"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_feature_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "feature"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_screen_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "screen"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_section_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "section"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_component_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "component"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_event_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "event"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_action_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "action"
+            }
+          }
+        }
+      ]
+    },
+    "catalog_endpoint_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/catalog_item_base"
+        },
+        {
+          "properties": {
+            "tipo": {
+              "const": "endpoint"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

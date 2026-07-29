@@ -1,0 +1,2212 @@
+{
+  "prompt": {
+    "id": "0.1",
+    "file": "0.1-prompt.md",
+    "title": "0-estetica-inicial-{product-name}.md",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are a specialist in digital art direction, product design, UX/UI, design systems, frontend design, enterprise SaaS identity, contextual interfaces, and anti-generic aesthetics. Your task is to receive an initial description of a system and generate a Markdown file named: The goal is to create a short, distinct, implementable, and context-specific initial aesthetic direction that avoids generic, repetitive, predictable, or “AI slop” looking interfaces. --- ## Input The user will provide an initial description of the system, for example: The description may be incomplete. In that case: - proceed with explicit assumptions; - do not ask questions unless the minimum context is missing; - make bold but justified visual decisions; - clearly state what should be validated later. --- ## Mission Transform the initial description into a preliminary aesthetic direction that answers: 1. What kind of product is this? 2. What visual feeling should it convey? 3. Which visual clichés should it avoi...",
+    "role": "You are a specialist in digital art direction, product design, UX/UI, design systems, frontend design, enterprise SaaS identity, contextual interfaces, and anti-generic aesthetics.",
+    "summary": "You are a specialist in digital art direction, product design, UX/UI, design systems, frontend design, enterprise SaaS identity, contextual interfaces, and anti-generic aesthetics. Your task is to receive an initial description of a system and generate a Markdown file named: The goal is to create a short, distinct, implementable, and context-specific initial aesthetic direction that avoids generic, repetitive, predictable, or “AI slop” looking interfaces. --- ## Input The user will provide an initial description of the system, for example: The description may be incomplete. In that case: - proceed with explicit assumptions; - do not ask questions unless the minimum context is missing; - make...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "6e301b5e7171c9ebb02bdffbceb54bf49fde620d6e2e0e188423da1eae1eadd8"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "do not ask questions unless the minimum context is missing;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "clearly state what should be validated later.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "2. What visual feeling should it convey?",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "3. Which visual clichés should it avoid?",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "The interface must feel designed for **this specific product**, not for any generic SaaS.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "Avoid “beautiful but empty”.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "Every visual decision must have function, context, and intent.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "## Required Anti-Slop Diagnosis",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "animations that do not help;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "For each risk, explain how to avoid it.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "where it should be used;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "where it should be avoided.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 13,
+      "rule": "Do not just say “modern”, “clean”, “professional”, or “intuitive”.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 14,
+      "rule": "## Required Output",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 15,
+      "rule": "The file must follow exactly this structure:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 16,
+      "rule": "| Visual risk | How it would appear | Why it hurts | How to avoid it |",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 17,
+      "rule": "What the interface should never look like:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 18,
+      "rule": "Avoid generic fonts unless justified.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 19,
+      "rule": "how to avoid template-like layouts.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 20,
+      "rule": "| Component | Desired appearance | Required state | Anti-slop difference |",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 21,
+      "rule": "Explain in a few bullets how this aesthetic should guide the next UX, prototyping, visual design, HTML dashboard, and frontend steps.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 22,
+      "rule": "Do not return only commentary.",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "screens that look AI-generated without domain understanding.",
+      "menu;"
+    ],
+    "flows": [],
+    "experience": [
+      "clearly state what should be validated later.",
+      "How does this aesthetic translate into color, typography, layout, components, states, and frontend?",
+      "typography with personality but still readable;",
+      "complete interface states;",
+      "Expected user maturity:",
+      "empty state;",
+      "states;"
+    ],
+    "ui": [
+      "How does this aesthetic translate into color, typography, layout, components, states, and frontend?",
+      "predictable SaaS dashboard;",
+      "flattened components;",
+      "screens that look AI-generated without domain understanding.",
+      "components with their own identity;",
+      "complete interface states;",
+      "dashboards that could belong to any product;",
+      "Guiding phrase:",
+      "What the interface should never look like:",
+      "buttons.",
+      "button;",
+      "table;",
+      "modal;",
+      "reusable components.",
+      "includes implementable tokens and components;",
+      "guides real frontend work;"
+    ],
+    "layout": [
+      "make bold but justified visual decisions;",
+      "What visual feeling should it convey?",
+      "Which visual clichés should it avoid?",
+      "Which metaphor or visual concept can differentiate it?",
+      "How does this aesthetic translate into color, typography, layout, components, states, and frontend?",
+      "template-like layouts;",
+      "a unique visual concept;",
+      "clear visual accents;",
+      "composition with clear hierarchy;",
+      "visual elements without function;",
+      "Visual metaphor:",
+      "grid;",
+      "visual rhythm;",
+      "mobile behavior;",
+      "how to avoid template-like layouts.",
+      "responsiveness;",
+      "avoids AI visual clichés;",
+      "balances visual boldness and usability;"
+    ],
+    "communication": [
+      "generic copy like “manage everything in one place”;"
+    ]
+  },
+  "boundaries": {
+    "scope": [
+      "no permission."
+    ],
+    "restrictions": [
+      "do not ask questions unless the minimum context is missing;",
+      "3. Which visual clichés should it avoid?",
+      "Avoid “beautiful but empty”.",
+      "animations that do not help;",
+      "For each risk, explain how to avoid it.",
+      "where it should be avoided.",
+      "Do not just say “modern”, “clean”, “professional”, or “intuitive”.",
+      "| Visual risk | How it would appear | Why it hurts | How to avoid it |",
+      "What the interface should never look like:",
+      "Avoid generic fonts unless justified.",
+      "how to avoid template-like layouts.",
+      "Do not return only commentary."
+    ],
+    "responsibilities": [
+      "clearly state what should be validated later.",
+      "What visual feeling should it convey?",
+      "Which visual clichés should it avoid?",
+      "where it should be used;",
+      "where it should be avoided.",
+      "What the interface should never look like:"
+    ],
+    "limitations": [
+      "do not ask questions unless the minimum context is missing;",
+      "Space Grotesk as a recurring fallback;"
+    ]
+  },
+  "documents": [],
+  "outputTemplate": {
+    "file": "0.1-output-template.json",
+    "title": "Estrutura da Saída da Etapa 0.1 - Identidade Visual Principal",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema JSON que representa a saída final esperada da Etapa 0.1. A resposta deve modelar semanticamente o pacote de identidade visual do produto, incluindo a análise da marca, a definição da identidade, a construção das variações de logo e a árvore de arquivos gerada na pasta IMG/.",
+    "schemaSource": "provided",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Estrutura da Saída da Etapa 0.1 - Identidade Visual Principal",
+      "description": "Schema JSON que representa a saída final esperada da Etapa 0.1. A resposta deve modelar semanticamente o pacote de identidade visual do produto, incluindo a análise da marca, a definição da identidade, a construção das variações de logo e a árvore de arquivos gerada na pasta IMG/.",
+      "type": "object",
+      "required": [
+        "etapa",
+        "arquivo_de_entrada",
+        "assets_directory",
+        "analise_da_marca",
+        "definicao_da_identidade",
+        "construcao_da_marca",
+        "assets",
+        "brand_guidelines",
+        "estrutura_de_arquivos"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "number",
+          "title": "Número da Etapa",
+          "description": "Identificador da etapa inferida a partir do prompt de entrada. Para este schema, o valor deve ser 0.1, pois a saída corresponde à Etapa 0.1 - Identidade Visual Principal do Produto.",
+          "const": 0.1
+        },
+        "arquivo_de_entrada": {
+          "type": "string",
+          "title": "Arquivo de Entrada",
+          "description": "Nome do arquivo base que alimenta a geração da identidade visual. O schema deve refletir a análise integral de 0-estetica-inicial.md.",
+          "const": "0-estetica-inicial.md"
+        },
+        "assets_directory": {
+          "type": "string",
+          "title": "Diretório Raiz dos Assets",
+          "description": "Caminho relativo da pasta raiz onde todos os arquivos de identidade visual são gerados. O valor deve permanecer fixo em IMG/ para representar a estrutura de saída definida pelo prompt.",
+          "const": "IMG/"
+        },
+        "analise_da_marca": {
+          "type": "object",
+          "title": "Análise da Marca",
+          "description": "Bloco semântico que consolida a leitura estratégica da marca a partir do arquivo de estética inicial. Deve capturar o contexto de produto, o posicionamento visual e as restrições que orientam as decisões de identidade.",
+          "required": [
+            "nome_do_produto",
+            "segmento",
+            "tipo_de_sistema",
+            "personalidade",
+            "tom_visual",
+            "arquetipo_da_marca",
+            "conceito_central",
+            "cores",
+            "tipografia",
+            "sensacoes_desejadas"
+          ],
+          "properties": {
+            "nome_do_produto": {
+              "type": "string",
+              "title": "Nome do Produto",
+              "description": "Nome comercial ou nome de trabalho do sistema. Deve ser extraído da direção estética inicial e servir como base para todas as peças da marca.",
+              "minLength": 1
+            },
+            "segmento": {
+              "type": "string",
+              "title": "Segmento",
+              "description": "Segmento de mercado ao qual o produto pertence. Deve indicar o contexto funcional da solução, como SaaS, ERP, CRM, plataforma de governança ou outro domínio equivalente.",
+              "minLength": 1
+            },
+            "tipo_de_sistema": {
+              "type": "string",
+              "title": "Tipo de Sistema",
+              "description": "Categoria operacional do produto. Deve explicar que tipo de plataforma, aplicativo ou sistema está sendo representado pela identidade visual.",
+              "minLength": 1
+            },
+            "personalidade": {
+              "type": "string",
+              "title": "Personalidade",
+              "description": "Resumo da personalidade da marca em linguagem natural. Deve expressar credibilidade, densidade, tecnologia, governança ou outros traços derivados do prompt de origem.",
+              "minLength": 1
+            },
+            "tom_visual": {
+              "type": "string",
+              "title": "Tom Visual",
+              "description": "Descrição do tom visual que deve orientar a identidade, incluindo nível de formalidade, densidade, modernidade e temperamento estético.",
+              "minLength": 1
+            },
+            "arquetipo_da_marca": {
+              "type": "string",
+              "title": "Arquétipo da Marca",
+              "description": "Arquétipo dominante usado para orientar a leitura simbólica da identidade. Deve ser coerente com o papel da plataforma e com a sensação que a marca precisa transmitir.",
+              "minLength": 1
+            },
+            "conceito_central": {
+              "type": "string",
+              "title": "Conceito Central",
+              "description": "Ideia síntese que conecta o produto à identidade visual. Deve funcionar como fundamento narrativo para símbolos, formas, cores e composição.",
+              "minLength": 1
+            },
+            "cores": {
+              "type": "array",
+              "title": "Cores da Marca",
+              "description": "Lista das cores estratégicas que fundamentam a identidade visual. Deve refletir o sistema cromático extraído da etapa estética e sustentar todas as aplicações da marca.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "tipografia": {
+              "type": "object",
+              "title": "Tipografia da Marca",
+              "description": "Síntese tipográfica da identidade. Deve indicar as famílias, o comportamento e o uso esperado das fontes escolhidas para a marca.",
+              "required": [
+                "familia_titulos",
+                "familia_corpo",
+                "familia_mono",
+                "racional"
+              ],
+              "properties": {
+                "familia_titulos": {
+                  "$ref": "#/$defs/font_family"
+                },
+                "familia_corpo": {
+                  "$ref": "#/$defs/font_family"
+                },
+                "familia_mono": {
+                  "$ref": "#/$defs/font_family"
+                },
+                "racional": {
+                  "type": "string",
+                  "title": "Racional Tipográfico",
+                  "description": "Justificativa da escolha tipográfica e da relação entre títulos, corpo e textos técnicos. Deve explicar por que a tipografia reforça o posicionamento da marca.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "sensacoes_desejadas": {
+              "type": "array",
+              "title": "Sensações Desejadas",
+              "description": "Lista das sensações emocionais e funcionais que a identidade visual deve provocar. Deve ser curta, específica e coerente com o contexto enterprise do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Sensação",
+                "description": "Uma impressão que a marca deve transmitir ao usuário.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "definicao_da_identidade": {
+          "type": "object",
+          "title": "Definição da Identidade",
+          "description": "Bloco que converte a análise da marca em linguagem visual objetiva. Deve consolidar a personalidade visual, o estilo da marca, os elementos geométricos e simbólicos e as metáforas visuais adotadas.",
+          "required": [
+            "personalidade_visual",
+            "estilo_da_marca",
+            "linguagem_visual",
+            "elementos_geometricos",
+            "elementos_simbolicos",
+            "conceitos_visuais",
+            "metaforas_visuais"
+          ],
+          "properties": {
+            "personalidade_visual": {
+              "type": "string",
+              "title": "Personalidade Visual",
+              "description": "Descrição objetiva da atitude estética da marca. Deve explicar como a identidade se comporta visualmente e que tipo de presença ela comunica.",
+              "minLength": 1
+            },
+            "estilo_da_marca": {
+              "type": "string",
+              "title": "Estilo da Marca",
+              "description": "Definição do estilo predominante da marca, como corporativo, tecnológico, editorial, minimalista, modular ou outro estilo compatível com o produto.",
+              "minLength": 1
+            },
+            "linguagem_visual": {
+              "type": "string",
+              "title": "Linguagem Visual",
+              "description": "Descrição do vocabulário visual da marca, incluindo ritmo, contraste, geometria, peso e densidade das formas.",
+              "minLength": 1
+            },
+            "elementos_geometricos": {
+              "type": "array",
+              "title": "Elementos Geométricos",
+              "description": "Lista das formas geométricas dominantes usadas na composição da identidade. Deve privilegiar elementos com significado e evitar ornamentos genéricos.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Elemento Geométrico",
+                "description": "Uma forma, estrutura ou princípio geométrico relevante para a identidade.",
+                "minLength": 1
+              }
+            },
+            "elementos_simbolicos": {
+              "type": "array",
+              "title": "Elementos Simbólicos",
+              "description": "Lista dos símbolos, referências ou signos que carregam o significado da marca. Deve evitar clichês e manter relação direta com o contexto do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Elemento Simbólico",
+                "description": "Símbolo ou referência semântica usada na construção da identidade.",
+                "minLength": 1
+              }
+            },
+            "conceitos_visuais": {
+              "type": "array",
+              "title": "Conceitos Visuais",
+              "description": "Lista dos conceitos formais que organizam a identidade visual. Devem ser explicações sintéticas que conectam a marca às escolhas de forma, cor e composição.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Conceito Visual",
+                "description": "Um conceito visual específico associado à marca.",
+                "minLength": 1
+              }
+            },
+            "metaforas_visuais": {
+              "type": "array",
+              "title": "Metáforas Visuais",
+              "description": "Lista das metáforas visuais usadas para sustentar o storytelling da identidade. Devem ser claras, corporativas e coerentes com a operação do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Metáfora Visual",
+                "description": "Uma metáfora de design que ajuda a explicar o sistema visual da marca.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "construcao_da_marca": {
+          "type": "object",
+          "title": "Construção da Marca",
+          "description": "Bloco que descreve as versões formais da marca e como elas devem ser construídas semanticamente. Deve cobrir a versão principal, horizontal, vertical, simplificada, monocromática, negativa, símbolo, ícone, monograma, marca combinada e marca reduzida.",
+          "required": [
+            "logo_principal",
+            "logo_horizontal",
+            "logo_vertical",
+            "logo_simplificada",
+            "logo_monocromatica",
+            "logo_negativa",
+            "simbolo_da_marca",
+            "icone_da_marca",
+            "monograma",
+            "marca_combinada",
+            "marca_reduzida"
+          ],
+          "properties": {
+            "logo_principal": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "logo_horizontal": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "logo_vertical": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "logo_simplificada": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "logo_monocromatica": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "logo_negativa": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "simbolo_da_marca": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "icone_da_marca": {
+              "$ref": "#/$defs/logo_asset"
+            },
+            "monograma": {
+              "type": "object",
+              "title": "Monograma",
+              "description": "Descrição semântica da construção monogramática da marca. Nem sempre corresponde a um arquivo separado, mas deve explicar como a forma reduzida traduz a identidade e quando deve ser usada.",
+              "required": [
+                "conceito",
+                "significado",
+                "uso"
+              ],
+              "properties": {
+                "conceito": {
+                  "type": "string",
+                  "title": "Conceito do Monograma",
+                  "description": "Ideia formal que sustenta o monograma e a relação entre letras, formas e espaço negativo.",
+                  "minLength": 1
+                },
+                "significado": {
+                  "type": "string",
+                  "title": "Significado do Monograma",
+                  "description": "Interpretação simbólica do monograma dentro da identidade visual da marca.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso do Monograma",
+                  "description": "Contextos de aplicação recomendados para a forma monogramática da marca.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "marca_combinada": {
+              "type": "object",
+              "title": "Marca Combinada",
+              "description": "Versão da marca que combina símbolo e nome em uma única construção. Deve descrever como essa composição aparece nos arquivos de logo e em quais contextos ela é preferida.",
+              "required": [
+                "arquivo",
+                "composicao",
+                "uso"
+              ],
+              "properties": {
+                "arquivo": {
+                  "type": "string",
+                  "title": "Arquivo da Marca Combinada",
+                  "description": "Caminho do arquivo correspondente à marca combinada.",
+                  "pattern": "^IMG/logo\\.svg$",
+                  "examples": [
+                    "IMG/logo.svg"
+                  ]
+                },
+                "composicao": {
+                  "type": "string",
+                  "title": "Composição da Marca",
+                  "description": "Descrição da relação entre símbolo e nome na versão combinada.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso da Marca Combinada",
+                  "description": "Cenários recomendados para a aplicação da marca combinada.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "marca_reduzida": {
+              "type": "object",
+              "title": "Marca Reduzida",
+              "description": "Versão reduzida da marca para espaços compactos, favicons, ícones e aplicações de alta restrição de área.",
+              "required": [
+                "arquivo",
+                "composicao",
+                "uso"
+              ],
+              "properties": {
+                "arquivo": {
+                  "type": "string",
+                  "title": "Arquivo da Marca Reduzida",
+                  "description": "Caminho do arquivo correspondente à versão reduzida da marca.",
+                  "pattern": "^IMG/logo-symbol\\.svg$",
+                  "examples": [
+                    "IMG/logo-symbol.svg"
+                  ]
+                },
+                "composicao": {
+                  "type": "string",
+                  "title": "Composição da Marca Reduzida",
+                  "description": "Descrição da forma mínima usada para representar a marca sem o nome completo.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso da Marca Reduzida",
+                  "description": "Situações em que a versão reduzida deve ser preferida, como favicon, app icon e espaços com largura muito limitada.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "assets": {
+          "type": "object",
+          "title": "Pacote de Assets",
+          "description": "Agrupamento dos arquivos finais gerados dentro da pasta IMG/. Deve representar os logos, favicons, ícones por plataforma, imagens sociais, splash screens e documentação da marca.",
+          "required": [
+            "logos_vetoriais",
+            "favicons",
+            "android",
+            "adaptive",
+            "ios",
+            "pwa",
+            "social",
+            "splash",
+            "brand_guidelines_file"
+          ],
+          "properties": {
+            "logos_vetoriais": {
+              "type": "object",
+              "title": "Logos Vetoriais",
+              "description": "Conjunto de arquivos SVG da identidade visual principal, incluindo todas as variações da marca.",
+              "required": [
+                "logo_principal",
+                "logo_horizontal",
+                "logo_vertical",
+                "logo_simplificada",
+                "logo_monocromatica",
+                "logo_negativa"
+              ],
+              "properties": {
+                "logo_principal": {
+                  "type": "string",
+                  "title": "Logo Principal",
+                  "description": "Arquivo vetorial da versão principal da marca.",
+                  "pattern": "^IMG/logo\\.svg$",
+                  "examples": [
+                    "IMG/logo.svg"
+                  ]
+                },
+                "logo_horizontal": {
+                  "type": "string",
+                  "title": "Logo Horizontal",
+                  "description": "Arquivo vetorial da marca na composição horizontal.",
+                  "pattern": "^IMG/logo-horizontal\\.svg$",
+                  "examples": [
+                    "IMG/logo-horizontal.svg"
+                  ]
+                },
+                "logo_vertical": {
+                  "type": "string",
+                  "title": "Logo Vertical",
+                  "description": "Arquivo vetorial da marca na composição vertical.",
+                  "pattern": "^IMG/logo-vertical\\.svg$",
+                  "examples": [
+                    "IMG/logo-vertical.svg"
+                  ]
+                },
+                "logo_simplificada": {
+                  "type": "string",
+                  "title": "Logo Simplificada",
+                  "description": "Arquivo vetorial contendo apenas o símbolo da marca.",
+                  "pattern": "^IMG/logo-symbol\\.svg$",
+                  "examples": [
+                    "IMG/logo-symbol.svg"
+                  ]
+                },
+                "logo_monocromatica": {
+                  "type": "string",
+                  "title": "Logo Monocromática",
+                  "description": "Arquivo vetorial da versão monocromática da marca.",
+                  "pattern": "^IMG/logo-monochrome\\.svg$",
+                  "examples": [
+                    "IMG/logo-monochrome.svg"
+                  ]
+                },
+                "logo_negativa": {
+                  "type": "string",
+                  "title": "Logo Negativa",
+                  "description": "Arquivo vetorial da versão negativa da marca.",
+                  "pattern": "^IMG/logo-negative\\.svg$",
+                  "examples": [
+                    "IMG/logo-negative.svg"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "favicons": {
+              "type": "object",
+              "title": "Favicons",
+              "description": "Conjunto de favicons em formato ICO, SVG e PNG para diferentes resoluções.",
+              "required": [
+                "favicon_ico",
+                "favicon_svg",
+                "pngs"
+              ],
+              "properties": {
+                "favicon_ico": {
+                  "type": "string",
+                  "title": "Favicon ICO",
+                  "description": "Arquivo favicon no formato ICO.",
+                  "pattern": "^IMG/favicon\\.ico$",
+                  "examples": [
+                    "IMG/favicon.ico"
+                  ]
+                },
+                "favicon_svg": {
+                  "type": "string",
+                  "title": "Favicon SVG",
+                  "description": "Arquivo favicon no formato SVG.",
+                  "pattern": "^IMG/favicon\\.svg$",
+                  "examples": [
+                    "IMG/favicon.svg"
+                  ]
+                },
+                "pngs": {
+                  "type": "object",
+                  "title": "Favicons PNG",
+                  "description": "Mapeamento das resoluções PNG do favicon para seus respectivos arquivos.",
+                  "patternProperties": {
+                    "^(16|32|48|64)$": {
+                      "type": "string",
+                      "title": "Favicon PNG",
+                      "description": "Arquivo PNG do favicon em uma resolução específica.",
+                      "pattern": "^IMG/favicon-(16|32|48|64)\\.png$"
+                    }
+                  },
+                  "minProperties": 4,
+                  "additionalProperties": false,
+                  "examples": [
+                    {
+                      "16": "IMG/favicon-16.png",
+                      "32": "IMG/favicon-32.png",
+                      "48": "IMG/favicon-48.png",
+                      "64": "IMG/favicon-64.png"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "android": {
+              "type": "object",
+              "title": "Assets Android",
+              "description": "Ícones e arquivos PNG destinados à plataforma Android.",
+              "required": [
+                "icons"
+              ],
+              "properties": {
+                "icons": {
+                  "type": "object",
+                  "title": "Ícones Android",
+                  "description": "Mapeamento das resoluções Android para seus arquivos PNG correspondentes.",
+                  "patternProperties": {
+                    "^(36|48|72|96|144|192|512)$": {
+                      "type": "string",
+                      "title": "Ícone Android",
+                      "description": "Arquivo PNG do ícone Android em uma resolução específica.",
+                      "pattern": "^IMG/android/android-icon-(36|48|72|96|144|192|512)\\.png$"
+                    }
+                  },
+                  "minProperties": 7,
+                  "additionalProperties": false,
+                  "examples": [
+                    {
+                      "36": "IMG/android/android-icon-36.png",
+                      "48": "IMG/android/android-icon-48.png",
+                      "72": "IMG/android/android-icon-72.png",
+                      "96": "IMG/android/android-icon-96.png",
+                      "144": "IMG/android/android-icon-144.png",
+                      "192": "IMG/android/android-icon-192.png",
+                      "512": "IMG/android/android-icon-512.png"
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "adaptive": {
+              "type": "object",
+              "title": "Adaptive Icon Android",
+              "description": "Componentes do ícone adaptável do Android, incluindo foreground, background e monocromático.",
+              "required": [
+                "foreground",
+                "background",
+                "monochrome"
+              ],
+              "properties": {
+                "foreground": {
+                  "type": "string",
+                  "title": "Foreground",
+                  "description": "Arquivo PNG do foreground do ícone adaptável.",
+                  "pattern": "^IMG/adaptive/adaptive-foreground\\.png$",
+                  "examples": [
+                    "IMG/adaptive/adaptive-foreground.png"
+                  ]
+                },
+                "background": {
+                  "type": "string",
+                  "title": "Background",
+                  "description": "Arquivo PNG do background do ícone adaptável.",
+                  "pattern": "^IMG/adaptive/adaptive-background\\.png$",
+                  "examples": [
+                    "IMG/adaptive/adaptive-background.png"
+                  ]
+                },
+                "monochrome": {
+                  "type": "string",
+                  "title": "Monochrome",
+                  "description": "Arquivo PNG da versão monocromática do ícone adaptável.",
+                  "pattern": "^IMG/adaptive/adaptive-monochrome\\.png$",
+                  "examples": [
+                    "IMG/adaptive/adaptive-monochrome.png"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "ios": {
+              "type": "object",
+              "title": "Assets iOS",
+              "description": "Ícones PNG específicos para a plataforma iOS em diferentes tamanhos.",
+              "patternProperties": {
+                "^(20|29|40|58|60|76|80|120|152|167|180|1024)$": {
+                  "type": "string",
+                  "title": "Ícone iOS",
+                  "description": "Arquivo PNG de ícone iOS em uma resolução específica.",
+                  "pattern": "^IMG/ios/ios-icon-(20|29|40|58|60|76|80|120|152|167|180|1024)\\.png$"
+                }
+              },
+              "minProperties": 12,
+              "additionalProperties": false,
+              "examples": [
+                {
+                  "20": "IMG/ios/ios-icon-20.png",
+                  "29": "IMG/ios/ios-icon-29.png",
+                  "40": "IMG/ios/ios-icon-40.png",
+                  "58": "IMG/ios/ios-icon-58.png",
+                  "60": "IMG/ios/ios-icon-60.png",
+                  "76": "IMG/ios/ios-icon-76.png",
+                  "80": "IMG/ios/ios-icon-80.png",
+                  "120": "IMG/ios/ios-icon-120.png",
+                  "152": "IMG/ios/ios-icon-152.png",
+                  "167": "IMG/ios/ios-icon-167.png",
+                  "180": "IMG/ios/ios-icon-180.png",
+                  "1024": "IMG/ios/ios-icon-1024.png"
+                }
+              ]
+            },
+            "pwa": {
+              "type": "object",
+              "title": "Assets PWA",
+              "description": "Ícones específicos para Progressive Web App, incluindo tamanhos principais e versão maskable.",
+              "required": [
+                "pwa_192",
+                "pwa_512",
+                "maskable_icon"
+              ],
+              "properties": {
+                "pwa_192": {
+                  "type": "string",
+                  "title": "PWA 192x192",
+                  "description": "Arquivo PNG de 192x192 para PWA.",
+                  "pattern": "^IMG/pwa/pwa-192\\.png$",
+                  "examples": [
+                    "IMG/pwa/pwa-192.png"
+                  ]
+                },
+                "pwa_512": {
+                  "type": "string",
+                  "title": "PWA 512x512",
+                  "description": "Arquivo PNG de 512x512 para PWA.",
+                  "pattern": "^IMG/pwa/pwa-512\\.png$",
+                  "examples": [
+                    "IMG/pwa/pwa-512.png"
+                  ]
+                },
+                "maskable_icon": {
+                  "type": "string",
+                  "title": "Maskable Icon",
+                  "description": "Arquivo PNG com área segura para uso como ícone maskable.",
+                  "pattern": "^IMG/pwa/maskable-icon\\.png$",
+                  "examples": [
+                    "IMG/pwa/maskable-icon.png"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "social": {
+              "type": "object",
+              "title": "Assets para Redes Sociais",
+              "description": "Imagens de branding para compartilhamento e presença em redes sociais.",
+              "required": [
+                "social_icon",
+                "og_image",
+                "twitter_card",
+                "linkedin_banner"
+              ],
+              "properties": {
+                "social_icon": {
+                  "type": "string",
+                  "title": "Social Icon",
+                  "description": "Ícone reduzido da marca para uso em avatares, perfis e superfícies sociais com área limitada.",
+                  "pattern": "^IMG/social/social-icon\\.png$",
+                  "examples": [
+                    "IMG/social/social-icon.png"
+                  ]
+                },
+                "og_image": {
+                  "type": "string",
+                  "title": "Open Graph Image",
+                  "description": "Imagem principal para compartilhamento via Open Graph.",
+                  "pattern": "^IMG/social/og-image\\.png$",
+                  "examples": [
+                    "IMG/social/og-image.png"
+                  ]
+                },
+                "twitter_card": {
+                  "type": "string",
+                  "title": "Twitter Card",
+                  "description": "Imagem específica para cartões de compartilhamento no Twitter/X.",
+                  "pattern": "^IMG/social/twitter-card\\.png$",
+                  "examples": [
+                    "IMG/social/twitter-card.png"
+                  ]
+                },
+                "linkedin_banner": {
+                  "type": "string",
+                  "title": "LinkedIn Banner",
+                  "description": "Banner horizontal para uso em páginas institucionais do LinkedIn.",
+                  "pattern": "^IMG/social/linkedin-banner\\.png$",
+                  "examples": [
+                    "IMG/social/linkedin-banner.png"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "splash": {
+              "type": "object",
+              "title": "Splash Screens",
+              "description": "Imagens de splash screen para os temas claro e escuro.",
+              "required": [
+                "splash_light",
+                "splash_dark"
+              ],
+              "properties": {
+                "splash_light": {
+                  "type": "string",
+                  "title": "Splash Light",
+                  "description": "Arquivo PNG da splash screen para tema claro.",
+                  "pattern": "^IMG/splash/splash-light\\.png$",
+                  "examples": [
+                    "IMG/splash/splash-light.png"
+                  ]
+                },
+                "splash_dark": {
+                  "type": "string",
+                  "title": "Splash Dark",
+                  "description": "Arquivo PNG da splash screen para tema escuro.",
+                  "pattern": "^IMG/splash/splash-dark\\.png$",
+                  "examples": [
+                    "IMG/splash/splash-dark.png"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "brand_guidelines_file": {
+              "type": "string",
+              "title": "Arquivo de Brand Guidelines",
+              "description": "Caminho do arquivo markdown que documenta as diretrizes da marca gerada pela etapa.",
+              "pattern": "^IMG/brand-guidelines\\.md$",
+              "examples": [
+                "IMG/brand-guidelines.md"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "brand_guidelines": {
+          "type": "object",
+          "title": "Brand Guidelines",
+          "description": "Estrutura semântica da documentação da marca em formato markdown. Deve representar os tópicos obrigatórios do arquivo IMG/brand-guidelines.md, sem perder a intenção de cada seção.",
+          "required": [
+            "arquivo",
+            "conteudo"
+          ],
+          "properties": {
+            "arquivo": {
+              "type": "string",
+              "title": "Arquivo",
+              "description": "Caminho do arquivo de documentação da marca.",
+              "pattern": "^IMG/brand-guidelines\\.md$",
+              "examples": [
+                "IMG/brand-guidelines.md"
+              ]
+            },
+            "conteudo": {
+              "type": "object",
+              "title": "Conteúdo da Documentação",
+              "description": "Bloco estruturado com os tópicos obrigatórios do brand guidelines. Cada propriedade corresponde a uma seção do documento final.",
+              "required": [
+                "conceito_da_marca",
+                "significado_da_logo",
+                "construcao_geometrica",
+                "paleta_de_cores",
+                "tipografia",
+                "area_de_protecao",
+                "uso_correto",
+                "uso_incorreto",
+                "escalabilidade",
+                "versoes_da_marca",
+                "aplicacoes"
+              ],
+              "properties": {
+                "conceito_da_marca": {
+                  "type": "string",
+                  "title": "Conceito da Marca",
+                  "description": "Resumo do conceito central que sustenta a identidade visual e sua leitura estratégica.",
+                  "minLength": 1
+                },
+                "significado_da_logo": {
+                  "type": "string",
+                  "title": "Significado da Logo",
+                  "description": "Explicação do simbolismo e da lógica semântica da logo principal e suas variações.",
+                  "minLength": 1
+                },
+                "construcao_geometrica": {
+                  "type": "string",
+                  "title": "Construção Geométrica",
+                  "description": "Descrição da estrutura geométrica da marca, incluindo proporções, alinhamentos e lógica formal.",
+                  "minLength": 1
+                },
+                "paleta_de_cores": {
+                  "type": "array",
+                  "title": "Paleta de Cores",
+                  "description": "Lista das cores documentadas no guia de marca, com sua função e contexto de uso.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/color_token"
+                  }
+                },
+                "tipografia": {
+                  "type": "object",
+                  "title": "Tipografia",
+                  "description": "Resumo tipográfico da marca no guia final, cobrindo as famílias de texto e o racional de uso.",
+                  "required": [
+                    "familias",
+                    "racional"
+                  ],
+                  "properties": {
+                    "familias": {
+                      "type": "array",
+                      "title": "Famílias Tipográficas",
+                      "description": "Lista das famílias tipográficas usadas na marca.",
+                      "minItems": 1,
+                      "items": {
+                        "$ref": "#/$defs/font_family"
+                      }
+                    },
+                    "racional": {
+                      "type": "string",
+                      "title": "Racional Tipográfico",
+                      "description": "Justificativa da composição tipográfica apresentada no guia.",
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "area_de_protecao": {
+                  "type": "string",
+                  "title": "Área de Proteção",
+                  "description": "Regras de respiro mínimo para preservar legibilidade e integridade da marca.",
+                  "minLength": 1
+                },
+                "uso_correto": {
+                  "type": "array",
+                  "title": "Uso Correto",
+                  "description": "Lista dos usos recomendados para a marca e seus arquivos derivados.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Uso Correto",
+                    "description": "Uma prática recomendada para aplicação da marca.",
+                    "minLength": 1
+                  }
+                },
+                "uso_incorreto": {
+                  "type": "array",
+                  "title": "Uso Incorreto",
+                  "description": "Lista dos usos proibidos ou desaconselhados para evitar distorções, ruído visual e perda de consistência.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Uso Incorreto",
+                    "description": "Uma prática que deve ser evitada ao aplicar a marca.",
+                    "minLength": 1
+                  }
+                },
+                "escalabilidade": {
+                  "type": "string",
+                  "title": "Escalabilidade",
+                  "description": "Explicação de como a marca se comporta em diferentes tamanhos, densidades e contextos de interface.",
+                  "minLength": 1
+                },
+                "versoes_da_marca": {
+                  "type": "array",
+                  "title": "Versões da Marca",
+                  "description": "Lista das versões formais da marca documentadas no guia.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Versão da Marca",
+                    "description": "Nome de uma versão ou variação da marca.",
+                    "minLength": 1
+                  }
+                },
+                "aplicacoes": {
+                  "type": "array",
+                  "title": "Aplicações",
+                  "description": "Lista das aplicações da marca em interfaces, assets e contextos de uso reais.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Aplicação",
+                    "description": "Um contexto de aplicação da identidade visual.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "estrutura_de_arquivos": {
+          "type": "object",
+          "title": "Estrutura de Arquivos",
+          "description": "Representação da árvore de diretórios exigida pelo prompt. Deve refletir a pasta IMG/ e suas subpastas exatamente como descritas na especificação de saída.",
+          "required": [
+            "raiz",
+            "android",
+            "adaptive",
+            "ios",
+            "pwa",
+            "social",
+            "splash"
+          ],
+          "properties": {
+            "raiz": {
+              "type": "array",
+              "title": "Arquivos da Raiz IMG/",
+              "description": "Lista dos arquivos que ficam diretamente na raiz da pasta IMG/.",
+              "minItems": 8,
+              "items": {
+                "type": "string",
+                "title": "Arquivo da Raiz",
+                "description": "Caminho relativo de um arquivo localizado diretamente em IMG/.",
+                "enum": [
+                  "IMG/logo.svg",
+                  "IMG/logo-horizontal.svg",
+                  "IMG/logo-vertical.svg",
+                  "IMG/logo-symbol.svg",
+                  "IMG/logo-monochrome.svg",
+                  "IMG/logo-negative.svg",
+                  "IMG/favicon.ico",
+                  "IMG/favicon.svg",
+                  "IMG/favicon-16.png",
+                  "IMG/favicon-32.png",
+                  "IMG/favicon-48.png",
+                  "IMG/favicon-64.png",
+                  "IMG/brand-guidelines.md"
+                ]
+              }
+            },
+            "android": {
+              "type": "array",
+              "title": "Arquivos Android",
+              "description": "Lista dos arquivos que compõem a subpasta android/.",
+              "minItems": 7,
+              "items": {
+                "type": "string",
+                "title": "Arquivo Android",
+                "description": "Caminho relativo de um arquivo dentro de IMG/android/.",
+                "enum": [
+                  "IMG/android/android-icon-36.png",
+                  "IMG/android/android-icon-48.png",
+                  "IMG/android/android-icon-72.png",
+                  "IMG/android/android-icon-96.png",
+                  "IMG/android/android-icon-144.png",
+                  "IMG/android/android-icon-192.png",
+                  "IMG/android/android-icon-512.png"
+                ]
+              }
+            },
+            "adaptive": {
+              "type": "array",
+              "title": "Arquivos Adaptive",
+              "description": "Lista dos arquivos da subpasta adaptive/.",
+              "minItems": 3,
+              "items": {
+                "type": "string",
+                "title": "Arquivo Adaptive",
+                "description": "Caminho relativo de um arquivo dentro de IMG/adaptive/.",
+                "enum": [
+                  "IMG/adaptive/adaptive-foreground.png",
+                  "IMG/adaptive/adaptive-background.png",
+                  "IMG/adaptive/adaptive-monochrome.png"
+                ]
+              }
+            },
+            "ios": {
+              "type": "array",
+              "title": "Arquivos iOS",
+              "description": "Lista dos arquivos da subpasta ios/.",
+              "minItems": 12,
+              "items": {
+                "type": "string",
+                "title": "Arquivo iOS",
+                "description": "Caminho relativo de um arquivo dentro de IMG/ios/.",
+                "enum": [
+                  "IMG/ios/ios-icon-20.png",
+                  "IMG/ios/ios-icon-29.png",
+                  "IMG/ios/ios-icon-40.png",
+                  "IMG/ios/ios-icon-58.png",
+                  "IMG/ios/ios-icon-60.png",
+                  "IMG/ios/ios-icon-76.png",
+                  "IMG/ios/ios-icon-80.png",
+                  "IMG/ios/ios-icon-120.png",
+                  "IMG/ios/ios-icon-152.png",
+                  "IMG/ios/ios-icon-167.png",
+                  "IMG/ios/ios-icon-180.png",
+                  "IMG/ios/ios-icon-1024.png"
+                ]
+              }
+            },
+            "pwa": {
+              "type": "array",
+              "title": "Arquivos PWA",
+              "description": "Lista dos arquivos da subpasta pwa/.",
+              "minItems": 3,
+              "items": {
+                "type": "string",
+                "title": "Arquivo PWA",
+                "description": "Caminho relativo de um arquivo dentro de IMG/pwa/.",
+                "enum": [
+                  "IMG/pwa/pwa-192.png",
+                  "IMG/pwa/pwa-512.png",
+                  "IMG/pwa/maskable-icon.png"
+                ]
+              }
+            },
+            "social": {
+              "type": "array",
+              "title": "Arquivos Sociais",
+              "description": "Lista dos arquivos da subpasta social/.",
+              "minItems": 4,
+              "items": {
+                "type": "string",
+                "title": "Arquivo Social",
+                "description": "Caminho relativo de um arquivo dentro de IMG/social/.",
+                "enum": [
+                  "IMG/social/social-icon.png",
+                  "IMG/social/og-image.png",
+                  "IMG/social/twitter-card.png",
+                  "IMG/social/linkedin-banner.png"
+                ]
+              }
+            },
+            "splash": {
+              "type": "array",
+              "title": "Arquivos Splash",
+              "description": "Lista dos arquivos da subpasta splash/.",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "title": "Arquivo Splash",
+                "description": "Caminho relativo de um arquivo dentro de IMG/splash/.",
+                "enum": [
+                  "IMG/splash/splash-light.png",
+                  "IMG/splash/splash-dark.png"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "$defs": {
+        "color_token": {
+          "type": "object",
+          "title": "Token de Cor",
+          "description": "Representa uma cor semântica da identidade visual. Deve carregar nome, valor e contexto de uso para permitir implementação consistente em design systems e superfícies de marca.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Cor",
+              "description": "Nome descritivo da cor dentro do sistema da marca.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Cor",
+              "description": "Valor serializado da cor, como hex, rgb, oklch ou outro formato de implementação válido.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Cor",
+              "description": "Contexto funcional ou visual em que a cor deve ser aplicada.",
+              "minLength": 1
+            },
+            "contraste": {
+              "type": "string",
+              "title": "Contraste Recomendado",
+              "description": "Orientação opcional sobre o contraste esperado para o uso desta cor em diferentes superfícies.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "font_family": {
+          "type": "object",
+          "title": "Família Tipográfica",
+          "description": "Representa uma família de fontes usada pela marca. Deve registrar nome, fallbacks, peso preferencial e função de uso para títulos, corpo ou texto monoespaçado.",
+          "required": [
+            "nome",
+            "fallbacks",
+            "peso_preferencial",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Família",
+              "description": "Nome principal da família tipográfica.",
+              "minLength": 1
+            },
+            "fallbacks": {
+              "type": "array",
+              "title": "Fallbacks",
+              "description": "Lista de fontes alternativas para uso quando a fonte principal não estiver disponível.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fonte Fallback",
+                "description": "Nome de uma fonte alternativa compatível com a proposta visual.",
+                "minLength": 1
+              }
+            },
+            "peso_preferencial": {
+              "type": "string",
+              "title": "Peso Preferencial",
+              "description": "Peso tipográfico recomendado para a aplicação principal da família.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Família",
+              "description": "Finalidade da família tipográfica dentro da identidade visual.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "logo_asset": {
+          "type": "object",
+          "title": "Asset de Logo",
+          "description": "Representa uma variação formal da marca. Deve definir o arquivo correspondente, a composição visual e a intenção de uso.",
+          "required": [
+            "arquivo",
+            "composicao",
+            "uso"
+          ],
+          "properties": {
+            "arquivo": {
+              "type": "string",
+              "title": "Arquivo",
+              "description": "Caminho do arquivo vetorial correspondente à variação da marca.",
+              "minLength": 1
+            },
+            "composicao": {
+              "type": "string",
+              "title": "Composição",
+              "description": "Descrição da composição visual da variação da logo, como símbolo e nome, símbolo isolado ou marca reduzida.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso",
+              "description": "Contextos recomendados para a aplicação dessa variação.",
+              "minLength": 1
+            },
+            "restricoes": {
+              "type": "array",
+              "title": "Restrições",
+              "description": "Lista opcional de condições ou limites para uso correto da variação da marca.",
+              "items": {
+                "type": "string",
+                "title": "Restrição",
+                "description": "Uma condição que deve ser respeitada ao aplicar o asset.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "outputExample": {
+    "file": "0.1-output.json",
+    "title": "0-estetica-inicial-{product-name}.md",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "etapa": 0.1,
+      "arquivo_de_entrada": "0-estetica-inicial.md",
+      "assets_directory": "IMG/",
+      "analise_da_marca": {
+        "nome_do_produto": "string",
+        "segmento": "string",
+        "tipo_de_sistema": "string",
+        "personalidade": "string",
+        "tom_visual": "string",
+        "arquetipo_da_marca": "string",
+        "conceito_central": "string",
+        "cores": [
+          "string"
+        ],
+        "tipografia": {
+          "familia_titulos": "string",
+          "familia_corpo": "string",
+          "familia_mono": "string",
+          "racional": "string"
+        },
+        "sensacoes_desejadas": [
+          "string"
+        ]
+      },
+      "definicao_da_identidade": {
+        "personalidade_visual": "string",
+        "estilo_da_marca": "string",
+        "linguagem_visual": "string",
+        "elementos_geometricos": [
+          "string"
+        ],
+        "elementos_simbolicos": [
+          "string"
+        ],
+        "conceitos_visuais": [
+          "string"
+        ],
+        "metaforas_visuais": [
+          "string"
+        ]
+      },
+      "construcao_da_marca": {
+        "logo_principal": "string",
+        "logo_horizontal": "string",
+        "logo_vertical": "string",
+        "logo_simplificada": "string",
+        "logo_monocromatica": "string",
+        "logo_negativa": "string",
+        "simbolo_da_marca": "string",
+        "icone_da_marca": "string",
+        "monograma": {
+          "conceito": "string",
+          "significado": "string",
+          "uso": "string"
+        },
+        "marca_combinada": {
+          "arquivo": "IMG/logo.svg",
+          "composicao": "string",
+          "uso": "string"
+        },
+        "marca_reduzida": {
+          "arquivo": "IMG/logo-symbol.svg",
+          "composicao": "string",
+          "uso": "string"
+        }
+      },
+      "assets": {
+        "logos_vetoriais": {
+          "logo_principal": "IMG/logo.svg",
+          "logo_horizontal": "IMG/logo-horizontal.svg",
+          "logo_vertical": "IMG/logo-vertical.svg",
+          "logo_simplificada": "IMG/logo-symbol.svg",
+          "logo_monocromatica": "IMG/logo-monochrome.svg",
+          "logo_negativa": "IMG/logo-negative.svg"
+        },
+        "favicons": {
+          "favicon_ico": "IMG/favicon.ico",
+          "favicon_svg": "IMG/favicon.svg",
+          "pngs": {}
+        },
+        "android": {
+          "icons": {}
+        },
+        "adaptive": {
+          "foreground": "IMG/adaptive/adaptive-foreground.png",
+          "background": "IMG/adaptive/adaptive-background.png",
+          "monochrome": "IMG/adaptive/adaptive-monochrome.png"
+        },
+        "ios": {},
+        "pwa": {
+          "pwa_192": "IMG/pwa/pwa-192.png",
+          "pwa_512": "IMG/pwa/pwa-512.png",
+          "maskable_icon": "IMG/pwa/maskable-icon.png"
+        },
+        "social": {
+          "social_icon": "IMG/social/social-icon.png",
+          "og_image": "IMG/social/og-image.png",
+          "twitter_card": "IMG/social/twitter-card.png",
+          "linkedin_banner": "IMG/social/linkedin-banner.png"
+        },
+        "splash": {
+          "splash_light": "IMG/splash/splash-light.png",
+          "splash_dark": "IMG/splash/splash-dark.png"
+        },
+        "brand_guidelines_file": "IMG/brand-guidelines.md"
+      },
+      "brand_guidelines": {
+        "arquivo": "IMG/brand-guidelines.md",
+        "conteudo": {
+          "conceito_da_marca": "string",
+          "significado_da_logo": "string",
+          "construcao_geometrica": "string",
+          "paleta_de_cores": [
+            "string"
+          ],
+          "tipografia": {
+            "familias": [
+              "string"
+            ],
+            "racional": "string"
+          },
+          "area_de_protecao": "string",
+          "uso_correto": [
+            "string"
+          ],
+          "uso_incorreto": [
+            "string"
+          ],
+          "escalabilidade": "string",
+          "versoes_da_marca": [
+            "string"
+          ],
+          "aplicacoes": [
+            "string"
+          ]
+        }
+      },
+      "estrutura_de_arquivos": {
+        "raiz": [
+          "IMG/logo.svg"
+        ],
+        "android": [
+          "IMG/android/android-icon-36.png"
+        ],
+        "adaptive": [
+          "IMG/adaptive/adaptive-foreground.png"
+        ],
+        "ios": [
+          "IMG/ios/ios-icon-20.png"
+        ],
+        "pwa": [
+          "IMG/pwa/pwa-192.png"
+        ],
+        "social": [
+          "IMG/social/social-icon.png"
+        ],
+        "splash": [
+          "IMG/splash/splash-light.png"
+        ]
+      }
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 2,
+      "title": "Input",
+      "objective": "Definir e orientar a parte 'Input' do prompt.",
+      "description": "The user will provide an initial description of the system, for example: The description may be incomplete. In that case: - proceed with explicit assumptions; - do not ask questions unless the minimum context is missing; - make bold but justified visual decisions; - clearly state what should be validated later. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "do not ask questions unless the minimum context is missing;",
+        "clearly state what should be validated later."
+      ]
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "Mission",
+      "objective": "Definir e orientar a parte 'Mission' do prompt.",
+      "description": "Transform the initial description into a preliminary aesthetic direction that answers: 1. What kind of product is this? 2. What visual feeling should it convey? 3. Which visual clichés should it avoid? 4. Which metaphor or visual concept can differentiate it? 5. How does this aesthetic translate into color, typography, layout, components, states, and frontend? 6. How can this aesthetic be implemented later in HTML/CSS, React, Flutter, or another frontend? ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "2. What visual feeling should it convey?",
+        "3. Which visual clichés should it avoid?"
+      ]
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "Core Principle",
+      "objective": "Definir e orientar a parte 'Core Principle' do prompt.",
+      "description": "The interface must feel designed for **this specific product**, not for any generic SaaS. Avoid “beautiful but empty”. Every visual decision must have function, context, and intent. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "The interface must feel designed for **this specific product**, not for any generic SaaS.",
+        "Avoid “beautiful but empty”.",
+        "Every visual decision must have function, context, and intent."
+      ]
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "Required Anti-Slop Diagnosis",
+      "objective": "Definir e orientar a parte 'Required Anti-Slop Diagnosis' do prompt.",
+      "description": "Before proposing the aesthetic, identify risks such as: - predictable SaaS dashboard; - too many identical cards; - purple/blue gradients as a default solution; - purposeless glassmorphism; - decorative icons; - vague text; - template-like layouts; - flattened components; - timid palette; - animations that do not help; - fonts used by default without intention; - screens that look AI-generated without domain understanding. For each risk, explain how to avoid it. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "animations that do not help;",
+        "For each risk, explain how to avoid it."
+      ]
+    },
+    {
+      "index": 5,
+      "level": 2,
+      "title": "Visual Rules",
+      "objective": "Definir e orientar a parte 'Visual Rules' do prompt.",
+      "description": "Prioritize: - a unique visual concept; - an aesthetic metaphor connected to the domain; - typography with personality but still readable; - a coherent and functional color system; - clear visual accents; - contrast and accessibility; - composition with clear hierarchy; - density appropriate for real use; - components with their own identity; - complete interface states; - purposeful microinteractions; - reusable design tokens; - realistic frontend implementation. Avoid: - Inter, Roboto, Arial, and system fonts as the automatic choice; - Space Grotesk as a recurring fallback; - purple/neon/cyan as an AI shortcut without reason; - repeated white rounded cards; - decorative shadows and glow; - ...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "Decision Rules",
+      "objective": "Definir e orientar a parte 'Decision Rules' do prompt.",
+      "description": "For each relevant visual decision, explain in one short sentence: - why it fits the product; - which problem it solves; - where it should be used; - where it should be avoided. Do not just say “modern”, “clean”, “professional”, or “intuitive”. Use concrete criteria. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "where it should be used;",
+        "where it should be avoided.",
+        "Do not just say “modern”, “clean”, “professional”, or “intuitive”."
+      ]
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "Required Output",
+      "objective": "Definir e orientar a parte 'Required Output' do prompt.",
+      "description": "Create the file: Use a short, safe file name for `{product-name}`. The file must follow exactly this structure: ```md",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "The file must follow exactly this structure:"
+      ]
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "0 — Anti-Slop Initial Aesthetics — {PRODUCT NAME}",
+      "objective": "Definir e orientar a parte '0 — Anti-Slop Initial Aesthetics — {PRODUCT NAME}' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "1. Quick product read",
+      "objective": "Definir e orientar a parte '1. Quick product read' do prompt.",
+      "description": "- System type: - Likely audience: - Usage context: - Expected user maturity: - Main product tension: - Assumptions made:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 2,
+      "title": "2. Generic aesthetic risk",
+      "objective": "Definir e orientar a parte '2. Generic aesthetic risk' do prompt.",
+      "description": "| Visual risk | How it would appear | Why it hurts | How to avoid it | |---|---|---|---|",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "| Visual risk | How it would appear | Why it hurts | How to avoid it |"
+      ]
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "3. Initial visual concept",
+      "objective": "Definir e orientar a parte '3. Initial visual concept' do prompt.",
+      "description": "- Direction name: - Visual metaphor: - Desired feeling: - Guiding phrase: - What the interface should never look like:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "What the interface should never look like:"
+      ]
+    },
+    {
+      "index": 12,
+      "level": 2,
+      "title": "4. Visual personality",
+      "objective": "Definir e orientar a parte '4. Visual personality' do prompt.",
+      "description": "List 5 to 8 visual attributes, each with a short justification.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "5. Initial palette",
+      "objective": "Definir e orientar a parte '5. Initial palette' do prompt.",
+      "description": "| Role | Suggested color | HEX | Usage | Justification | |---|---|---|---|---| Include: - background; - surface; - primary text; - secondary text; - border; - primary color; - accent color; - success; - warning; - error; - information.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 2,
+      "title": "6. Initial typography",
+      "objective": "Definir e orientar a parte '6. Initial typography' do prompt.",
+      "description": "| Use | Suggested font | Safe alternative | Why use it | |---|---|---|---| Include: - headings; - body text; - technical data; - labels; - buttons. Avoid generic fonts unless justified.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "Avoid generic fonts unless justified."
+      ]
+    },
+    {
+      "index": 15,
+      "level": 2,
+      "title": "7. Layout and composition",
+      "objective": "Definir e orientar a parte '7. Layout and composition' do prompt.",
+      "description": "Define: - main structure; - density; - grid; - visual rhythm; - use of space; - mobile behavior; - how to avoid template-like layouts.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "how to avoid template-like layouts."
+      ]
+    },
+    {
+      "index": 16,
+      "level": 2,
+      "title": "8. Components with identity",
+      "objective": "Definir e orientar a parte '8. Components with identity' do prompt.",
+      "description": "| Component | Desired appearance | Required state | Anti-slop difference | |---|---|---|---| Include: - button; - input; - select; - table; - card; - badge; - menu; - panel; - alert; - modal; - empty state; - loading; - error; - no permission.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "| Component | Desired appearance | Required state | Anti-slop difference |"
+      ]
+    },
+    {
+      "index": 17,
+      "level": 2,
+      "title": "9. Motion and microinteractions",
+      "objective": "Definir e orientar a parte '9. Motion and microinteractions' do prompt.",
+      "description": "Define only useful movements: - click feedback; - focus; - loading; - expansion; - status changes; - stage transitions; - error; - success. Explain when not to animate.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "10. Initial CSS tokens",
+      "objective": "Definir e orientar a parte '10. Initial CSS tokens' do prompt.",
+      "description": "Include a short block with CSS variables:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 2,
+      "title": "11. Frontend implementation guidelines",
+      "objective": "Definir e orientar a parte '11. Frontend implementation guidelines' do prompt.",
+      "description": "List practical guidance for: - semantic HTML; - CSS; - React; - Flutter, if applicable; - responsiveness; - accessibility; - states; - theme; - reusable components.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "12. Anti-slop checklist",
+      "objective": "Definir e orientar a parte '12. Anti-slop checklist' do prompt.",
+      "description": "Create an objective checklist with 10 to 15 items to verify whether the interface feels specific, human, and implementable.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "13. Final recommendations",
+      "objective": "Definir e orientar a parte '13. Final recommendations' do prompt.",
+      "description": "Explain in a few bullets how this aesthetic should guide the next UX, prototyping, visual design, HTML dashboard, and frontend steps. ``` ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "Explain in a few bullets how this aesthetic should guide the next UX, prototyping, visual design, HTML dashboard, and frontend steps."
+      ]
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "Quality Criteria",
+      "objective": "Definir e orientar a parte 'Quality Criteria' do prompt.",
+      "description": "The response is good if it: - is short, direct, and actionable; - creates a product-specific aesthetic; - avoids AI visual clichés; - includes justified decisions; - includes implementable tokens and components; - balances visual boldness and usability; - considers accessibility; - guides real frontend work; - generates only the requested final Markdown file. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "Final Rule",
+      "objective": "Definir e orientar a parte 'Final Rule' do prompt.",
+      "description": "Do not return only commentary. Generate the file: Final response format:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ],
+      "rules": [
+        "Do not return only commentary."
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "1. Quick product read",
+      "objective": "Executar a instrução operacional '1. Quick product read'.",
+      "description": "- System type: - Likely audience: - Usage context: - Expected user maturity: - Main product tension: - Assumptions made:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "2. Generic aesthetic risk",
+      "objective": "Executar a instrução operacional '2. Generic aesthetic risk'.",
+      "description": "| Visual risk | How it would appear | Why it hurts | How to avoid it | |---|---|---|---|",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "3. Initial visual concept",
+      "objective": "Executar a instrução operacional '3. Initial visual concept'.",
+      "description": "- Direction name: - Visual metaphor: - Desired feeling: - Guiding phrase: - What the interface should never look like:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "4. Visual personality",
+      "objective": "Executar a instrução operacional '4. Visual personality'.",
+      "description": "List 5 to 8 visual attributes, each with a short justification.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 5,
+      "title": "5. Initial palette",
+      "objective": "Executar a instrução operacional '5. Initial palette'.",
+      "description": "| Role | Suggested color | HEX | Usage | Justification | |---|---|---|---|---| Include: - background; - surface; - primary text; - secondary text; - border; - primary color; - accent color; - success; - warning; - error; - information.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 6,
+      "title": "6. Initial typography",
+      "objective": "Executar a instrução operacional '6. Initial typography'.",
+      "description": "| Use | Suggested font | Safe alternative | Why use it | |---|---|---|---| Include: - headings; - body text; - technical data; - labels; - buttons. Avoid generic fonts unless justified.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 7,
+      "title": "7. Layout and composition",
+      "objective": "Executar a instrução operacional '7. Layout and composition'.",
+      "description": "Define: - main structure; - density; - grid; - visual rhythm; - use of space; - mobile behavior; - how to avoid template-like layouts.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 8,
+      "title": "8. Components with identity",
+      "objective": "Executar a instrução operacional '8. Components with identity'.",
+      "description": "| Component | Desired appearance | Required state | Anti-slop difference | |---|---|---|---| Include: - button; - input; - select; - table; - card; - badge; - menu; - panel; - alert; - modal; - empty state; - loading; - error; - no permission.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 9,
+      "title": "9. Motion and microinteractions",
+      "objective": "Executar a instrução operacional '9. Motion and microinteractions'.",
+      "description": "Define only useful movements: - click feedback; - focus; - loading; - expansion; - status changes; - stage transitions; - error; - success. Explain when not to animate.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 10,
+      "title": "10. Initial CSS tokens",
+      "objective": "Executar a instrução operacional '10. Initial CSS tokens'.",
+      "description": "Include a short block with CSS variables:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 11,
+      "title": "11. Frontend implementation guidelines",
+      "objective": "Executar a instrução operacional '11. Frontend implementation guidelines'.",
+      "description": "List practical guidance for: - semantic HTML; - CSS; - React; - Flutter, if applicable; - responsiveness; - accessibility; - states; - theme; - reusable components.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 12,
+      "title": "12. Anti-slop checklist",
+      "objective": "Executar a instrução operacional '12. Anti-slop checklist'.",
+      "description": "Create an objective checklist with 10 to 15 items to verify whether the interface feels specific, human, and implementable.",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    },
+    {
+      "index": 13,
+      "title": "13. Final recommendations",
+      "objective": "Executar a instrução operacional '13. Final recommendations'.",
+      "description": "Explain in a few bullets how this aesthetic should guide the next UX, prototyping, visual design, HTML dashboard, and frontend steps. ``` ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json"
+      ],
+      "outputs": [
+        "0.1-output.json"
+      ]
+    }
+  ]
+}

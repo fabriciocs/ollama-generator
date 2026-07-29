@@ -1,0 +1,2209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 1 - Ideia Inicial e Enquadramento do Problema",
+  "description": "Schema JSON que representa semanticamente o conteúdo do dashboard HTML da Etapa 1. A saída final deve consolidar a ideia inicial, o enquadramento estratégico do problema, as hipóteses iniciais, os mapas de dores, oportunidades e riscos, as análises organizacionais e os recursos de interatividade exigidos pelo prompt.",
+  "type": "object",
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "identificacao",
+    "documento_de_ideia_inicial",
+    "canvas_inicial_do_produto",
+    "enquadramento_do_problema",
+    "publico_alvo_inicial",
+    "proposta_de_valor_inicial",
+    "objetivos_de_negocio",
+    "objetivos_dos_usuarios",
+    "hipoteses_iniciais",
+    "mapa_de_dores_e_necessidades",
+    "mapa_de_oportunidades",
+    "mapa_de_riscos_e_restricoes",
+    "premissas",
+    "perguntas_em_aberto",
+    "contexto_organizacional_e_escalabilidade",
+    "hipoteses_de_governanca_e_seguranca",
+    "hipoteses_de_monetizacao_e_billing",
+    "hipoteses_de_ia_e_automacao",
+    "hipoteses_de_estrutura_organizacional",
+    "resumo_executivo",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferida a partir do prompt de entrada. Para este schema, o valor deve ser 1, pois a saída corresponde à Etapa 1 - Ideia Inicial e Enquadramento do Problema.",
+      "const": 1
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 1.",
+      "const": "1-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 1.html, conforme o prompt.",
+      "const": "1.html"
+    },
+    "identificacao": {
+      "type": "object",
+      "title": "Identificação do Produto",
+      "description": "Bloco que consolida a identidade provisória do produto, sua categoria, seu segmento e o posicionamento inicial extraído da ideia do usuário.",
+      "required": [
+        "nome_provisorio",
+        "categoria_sistema",
+        "segmento_mercado",
+        "descricao_curta",
+        "frase_posicionamento"
+      ],
+      "properties": {
+        "nome_provisorio": {
+          "type": "string",
+          "title": "Nome Provisório",
+          "description": "Nome de trabalho do produto. Deve servir como rótulo operacional da proposta nesta etapa e pode ser alterado em fases posteriores.",
+          "minLength": 1
+        },
+        "categoria_sistema": {
+          "type": "string",
+          "title": "Categoria do Sistema",
+          "description": "Categoria funcional do sistema, como SaaS, plataforma interna, ferramenta de automação, CRM, ERP, marketplace ou outra equivalente.",
+          "minLength": 1
+        },
+        "segmento_mercado": {
+          "type": "string",
+          "title": "Segmento de Mercado",
+          "description": "Segmento ou nicho de mercado atendido pela solução. Deve refletir o contexto do problema e o tipo de operação imaginada.",
+          "minLength": 1
+        },
+        "descricao_curta": {
+          "type": "string",
+          "title": "Descrição Curta",
+          "description": "Resumo breve e objetivo do produto. Deve explicar o que a solução é sem aprofundar em implementação.",
+          "minLength": 1
+        },
+        "frase_posicionamento": {
+          "type": "string",
+          "title": "Frase de Posicionamento",
+          "description": "Frase que sintetiza o valor percebido, o público e a diferença estratégica do produto em linguagem clara.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "documento_de_ideia_inicial": {
+      "type": "object",
+      "title": "Documento de Ideia Inicial",
+      "description": "Síntese narrativa da ideia informada pelo usuário. Deve registrar o ponto de partida da proposta, o contexto percebido e a leitura inicial da oportunidade.",
+      "required": [
+        "ideia_original",
+        "contexto_fornecido",
+        "leitura_inicial",
+        "escopo_preliminar",
+        "observacoes_de_incerteza"
+      ],
+      "properties": {
+        "ideia_original": {
+          "type": "string",
+          "title": "Ideia Original",
+          "description": "Formulação inicial da ideia do usuário, preservando o sentido original da proposta.",
+          "minLength": 1
+        },
+        "contexto_fornecido": {
+          "type": "string",
+          "title": "Contexto Fornecido",
+          "description": "Contexto explícito que acompanha a ideia, incluindo restrições, intenções e sinais presentes no histórico da conversa.",
+          "minLength": 1
+        },
+        "leitura_inicial": {
+          "type": "string",
+          "title": "Leitura Inicial",
+          "description": "Interpretação estratégica preliminar da ideia. Deve dizer o que a proposta parece resolver e por que isso importa.",
+          "minLength": 1
+        },
+        "escopo_preliminar": {
+          "type": "string",
+          "title": "Escopo Preliminar",
+          "description": "Delimitação inicial do escopo percebido para a solução, sem entrar em especificação funcional detalhada.",
+          "minLength": 1
+        },
+        "observacoes_de_incerteza": {
+          "type": "array",
+          "title": "Observações de Incerteza",
+          "description": "Lista das incertezas relevantes observadas na ideia inicial. Deve registrar lacunas e hipóteses que ainda precisam de validação.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Incerteza",
+            "description": "Uma dúvida, lacuna ou hipótese não confirmada sobre a ideia inicial.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "canvas_inicial_do_produto": {
+      "type": "object",
+      "title": "Canvas Inicial do Produto",
+      "description": "Estrutura inicial de canvas para organizar a proposta de valor, o problema, os usuários e os elementos estratégicos da solução.",
+      "required": [
+        "problema_central",
+        "usuarios_principais",
+        "solucao_hipotetica",
+        "proposta_de_valor",
+        "diferenciais_iniciais",
+        "canais_de_uso",
+        "metricas_iniciais",
+        "riscos_chave"
+      ],
+      "properties": {
+        "problema_central": {
+          "type": "string",
+          "title": "Problema Central",
+          "description": "Descrição objetiva do problema principal que a ideia tenta resolver.",
+          "minLength": 1
+        },
+        "usuarios_principais": {
+          "type": "array",
+          "title": "Usuários Principais",
+          "description": "Lista dos perfis de usuário mais diretamente afetados pela solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Usuário Principal",
+            "description": "Perfil ou grupo de usuário impactado pela proposta.",
+            "minLength": 1
+          }
+        },
+        "solucao_hipotetica": {
+          "type": "string",
+          "title": "Solução Hipotética",
+          "description": "Hipótese inicial de como o produto pode resolver o problema central.",
+          "minLength": 1
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Resumo do valor entregue pelo produto para usuários e negócio.",
+          "minLength": 1
+        },
+        "diferenciais_iniciais": {
+          "type": "array",
+          "title": "Diferenciais Iniciais",
+          "description": "Lista dos diferenciais percebidos na ideia inicial que podem ajudar a posicionar a solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Diferencial",
+            "description": "Uma característica de diferenciação percebida na proposta.",
+            "minLength": 1
+          }
+        },
+        "canais_de_uso": {
+          "type": "array",
+          "title": "Canais de Uso",
+          "description": "Lista dos contextos ou canais nos quais a solução pode ser usada ou consumida.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Canal",
+            "description": "Canal, ambiente ou contexto de uso da solução.",
+            "minLength": 1
+          }
+        },
+        "metricas_iniciais": {
+          "type": "array",
+          "title": "Métricas Iniciais",
+          "description": "Lista de métricas de valor ou sucesso que podem orientar a validação da ideia nesta etapa.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Métrica",
+            "description": "Indicador sugerido para acompanhar a proposta.",
+            "minLength": 1
+          }
+        },
+        "riscos_chave": {
+          "type": "array",
+          "title": "Riscos-Chave",
+          "description": "Lista de riscos centrais percebidos no canvas inicial.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Risco-Chave",
+            "description": "Um risco estratégico ou de adoção percebido na proposta.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "enquadramento_do_problema": {
+      "type": "object",
+      "title": "Enquadramento do Problema",
+      "description": "Bloco que descreve o problema principal, os problemas secundários, o contexto de uso e as consequências percebidas para usuários e negócio.",
+      "required": [
+        "problema_principal",
+        "problemas_secundarios",
+        "causas_suspeitas",
+        "impacto_no_negocio",
+        "impacto_no_usuario",
+        "contexto_de_uso",
+        "evidencias",
+        "perguntas_criticas"
+      ],
+      "properties": {
+        "problema_principal": {
+          "type": "string",
+          "title": "Problema Principal",
+          "description": "Formulação mais importante do problema a ser resolvido.",
+          "minLength": 1
+        },
+        "problemas_secundarios": {
+          "type": "array",
+          "title": "Problemas Secundários",
+          "description": "Lista de problemas correlatos ou derivados que ampliam o impacto da dor principal.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Problema Secundário",
+            "description": "Uma dor complementar ou associada ao problema central.",
+            "minLength": 1
+          }
+        },
+        "causas_suspeitas": {
+          "type": "array",
+          "title": "Causas Suspeitas",
+          "description": "Hipóteses iniciais sobre as causas do problema observado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Causa Suspeita",
+            "description": "Uma hipótese de causa raiz ou causa contribuidora.",
+            "minLength": 1
+          }
+        },
+        "impacto_no_negocio": {
+          "type": "string",
+          "title": "Impacto no Negócio",
+          "description": "Consequência do problema para receita, operação, escala, governança ou eficiência do negócio.",
+          "minLength": 1
+        },
+        "impacto_no_usuario": {
+          "type": "string",
+          "title": "Impacto no Usuário",
+          "description": "Consequência prática do problema para o usuário final ou decisor.",
+          "minLength": 1
+        },
+        "contexto_de_uso": {
+          "type": "string",
+          "title": "Contexto de Uso",
+          "description": "Cenário em que o problema aparece com mais força.",
+          "minLength": 1
+        },
+        "evidencias": {
+          "type": "array",
+          "title": "Evidências",
+          "description": "Lista das evidências ou sinais observados no histórico e na ideia que sustentam o enquadramento do problema.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Evidência",
+            "description": "Um sinal, indício ou dado que justifica o enquadramento do problema.",
+            "minLength": 1
+          }
+        },
+        "perguntas_criticas": {
+          "type": "array",
+          "title": "Perguntas Críticas",
+          "description": "Perguntas que precisam ser respondidas para confirmar ou refinar o enquadramento do problema.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Pergunta Crítica",
+            "description": "Pergunta estratégica que ainda depende de validação.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "publico_alvo_inicial": {
+      "type": "object",
+      "title": "Público-Alvo Inicial",
+      "description": "Bloco que identifica quem é afetado pela solução, quem usa, quem decide e quem influencia a adoção.",
+      "required": [
+        "publico_principal",
+        "usuarios_impactados",
+        "decisores",
+        "stakeholders",
+        "contexto_de_uso"
+      ],
+      "properties": {
+        "publico_principal": {
+          "type": "array",
+          "title": "Público Principal",
+          "description": "Lista dos públicos primários para os quais a solução parece ser construída.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Público",
+            "description": "Grupo ou perfil de público-alvo.",
+            "minLength": 1
+          }
+        },
+        "usuarios_impactados": {
+          "type": "array",
+          "title": "Usuários Impactados",
+          "description": "Lista de perfis que sofrerão impacto direto ou indireto com a solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Usuário Impactado",
+            "description": "Perfil ou função impactada pela proposta.",
+            "minLength": 1
+          }
+        },
+        "decisores": {
+          "type": "array",
+          "title": "Decisores",
+          "description": "Lista de pessoas ou papéis que podem aprovar, comprar ou priorizar a solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Decisor",
+            "description": "Papel decisório relevante para a adoção do produto.",
+            "minLength": 1
+          }
+        },
+        "stakeholders": {
+          "type": "array",
+          "title": "Stakeholders",
+          "description": "Lista das partes interessadas que influenciam o problema, a adoção ou a operação da solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Stakeholder",
+            "description": "Parte interessada relacionada ao produto.",
+            "minLength": 1
+          }
+        },
+        "contexto_de_uso": {
+          "type": "string",
+          "title": "Contexto de Uso",
+          "description": "Descrição do cenário de uso predominante para os perfis identificados.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "proposta_de_valor_inicial": {
+      "type": "object",
+      "title": "Proposta de Valor Inicial",
+      "description": "Bloco que expressa o valor percebido da solução para o negócio e para os usuários, sem entrar em detalhamento funcional.",
+      "required": [
+        "valor_central",
+        "beneficios_para_negocio",
+        "beneficios_para_usuario",
+        "diferenciais_percebidos",
+        "argumentos_de_adesao",
+        "limites_da_proposta"
+      ],
+      "properties": {
+        "valor_central": {
+          "type": "string",
+          "title": "Valor Central",
+          "description": "Tese principal de valor da proposta.",
+          "minLength": 1
+        },
+        "beneficios_para_negocio": {
+          "type": "array",
+          "title": "Benefícios para o Negócio",
+          "description": "Lista de benefícios estratégicos esperados para a operação, a receita, a escala ou a governança.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Benefício",
+            "description": "Benefício percebido pelo negócio.",
+            "minLength": 1
+          }
+        },
+        "beneficios_para_usuario": {
+          "type": "array",
+          "title": "Benefícios para o Usuário",
+          "description": "Lista de benefícios percebidos pelos perfis que usarão a solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Benefício",
+            "description": "Benefício percebido pelo usuário.",
+            "minLength": 1
+          }
+        },
+        "diferenciais_percebidos": {
+          "type": "array",
+          "title": "Diferenciais Percebidos",
+          "description": "Lista dos diferenciais iniciais que ajudam a justificar a solução frente a alternativas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Diferencial",
+            "description": "Um diferencial percebido na proposta.",
+            "minLength": 1
+          }
+        },
+        "argumentos_de_adesao": {
+          "type": "array",
+          "title": "Argumentos de Adesão",
+          "description": "Lista de argumentos que explicam por que alguém adotaria a solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Argumento",
+            "description": "Argumento de valor ou adoção.",
+            "minLength": 1
+          }
+        },
+        "limites_da_proposta": {
+          "type": "array",
+          "title": "Limites da Proposta",
+          "description": "Lista de limitações percebidas nesta formulação inicial de valor.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Limite",
+            "description": "Restrição ou limite explícito da proposta.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "objetivos_de_negocio": {
+      "type": "object",
+      "title": "Objetivos de Negócio",
+      "description": "Bloco que organiza os objetivos estratégicos esperados para o produto do ponto de vista da organização.",
+      "required": [
+        "objetivos",
+        "resultados_esperados"
+      ],
+      "properties": {
+        "objetivos": {
+          "type": "array",
+          "title": "Objetivos",
+          "description": "Lista de objetivos de negócio identificados na ideia inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/objective_item"
+          }
+        },
+        "resultados_esperados": {
+          "type": "array",
+          "title": "Resultados Esperados",
+          "description": "Lista de resultados práticos esperados caso os objetivos de negócio se confirmem.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Resultado Esperado",
+            "description": "Resultado de negócio esperado.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "objetivos_dos_usuarios": {
+      "type": "object",
+      "title": "Objetivos dos Usuários",
+      "description": "Bloco que organiza o que os usuários precisam alcançar ao usar a solução.",
+      "required": [
+        "objetivos",
+        "resultados_esperados"
+      ],
+      "properties": {
+        "objetivos": {
+          "type": "array",
+          "title": "Objetivos",
+          "description": "Lista de objetivos dos usuários observados ou inferidos a partir da ideia.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/objective_item"
+          }
+        },
+        "resultados_esperados": {
+          "type": "array",
+          "title": "Resultados Esperados",
+          "description": "Lista de resultados esperados para os usuários se a solução funcionar como previsto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Resultado Esperado",
+            "description": "Resultado esperado para o usuário.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipoteses_iniciais": {
+      "type": "object",
+      "title": "Hipóteses Iniciais",
+      "description": "Bloco que reúne a tabela principal de hipóteses e a leitura estratégica dessas hipóteses para orientar validação posterior.",
+      "required": [
+        "tabela",
+        "sintese",
+        "hipoteses_prioritarias"
+      ],
+      "properties": {
+        "tabela": {
+          "type": "array",
+          "title": "Tabela de Hipóteses",
+          "description": "Lista estruturada das hipóteses iniciais geradas a partir da ideia e do contexto disponível.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/hypothesis_row"
+          }
+        },
+        "sintese": {
+          "type": "string",
+          "title": "Síntese das Hipóteses",
+          "description": "Leitura consolidada do conjunto de hipóteses, destacando o que parece mais incerto e mais promissor.",
+          "minLength": 1
+        },
+        "hipoteses_prioritarias": {
+          "type": "array",
+          "title": "Hipóteses Prioritárias",
+          "description": "Lista das hipóteses mais importantes para validar primeiro.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese Prioritária",
+            "description": "Identificador ou resumo de uma hipótese prioritária.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "mapa_de_dores_e_necessidades": {
+      "type": "object",
+      "title": "Mapa de Dores e Necessidades",
+      "description": "Bloco que conecta dores percebidas a necessidades derivadas, permitindo leitura estruturada da oportunidade inicial.",
+      "required": [
+        "dores",
+        "necessidades",
+        "sintese"
+      ],
+      "properties": {
+        "dores": {
+          "type": "array",
+          "title": "Dores",
+          "description": "Tabela semântica das dores identificadas na ideia inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/pain_row"
+          }
+        },
+        "necessidades": {
+          "type": "array",
+          "title": "Necessidades",
+          "description": "Lista de necessidades associadas às dores identificadas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/need_row"
+          }
+        },
+        "sintese": {
+          "type": "string",
+          "title": "Síntese do Mapa",
+          "description": "Resumo da relação entre dores e necessidades e do que isso indica sobre o problema.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "mapa_de_oportunidades": {
+      "type": "object",
+      "title": "Mapa de Oportunidades",
+      "description": "Bloco que lista oportunidades observadas a partir do enquadramento inicial da ideia.",
+      "required": [
+        "oportunidades",
+        "sintese"
+      ],
+      "properties": {
+        "oportunidades": {
+          "type": "array",
+          "title": "Oportunidades",
+          "description": "Tabela semântica de oportunidades derivadas da análise inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/opportunity_row"
+          }
+        },
+        "sintese": {
+          "type": "string",
+          "title": "Síntese das Oportunidades",
+          "description": "Resumo do potencial de valor observado nas oportunidades identificadas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "mapa_de_riscos_e_restricoes": {
+      "type": "object",
+      "title": "Mapa de Riscos e Restrições",
+      "description": "Bloco que reúne riscos percebidos e restrições iniciais que podem afetar produto, mercado, operação, governança ou tecnologia.",
+      "required": [
+        "riscos",
+        "restricoes",
+        "sintese"
+      ],
+      "properties": {
+        "riscos": {
+          "type": "array",
+          "title": "Riscos",
+          "description": "Tabela semântica de riscos associados à ideia inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/risk_row"
+          }
+        },
+        "restricoes": {
+          "type": "array",
+          "title": "Restrições",
+          "description": "Lista das restrições explícitas ou inferidas que podem limitar a evolução da solução.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/restriction_row"
+          }
+        },
+        "sintese": {
+          "type": "string",
+          "title": "Síntese de Riscos e Restrições",
+          "description": "Resumo das principais limitações e ameaças identificadas na análise inicial.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "premissas": {
+      "type": "array",
+      "title": "Premissas",
+      "description": "Lista das premissas assumidas para preencher lacunas de informação nesta etapa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/premise_item"
+      }
+    },
+    "perguntas_em_aberto": {
+      "type": "object",
+      "title": "Perguntas em Aberto",
+      "description": "Agrupamento das perguntas que ainda precisam de resposta para consolidar o entendimento da ideia e reduzir incertezas.",
+      "required": [
+        "negocio",
+        "usuarios",
+        "mercado",
+        "operacao",
+        "tecnologia",
+        "monetizacao",
+        "juridico",
+        "seguranca",
+        "governanca",
+        "integracoes",
+        "ia",
+        "compliance"
+      ],
+      "properties": {
+        "negocio": {
+          "type": "array",
+          "title": "Perguntas de Negócio",
+          "description": "Perguntas relacionadas ao modelo de negócio, problema e priorização da solução.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "usuarios": {
+          "type": "array",
+          "title": "Perguntas de Usuários",
+          "description": "Perguntas sobre perfis, comportamento, jornada e necessidades dos usuários.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "mercado": {
+          "type": "array",
+          "title": "Perguntas de Mercado",
+          "description": "Perguntas sobre concorrência, demanda, posicionamento e diferenciação.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "operacao": {
+          "type": "array",
+          "title": "Perguntas de Operação",
+          "description": "Perguntas sobre operação, escala, suporte e rotina de uso.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "tecnologia": {
+          "type": "array",
+          "title": "Perguntas de Tecnologia",
+          "description": "Perguntas sobre viabilidade técnica, arquitetura futura e integração com sistemas.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "monetizacao": {
+          "type": "array",
+          "title": "Perguntas de Monetização",
+          "description": "Perguntas sobre receita, precificação, cobrança e valor econômico.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "juridico": {
+          "type": "array",
+          "title": "Perguntas Jurídicas",
+          "description": "Perguntas sobre contrato, responsabilidade, uso de dados e obrigações legais.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "seguranca": {
+          "type": "array",
+          "title": "Perguntas de Segurança",
+          "description": "Perguntas sobre proteção de dados, acesso, rastreabilidade e mitigação de risco.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "governanca": {
+          "type": "array",
+          "title": "Perguntas de Governança",
+          "description": "Perguntas sobre regras de administração, hierarquia, aprovação e controle.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "integracoes": {
+          "type": "array",
+          "title": "Perguntas de Integrações",
+          "description": "Perguntas sobre dependências externas, APIs e fluxo de dados com outras ferramentas.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "ia": {
+          "type": "array",
+          "title": "Perguntas de IA",
+          "description": "Perguntas sobre uso de inteligência artificial, automação assistida e confiança nos resultados.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        },
+        "compliance": {
+          "type": "array",
+          "title": "Perguntas de Compliance",
+          "description": "Perguntas sobre conformidade regulatória, auditoria e controles necessários.",
+          "items": {
+            "$ref": "#/$defs/question_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "contexto_organizacional_e_escalabilidade": {
+      "type": "object",
+      "title": "Contexto Organizacional e Escalabilidade",
+      "description": "Análise estratégica do tipo de operação prevista, do volume potencial e da necessidade de estrutura organizacional, segregação e escala.",
+      "required": [
+        "tipo_de_operacao_prevista",
+        "quantidade_provavel_de_usuarios",
+        "quantidade_provavel_de_clientes",
+        "possibilidade_de_multiplas_organizacoes",
+        "possibilidade_de_multiplas_empresas",
+        "possibilidade_de_matriz_e_filiais",
+        "necessidade_de_segregacao_de_dados",
+        "necessidade_de_diferentes_perfis",
+        "necessidade_de_administracao_centralizada",
+        "necessidade_de_governanca",
+        "necessidade_de_auditoria",
+        "necessidade_de_billing",
+        "necessidade_de_ia",
+        "necessidade_de_integracoes"
+      ],
+      "properties": {
+        "tipo_de_operacao_prevista": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "quantidade_provavel_de_usuarios": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "quantidade_provavel_de_clientes": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "possibilidade_de_multiplas_organizacoes": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "possibilidade_de_multiplas_empresas": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "possibilidade_de_matriz_e_filiais": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_segregacao_de_dados": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_diferentes_perfis": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_administracao_centralizada": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_governanca": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_auditoria": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_billing": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_ia": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "necessidade_de_integracoes": {
+          "$ref": "#/$defs/assessment_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipoteses_de_governanca_e_seguranca": {
+      "type": "object",
+      "title": "Hipóteses de Governança e Segurança",
+      "description": "Avaliação inicial das necessidades de governança, segurança, auditoria, segregação e permissões.",
+      "required": [
+        "permissoes_e_perfis",
+        "auditoria_e_rastreabilidade",
+        "segregacao_de_dados",
+        "seguranca_da_informacao",
+        "conformidade"
+      ],
+      "properties": {
+        "permissoes_e_perfis": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "auditoria_e_rastreabilidade": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "segregacao_de_dados": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "seguranca_da_informacao": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "conformidade": {
+          "$ref": "#/$defs/assessment_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipoteses_de_monetizacao_e_billing": {
+      "type": "object",
+      "title": "Hipóteses de Monetização e Billing",
+      "description": "Avaliação inicial das necessidades de cobrança, monetização recorrente, planos e limites de uso.",
+      "required": [
+        "billing_recorrente",
+        "assinatura",
+        "planos_e_limites",
+        "monetizacao"
+      ],
+      "properties": {
+        "billing_recorrente": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "assinatura": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "planos_e_limites": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "monetizacao": {
+          "$ref": "#/$defs/assessment_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipoteses_de_ia_e_automacao": {
+      "type": "object",
+      "title": "Hipóteses de IA e Automação",
+      "description": "Avaliação inicial do uso de inteligência artificial, automações e assistentes no contexto do produto.",
+      "required": [
+        "inteligencia_artificial",
+        "automacoes",
+        "assistentes"
+      ],
+      "properties": {
+        "inteligencia_artificial": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "automacoes": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "assistentes": {
+          "$ref": "#/$defs/assessment_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipoteses_de_estrutura_organizacional": {
+      "type": "object",
+      "title": "Hipóteses de Estrutura Organizacional",
+      "description": "Avaliação inicial da necessidade de múltiplas organizações, múltiplas empresas, matriz e filiais, administração centralizada e configurações por escopo.",
+      "required": [
+        "multiplas_organizacoes",
+        "multiplas_empresas",
+        "matriz_e_filiais",
+        "administracao_centralizada",
+        "configuracoes_globais_e_por_organizacao"
+      ],
+      "properties": {
+        "multiplas_organizacoes": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "multiplas_empresas": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "matriz_e_filiais": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "administracao_centralizada": {
+          "$ref": "#/$defs/assessment_item"
+        },
+        "configuracoes_globais_e_por_organizacao": {
+          "$ref": "#/$defs/assessment_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "resumo_executivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Síntese de alto nível da análise realizada na etapa, cobrindo tese central, principais hipóteses e principais riscos.",
+      "required": [
+        "sintese_estrategica",
+        "tese_central",
+        "principais_hipoteses",
+        "principal_risco",
+        "principal_oportunidade",
+        "nivel_de_confianca"
+      ],
+      "properties": {
+        "sintese_estrategica": {
+          "type": "string",
+          "title": "Síntese Estratégica",
+          "description": "Resumo de uma ou duas frases que capturem a leitura estratégica da ideia.",
+          "minLength": 1
+        },
+        "tese_central": {
+          "type": "string",
+          "title": "Tese Central",
+          "description": "Tese principal sobre por que a proposta pode ou não fazer sentido.",
+          "minLength": 1
+        },
+        "principais_hipoteses": {
+          "type": "array",
+          "title": "Principais Hipóteses",
+          "description": "Lista das hipóteses mais importantes que sustentam a leitura executiva.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese Principal",
+            "description": "Hipótese estratégica relevante para a decisão.",
+            "minLength": 1
+          }
+        },
+        "principal_risco": {
+          "type": "string",
+          "title": "Principal Risco",
+          "description": "Risco mais relevante percebido no estágio atual.",
+          "minLength": 1
+        },
+        "principal_oportunidade": {
+          "type": "string",
+          "title": "Principal Oportunidade",
+          "description": "Oportunidade mais relevante percebida na análise.",
+          "minLength": 1
+        },
+        "nivel_de_confianca": {
+          "type": "string",
+          "title": "Nível de Confiança",
+          "description": "Leitura geral da confiança na definição atual da ideia.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "proximos_passos": {
+      "type": "object",
+      "title": "Próximos Passos",
+      "description": "Direcionamento para a Etapa 2, incluindo pesquisa de mercado, validações e hipóteses prioritárias.",
+      "required": [
+        "etapa_destino",
+        "concorrentes_a_pesquisar",
+        "modelos_de_monetizacao_a_validar",
+        "riscos_prioritarios",
+        "hipoteses_prioritarias",
+        "validacoes_com_usuarios",
+        "validacoes_operacionais",
+        "validacoes_de_governanca",
+        "validacoes_de_seguranca",
+        "validacoes_de_escalabilidade"
+      ],
+      "properties": {
+        "etapa_destino": {
+          "type": "string",
+          "title": "Etapa de Destino",
+          "description": "Nome da próxima etapa definida pelo prompt.",
+          "const": "Etapa 2 — Pesquisa de Mercado e Benchmarking"
+        },
+        "concorrentes_a_pesquisar": {
+          "type": "array",
+          "title": "Concorrentes a Pesquisar",
+          "description": "Lista inicial de concorrentes, referências ou alternativas de mercado a investigar na próxima etapa.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Concorrente",
+            "description": "Nome de um concorrente ou referência de mercado.",
+            "minLength": 1
+          }
+        },
+        "modelos_de_monetizacao_a_validar": {
+          "type": "array",
+          "title": "Modelos de Monetização a Validar",
+          "description": "Lista dos formatos de monetização que precisam ser investigados.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Modelo de Monetização",
+            "description": "Estratégia de cobrança ou monetização a validar.",
+            "minLength": 1
+          }
+        },
+        "riscos_prioritarios": {
+          "type": "array",
+          "title": "Riscos Prioritários",
+          "description": "Lista dos riscos que devem ser atacados primeiro nas próximas validações.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Risco Prioritário",
+            "description": "Risco prioritário para validação ou mitigação.",
+            "minLength": 1
+          }
+        },
+        "hipoteses_prioritarias": {
+          "type": "array",
+          "title": "Hipóteses Prioritárias",
+          "description": "Lista das hipóteses que devem ser validadas antes de expandir o escopo.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese Prioritária",
+            "description": "Hipótese que merece validação prioritária.",
+            "minLength": 1
+          }
+        },
+        "validacoes_com_usuarios": {
+          "type": "array",
+          "title": "Validações com Usuários",
+          "description": "Lista das validações a realizar com usuários ou potenciais usuários.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação com Usuários",
+            "description": "Validação de descoberta com usuários.",
+            "minLength": 1
+          }
+        },
+        "validacoes_operacionais": {
+          "type": "array",
+          "title": "Validações Operacionais",
+          "description": "Lista das validações relacionadas à operação e execução da solução.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação Operacional",
+            "description": "Validação sobre operação, rotina ou capacidade de execução.",
+            "minLength": 1
+          }
+        },
+        "validacoes_de_governanca": {
+          "type": "array",
+          "title": "Validações de Governança",
+          "description": "Lista das validações necessárias para confirmar governança, controle e administração.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação de Governança",
+            "description": "Validação relacionada a governança.",
+            "minLength": 1
+          }
+        },
+        "validacoes_de_seguranca": {
+          "type": "array",
+          "title": "Validações de Segurança",
+          "description": "Lista das validações necessárias para confirmar riscos e controles de segurança.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação de Segurança",
+            "description": "Validação relacionada a segurança.",
+            "minLength": 1
+          }
+        },
+        "validacoes_de_escalabilidade": {
+          "type": "array",
+          "title": "Validações de Escalabilidade",
+          "description": "Lista das validações relacionadas à escala, volume e crescimento esperado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação de Escalabilidade",
+            "description": "Validação sobre escalabilidade do produto.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "interatividade": {
+      "type": "object",
+      "title": "Interatividade do Dashboard",
+      "description": "Requisitos semânticos dos controles interativos exigidos no dashboard HTML da Etapa 1.",
+      "required": [
+        "tema",
+        "secoes_colapsaveis",
+        "filtros",
+        "acoes_rapidas",
+        "indicadores_visuais"
+      ],
+      "properties": {
+        "tema": {
+          "type": "object",
+          "title": "Alternância de Tema",
+          "description": "Configuração da alternância entre temas claro e escuro.",
+          "required": [
+            "temas_disponiveis",
+            "padrao"
+          ],
+          "properties": {
+            "temas_disponiveis": {
+              "type": "array",
+              "title": "Temas Disponíveis",
+              "description": "Lista dos temas suportados pelo dashboard.",
+              "minItems": 2,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "claro",
+                  "escuro"
+                ]
+              }
+            },
+            "padrao": {
+              "type": "string",
+              "title": "Tema Padrão",
+              "description": "Tema exibido por padrão quando o dashboard é carregado.",
+              "enum": [
+                "claro",
+                "escuro"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "secoes_colapsaveis": {
+          "type": "object",
+          "title": "Seções Colapsáveis",
+          "description": "Configuração das seções que podem ser expandidas e recolhidas pelo usuário.",
+          "required": [
+            "habilitadas",
+            "expandidas_por_padrao"
+          ],
+          "properties": {
+            "habilitadas": {
+              "type": "boolean",
+              "title": "Seções Habilitadas",
+              "description": "Indica se a interface permite expandir e recolher seções."
+            },
+            "expandidas_por_padrao": {
+              "type": "array",
+              "title": "Seções Expandidas por Padrão",
+              "description": "Lista das seções que devem iniciar abertas no carregamento.",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "filtros": {
+          "type": "object",
+          "title": "Filtros",
+          "description": "Conjunto de filtros interativos disponibilizados no dashboard.",
+          "required": [
+            "hipoteses_por_tipo",
+            "hipoteses_por_prioridade",
+            "riscos_por_categoria",
+            "oportunidades_por_prioridade",
+            "hipoteses_estruturais_por_tema"
+          ],
+          "properties": {
+            "hipoteses_por_tipo": {
+              "type": "array",
+              "title": "Filtro de Hipóteses por Tipo",
+              "description": "Lista dos tipos de hipótese que podem ser usados como filtro.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "hipoteses_por_prioridade": {
+              "type": "array",
+              "title": "Filtro de Hipóteses por Prioridade",
+              "description": "Lista dos níveis de prioridade disponíveis para filtragem.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "riscos_por_categoria": {
+              "type": "array",
+              "title": "Filtro de Riscos por Categoria",
+              "description": "Lista das categorias de risco suportadas pelo filtro.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "oportunidades_por_prioridade": {
+              "type": "array",
+              "title": "Filtro de Oportunidades por Prioridade",
+              "description": "Lista dos níveis de prioridade das oportunidades para filtragem.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "hipoteses_estruturais_por_tema": {
+              "type": "array",
+              "title": "Filtro de Hipóteses Estruturais por Tema",
+              "description": "Lista dos temas das hipóteses estruturais usados para filtrar o conteúdo.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "acoes_rapidas": {
+          "type": "object",
+          "title": "Ações Rápidas",
+          "description": "Ações imediatas disponibilizadas na interface para reutilização do conteúdo do dashboard.",
+          "required": [
+            "copiar_resumo_executivo",
+            "exportar_markdown",
+            "imprimir_ou_salvar_pdf"
+          ],
+          "properties": {
+            "copiar_resumo_executivo": {
+              "type": "boolean",
+              "title": "Copiar Resumo Executivo",
+              "description": "Indica se a interface deve permitir copiar o resumo executivo para a área de transferência."
+            },
+            "exportar_markdown": {
+              "type": "boolean",
+              "title": "Exportar Markdown",
+              "description": "Indica se a interface deve permitir exportar o conteúdo em Markdown."
+            },
+            "imprimir_ou_salvar_pdf": {
+              "type": "boolean",
+              "title": "Imprimir ou Salvar PDF",
+              "description": "Indica se a interface deve permitir impressão ou salvamento em PDF."
+            }
+          },
+          "additionalProperties": false
+        },
+        "indicadores_visuais": {
+          "type": "object",
+          "title": "Indicadores Visuais",
+          "description": "Configuração dos elementos visuais de acompanhamento, destaque e contagem no dashboard.",
+          "required": [
+            "barra_de_progresso",
+            "contadores",
+            "destaques",
+            "priorizacao_visual"
+          ],
+          "properties": {
+            "barra_de_progresso": {
+              "type": "boolean",
+              "title": "Barra de Progresso",
+              "description": "Indica se o dashboard deve exibir o progresso visual da etapa."
+            },
+            "contadores": {
+              "type": "boolean",
+              "title": "Contadores",
+              "description": "Indica se a interface deve mostrar contadores em tempo de leitura."
+            },
+            "destaques": {
+              "type": "boolean",
+              "title": "Destaques",
+              "description": "Indica se a interface deve destacar itens prioritários, críticos ou de alto impacto."
+            },
+            "priorizacao_visual": {
+              "type": "string",
+              "title": "Priorização Visual",
+              "description": "Descrição de como a interface deve enfatizar itens prioritários e riscos críticos.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "progresso_visual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Representação do avanço visual da Etapa 1 no dashboard.",
+      "required": [
+        "etapa_atual",
+        "percentual",
+        "marcos"
+      ],
+      "properties": {
+        "etapa_atual": {
+          "type": "integer",
+          "title": "Etapa Atual",
+          "description": "Número da etapa representada visualmente.",
+          "const": 1
+        },
+        "percentual": {
+          "type": "number",
+          "title": "Percentual de Progresso",
+          "description": "Percentual visual de conclusão da etapa no dashboard.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "marcos": {
+          "type": "array",
+          "title": "Marcos de Progresso",
+          "description": "Lista dos marcos visuais ou de conteúdo usados para sinalizar avanço dentro da etapa.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Bloco que identifica os itens que devem receber destaque visual no dashboard por prioridade, criticidade ou impacto.",
+      "required": [
+        "hipoteses_prioritarias",
+        "riscos_criticos",
+        "hipoteses_estruturais_de_alto_impacto"
+      ],
+      "properties": {
+        "hipoteses_prioritarias": {
+          "type": "array",
+          "title": "Hipóteses Prioritárias em Destaque",
+          "description": "Lista de hipóteses que devem receber destaque visual.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/highlight_item"
+          }
+        },
+        "riscos_criticos": {
+          "type": "array",
+          "title": "Riscos Críticos em Destaque",
+          "description": "Lista de riscos que devem ser exibidos com forte ênfase visual.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/highlight_item"
+          }
+        },
+        "hipoteses_estruturais_de_alto_impacto": {
+          "type": "array",
+          "title": "Hipóteses Estruturais de Alto Impacto",
+          "description": "Lista das hipóteses estruturais mais relevantes para o futuro da solução.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/highlight_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Resumo numérico dos principais conjuntos do dashboard para apoiar leitura rápida e priorização.",
+      "required": [
+        "total_de_hipoteses",
+        "total_de_hipoteses_prioritarias",
+        "total_de_dores",
+        "total_de_necessidades",
+        "total_de_oportunidades",
+        "total_de_riscos",
+        "total_de_riscos_criticos",
+        "total_de_premissas",
+        "total_de_perguntas",
+        "total_de_validações_prioritarias"
+      ],
+      "properties": {
+        "total_de_hipoteses": {
+          "type": "integer",
+          "title": "Total de Hipóteses",
+          "description": "Quantidade total de hipóteses listadas no dashboard.",
+          "minimum": 0
+        },
+        "total_de_hipoteses_prioritarias": {
+          "type": "integer",
+          "title": "Total de Hipóteses Prioritárias",
+          "description": "Quantidade de hipóteses marcadas como prioritárias.",
+          "minimum": 0
+        },
+        "total_de_dores": {
+          "type": "integer",
+          "title": "Total de Dores",
+          "description": "Quantidade total de dores identificadas.",
+          "minimum": 0
+        },
+        "total_de_necessidades": {
+          "type": "integer",
+          "title": "Total de Necessidades",
+          "description": "Quantidade total de necessidades identificadas.",
+          "minimum": 0
+        },
+        "total_de_oportunidades": {
+          "type": "integer",
+          "title": "Total de Oportunidades",
+          "description": "Quantidade total de oportunidades listadas.",
+          "minimum": 0
+        },
+        "total_de_riscos": {
+          "type": "integer",
+          "title": "Total de Riscos",
+          "description": "Quantidade total de riscos mapeados.",
+          "minimum": 0
+        },
+        "total_de_riscos_criticos": {
+          "type": "integer",
+          "title": "Total de Riscos Críticos",
+          "description": "Quantidade de riscos classificados como críticos ou de alta atenção.",
+          "minimum": 0
+        },
+        "total_de_premissas": {
+          "type": "integer",
+          "title": "Total de Premissas",
+          "description": "Quantidade total de premissas registradas.",
+          "minimum": 0
+        },
+        "total_de_perguntas": {
+          "type": "integer",
+          "title": "Total de Perguntas",
+          "description": "Quantidade total de perguntas em aberto no dashboard.",
+          "minimum": 0
+        },
+        "total_de_validações_prioritarias": {
+          "type": "integer",
+          "title": "Total de Validações Prioritárias",
+          "description": "Quantidade total de validações priorizadas para a próxima etapa.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "objective_item": {
+      "type": "object",
+      "title": "Objetivo",
+      "description": "Item semântico usado para representar um objetivo de negócio ou de usuário com contexto, impacto e prioridade.",
+      "required": [
+        "objetivo",
+        "motivo",
+        "impacto_esperado",
+        "prioridade"
+      ],
+      "properties": {
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Formulação clara do objetivo a ser alcançado.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Razão pela qual esse objetivo importa neste momento.",
+          "minLength": 1
+        },
+        "impacto_esperado": {
+          "type": "string",
+          "title": "Impacto Esperado",
+          "description": "Impacto positivo esperado caso o objetivo seja atingido.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Nível de prioridade do objetivo dentro da etapa.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "hypothesis_row": {
+      "type": "object",
+      "title": "Linha de Hipótese",
+      "description": "Representa uma linha da tabela de hipóteses iniciais com prioridade, impacto e forma de validação.",
+      "required": [
+        "id",
+        "hipotese",
+        "tipo",
+        "impacto",
+        "incerteza",
+        "prioridade",
+        "como_validar"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estável da hipótese.",
+          "minLength": 1
+        },
+        "hipotese": {
+          "type": "string",
+          "title": "Hipótese",
+          "description": "Enunciado da hipótese a ser validada.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Classificação da hipótese, como problema, público, valor, monetização, adoção, operação, tecnologia ou diferenciação.",
+          "enum": [
+            "problema",
+            "publico",
+            "valor",
+            "monetizacao",
+            "adocao",
+            "operacao",
+            "tecnologia",
+            "diferenciacao"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Descrição do impacto potencial caso a hipótese se confirme ou seja descartada.",
+          "minLength": 1
+        },
+        "incerteza": {
+          "type": "string",
+          "title": "Incerteza",
+          "description": "Grau ou natureza da dúvida associada à hipótese.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estratégica da hipótese para validação.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "como_validar": {
+          "type": "string",
+          "title": "Como Validar",
+          "description": "Forma sugerida de validar a hipótese na próxima etapa.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "structural_hypothesis_row": {
+      "type": "object",
+      "title": "Linha de Hipótese Estrutural",
+      "description": "Representa uma linha da tabela de hipóteses estruturais com tema, evidência, confiança e impacto futuro.",
+      "required": [
+        "tema",
+        "hipotese",
+        "evidencia_atual",
+        "nivel_de_confianca",
+        "impacto_futuro"
+      ],
+      "properties": {
+        "tema": {
+          "type": "string",
+          "title": "Tema",
+          "description": "Tema da hipótese estrutural, como organizações, permissões, auditoria, billing, IA ou escalabilidade.",
+          "minLength": 1
+        },
+        "hipotese": {
+          "type": "string",
+          "title": "Hipótese",
+          "description": "Formulação da hipótese estrutural.",
+          "minLength": 1
+        },
+        "evidencia_atual": {
+          "type": "string",
+          "title": "Evidência Atual",
+          "description": "Evidência ou sinal atualmente disponível para apoiar a hipótese.",
+          "minLength": 1
+        },
+        "nivel_de_confianca": {
+          "type": "string",
+          "title": "Nível de Confiança",
+          "description": "Nível de confiança atual na hipótese estrutural.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "impacto_futuro": {
+          "type": "string",
+          "title": "Impacto Futuro",
+          "description": "Impacto esperado da hipótese caso seja confirmada no produto e na operação futura.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "pain_row": {
+      "type": "object",
+      "title": "Linha de Dor",
+      "description": "Representa uma linha da tabela de dores com intensidade, frequência e oportunidade associada.",
+      "required": [
+        "id",
+        "dor",
+        "usuario_impactado",
+        "intensidade",
+        "frequencia",
+        "consequencia",
+        "oportunidade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador da dor.",
+          "minLength": 1
+        },
+        "dor": {
+          "type": "string",
+          "title": "Dor",
+          "description": "Descrição da dor percebida.",
+          "minLength": 1
+        },
+        "usuario_impactado": {
+          "type": "string",
+          "title": "Usuário Impactado",
+          "description": "Perfil mais impactado por essa dor.",
+          "minLength": 1
+        },
+        "intensidade": {
+          "type": "string",
+          "title": "Intensidade",
+          "description": "Intensidade percebida da dor.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "frequencia": {
+          "type": "string",
+          "title": "Frequência",
+          "description": "Frequência com que a dor tende a aparecer.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "consequencia": {
+          "type": "string",
+          "title": "Consequência",
+          "description": "Consequência prática da dor para o usuário ou operação.",
+          "minLength": 1
+        },
+        "oportunidade": {
+          "type": "string",
+          "title": "Oportunidade",
+          "description": "Oportunidade associada à mitigação dessa dor.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "need_row": {
+      "type": "object",
+      "title": "Linha de Necessidade",
+      "description": "Representa uma necessidade derivada de uma dor ou de um contexto de uso observado.",
+      "required": [
+        "necessidade",
+        "usuario_impactado",
+        "tipo",
+        "prioridade",
+        "relacao_com_dor"
+      ],
+      "properties": {
+        "necessidade": {
+          "type": "string",
+          "title": "Necessidade",
+          "description": "Descrição da necessidade identificada.",
+          "minLength": 1
+        },
+        "usuario_impactado": {
+          "type": "string",
+          "title": "Usuário Impactado",
+          "description": "Perfil ou papel mais impactado pela necessidade.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da necessidade observada.",
+          "enum": [
+            "funcional",
+            "operacional",
+            "emocional",
+            "estrategica",
+            "governanca",
+            "seguranca"
+          ]
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da necessidade para a solução.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "relacao_com_dor": {
+          "type": "string",
+          "title": "Relação com Dor",
+          "description": "Explicação de como essa necessidade se relaciona com uma dor ou contexto percebido.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "opportunity_row": {
+      "type": "object",
+      "title": "Linha de Oportunidade",
+      "description": "Representa uma linha da tabela de oportunidades com esforço, valor e prioridade.",
+      "required": [
+        "id",
+        "oportunidade",
+        "categoria",
+        "valor_esperado",
+        "esforco_estimado",
+        "prioridade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador da oportunidade.",
+          "minLength": 1
+        },
+        "oportunidade": {
+          "type": "string",
+          "title": "Oportunidade",
+          "description": "Descrição da oportunidade percebida.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da oportunidade, como automação, produtividade, experiência do usuário, receita, operação, dados, IA ou diferenciação.",
+          "enum": [
+            "automacao",
+            "produtividade",
+            "experiencia_do_usuario",
+            "receita",
+            "operacao",
+            "dados",
+            "ia",
+            "diferenciacao"
+          ]
+        },
+        "valor_esperado": {
+          "type": "string",
+          "title": "Valor Esperado",
+          "description": "Valor potencial gerado pela oportunidade.",
+          "minLength": 1
+        },
+        "esforco_estimado": {
+          "type": "string",
+          "title": "Esforço Estimado",
+          "description": "Esforço relativo estimado para explorar a oportunidade.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estratégica da oportunidade.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "risk_row": {
+      "type": "object",
+      "title": "Linha de Risco",
+      "description": "Representa uma linha da tabela de riscos com categoria, probabilidade, impacto e mitigação inicial.",
+      "required": [
+        "id",
+        "risco",
+        "categoria",
+        "probabilidade",
+        "impacto",
+        "mitigacao_inicial"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador do risco.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Descrição do risco identificado.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do risco, como produto, mercado, técnico, financeiro, jurídico, segurança, operação, adoção, governança, auditoria, isolamento de dados, permissões, escalabilidade, conformidade, IA, integrações ou monetização.",
+          "enum": [
+            "produto",
+            "mercado",
+            "tecnico",
+            "financeiro",
+            "juridico",
+            "seguranca",
+            "operacao",
+            "adocao",
+            "governanca",
+            "auditoria",
+            "isolamento_de_dados",
+            "permissoes",
+            "escalabilidade",
+            "conformidade",
+            "ia",
+            "integracoes",
+            "monetizacao"
+          ]
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Probabilidade percebida de ocorrência do risco.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto potencial do risco caso ele se concretize.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "mitigacao_inicial": {
+          "type": "string",
+          "title": "Mitigação Inicial",
+          "description": "Medida inicial sugerida para reduzir o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "restriction_row": {
+      "type": "object",
+      "title": "Linha de Restrição",
+      "description": "Representa uma restrição inicial que pode limitar o escopo, a implementação ou a adoção da solução.",
+      "required": [
+        "restricao",
+        "categoria",
+        "impacto",
+        "mitigacao_inicial"
+      ],
+      "properties": {
+        "restricao": {
+          "type": "string",
+          "title": "Restrição",
+          "description": "Descrição da restrição percebida.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da restrição, como produto, operação, negócio, tecnologia, legal ou governança.",
+          "enum": [
+            "produto",
+            "operacao",
+            "negocio",
+            "tecnologia",
+            "legal",
+            "governanca"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado da restrição sobre a proposta.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "mitigacao_inicial": {
+          "type": "string",
+          "title": "Mitigação Inicial",
+          "description": "Ação inicial sugerida para mitigar a restrição.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "premise_item": {
+      "type": "object",
+      "title": "Premissa",
+      "description": "Premissa operacional ou estratégica assumida para avançar a análise sem evidência suficiente.",
+      "required": [
+        "premissa",
+        "origem",
+        "grau_de_confianca",
+        "validacao_necessaria"
+      ],
+      "properties": {
+        "premissa": {
+          "type": "string",
+          "title": "Premissa",
+          "description": "Enunciado da premissa assumida.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem da premissa, como hipótese, inferência do contexto ou restrição explícita.",
+          "minLength": 1
+        },
+        "grau_de_confianca": {
+          "type": "string",
+          "title": "Grau de Confiança",
+          "description": "Nível de confiança na premissa.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "validacao_necessaria": {
+          "type": "string",
+          "title": "Validação Necessária",
+          "description": "O que precisa ser validado para confirmar a premissa.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "question_item": {
+      "type": "object",
+      "title": "Pergunta em Aberto",
+      "description": "Item de pergunta com motivo e impacto da não resposta.",
+      "required": [
+        "pergunta",
+        "motivo",
+        "impacto_de_nao_responder",
+        "prioridade"
+      ],
+      "properties": {
+        "pergunta": {
+          "type": "string",
+          "title": "Pergunta",
+          "description": "Texto da pergunta em aberto.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Motivo pelo qual a pergunta precisa ser respondida.",
+          "minLength": 1
+        },
+        "impacto_de_nao_responder": {
+          "type": "string",
+          "title": "Impacto de Não Responder",
+          "description": "Consequência de manter essa questão em aberto.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da pergunta para a próxima etapa.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "assessment_item": {
+      "type": "object",
+      "title": "Avaliação Estratégica",
+      "description": "Item semântico para classificar uma hipótese estrutural ou uma necessidade estratégica com nível de confiança e impacto futuro.",
+      "required": [
+        "classificacao",
+        "evidencia_atual",
+        "nivel_de_confianca",
+        "impacto_futuro",
+        "observacoes"
+      ],
+      "properties": {
+        "classificacao": {
+          "type": "string",
+          "title": "Classificação",
+          "description": "Classificação da necessidade ou hipótese analisada.",
+          "enum": [
+            "Evidência encontrada",
+            "Hipótese",
+            "Necessita validação"
+          ]
+        },
+        "evidencia_atual": {
+          "type": "string",
+          "title": "Evidência Atual",
+          "description": "Evidência, sinal ou ausência de evidência atualmente disponível.",
+          "minLength": 1
+        },
+        "nivel_de_confianca": {
+          "type": "string",
+          "title": "Nível de Confiança",
+          "description": "Grau de confiança na avaliação feita.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "impacto_futuro": {
+          "type": "string",
+          "title": "Impacto Futuro",
+          "description": "Impacto esperado se a avaliação for confirmada no futuro do produto.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Notas complementares sobre a avaliação, incluindo hipótese, lacunas ou dependências.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "highlight_item": {
+      "type": "object",
+      "title": "Item em Destaque",
+      "description": "Representa um item que deve receber destaque visual no dashboard por relevância estratégica.",
+      "required": [
+        "referencia",
+        "motivo",
+        "nivel_visual"
+      ],
+      "properties": {
+        "referencia": {
+          "type": "string",
+          "title": "Referência",
+          "description": "Nome, ID ou resumo do item destacado.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Motivo pelo qual o item deve receber destaque.",
+          "minLength": 1
+        },
+        "nivel_visual": {
+          "type": "string",
+          "title": "Nível Visual",
+          "description": "Intensidade do destaque visual a ser aplicada.",
+          "enum": [
+            "Moderado",
+            "Alto",
+            "Crítico"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

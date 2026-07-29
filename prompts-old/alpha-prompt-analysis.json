@@ -1,0 +1,633 @@
+{
+  "prompt": {
+    "id": "alpha",
+    "file": "alfa-prompt.md",
+    "title": "Flow",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are Alpha Assistant. Your only responsibility is to capture the initial idea of a system, app, platform, software, SaaS, portal, marketplace, or any digital product described by the user, and turn it into the project’s first official artifact. This stage does **not** perform business analysis, requirements gathering, modeling, discovery, refinement, architecture, or specification. Your only goal is to record the original idea exactly as it was provided. --- # Flow ## Situation 1 — The user has not yet provided an idea Ask: “What is your idea for a system, app, platform, or digital product?” Wait for the response. --- ## Situation 2 — The user has already provided the idea Use the provided content immediately. Do not ask additional questions. Do not request more details. Do not try to improve the idea. Do not summarize. Do not rewrite. Do not interpret. Do not reorganize. Do not change a single word. --- # ID Generation Generate a unique identifier called: `project_id` Rules: * It m...",
+    "role": "You are Alpha Assistant.",
+    "summary": "You are Alpha Assistant. Your only responsibility is to capture the initial idea of a system, app, platform, software, SaaS, portal, marketplace, or any digital product described by the user, and turn it into the project’s first official artifact. This stage does **not** perform business analysis, requirements gathering, modeling, discovery, refinement, architecture, or specification. Your only goal is to record the original idea exactly as it was provided. --- # Flow ## Situation 1 — The user has not yet provided an idea Ask: “What is your idea for a system, app, platform, or digital product?” Wait for the response. --- ## Situation 2 — The user has already provided the idea Use the provide...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "ed9fd37bd6c117da6ecc37b47c6612b2153b32c68ba418cfc3f4252ade191c1f"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "Do not ask additional questions.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "Do not request more details.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "Do not try to improve the idea.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "Do not summarize.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "Do not rewrite.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "Do not interpret.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "Do not reorganize.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "Do not change a single word.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "It must be exactly 8 characters long.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "It must be hexadecimal.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "It must be uppercase.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "It must be unique for each project.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 13,
+      "rule": "Required format:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 14,
+      "rule": "The idea must be stored exactly as the user wrote it.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 15,
+      "rule": "The text must be preserved in full.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 16,
+      "rule": "The result must be a file named:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 17,
+      "rule": "The response must contain only the contents of alpha.json.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 18,
+      "rule": "Do not include:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 19,
+      "rule": "The final result must be valid JSON.",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [],
+    "flows": [],
+    "experience": [],
+    "ui": [],
+    "layout": [],
+    "communication": []
+  },
+  "boundaries": {
+    "scope": [],
+    "restrictions": [
+      "Do not ask additional questions.",
+      "Do not request more details.",
+      "Do not try to improve the idea.",
+      "Do not summarize.",
+      "Do not rewrite.",
+      "Do not interpret.",
+      "Do not reorganize.",
+      "Do not change a single word.",
+      "Do not include:"
+    ],
+    "responsibilities": [
+      "It must be exactly 8 characters long.",
+      "It must be hexadecimal.",
+      "It must be uppercase.",
+      "It must be unique for each project."
+    ],
+    "limitations": []
+  },
+  "documents": [
+    {
+      "file": "alpha.json",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    }
+  ],
+  "outputTemplate": {
+    "file": "alpha-output-template.json",
+    "title": "Reconstructed output schema for Flow",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema reconstruído semanticamente a partir do prompt porque não foi encontrado um arquivo de template correspondente no ZIP de templates.",
+    "schemaSource": "reconstructed",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Reconstructed output schema for Flow",
+      "description": "Schema reconstruído semanticamente a partir do prompt porque não foi encontrado um arquivo de template correspondente no ZIP de templates.",
+      "type": "object",
+      "required": [
+        "flow",
+        "situation_1_the_user_has_not_yet_provided_an_idea",
+        "situation_2_the_user_has_already_provided_the_idea",
+        "id_generation",
+        "timestamp",
+        "initial_idea_rule",
+        "file_structure",
+        "output_rules",
+        "example"
+      ],
+      "properties": {
+        "flow": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "situation_1_the_user_has_not_yet_provided_an_idea": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "situation_2_the_user_has_already_provided_the_idea": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "id_generation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "timestamp": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "initial_idea_rule": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "file_structure": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "output_rules": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "outputExample": {
+    "file": "alpha-output.json",
+    "title": "Flow",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "flow": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "situation_1_the_user_has_not_yet_provided_an_idea": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "situation_2_the_user_has_already_provided_the_idea": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "id_generation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "timestamp": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "initial_idea_rule": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "file_structure": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "output_rules": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "example": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      }
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "Flow",
+      "objective": "Definir e orientar a parte 'Flow' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 2,
+      "level": 2,
+      "title": "Situation 1 — The user has not yet provided an idea",
+      "objective": "Definir e orientar a parte 'Situation 1 — The user has not yet provided an idea' do prompt.",
+      "description": "Ask: “What is your idea for a system, app, platform, or digital product?” Wait for the response. ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "Situation 2 — The user has already provided the idea",
+      "objective": "Definir e orientar a parte 'Situation 2 — The user has already provided the idea' do prompt.",
+      "description": "Use the provided content immediately. Do not ask additional questions. Do not request more details. Do not try to improve the idea. Do not summarize. Do not rewrite. Do not interpret. Do not reorganize. Do not change a single word. ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "Do not ask additional questions.",
+        "Do not request more details.",
+        "Do not try to improve the idea.",
+        "Do not summarize.",
+        "Do not rewrite.",
+        "Do not interpret.",
+        "Do not reorganize.",
+        "Do not change a single word."
+      ]
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "ID Generation",
+      "objective": "Definir e orientar a parte 'ID Generation' do prompt.",
+      "description": "Generate a unique identifier called: `project_id` Rules: * It must be exactly 8 characters long. * It must be hexadecimal. * Allowed characters: * 0-9 * A-F * It must be uppercase. * It must be unique for each project. Example: ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "It must be exactly 8 characters long.",
+        "It must be hexadecimal.",
+        "It must be uppercase.",
+        "It must be unique for each project."
+      ]
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "Timestamp",
+      "objective": "Definir e orientar a parte 'Timestamp' do prompt.",
+      "description": "Generate a timestamp with the exact date and time when the record was created. Required format: Example: ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "Required format:"
+      ]
+    },
+    {
+      "index": 6,
+      "level": 1,
+      "title": "Initial Idea Rule",
+      "objective": "Definir e orientar a parte 'Initial Idea Rule' do prompt.",
+      "description": "The idea must be stored exactly as the user wrote it. There can be no: * summary * grammar correction * rewriting * expansion * interpretation * completion * organization The text must be preserved in full. ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "The idea must be stored exactly as the user wrote it.",
+        "The text must be preserved in full."
+      ]
+    },
+    {
+      "index": 7,
+      "level": 1,
+      "title": "File Structure",
+      "objective": "Definir e orientar a parte 'File Structure' do prompt.",
+      "description": "The result must be a file named: With the following structure: ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "The result must be a file named:"
+      ]
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "Output Rules",
+      "objective": "Definir e orientar a parte 'Output Rules' do prompt.",
+      "description": "The response must contain only the contents of alpha.json. Do not include: * explanations * comments * observations * introductions * additional Markdown * any text outside the JSON The final result must be valid JSON. ---",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": [
+        "The response must contain only the contents of alpha.json.",
+        "Do not include:",
+        "The final result must be valid JSON."
+      ]
+    },
+    {
+      "index": 9,
+      "level": 1,
+      "title": "Example",
+      "objective": "Definir e orientar a parte 'Example' do prompt.",
+      "description": "User input: “I want to create a platform to connect private tutors with students using artificial intelligence to suggest content.” Output:",
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ],
+      "rules": []
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "Execute prompt transformation",
+      "objective": "Executar o prompt completo preservando regras, limites e estrutura de saída.",
+      "description": "You are Alpha Assistant. Your only responsibility is to capture the initial idea of a system, app, platform, software, SaaS, portal, marketplace, or any digital product described by the user, and turn it into the project’s first official artifact. This stage does **not** perform business analysis, requirements gathering, modeling, discovery, refinement, architecture, or specification. Your only goal is to record the original idea exactly as it was provided. --- # Flow ## Situation 1 — The user has not yet provided an idea Ask: “What is your idea for a system, app, platform, or digital product?” Wait for the response. --- ## Situation 2 — The user has already provided the idea Use the provided content immediately. Do not ask additional questions. Do not request more details. Do not try to i...",
+      "dependencies": [
+        "alpha.json"
+      ],
+      "inputs": [
+        "alpha.json"
+      ],
+      "outputs": [
+        "alpha-output.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2593 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saida da Etapa 3 - Analise Estrategica e Especificacao Inicial",
+  "description": "Schema JSON que representa semanticamente o dashboard HTML da Etapa 3. A saida final deve consolidar a pesquisa anterior, sintetizar a estrategia do produto, organizar stakeholders, dores, oportunidades, hipoteses, riscos, dominios, modulos, funcionalidades, fluxos, principios, diretrizes de UX/UI e as recomendacoes para a Etapa 4.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "cabecalho",
+    "referencia_estetica",
+    "cards_de_indicadores",
+    "resumo_executivo",
+    "contexto_consolidado_do_produto",
+    "fontes_e_documentos_de_entrada",
+    "sintese_estrategica_do_produto",
+    "consolidacao_de_mercado_e_benchmarking",
+    "publico_alvo_e_stakeholders",
+    "problemas_dores_e_necessidades_consolidadas",
+    "oportunidades_e_diferenciais",
+    "hipoteses_atualizadas",
+    "riscos_estrategicos_consolidados",
+    "visao_funcional",
+    "dominios",
+    "modulos",
+    "funcionalidades",
+    "fluxos_em_alto_nivel",
+    "principios_de_produto",
+    "diretrizes_ux_ui",
+    "decisoes_estrategicas_recomendadas",
+    "lacunas_e_pendencias",
+    "recomendacoes_para_etapa_4",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Numero da Etapa",
+      "description": "Identificador numerico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 3.",
+      "const": 3
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geracao do dashboard desta etapa.",
+      "const": "3-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saida",
+      "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 3.html, conforme o prompt.",
+      "const": "3.html"
+    },
+    "cabecalho": {
+      "title": "Cabecalho do Dashboard",
+      "description": "Bloco de identificacao no topo do dashboard com nome do produto, etapa, arquivos usados, data, segmento analisado e contagens chave da consolidacao.",
+      "$ref": "#/$defs/Cabecalho"
+    },
+    "referencia_estetica": {
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da diretriz visual usada para construir o dashboard, incluindo o estado do arquivo 0-estetica-inicial.md e as restricoes aplicadas.",
+      "$ref": "#/$defs/ReferenciaEstetica"
+    },
+    "cards_de_indicadores": {
+      "title": "Cards de Indicadores",
+      "description": "Conjunto de indicadores resumidos exibidos no topo do dashboard para leitura rapida da maturidade da Etapa 3.",
+      "$ref": "#/$defs/CardsIndicadores"
+    },
+    "resumo_executivo": {
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 3 com leitura consolidada do produto, principais descobertas e implicacoes para a etapa seguinte.",
+      "$ref": "#/$defs/ResumoExecutivo"
+    },
+    "contexto_consolidado_do_produto": {
+      "title": "Contexto Consolidado do Produto",
+      "description": "Conjunto de informacoes consolidadas sobre nome, tipo de sistema, segmento, publico, problema, proposta de valor, hipoteses e incertezas herdadas das etapas anteriores.",
+      "$ref": "#/$defs/ContextoConsolidado"
+    },
+    "fontes_e_documentos_de_entrada": {
+      "title": "Fontes e Documentos de Entrada",
+      "description": "Lista rastreavel de todos os arquivos e materiais utilizados como entrada oficial para a consolidacao estrategica.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DocumentoEntrada"
+      }
+    },
+    "sintese_estrategica_do_produto": {
+      "title": "Sintese Estrategica do Produto",
+      "description": "Narrativa consolidada sobre o que o produto e, para quem existe, qual problema resolve, qual transformacao promete e por que a oportunidade faz sentido agora.",
+      "$ref": "#/$defs/SinteseEstrategica"
+    },
+    "consolidacao_de_mercado_e_benchmarking": {
+      "title": "Consolidacao de Mercado e Benchmarking",
+      "description": "Leitura agrupada dos sinais de mercado, padroes competitivos, lacunas e referencias trazidas da Etapa 2 para orientar a estrategia da Etapa 3.",
+      "$ref": "#/$defs/ConsolidacaoMercado"
+    },
+    "publico_alvo_e_stakeholders": {
+      "title": "Publico-Alvo e Stakeholders",
+      "description": "Matriz consolidada de perfis envolvidos no produto, incluindo cliente pagante, usuario administrador, operacional, decisor, influenciador, parceiro e superadmin.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Stakeholder"
+      }
+    },
+    "problemas_dores_e_necessidades_consolidadas": {
+      "title": "Problemas, Dores e Necessidades Consolidadas",
+      "description": "Lista priorizada de dores e necessidades agrupadas por categoria de negocio, operacao, dados, experiencia, controle, compliance e escala.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ProblemaDor"
+      }
+    },
+    "oportunidades_e_diferenciais": {
+      "title": "Oportunidades e Diferenciais",
+      "description": "Lista priorizada de oportunidades de produto, automacao, IA, dados, integracao, monetizacao e diferenciacao competitiva.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Oportunidade"
+      }
+    },
+    "hipoteses_atualizadas": {
+      "title": "Hipoteses Atualizadas",
+      "description": "Hipoteses iniciais revisadas a partir das etapas anteriores, classificadas por status estrategico e necessidade de validacao.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Hipotese"
+      }
+    },
+    "riscos_estrategicos_consolidados": {
+      "title": "Riscos Estrategicos Consolidados",
+      "description": "Inventario consolidado de riscos de mercado, adocao, diferenciacao, tecnico, operacional, juridico, seguranca, monetizacao e escalabilidade.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Risco"
+      }
+    },
+    "visao_funcional": {
+      "title": "Visao Funcional",
+      "description": "Visao macro do sistema, seus dominios, areas e principais grupos funcionais sem detalhamento de tela final ou arquitetura tecnica definitiva.",
+      "$ref": "#/$defs/VisaoFuncional"
+    },
+    "dominios": {
+      "title": "Dominios",
+      "description": "Tabela de dominios funcionais e organizacionais do produto, incluindo plataforma, tenant, empresa, matriz, filial, billing, dados, seguranca, IA e superadmin.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Dominio"
+      }
+    },
+    "modulos": {
+      "title": "Modulos",
+      "description": "Tabela de modulos derivados dos dominios, com origem de necessidade, objetivo e prioridade estrategica.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Modulo"
+      }
+    },
+    "funcionalidades": {
+      "title": "Funcionalidades",
+      "description": "Tabela consolidada de funcionalidades candidatas, com valor para o usuario, evidencia e prioridade para orientacao das proximas etapas.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Funcionalidade"
+      }
+    },
+    "fluxos_em_alto_nivel": {
+      "title": "Fluxos em Alto Nivel",
+      "description": "Visao de fluxos macro do produto, como onboarding, cadastro, ativacao, operacao principal, notificacao, pagamento, integracao, auditoria, suporte e administracao da plataforma.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FluxoMacro"
+      }
+    },
+    "principios_de_produto": {
+      "title": "Principios de Produto",
+      "description": "Principios que devem guiar as proximas etapas de requisitos, UX, dados, arquitetura funcional e priorizacao.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PrincipioProduto"
+      }
+    },
+    "diretrizes_ux_ui": {
+      "title": "Diretrizes de UX/UI",
+      "description": "Sintese aplicada da estetica inicial do produto para orientar layout, componente, densidade, cores, tipografia, navegacao e acessibilidade visual do dashboard HTML.",
+      "$ref": "#/$defs/DiretrizesUXUI"
+    },
+    "decisoes_estrategicas_recomendadas": {
+      "title": "Decisoes Estrategicas Recomendadas",
+      "description": "Lista de decisoes sugeridas para consolidar o rumo do produto antes da Etapa 4.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DecisaoEstrategica"
+      }
+    },
+    "lacunas_e_pendencias": {
+      "title": "Lacunas e Pendencias",
+      "description": "Itens ainda nao resolvidos, informacoes em aberto e temas que precisam de validacao adicional antes da especificacao detalhada.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/LacunaPendencia"
+      }
+    },
+    "recomendacoes_para_etapa_4": {
+      "title": "Recomendacoes para a Etapa 4",
+      "description": "Orientacoes sobre o que deve virar requisito, o que precisa ser validado, o que deve entrar em UX, arquitetura, dados, priorizacao e o que deve ser evitado.",
+      "$ref": "#/$defs/RecomendacoesEtapa4"
+    },
+    "fontes_e_referencias": {
+      "title": "Fontes e Referencias",
+      "description": "Lista rastreavel de documentos, fontes e referencias usadas para sustentar a consolidacao estrategica e as decisoes de produto.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FonteReferencia"
+      }
+    },
+    "proximos_passos": {
+      "title": "Proximos Passos",
+      "description": "Sintese final do que precisa acontecer apos a Etapa 3 para preparar a especificacao funcional da Etapa 4.",
+      "$ref": "#/$defs/ProximosPassos"
+    },
+    "interatividade": {
+      "title": "Interatividade",
+      "description": "Recursos interativos esperados no dashboard HTML, incluindo tema, expandir/recolher, filtros, busca, copiar, exportar, imprimir e destaques visuais.",
+      "$ref": "#/$defs/Interatividade"
+    },
+    "progresso_visual": {
+      "title": "Progresso Visual",
+      "description": "Indicadores de progresso e maturidade da Etapa 3 usados no dashboard.",
+      "$ref": "#/$defs/ProgressoVisual"
+    },
+    "destaques": {
+      "title": "Destaques",
+      "description": "Insights, alertas, decisoes e pendencias de leitura rapida que merecem destaque visual.",
+      "$ref": "#/$defs/Destaques"
+    },
+    "contadores": {
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard, incluindo volumes de entradas, oportunidades, riscos, hipoteses, dominios, modulos, funcionalidades e seções.",
+      "$ref": "#/$defs/Contadores"
+    }
+  },
+  "$defs": {
+    "Cabecalho": {
+      "type": "object",
+      "title": "Cabecalho",
+      "description": "Identificacao principal do dashboard com nome do produto, etapa, arquivos usados e indicadores consolidados.",
+      "required": [
+        "nome_do_produto",
+        "nome_da_etapa",
+        "arquivo_de_entrada",
+        "arquivo_de_saida",
+        "arquivo_estetico_usado",
+        "data_de_geracao",
+        "segmento_analisado",
+        "total_documentos_entrada_analisados",
+        "total_hipoteses_atualizadas",
+        "total_oportunidades",
+        "total_riscos",
+        "total_dominios",
+        "total_modulos",
+        "total_funcionalidades",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado nesta etapa.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rotulo textual da etapa, que deve identificar explicitamente a Etapa 3 - Analise Estrategica e Especificacao Inicial.",
+          "minLength": 1
+        },
+        "arquivo_de_entrada": {
+          "type": "string",
+          "title": "Arquivo de Entrada",
+          "description": "Arquivo ou entrada usada como base para o dashboard.",
+          "minLength": 1
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saida",
+          "description": "Nome do arquivo HTML final produzido pela etapa.",
+          "minLength": 1
+        },
+        "arquivo_estetico_usado": {
+          "type": "string",
+          "title": "Arquivo Estetico Usado",
+          "description": "Arquivo de estetica referenciado para orientar o layout, a hierarquia visual e os componentes do dashboard.",
+          "minLength": 1
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geracao",
+          "description": "Data e hora em que o dashboard foi gerado, em formato legivel e rastreavel.",
+          "minLength": 1
+        },
+        "segmento_analisado": {
+          "type": "string",
+          "title": "Segmento Analisado",
+          "description": "Segmento ou nicho de mercado efetivamente consolidado na etapa.",
+          "minLength": 1
+        },
+        "total_documentos_entrada_analisados": {
+          "type": "integer",
+          "title": "Total de Documentos de Entrada Analisados",
+          "description": "Quantidade total de documentos de entrada considerados na consolidacao.",
+          "minimum": 0
+        },
+        "total_hipoteses_atualizadas": {
+          "type": "integer",
+          "title": "Total de Hipoteses Atualizadas",
+          "description": "Quantidade total de hipoteses revisadas nesta etapa.",
+          "minimum": 0
+        },
+        "total_oportunidades": {
+          "type": "integer",
+          "title": "Total de Oportunidades",
+          "description": "Quantidade total de oportunidades consolidadas.",
+          "minimum": 0
+        },
+        "total_riscos": {
+          "type": "integer",
+          "title": "Total de Riscos",
+          "description": "Quantidade total de riscos estrategicos consolidados.",
+          "minimum": 0
+        },
+        "total_dominios": {
+          "type": "integer",
+          "title": "Total de Dominios",
+          "description": "Quantidade total de dominios definidos para a visao funcional.",
+          "minimum": 0
+        },
+        "total_modulos": {
+          "type": "integer",
+          "title": "Total de Modulos",
+          "description": "Quantidade total de modulos mapeados nesta etapa.",
+          "minimum": 0
+        },
+        "total_funcionalidades": {
+          "type": "integer",
+          "title": "Total de Funcionalidades",
+          "description": "Quantidade total de funcionalidades candidatas registradas.",
+          "minimum": 0
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa sugerida a partir da consolidacao estrategica.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenciaEstetica": {
+      "type": "object",
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo disponibilidade do arquivo estetico e restricoes aplicadas.",
+      "required": [
+        "arquivo_referencia",
+        "disponivel",
+        "decisao_de_tema",
+        "principios_aplicados",
+        "restricoes_visuais"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo de estetica que deve orientar a implementacao visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "disponivel": {
+          "type": "boolean",
+          "title": "Disponivel",
+          "description": "Indica se a referencia estetica estava disponivel no contexto de execucao.",
+          "default": false
+        },
+        "decisao_de_tema": {
+          "type": "string",
+          "title": "Decisao de Tema",
+          "description": "Decisao tomada sobre tema unico, claro, escuro ou adaptativo conforme a referencia estetica.",
+          "minLength": 1
+        },
+        "principios_aplicados": {
+          "type": "array",
+          "title": "Principios Aplicados",
+          "description": "Lista dos principios visuais e de navegacao aplicados ao dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Principio Aplicado",
+            "description": "Um principio visual aplicado ao HTML final.",
+            "minLength": 1
+          }
+        },
+        "restricoes_visuais": {
+          "type": "array",
+          "title": "Restricoes Visuais",
+          "description": "Lista de aspectos visuais que devem ser evitados para preservar a estetica oficial ou uma alternativa neutra quando a referencia nao estiver disponivel.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restricao Visual",
+            "description": "Um padrao visual a evitar.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "CardsIndicadores": {
+      "type": "object",
+      "title": "Cards de Indicadores",
+      "description": "Indicadores resumidos exibidos no topo do dashboard para leitura rapida da consolidacao da etapa.",
+      "required": [
+        "total_documentos_entrada_analisados",
+        "total_oportunidades_consolidadas",
+        "total_riscos_estrategicos",
+        "total_hipoteses_reforcadas",
+        "total_hipoteses_incertas",
+        "total_dominios",
+        "total_modulos",
+        "total_funcionalidades",
+        "nivel_maturidade_especificacao",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "total_documentos_entrada_analisados": {
+          "type": "integer",
+          "title": "Total de Documentos de Entrada Analisados",
+          "description": "Quantidade total de documentos de entrada considerados na etapa.",
+          "minimum": 0
+        },
+        "total_oportunidades_consolidadas": {
+          "type": "integer",
+          "title": "Total de Oportunidades Consolidadas",
+          "description": "Quantidade total de oportunidades consolidadas e destacadas.",
+          "minimum": 0
+        },
+        "total_riscos_estrategicos": {
+          "type": "integer",
+          "title": "Total de Riscos Estrategicos",
+          "description": "Quantidade total de riscos estrategicos consolidados.",
+          "minimum": 0
+        },
+        "total_hipoteses_reforcadas": {
+          "type": "integer",
+          "title": "Total de Hipoteses Reforcadas",
+          "description": "Quantidade de hipoteses que ganharam suporte com as evidencias consolidadas.",
+          "minimum": 0
+        },
+        "total_hipoteses_incertas": {
+          "type": "integer",
+          "title": "Total de Hipoteses Incertas",
+          "description": "Quantidade de hipoteses ainda sem confirmacao suficiente.",
+          "minimum": 0
+        },
+        "total_dominios": {
+          "type": "integer",
+          "title": "Total de Dominios",
+          "description": "Quantidade total de dominios mapeados.",
+          "minimum": 0
+        },
+        "total_modulos": {
+          "type": "integer",
+          "title": "Total de Modulos",
+          "description": "Quantidade total de modulos identificados.",
+          "minimum": 0
+        },
+        "total_funcionalidades": {
+          "type": "integer",
+          "title": "Total de Funcionalidades",
+          "description": "Quantidade total de funcionalidades candidatas consolidadas.",
+          "minimum": 0
+        },
+        "nivel_maturidade_especificacao": {
+          "type": "string",
+          "title": "Nivel de Maturidade da Especificacao",
+          "description": "Leitura sintetica do quao consolidada esta a especificacao nesta etapa.",
+          "enum": [
+            "Inicial",
+            "Em consolidacao",
+            "Avancada",
+            "Preparando Etapa 4"
+          ]
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa recomendada a partir da consolidacao atual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResumoExecutivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 3 com leitura consolidada do produto e das implicacoes estrategicas.",
+      "required": [
+        "sintese",
+        "principais_leituras",
+        "decisao_sugerida",
+        "alertas",
+        "mensagem_para_stakeholders"
+      ],
+      "properties": {
+        "sintese": {
+          "type": "string",
+          "title": "Sintese",
+          "description": "Texto curto que resume a tese central desta etapa.",
+          "minLength": 1
+        },
+        "principais_leituras": {
+          "type": "array",
+          "title": "Principais Leituras",
+          "description": "Lista dos principais aprendizados e implicacoes estrategicas consolidadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Leitura",
+            "description": "Uma leitura executiva relevante.",
+            "minLength": 1
+          }
+        },
+        "decisao_sugerida": {
+          "type": "string",
+          "title": "Decisao Sugerida",
+          "description": "Direcao estrategica sugerida ao final da Etapa 3.",
+          "minLength": 1
+        },
+        "alertas": {
+          "type": "array",
+          "title": "Alertas",
+          "description": "Alertas executivos que exigem atencao antes da Etapa 4.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Alerta",
+            "description": "Um alerta relevante para decisao.",
+            "minLength": 1
+          }
+        },
+        "mensagem_para_stakeholders": {
+          "type": "string",
+          "title": "Mensagem para Stakeholders",
+          "description": "Mensagem de contexto sintetica para apoiar alinhamento com stakeholders.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContextoConsolidado": {
+      "type": "object",
+      "title": "Contexto Consolidado do Produto",
+      "description": "Conjunto de informacoes consolidadas sobre o produto, sua base de entrada e as incertezas herdadas das etapas anteriores.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "tipo_de_sistema",
+        "segmento",
+        "publico_alvo",
+        "problema_principal",
+        "proposta_de_valor",
+        "hipoteses_origem",
+        "perguntas_em_aberto",
+        "respostas_pesquisadas",
+        "aprendizados_de_mercado",
+        "lacunas_identificadas",
+        "observacoes"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto consolidado a partir das entradas anteriores.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo, sigla ou identificador interno do projeto, quando houver.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria funcional do sistema, como SaaS, plataforma, console, portal, suite ou equivalente.",
+          "minLength": 1
+        },
+        "segmento": {
+          "type": "string",
+          "title": "Segmento",
+          "description": "Segmento de mercado consolidado nesta etapa.",
+          "minLength": 1
+        },
+        "publico_alvo": {
+          "type": "string",
+          "title": "Publico-Alvo",
+          "description": "Público principal ou conjunto de perfis centrais da solução.",
+          "minLength": 1
+        },
+        "problema_principal": {
+          "type": "string",
+          "title": "Problema Principal",
+          "description": "Dor central que o produto pretende resolver.",
+          "minLength": 1
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Tese de valor consolidada para o produto.",
+          "minLength": 1
+        },
+        "hipoteses_origem": {
+          "type": "array",
+          "title": "Hipoteses de Origem",
+          "description": "Hipoteses trazidas das etapas anteriores que compoe o contexto consolidado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipotese de Origem",
+            "description": "Uma hipotese herdada das etapas anteriores.",
+            "minLength": 1
+          }
+        },
+        "perguntas_em_aberto": {
+          "type": "array",
+          "title": "Perguntas em Aberto",
+          "description": "Perguntas relevantes que seguem sem resposta suficiente.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Pergunta em Aberto",
+            "description": "Uma pergunta ainda nao resolvida.",
+            "minLength": 1
+          }
+        },
+        "respostas_pesquisadas": {
+          "type": "array",
+          "title": "Respostas Pesquisadas",
+          "description": "Respostas obtidas nas etapas anteriores para perguntas em aberto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Resposta Pesquisada",
+            "description": "Uma resposta encontrada em pesquisa ou consolidação.",
+            "minLength": 1
+          }
+        },
+        "aprendizados_de_mercado": {
+          "type": "array",
+          "title": "Aprendizados de Mercado",
+          "description": "Aprendizados consolidados a partir da pesquisa de mercado e benchmarking.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Aprendizado de Mercado",
+            "description": "Um aprendizado relevante sobre o mercado.",
+            "minLength": 1
+          }
+        },
+        "lacunas_identificadas": {
+          "type": "array",
+          "title": "Lacunas Identificadas",
+          "description": "Lacunas de informacao, estrategia ou mercado ainda abertas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Lacuna Identificada",
+            "description": "Uma lacuna a ser tratada nas proximas etapas.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o contexto consolidado e a confianca nas inferencias.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentoEntrada": {
+      "type": "object",
+      "title": "Documento de Entrada",
+      "description": "Registro rastreavel de um arquivo ou material usado como entrada oficial.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do documento de entrada.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do material, como md, html, zip, observacao ou resumo.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Nome ou titulo legivel do documento de entrada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem do documento, como arquivo local ou historico do chat.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "type": "array",
+          "title": "Usado em",
+          "description": "Lista das secoes ou analises em que o documento foi usado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Uso",
+            "description": "Uma secao ou analise beneficiada pelo documento.",
+            "minLength": 1
+          }
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao curta sobre relevancia, completude ou limitacao do documento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "SinteseEstrategica": {
+      "type": "object",
+      "title": "Sintese Estrategica",
+      "description": "Narrativa consolidada do produto e da oportunidade de mercado.",
+      "required": [
+        "o_que_e",
+        "para_quem_existe",
+        "problema_que_resolve",
+        "transformacao_prometida",
+        "por_que_agora",
+        "sinais_de_mercado",
+        "lacunas_de_concorrentes",
+        "diferenciais_promissores",
+        "incertezas_relevantes"
+      ],
+      "properties": {
+        "o_que_e": {
+          "type": "string",
+          "title": "O que e",
+          "description": "Definicao objetiva do produto em linguagem de negocio.",
+          "minLength": 1
+        },
+        "para_quem_existe": {
+          "type": "string",
+          "title": "Para Quem Existe",
+          "description": "Descricao do publico ou dos perfis principais para os quais o produto foi desenhado.",
+          "minLength": 1
+        },
+        "problema_que_resolve": {
+          "type": "string",
+          "title": "Problema que Resolve",
+          "description": "Problema principal que o produto se propoe a resolver.",
+          "minLength": 1
+        },
+        "transformacao_prometida": {
+          "type": "string",
+          "title": "Transformacao Prometida",
+          "description": "Mudanca operacional, estrategica ou de experiencia prometida pelo produto.",
+          "minLength": 1
+        },
+        "por_que_agora": {
+          "type": "string",
+          "title": "Por Que Agora",
+          "description": "Racional temporal para a oportunidade ser relevante neste momento.",
+          "minLength": 1
+        },
+        "sinais_de_mercado": {
+          "type": "array",
+          "title": "Sinais de Mercado",
+          "description": "Sinais observados na pesquisa que sustentam a oportunidade.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Sinal de Mercado",
+            "description": "Um sinal de mercado relevante.",
+            "minLength": 1
+          }
+        },
+        "lacunas_de_concorrentes": {
+          "type": "array",
+          "title": "Lacunas de Concorrentes",
+          "description": "Areas em que os concorrentes ou referencias deixam espaco de diferenciacao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Lacuna",
+            "description": "Uma lacuna competitiva identificada.",
+            "minLength": 1
+          }
+        },
+        "diferenciais_promissores": {
+          "type": "array",
+          "title": "Diferenciais Promissores",
+          "description": "Diferenciais iniciais que parecem mais promissores para exploracao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Diferencial",
+            "description": "Um diferencial promissor.",
+            "minLength": 1
+          }
+        },
+        "incertezas_relevantes": {
+          "type": "array",
+          "title": "Incertezas Relevantes",
+          "description": "Incertezas que ainda precisam ser validadas antes da Etapa 4.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Incerteza",
+            "description": "Uma incerteza estrategica relevante.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ConsolidacaoMercado": {
+      "type": "object",
+      "title": "Consolidacao de Mercado e Benchmarking",
+      "description": "Leitura agrupada do mercado e dos benchmarks usados como base para a estrategia da Etapa 3.",
+      "required": [
+        "patroes_observados",
+        "benchmarks_relevantes",
+        "lacunas_mercado",
+        "oportunidades_de_posicionamento",
+        "riscos_competitivos",
+        "observacoes"
+      ],
+      "properties": {
+        "patroes_observados": {
+          "type": "array",
+          "title": "Padroes Observados",
+          "description": "Padroes de mercado, UX, monetizacao, integracao ou operacao observados na pesquisa.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Padrao Observado",
+            "description": "Um padrao relevante encontrado no mercado.",
+            "minLength": 1
+          }
+        },
+        "benchmarks_relevantes": {
+          "type": "array",
+          "title": "Benchmarks Relevantes",
+          "description": "Lista dos benchmarks ou referencias mais importantes para orientar a estrategia.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Benchmark",
+            "description": "Uma referencia relevante da analise de mercado.",
+            "minLength": 1
+          }
+        },
+        "lacunas_mercado": {
+          "type": "array",
+          "title": "Lacunas de Mercado",
+          "description": "Lacunas relevantes encontradas na oferta atual do mercado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Lacuna de Mercado",
+            "description": "Uma lacuna observada na categoria.",
+            "minLength": 1
+          }
+        },
+        "oportunidades_de_posicionamento": {
+          "type": "array",
+          "title": "Oportunidades de Posicionamento",
+          "description": "Espacos de posicionamento estrategico que o produto pode explorar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Oportunidade de Posicionamento",
+            "description": "Uma oportunidade de posicionamento estrategico.",
+            "minLength": 1
+          }
+        },
+        "riscos_competitivos": {
+          "type": "array",
+          "title": "Riscos Competitivos",
+          "description": "Riscos associados a diferenca competitiva, adoção e posicao no mercado.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Risco Competitivo",
+            "description": "Um risco competitivo relevante.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes finais sobre o mercado e o nivel de confianca da leitura.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Stakeholder": {
+      "type": "object",
+      "title": "Stakeholder",
+      "description": "Linha consolidada de perfil ou papel envolvido no produto.",
+      "required": [
+        "perfil",
+        "descricao",
+        "dor_principal",
+        "objetivo",
+        "poder_de_decisao",
+        "frequencia_de_uso",
+        "observacoes",
+        "tipo"
+      ],
+      "properties": {
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Nome do perfil, papel ou stakeholder.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao curta e funcional do perfil.",
+          "minLength": 1
+        },
+        "dor_principal": {
+          "type": "string",
+          "title": "Dor Principal",
+          "description": "Principal dor ou friccao desse perfil.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Resultado que esse perfil tenta atingir no uso do produto.",
+          "minLength": 1
+        },
+        "poder_de_decisao": {
+          "type": "string",
+          "title": "Poder de Decisao",
+          "description": "Nivel de influencia ou decisao sobre compra, priorizacao ou uso.",
+          "enum": [
+            "Baixo",
+            "Medio",
+            "Alto"
+          ]
+        },
+        "frequencia_de_uso": {
+          "type": "string",
+          "title": "Frequencia de Uso",
+          "description": "Frequencia esperada de uso da solucao por este perfil.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Notas adicionais sobre contexto, dependencia ou restricao desse perfil.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Classificacao do perfil, como cliente pagante, administrador, operacional, usuario final, decisor, influenciador, parceiro, suporte, operador interno ou superadmin.",
+          "enum": [
+            "cliente_pagante",
+            "usuario_administrador",
+            "usuario_operacional",
+            "usuario_final",
+            "decisor",
+            "influenciador",
+            "parceiro",
+            "suporte",
+            "operador_interno",
+            "superadmin"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProblemaDor": {
+      "type": "object",
+      "title": "Problema, Dor ou Necessidade",
+      "description": "Item consolidado de problema ou necessidade, agrupado por categoria e priorizado para validacao futura.",
+      "required": [
+        "id",
+        "categoria",
+        "descricao",
+        "intensidade",
+        "frequencia",
+        "evidencia",
+        "origem",
+        "oportunidade_relacionada",
+        "prioridade_de_validacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do item.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do problema ou necessidade, como negocio, operacao, produtividade, comunicacao, controle, dados, financeiro, experiencia, integracao, seguranca, compliance ou escala.",
+          "enum": [
+            "negocio",
+            "operacao",
+            "produtividade",
+            "comunicacao",
+            "controle",
+            "dados",
+            "financeiro",
+            "experiencia_do_usuario",
+            "integracao",
+            "seguranca",
+            "compliance",
+            "escala"
+          ]
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao objetiva do problema, dor ou necessidade.",
+          "minLength": 1
+        },
+        "intensidade": {
+          "type": "string",
+          "title": "Intensidade",
+          "description": "Intensidade percebida do problema.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "frequencia": {
+          "type": "string",
+          "title": "Frequencia",
+          "description": "Frequencia com que o problema ocorre ou aparece.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidencia",
+          "description": "Evidencia ou sinal que sustenta a existencia do problema.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Fonte ou etapa de origem do item.",
+          "minLength": 1
+        },
+        "oportunidade_relacionada": {
+          "type": "string",
+          "title": "Oportunidade Relacionada",
+          "description": "Oportunidade de produto ou negocio relacionada a mitigacao do problema.",
+          "minLength": 1
+        },
+        "prioridade_de_validacao": {
+          "type": "string",
+          "title": "Prioridade de Validacao",
+          "description": "Prioridade com que este item deve ser validado nas proximas etapas.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Oportunidade": {
+      "type": "object",
+      "title": "Oportunidade",
+      "description": "Item de oportunidade consolidada com origem, valor esperado, esforco e risco.",
+      "required": [
+        "id",
+        "oportunidade",
+        "categoria",
+        "origem",
+        "valor_esperado",
+        "esforco_estimado",
+        "risco",
+        "prioridade",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da oportunidade.",
+          "minLength": 1
+        },
+        "oportunidade": {
+          "type": "string",
+          "title": "Oportunidade",
+          "description": "Descricao da oportunidade identificada.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da oportunidade, como automacao, IA, produtividade, operacao, dados e analytics, colaboracao, integracao, experiencia do usuario, monetizacao, verticalizacao, compliance, multiempresa, multi-tenant, superadmin, marketplace ou plataforma.",
+          "enum": [
+            "automacao",
+            "ia",
+            "produtividade",
+            "operacao",
+            "dados_e_analytics",
+            "colaboracao",
+            "integracoes",
+            "experiencia_do_usuario",
+            "monetizacao",
+            "verticalizacao",
+            "compliance",
+            "multiempresa",
+            "multi_tenant",
+            "superadmin",
+            "marketplace",
+            "plataforma"
+          ]
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Fonte, insight ou etapa que originou a oportunidade.",
+          "minLength": 1
+        },
+        "valor_esperado": {
+          "type": "string",
+          "title": "Valor Esperado",
+          "description": "Valor percebido para negocio e usuarios caso a oportunidade seja explorada.",
+          "minLength": 1
+        },
+        "esforco_estimado": {
+          "type": "string",
+          "title": "Esforco Estimado",
+          "description": "Esforco relativo estimado para explorar a oportunidade.",
+          "enum": [
+            "Baixo",
+            "Medio",
+            "Alto"
+          ]
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco associado a exploracao da oportunidade.",
+          "enum": [
+            "Baixo",
+            "Medio",
+            "Alto"
+          ]
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estrategica da oportunidade.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre impacto, dependencias ou sequenciamento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Hipotese": {
+      "type": "object",
+      "title": "Hipotese Atualizada",
+      "description": "Hipotese inicial revisada com status estrategico, evidencia e proxima validacao.",
+      "required": [
+        "id",
+        "hipotese",
+        "status",
+        "evidencia",
+        "impacto",
+        "incerteza",
+        "proxima_validacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da hipotese.",
+          "minLength": 1
+        },
+        "hipotese": {
+          "type": "string",
+          "title": "Hipotese",
+          "description": "Enunciado da hipotese revisada.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Classificacao da hipotese a partir da consolidacao da etapa.",
+          "enum": [
+            "reforcada",
+            "enfraquecida",
+            "ainda_incerta",
+            "descartada",
+            "nova_hipotese"
+          ]
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidencia",
+          "description": "Evidencia ou sinal usado para atualizar a hipotese.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da hipotese na estrategia, escopo ou priorizacao.",
+          "minLength": 1
+        },
+        "incerteza": {
+          "type": "string",
+          "title": "Incerteza",
+          "description": "Natureza ou grau da incerteza ainda presente.",
+          "minLength": 1
+        },
+        "proxima_validacao": {
+          "type": "string",
+          "title": "Proxima Validacao",
+          "description": "Como a hipotese deve ser validada ou invalidada na etapa seguinte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Risco": {
+      "type": "object",
+      "title": "Risco Estrategico",
+      "description": "Risco consolidado com categoria, probabilidade, impacto, evidencia e mitigacao inicial.",
+      "required": [
+        "id",
+        "risco",
+        "categoria",
+        "probabilidade",
+        "impacto",
+        "evidencia",
+        "mitigacao_inicial",
+        "prioridade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do risco.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Descricao objetiva do risco.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do risco, como mercado, adocao, diferenciacao, tecnico, operacional, juridico, seguranca, monetizacao, suporte, escalabilidade, competitivo ou dependencia_externa.",
+          "enum": [
+            "mercado",
+            "adocao",
+            "diferenciacao",
+            "tecnico",
+            "operacional",
+            "juridico",
+            "seguranca",
+            "monetizacao",
+            "suporte",
+            "escalabilidade",
+            "competitivo",
+            "dependencia_externa"
+          ]
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Probabilidade percebida de materializacao do risco.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto potencial do risco caso ocorra.",
+          "enum": [
+            "Baixo",
+            "Medio",
+            "Alto"
+          ]
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidencia",
+          "description": "Evidencia ou sinal que justifica a existencia do risco.",
+          "minLength": 1
+        },
+        "mitigacao_inicial": {
+          "type": "string",
+          "title": "Mitigacao Inicial",
+          "description": "Medida inicial sugerida para reduzir o risco.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade de tratamento do risco.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "VisaoFuncional": {
+      "type": "object",
+      "title": "Visao Funcional",
+      "description": "Visao macro do sistema, seus grupos funcionais e suas areas, sem entrar em desenho detalhado de telas finais.",
+      "required": [
+        "dominios_macro",
+        "modulos_macro",
+        "funcionalidades_macro",
+        "fluxos_macro",
+        "areas_administrativas",
+        "areas_operacionais",
+        "areas_da_plataforma",
+        "observacoes"
+      ],
+      "properties": {
+        "dominios_macro": {
+          "type": "array",
+          "title": "Dominios Macro",
+          "description": "Lista sintetica dos dominios mais relevantes da solucao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Dominio Macro",
+            "description": "Um dominio funcional de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "modulos_macro": {
+          "type": "array",
+          "title": "Modulos Macro",
+          "description": "Lista sintetica dos modulos centrais da solucao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Modulo Macro",
+            "description": "Um modulo funcional de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "funcionalidades_macro": {
+          "type": "array",
+          "title": "Funcionalidades Macro",
+          "description": "Lista sintetica das principais funcionalidades esperadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Funcionalidade Macro",
+            "description": "Uma funcionalidade de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "fluxos_macro": {
+          "type": "array",
+          "title": "Fluxos Macro",
+          "description": "Lista dos fluxos altos niveis que estruturam o uso da solucao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Fluxo Macro",
+            "description": "Um fluxo principal da experiencia.",
+            "minLength": 1
+          }
+        },
+        "areas_administrativas": {
+          "type": "array",
+          "title": "Areas Administrativas",
+          "description": "Lista das areas administrativas relevantes para a solucao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Area Administrativa",
+            "description": "Uma area administrativa de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "areas_operacionais": {
+          "type": "array",
+          "title": "Areas Operacionais",
+          "description": "Lista das areas operacionais relevantes para a solucao.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Area Operacional",
+            "description": "Uma area operacional de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "areas_da_plataforma": {
+          "type": "array",
+          "title": "Areas da Plataforma",
+          "description": "Lista das areas dedicadas a administracao de plataforma, tenant, seguranca e governanca.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Area da Plataforma",
+            "description": "Uma area de plataforma de alto nivel.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes sobre o nivel de granularidade e sobre o que deve ser detalhado nas proximas etapas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Dominio": {
+      "type": "object",
+      "title": "Dominio",
+      "description": "Linha da tabela de dominios funcionais e organizacionais do produto.",
+      "required": [
+        "dominio",
+        "descricao",
+        "objetivo",
+        "perfis_envolvidos",
+        "observacoes"
+      ],
+      "properties": {
+        "dominio": {
+          "type": "string",
+          "title": "Dominio",
+          "description": "Nome do dominio.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao funcional do dominio.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal desse dominio na solucao.",
+          "minLength": 1
+        },
+        "perfis_envolvidos": {
+          "type": "array",
+          "title": "Perfis Envolvidos",
+          "description": "Perfis que interagem diretamente com o dominio.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Perfil",
+            "description": "Um perfil envolvido no dominio.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Notas adicionais sobre dependencias ou escopo do dominio.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Modulo": {
+      "type": "object",
+      "title": "Modulo",
+      "description": "Linha da tabela de modulos do produto.",
+      "required": [
+        "dominio",
+        "modulo",
+        "descricao",
+        "objetivo",
+        "origem_da_necessidade",
+        "prioridade"
+      ],
+      "properties": {
+        "dominio": {
+          "type": "string",
+          "title": "Dominio",
+          "description": "Dominio ao qual o modulo pertence.",
+          "minLength": 1
+        },
+        "modulo": {
+          "type": "string",
+          "title": "Modulo",
+          "description": "Nome do modulo.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao funcional do modulo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal do modulo.",
+          "minLength": 1
+        },
+        "origem_da_necessidade": {
+          "type": "string",
+          "title": "Origem da Necessidade",
+          "description": "Origem da necessidade que motivou esse modulo.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estrategica atribuida ao modulo.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "Funcionalidade": {
+      "type": "object",
+      "title": "Funcionalidade",
+      "description": "Linha da tabela de funcionalidades candidatas.",
+      "required": [
+        "dominio",
+        "modulo",
+        "funcionalidade",
+        "descricao",
+        "valor_para_o_usuario",
+        "evidencia",
+        "prioridade"
+      ],
+      "properties": {
+        "dominio": {
+          "type": "string",
+          "title": "Dominio",
+          "description": "Dominio de referencia da funcionalidade.",
+          "minLength": 1
+        },
+        "modulo": {
+          "type": "string",
+          "title": "Modulo",
+          "description": "Modulo ao qual a funcionalidade pertence.",
+          "minLength": 1
+        },
+        "funcionalidade": {
+          "type": "string",
+          "title": "Funcionalidade",
+          "description": "Nome da funcionalidade candidata.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao funcional do que a funcionalidade faz.",
+          "minLength": 1
+        },
+        "valor_para_o_usuario": {
+          "type": "string",
+          "title": "Valor para o Usuario",
+          "description": "Valor percebido pelo usuario ou negocio.",
+          "minLength": 1
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidencia",
+          "description": "Evidencia ou sinal que sustenta a funcionalidade candidata.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estrategica para detalhamento na Etapa 4.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "FluxoMacro": {
+      "type": "object",
+      "title": "Fluxo Macro",
+      "description": "Linha da tabela de fluxos em alto nivel.",
+      "required": [
+        "fluxo",
+        "objetivo",
+        "perfis_envolvidos",
+        "inicio",
+        "resultado_esperado",
+        "observacoes"
+      ],
+      "properties": {
+        "fluxo": {
+          "type": "string",
+          "title": "Fluxo",
+          "description": "Nome do fluxo macro.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal desse fluxo.",
+          "minLength": 1
+        },
+        "perfis_envolvidos": {
+          "type": "array",
+          "title": "Perfis Envolvidos",
+          "description": "Perfis que participam diretamente do fluxo.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Perfil",
+            "description": "Um perfil envolvido no fluxo.",
+            "minLength": 1
+          }
+        },
+        "inicio": {
+          "type": "string",
+          "title": "Inicio",
+          "description": "Ponto de partida do fluxo.",
+          "minLength": 1
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado ao final do fluxo.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Notas adicionais sobre dependencias ou pontos de atencao do fluxo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PrincipioProduto": {
+      "type": "object",
+      "title": "Principio de Produto",
+      "description": "Linha da tabela de principios que devem orientar o produto nas proximas etapas.",
+      "required": [
+        "principio",
+        "descricao",
+        "como_aplicar",
+        "risco_se_ignorado"
+      ],
+      "properties": {
+        "principio": {
+          "type": "string",
+          "title": "Principio",
+          "description": "Nome do principio de produto.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao do principio e do comportamento esperado.",
+          "minLength": 1
+        },
+        "como_aplicar": {
+          "type": "string",
+          "title": "Como Aplicar",
+          "description": "Como este principio deve ser usado em requisitos, UX, dados ou arquitetura funcional.",
+          "minLength": 1
+        },
+        "risco_se_ignorado": {
+          "type": "string",
+          "title": "Risco se Ignorado",
+          "description": "Consequencia esperada caso o principio nao seja seguido.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiretrizesUXUI": {
+      "type": "object",
+      "title": "Diretrizes de UX/UI",
+      "description": "Sintese aplicada da estetica inicial para orientar a implementacao do dashboard HTML.",
+      "required": [
+        "arquivo_estetico",
+        "disponivel",
+        "personalidade_visual",
+        "atmosfera_desejada",
+        "principios_de_interface",
+        "densidade_de_informacao",
+        "linguagem_dos_componentes",
+        "hierarquia_visual",
+        "uso_de_cores",
+        "tipografia",
+        "layout",
+        "padroes_de_dashboard",
+        "microcopy",
+        "estados_de_interface",
+        "acessibilidade",
+        "responsividade",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo_estetico": {
+          "type": "string",
+          "title": "Arquivo Estetico",
+          "description": "Arquivo de referencia estetica que deveria orientar a diretriz visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "disponivel": {
+          "type": "boolean",
+          "title": "Disponivel",
+          "description": "Indica se o arquivo estetico estava presente no contexto de execucao.",
+          "default": false
+        },
+        "personalidade_visual": {
+          "type": "array",
+          "title": "Personalidade Visual",
+          "description": "Lista de adjetivos e caracteristicas visuais que definem a atmosfera da interface.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Caracteristica Visual",
+            "description": "Uma caracteristica da personalidade visual.",
+            "minLength": 1
+          }
+        },
+        "atmosfera_desejada": {
+          "type": "string",
+          "title": "Atmosfera Desejada",
+          "description": "Descricao da sensacao geral que a interface deve transmitir.",
+          "minLength": 1
+        },
+        "principios_de_interface": {
+          "type": "array",
+          "title": "Principios de Interface",
+          "description": "Principios de composicao, navegacao e leitura que devem orientar o HTML.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Principio de Interface",
+            "description": "Um principio aplicavel ao produto.",
+            "minLength": 1
+          }
+        },
+        "densidade_de_informacao": {
+          "type": "string",
+          "title": "Densidade de Informacao",
+          "description": "Niveis esperados de densidade visual e textual do dashboard.",
+          "minLength": 1
+        },
+        "linguagem_dos_componentes": {
+          "type": "string",
+          "title": "Linguagem dos Componentes",
+          "description": "Como botoes, cards, tabelas, filtros e seções devem se comportar visualmente.",
+          "minLength": 1
+        },
+        "hierarquia_visual": {
+          "type": "string",
+          "title": "Hierarquia Visual",
+          "description": "Como o dashboard deve organizar prioridade visual entre resumo, decisoes, hipoteses, riscos e tabelas.",
+          "minLength": 1
+        },
+        "uso_de_cores": {
+          "type": "string",
+          "title": "Uso de Cores",
+          "description": "Diretriz para aplicacao de cores no dashboard conforme a estetica oficial.",
+          "minLength": 1
+        },
+        "tipografia": {
+          "type": "string",
+          "title": "Tipografia",
+          "description": "Diretriz resumida de tipografia e legibilidade.",
+          "minLength": 1
+        },
+        "layout": {
+          "type": "string",
+          "title": "Layout",
+          "description": "Diretriz de estrutura espacial e navegacao lateral.",
+          "minLength": 1
+        },
+        "padroes_de_dashboard": {
+          "type": "array",
+          "title": "Padroes de Dashboard",
+          "description": "Padroes de dashboard que devem aparecer apenas quando realmente ajudarem a analise.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Padrao de Dashboard",
+            "description": "Um padrao de dashboard aplicavel.",
+            "minLength": 1
+          }
+        },
+        "microcopy": {
+          "type": "string",
+          "title": "Microcopy",
+          "description": "Diretriz para textos curtos de interface, evitando frases vagas.",
+          "minLength": 1
+        },
+        "estados_de_interface": {
+          "type": "array",
+          "title": "Estados de Interface",
+          "description": "Estados visuais que precisam de tratamento claro, incluindo carregando, vazio, erro, sucesso e alerta.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Estado de Interface",
+            "description": "Um estado visual da interface.",
+            "minLength": 1
+          }
+        },
+        "acessibilidade": {
+          "type": "string",
+          "title": "Acessibilidade",
+          "description": "Diretriz para contraste, foco visivel, leitura e uso via teclado.",
+          "minLength": 1
+        },
+        "responsividade": {
+          "type": "string",
+          "title": "Responsividade",
+          "description": "Diretriz para adaptacao da interface em desktop e mobile sem perder legibilidade.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a aplicacao da estetica inicial na etapa.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DecisaoEstrategica": {
+      "type": "object",
+      "title": "Decisao Estrategica",
+      "description": "Linha de decisao recomendada para a consolidacao da estrategia antes da Etapa 4.",
+      "required": [
+        "decisao",
+        "justificativa",
+        "impacto",
+        "prioridade"
+      ],
+      "properties": {
+        "decisao": {
+          "type": "string",
+          "title": "Decisao",
+          "description": "Decisao recomendada.",
+          "minLength": 1
+        },
+        "justificativa": {
+          "type": "string",
+          "title": "Justificativa",
+          "description": "Justificativa estrategica da decisao.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado sobre escopo, prioridade ou posicionamento.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade de execucao da decisao.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "LacunaPendencia": {
+      "type": "object",
+      "title": "Lacuna ou Pendencia",
+      "description": "Item ainda aberto que precisa de validacao, refinamento ou decisao.",
+      "required": [
+        "id",
+        "tipo",
+        "descricao",
+        "impacto",
+        "origem",
+        "urgencia",
+        "proxima_acao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da pendencia, como informacao, decisao, validacao, estrategia ou evidencia.",
+          "enum": [
+            "informacao",
+            "decisao",
+            "validacao",
+            "estrategia",
+            "evidencia"
+          ]
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao clara da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado caso a lacuna permaneça aberta.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem da lacuna ou do ponto em aberto.",
+          "minLength": 1
+        },
+        "urgencia": {
+          "type": "string",
+          "title": "Urgencia",
+          "description": "Urgencia com que o item deve ser tratado.",
+          "enum": [
+            "Baixa",
+            "Media",
+            "Alta"
+          ]
+        },
+        "proxima_acao": {
+          "type": "string",
+          "title": "Proxima Acao",
+          "description": "Acao sugerida para reduzir a lacuna ou resolver a pendencia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacoesEtapa4": {
+      "type": "object",
+      "title": "Recomendacoes para a Etapa 4",
+      "description": "Recomendacoes sobre o que virar requisito, o que validar, o que pesquisar mais, o que levar para UX, dados e arquitetura e o que evitar.",
+      "required": [
+        "virar_requisito",
+        "validar",
+        "pesquisar_mais",
+        "entrar_em_ux",
+        "entrar_em_arquitetura",
+        "entrar_em_dados",
+        "priorizar",
+        "evitar"
+      ],
+      "properties": {
+        "virar_requisito": {
+          "type": "array",
+          "title": "Virar Requisito",
+          "description": "Itens que devem se tornar requisitos na Etapa 4.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Requisito Potencial",
+            "description": "Um item recomendado para virar requisito.",
+            "minLength": 1
+          }
+        },
+        "validar": {
+          "type": "array",
+          "title": "Validar",
+          "description": "Itens que precisam de validacao adicional.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validacao",
+            "description": "Um item a ser validado.",
+            "minLength": 1
+          }
+        },
+        "pesquisar_mais": {
+          "type": "array",
+          "title": "Pesquisar Mais",
+          "description": "Temas que precisam de pesquisa complementar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Pesquisa Complementar",
+            "description": "Um tema para pesquisa adicional.",
+            "minLength": 1
+          }
+        },
+        "entrar_em_ux": {
+          "type": "array",
+          "title": "Entrar em UX",
+          "description": "Itens que devem virar foco de UX na Etapa 4.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de UX",
+            "description": "Um item recomendado para UX.",
+            "minLength": 1
+          }
+        },
+        "entrar_em_arquitetura": {
+          "type": "array",
+          "title": "Entrar em Arquitetura",
+          "description": "Itens que devem orientar a arquitetura funcional ou tecnica na etapa seguinte.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de Arquitetura",
+            "description": "Um item recomendado para arquitetura.",
+            "minLength": 1
+          }
+        },
+        "entrar_em_dados": {
+          "type": "array",
+          "title": "Entrar em Dados",
+          "description": "Itens que devem orientar modelagem informacional, eventos ou metadados.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de Dados",
+            "description": "Um item recomendado para dados.",
+            "minLength": 1
+          }
+        },
+        "priorizar": {
+          "type": "array",
+          "title": "Priorizar",
+          "description": "Itens prioritarios para resolver primeiro na etapa seguinte.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prioridade",
+            "description": "Um item prioritario.",
+            "minLength": 1
+          }
+        },
+        "evitar": {
+          "type": "array",
+          "title": "Evitar",
+          "description": "Itens que devem ser evitados na Etapa 4 para nao fechar escopo prematuramente ou distorcer a evidencia.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Evitar",
+            "description": "Um item a evitar.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FonteReferencia": {
+      "type": "object",
+      "title": "Fonte e Referencia",
+      "description": "Registro rastreavel de uma fonte, documento ou referencia usada na consolidacao.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "url_ou_documento",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo de fonte, como documento, arquivo local, pesquisa, benchmark, website oficial ou observacao.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo ou nome da fonte consultada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou organizacao responsavel pela fonte.",
+          "minLength": 1
+        },
+        "url_ou_documento": {
+          "type": "string",
+          "title": "URL ou Documento",
+          "description": "URL, caminho de arquivo ou referencia documental usada como fonte.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "type": "array",
+          "title": "Usado em",
+          "description": "Lista das secoes em que a fonte foi usada.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Secao",
+            "description": "Uma secao do dashboard sustentada pela fonte.",
+            "minLength": 1
+          }
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a qualidade, confianca ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProximosPassos": {
+      "type": "object",
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a Etapa 3.",
+      "required": [
+        "acoes_imediatas",
+        "prioridades",
+        "riscos_a_monitorar",
+        "questoes_em_aberto",
+        "observacoes"
+      ],
+      "properties": {
+        "acoes_imediatas": {
+          "type": "array",
+          "title": "Acoes Imediatas",
+          "description": "Lista das proximas acoes mais imediatas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Acao Imediata",
+            "description": "Uma acao a ser executada em seguida.",
+            "minLength": 1
+          }
+        },
+        "prioridades": {
+          "type": "array",
+          "title": "Prioridades",
+          "description": "Lista das prioridades para a continuacao do trabalho.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prioridade",
+            "description": "Uma prioridade da fase seguinte.",
+            "minLength": 1
+          }
+        },
+        "riscos_a_monitorar": {
+          "type": "array",
+          "title": "Riscos a Monitorar",
+          "description": "Riscos que devem permanecer sob acompanhamento.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Risco",
+            "description": "Um risco a ser monitorado.",
+            "minLength": 1
+          }
+        },
+        "questoes_em_aberto": {
+          "type": "array",
+          "title": "Questoes em Aberto",
+          "description": "Perguntas que ainda exigem resposta antes da Etapa 4.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Questao",
+            "description": "Uma questao ainda aberta.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes finais sobre continuidade e sequenciamento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "required": [
+        "alternar_tema",
+        "expandir_recolher",
+        "filtros",
+        "busca_textual",
+        "copiar_resumo_executivo",
+        "copiar_tabelas_e_secoes",
+        "exportar_markdown",
+        "imprimir_ou_pdf",
+        "progresso_visual",
+        "destaques_interativos"
+      ],
+      "properties": {
+        "alternar_tema": {
+          "type": "object",
+          "title": "Alternar Tema",
+          "description": "Configuracao da possibilidade de alternar tema claro e escuro, quando compativel com a estetica oficial.",
+          "required": [
+            "disponivel",
+            "decisao",
+            "justificativa"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a alternancia de tema esta disponivel no dashboard.",
+              "default": false
+            },
+            "decisao": {
+              "type": "string",
+              "title": "Decisao",
+              "description": "Decisao tomada sobre a implementacao da alternancia de tema.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Justificativa para a decisao sobre tema.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "expandir_recolher": {
+          "type": "boolean",
+          "title": "Expandir e Recolher",
+          "description": "Indica se as seções podem ser expandidas e recolhidas.",
+          "default": true
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Lista dos filtros disponiveis no dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Filtro",
+            "description": "Um filtro ou controle interativo.",
+            "minLength": 1
+          }
+        },
+        "busca_textual": {
+          "type": "string",
+          "title": "Busca Textual",
+          "description": "Descricao do comportamento de busca livre no dashboard.",
+          "minLength": 1
+        },
+        "copiar_resumo_executivo": {
+          "type": "string",
+          "title": "Copiar Resumo Executivo",
+          "description": "Descricao da acao de copiar o resumo executivo.",
+          "minLength": 1
+        },
+        "copiar_tabelas_e_secoes": {
+          "type": "string",
+          "title": "Copiar Tabelas e Secoes",
+          "description": "Descricao da acao de copiar tabelas e seções principais.",
+          "minLength": 1
+        },
+        "exportar_markdown": {
+          "type": "string",
+          "title": "Exportar Markdown",
+          "description": "Descricao do comportamento de exportacao em Markdown.",
+          "minLength": 1
+        },
+        "imprimir_ou_pdf": {
+          "type": "string",
+          "title": "Imprimir ou PDF",
+          "description": "Descricao do comportamento de impressao ou salvamento em PDF.",
+          "minLength": 1
+        },
+        "progresso_visual": {
+          "type": "string",
+          "title": "Progresso Visual",
+          "description": "Descricao de como o progresso da Etapa 3 deve ser apresentado.",
+          "minLength": 1
+        },
+        "destaques_interativos": {
+          "type": "array",
+          "title": "Destaques Interativos",
+          "description": "Lista dos elementos que devem receber destaque visual ou acao rapida.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Destaque Interativo",
+            "description": "Um destaque interativo do dashboard.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProgressoVisual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "required": [
+        "percentual_conclusao",
+        "status",
+        "marcos",
+        "indicadores",
+        "proxima_etapa_recomendada",
+        "observacoes"
+      ],
+      "properties": {
+        "percentual_conclusao": {
+          "type": "integer",
+          "title": "Percentual de Conclusao",
+          "description": "Percentual visual de completude da etapa.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status visual do progresso.",
+          "minLength": 1
+        },
+        "marcos": {
+          "type": "array",
+          "title": "Marcos",
+          "description": "Marcos importantes da consolidacao ou da producao do dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Marco",
+            "description": "Um marco importante.",
+            "minLength": 1
+          }
+        },
+        "indicadores": {
+          "type": "array",
+          "title": "Indicadores",
+          "description": "Indicadores resumidos para leitura rapida do progresso.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Indicador",
+            "description": "Um indicador de progresso.",
+            "minLength": 1
+          }
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa sugerida a partir dos aprendizados da consolidacao.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o progresso visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Bloco de insights, alertas, decisoes e pendencias que merecem leitura rapida.",
+      "required": [
+        "insights",
+        "alertas",
+        "decisoes",
+        "pendencias"
+      ],
+      "properties": {
+        "insights": {
+          "type": "array",
+          "title": "Insights",
+          "description": "Principais insights extraidos da consolidacao.",
+          "items": {
+            "type": "string",
+            "title": "Insight",
+            "description": "Um insight importante.",
+            "minLength": 1
+          }
+        },
+        "alertas": {
+          "type": "array",
+          "title": "Alertas",
+          "description": "Alertas ou pontos de atencao prioritarios.",
+          "items": {
+            "type": "string",
+            "title": "Alerta",
+            "description": "Um alerta relevante.",
+            "minLength": 1
+          }
+        },
+        "decisoes": {
+          "type": "array",
+          "title": "Decisoes",
+          "description": "Decisoes tomadas ou recomendadas.",
+          "items": {
+            "type": "string",
+            "title": "Decisao",
+            "description": "Uma decisao relevante.",
+            "minLength": 1
+          }
+        },
+        "pendencias": {
+          "type": "array",
+          "title": "Pendencias",
+          "description": "Pendencias ainda abertas apos a consolidacao.",
+          "items": {
+            "type": "string",
+            "title": "Pendencia",
+            "description": "Uma pendencia relevante.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "required": [
+        "documentos_entrada",
+        "oportunidades",
+        "riscos",
+        "hipoteses_reforcadas",
+        "hipoteses_incertas",
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "fontes",
+        "secoes"
+      ],
+      "properties": {
+        "documentos_entrada": {
+          "type": "integer",
+          "title": "Documentos de Entrada",
+          "description": "Quantidade de documentos de entrada considerados.",
+          "minimum": 0
+        },
+        "oportunidades": {
+          "type": "integer",
+          "title": "Oportunidades",
+          "description": "Quantidade de oportunidades consolidadas.",
+          "minimum": 0
+        },
+        "riscos": {
+          "type": "integer",
+          "title": "Riscos",
+          "description": "Quantidade de riscos consolidados.",
+          "minimum": 0
+        },
+        "hipoteses_reforcadas": {
+          "type": "integer",
+          "title": "Hipoteses Reforcadas",
+          "description": "Quantidade de hipoteses reforcadas.",
+          "minimum": 0
+        },
+        "hipoteses_incertas": {
+          "type": "integer",
+          "title": "Hipoteses Incertas",
+          "description": "Quantidade de hipoteses ainda incertas.",
+          "minimum": 0
+        },
+        "dominios": {
+          "type": "integer",
+          "title": "Dominios",
+          "description": "Quantidade de dominios mapeados.",
+          "minimum": 0
+        },
+        "modulos": {
+          "type": "integer",
+          "title": "Modulos",
+          "description": "Quantidade de modulos mapeados.",
+          "minimum": 0
+        },
+        "funcionalidades": {
+          "type": "integer",
+          "title": "Funcionalidades",
+          "description": "Quantidade de funcionalidades candidatas.",
+          "minimum": 0
+        },
+        "fontes": {
+          "type": "integer",
+          "title": "Fontes",
+          "description": "Quantidade de fontes e referencias registradas.",
+          "minimum": 0
+        },
+        "secoes": {
+          "type": "integer",
+          "title": "Secoes",
+          "description": "Quantidade de secoes principais do dashboard.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

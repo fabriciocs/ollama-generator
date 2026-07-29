@@ -1,0 +1,1482 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 0 - Estética Inicial",
+  "description": "Schema JSON que representa semanticamente o conteúdo do arquivo '0-estetica-inicial.md'. A saída final deve conter a direção estética inicial do produto, organizada nas mesmas 15 seções exigidas pelo prompt, com detalhes suficientes para orientar identidade visual, UX/UI, sistema de design, diretrizes CSS e diretrizes React.",
+  "type": "object",
+  "required": [
+    "etapa",
+    "nome_do_produto",
+    "direcao_criativa",
+    "diagnostico_anti_slop",
+    "conceito_visual",
+    "paleta_de_cores",
+    "tipografia",
+    "sistema_de_espacamento",
+    "layouts",
+    "componentes",
+    "movimento_e_microinteracoes",
+    "estados_de_interface",
+    "diretrizes_css",
+    "diretrizes_react",
+    "exemplos_de_implementacao",
+    "riscos_visuais",
+    "recomendacoes_finais"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferida a partir do prompt de entrada. Para este arquivo, o valor deve ser 0, pois a saída corresponde à Etapa 0 - Estética Inicial.",
+      "const": 0
+    },
+    "nome_do_produto": {
+      "type": "string",
+      "title": "Nome do Produto",
+      "description": "Nome do sistema, produto ou plataforma para o qual a estética inicial está sendo definida. Deve alimentar o título do documento e orientar todas as decisões visuais subsequentes.",
+      "minLength": 1
+    },
+    "direcao_criativa": {
+      "type": "object",
+      "title": "Direção Criativa",
+      "description": "Síntese estratégica da proposta visual inicial. Deve explicar a intenção estética geral, o posicionamento visual, a personalidade desejada e a lógica que sustenta as escolhas de design.",
+      "required": [
+        "essencia",
+        "adjetivos",
+        "direcao_formal",
+        "justificativa",
+        "restricoes"
+      ],
+      "properties": {
+        "essencia": {
+          "type": "string",
+          "title": "Essência da Direção",
+          "description": "Frase ou parágrafo curto que resume a ideia central da proposta estética. Deve explicitar o que a interface parece ser e por que ela é apropriada para o produto.",
+          "minLength": 1
+        },
+        "adjetivos": {
+          "type": "array",
+          "title": "Adjetivos de Personalidade",
+          "description": "Lista de adjetivos que caracterizam a personalidade visual do produto. Deve conter termos coerentes com o contexto enterprise, evitando descrições genéricas.",
+          "minItems": 3,
+          "items": {
+            "type": "string",
+            "title": "Adjetivo",
+            "description": "Termo que descreve a personalidade visual desejada. Deve ser específico, útil e alinhado ao contexto do produto.",
+            "minLength": 1
+          }
+        },
+        "direcao_formal": {
+          "type": "string",
+          "title": "Direção Formal",
+          "description": "Descrição do estilo visual adotado, incluindo geometria, densidade, linguagem de formas e comportamento espacial da interface.",
+          "minLength": 1
+        },
+        "justificativa": {
+          "type": "string",
+          "title": "Justificativa da Direção",
+          "description": "Explicação objetiva sobre por que essa direção criativa é adequada ao produto, ao público e ao uso real em desktop e mobile.",
+          "minLength": 1
+        },
+        "restricoes": {
+          "type": "array",
+          "title": "Restrições Criativas",
+          "description": "Lista de limitações e escolhas a evitar para impedir estética genérica, excesso ornamental ou inconsistência com o sistema de produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Regra visual ou decisão negativa que ajuda a preservar a identidade proposta e evitar soluções incompatíveis.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "diagnostico_anti_slop": {
+      "type": "object",
+      "title": "Diagnóstico Anti-Slop",
+      "description": "Avaliação crítica do que deve ser evitado para impedir uma aparência genérica ou automática. Deve registrar padrões visuais a rejeitar, decisões adotadas e riscos resolvidos pela proposta estética.",
+      "required": [
+        "padroes_a_evitar",
+        "decisoes_que_diferenciam",
+        "riscos_resolvidos"
+      ],
+      "properties": {
+        "padroes_a_evitar": {
+          "type": "array",
+          "title": "Padrões a Evitar",
+          "description": "Lista dos padrões visuais, composicionais e tipográficos que seriam considerados genéricos, pasteurizados ou inadequados para o produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Padrão Evitado",
+            "description": "Descrição de um padrão visual ou de interface que deve ser evitado.",
+            "minLength": 1
+          }
+        },
+        "decisoes_que_diferenciam": {
+          "type": "array",
+          "title": "Decisões que Diferenciam",
+          "description": "Lista de escolhas que tornam a interface reconhecível, específica e alinhada ao contexto do produto, evitando soluções intercambiáveis.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Decisão Diferenciadora",
+            "description": "Decisão de design que cria identidade própria e reforça a adequação do sistema ao cenário descrito.",
+            "minLength": 1
+          }
+        },
+        "riscos_resolvidos": {
+          "type": "array",
+          "title": "Riscos Resolvidos",
+          "description": "Lista de riscos estéticos ou de usabilidade tratados pela proposta, como baixa legibilidade, excesso de ruído visual ou falta de hierarquia.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Risco Resolvido",
+            "description": "Risco específico mitigado pela direção visual proposta.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "conceito_visual": {
+      "type": "object",
+      "title": "Conceito Visual",
+      "description": "Definição do conceito visual central da interface. Deve traduzir a narrativa do produto em linguagem de forma, composição, ritmo, contraste e metáfora visual.",
+      "required": [
+        "metafora_central",
+        "formas_predominantes",
+        "sensacao_desejada",
+        "sinais_visuais"
+      ],
+      "properties": {
+        "metafora_central": {
+          "type": "string",
+          "title": "Metáfora Central",
+          "description": "Metáfora visual principal que guia a aparência do produto. Deve ser concreta o suficiente para orientar decisões de layout, elementos e comportamento.",
+          "minLength": 1
+        },
+        "formas_predominantes": {
+          "type": "array",
+          "title": "Formas Predominantes",
+          "description": "Lista de formas geométricas ou composicionais dominantes na interface, como blocos, linhas, painéis, grades ou contêineres.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Forma Predominante",
+            "description": "Elemento formal recorrente que contribui para a identidade visual do produto.",
+            "minLength": 1
+          }
+        },
+        "sensacao_desejada": {
+          "type": "array",
+          "title": "Sensação Desejada",
+          "description": "Lista de sensações que a interface deve transmitir ao usuário ao interagir com o sistema.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Sensação",
+            "description": "Impressão emocional ou funcional que a interface deve produzir.",
+            "minLength": 1
+          }
+        },
+        "sinais_visuais": {
+          "type": "array",
+          "title": "Sinais Visuais",
+          "description": "Lista de sinais visuais concretos que materializam o conceito, como contraste, densidade, ritmo, bordas, superfícies e hierarquia.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Sinal Visual",
+            "description": "Indício formal ou composicional que traduz o conceito em interface.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "paleta_de_cores": {
+      "type": "object",
+      "title": "Paleta de Cores",
+      "description": "Sistema cromático completo da estética inicial. Deve incluir cores principais, secundárias, acentos, neutros e cores de estado, com regras de uso e coerência com o contexto enterprise.",
+      "required": [
+        "cores_primarias",
+        "cores_secundarias",
+        "cores_de_acento",
+        "cores_neutras",
+        "cores_de_estado",
+        "regras_de_uso"
+      ],
+      "properties": {
+        "cores_primarias": {
+          "type": "array",
+          "title": "Cores Primárias",
+          "description": "Lista de cores base que sustentam a identidade visual principal do produto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/color_token"
+          }
+        },
+        "cores_secundarias": {
+          "type": "array",
+          "title": "Cores Secundárias",
+          "description": "Lista de cores complementares usadas para equilíbrio visual, variação de superfície e suporte à hierarquia.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/color_token"
+          }
+        },
+        "cores_de_acento": {
+          "type": "array",
+          "title": "Cores de Acento",
+          "description": "Lista de cores reservadas para destaque, ação principal, alertas específicos e reforço de informação crítica.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/color_token"
+          }
+        },
+        "cores_neutras": {
+          "type": "array",
+          "title": "Cores Neutras",
+          "description": "Lista de tons neutros usados em superfícies, fundos, textos e bordas para sustentar legibilidade e densidade informacional.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/color_token"
+          }
+        },
+        "cores_de_estado": {
+          "type": "array",
+          "title": "Cores de Estado",
+          "description": "Lista de cores específicas para sucesso, aviso, erro, informação, desabilitado e outros estados funcionais da interface.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/state_color_token"
+          }
+        },
+        "regras_de_uso": {
+          "type": "array",
+          "title": "Regras de Uso da Paleta",
+          "description": "Lista de regras que definem onde cada cor pode ou não pode ser aplicada, incluindo contraste, hierarquia e consistência entre temas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra de Uso",
+            "description": "Regra operacional para aplicação da cor na interface.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tipografia": {
+      "type": "object",
+      "title": "Tipografia",
+      "description": "Sistema tipográfico completo da estética inicial. Deve definir famílias, pesos, hierarquia, legibilidade, comportamento responsivo e papéis tipográficos do produto.",
+      "required": [
+        "familia_titulos",
+        "familia_corpo",
+        "familia_mono",
+        "hierarquia",
+        "regras"
+      ],
+      "properties": {
+        "familia_titulos": {
+          "type": "object",
+          "title": "Família de Títulos",
+          "description": "Definição da família tipográfica usada em títulos, chamadas e áreas de ênfase editorial da interface.",
+          "required": ["nome", "fallbacks", "peso_preferencial", "uso"],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Família",
+              "description": "Nome da fonte principal para títulos.",
+              "minLength": 1
+            },
+            "fallbacks": {
+              "type": "array",
+              "title": "Fallbacks",
+              "description": "Lista de fontes alternativas para garantir consistência tipográfica caso a fonte principal não esteja disponível.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fonte Fallback",
+                "description": "Fonte alternativa compatível com a proposta visual.",
+                "minLength": 1
+              }
+            },
+            "peso_preferencial": {
+              "type": "string",
+              "title": "Peso Preferencial",
+              "description": "Peso tipográfico recomendado para títulos.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Família",
+              "description": "Descrição de onde a família deve ser aplicada e por que ela reforça a leitura da interface.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "familia_corpo": {
+          "type": "object",
+          "title": "Família de Corpo",
+          "description": "Definição da família tipográfica usada no texto corrido, labels, descrições e conteúdo funcional.",
+          "required": ["nome", "fallbacks", "peso_preferencial", "uso"],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Família",
+              "description": "Nome da fonte principal para corpo de texto.",
+              "minLength": 1
+            },
+            "fallbacks": {
+              "type": "array",
+              "title": "Fallbacks",
+              "description": "Lista de fontes alternativas para a família de corpo.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fonte Fallback",
+                "description": "Fonte alternativa para garantir boa renderização.",
+                "minLength": 1
+              }
+            },
+            "peso_preferencial": {
+              "type": "string",
+              "title": "Peso Preferencial",
+              "description": "Peso tipográfico recomendado para texto funcional e leitura longa.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Família",
+              "description": "Descrição do papel da fonte de corpo na interface.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "familia_mono": {
+          "type": "object",
+          "title": "Família Monoespaçada",
+          "description": "Definição da família monoespaçada para códigos, dados tabulares, logs, tokens, IDs e elementos técnicos.",
+          "required": ["nome", "fallbacks", "peso_preferencial", "uso"],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Família",
+              "description": "Nome da fonte monoespaçada principal.",
+              "minLength": 1
+            },
+            "fallbacks": {
+              "type": "array",
+              "title": "Fallbacks",
+              "description": "Lista de fontes alternativas monoespaçadas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fonte Fallback",
+                "description": "Fonte alternativa para uso monoespaçado.",
+                "minLength": 1
+              }
+            },
+            "peso_preferencial": {
+              "type": "string",
+              "title": "Peso Preferencial",
+              "description": "Peso tipográfico recomendado para a fonte monoespaçada.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Família",
+              "description": "Descrição de onde a fonte monoespaçada deve aparecer.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "hierarquia": {
+          "type": "array",
+          "title": "Hierarquia Tipográfica",
+          "description": "Lista dos níveis tipográficos do sistema, com tamanhos, pesos e usos esperados para cada nível.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/typographic_level"
+          }
+        },
+        "regras": {
+          "type": "array",
+          "title": "Regras Tipográficas",
+          "description": "Lista de regras que regulam contraste, truncamento, tamanho mínimo e comportamento responsivo da tipografia.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra Tipográfica",
+            "description": "Regra operacional para uso da tipografia no produto.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sistema_de_espacamento": {
+      "type": "object",
+      "title": "Sistema de Espaçamento",
+      "description": "Escala espacial que organiza margens, paddings, gaps e alinhamentos do layout. Deve ser consistente, reutilizável e compatível com a densidade informacional do produto.",
+      "required": [
+        "base",
+        "escala",
+        "regras"
+      ],
+      "properties": {
+        "base": {
+          "type": "string",
+          "title": "Base da Escala",
+          "description": "Unidade ou referência base usada para construir o sistema de espaçamento. Deve ser clara e consistente com o design system.",
+          "minLength": 1
+        },
+        "escala": {
+          "type": "array",
+          "title": "Escala de Espaçamento",
+          "description": "Lista de tokens de espaçamento usados no produto para garantir consistência entre componentes e layouts.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/spacing_token"
+          }
+        },
+        "regras": {
+          "type": "array",
+          "title": "Regras de Espaçamento",
+          "description": "Lista de regras que orientam o uso da escala espacial em diferentes densidades e pontos de quebra.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra de Espaçamento",
+            "description": "Regra para aplicação da escala de espaçamento.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "layouts": {
+      "type": "object",
+      "title": "Layouts",
+      "description": "Definição dos comportamentos de layout para desktop, tablet e mobile. Deve explicar estrutura, densidade, navegação, prioridades e adaptação responsiva em cada breakpoint.",
+      "required": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "properties": {
+        "desktop": {
+          "$ref": "#/$defs/layout_spec"
+        },
+        "tablet": {
+          "$ref": "#/$defs/layout_spec"
+        },
+        "mobile": {
+          "$ref": "#/$defs/layout_spec"
+        }
+      },
+      "additionalProperties": false
+    },
+    "componentes": {
+      "type": "object",
+      "title": "Componentes",
+      "description": "Sistema de componentes reutilizáveis exigidos pelo prompt. Cada componente deve descrever aparência, estados, variantes, comportamento e cuidados de implementação.",
+      "required": [
+        "botao",
+        "input",
+        "select",
+        "tabela",
+        "card",
+        "badge",
+        "menu",
+        "modal",
+        "empty_state",
+        "loading",
+        "erro",
+        "sem_permissao"
+      ],
+      "properties": {
+        "botao": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "input": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "select": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "tabela": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "card": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "badge": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "menu": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "modal": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "empty_state": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "loading": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "erro": {
+          "$ref": "#/$defs/component_spec"
+        },
+        "sem_permissao": {
+          "$ref": "#/$defs/component_spec"
+        }
+      },
+      "additionalProperties": false
+    },
+    "movimento_e_microinteracoes": {
+      "type": "object",
+      "title": "Movimento e Microinterações",
+      "description": "Diretrizes de animação, transição e resposta visual do sistema. Deve comunicar função, evitar excesso ornamental e reforçar feedback útil.",
+      "required": [
+        "principios",
+        "duracoes",
+        "easing",
+        "microinteracoes"
+      ],
+      "properties": {
+        "principios": {
+          "type": "array",
+          "title": "Princípios de Movimento",
+          "description": "Lista de princípios que orientam o uso de animação no produto, como propósito, parcimônia e legibilidade.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Princípio de Movimento",
+            "description": "Regra conceitual para animações e transições da interface.",
+            "minLength": 1
+          }
+        },
+        "duracoes": {
+          "type": "array",
+          "title": "Durações",
+          "description": "Lista de durações recomendadas para transições e animações em diferentes contextos de uso.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/motion_duration"
+          }
+        },
+        "easing": {
+          "type": "array",
+          "title": "Curvas de Easing",
+          "description": "Lista das curvas de aceleração e desaceleração recomendadas para estados de movimento do produto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/easing_token"
+          }
+        },
+        "microinteracoes": {
+          "type": "array",
+          "title": "Microinterações",
+          "description": "Lista de microinterações úteis, com comportamento esperado e função na experiência do produto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/microinteraction_spec"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "estados_de_interface": {
+      "type": "object",
+      "title": "Estados de Interface",
+      "description": "Definição semântica dos estados operacionais da interface para garantir consistência em situações vazias, de erro, carregamento, restrição de acesso e afins.",
+      "required": [
+        "empty_state",
+        "loading",
+        "erro",
+        "sem_permissao"
+      ],
+      "properties": {
+        "empty_state": {
+          "$ref": "#/$defs/interface_state"
+        },
+        "loading": {
+          "$ref": "#/$defs/interface_state"
+        },
+        "erro": {
+          "$ref": "#/$defs/interface_state"
+        },
+        "sem_permissao": {
+          "$ref": "#/$defs/interface_state"
+        }
+      },
+      "additionalProperties": false
+    },
+    "diretrizes_css": {
+      "type": "object",
+      "title": "Diretrizes CSS",
+      "description": "Normas técnicas para implementação visual em CSS. Deve cobrir design tokens, variáveis, cores, espaçamento, tipografia, bordas, sombras e breakpoints.",
+      "required": [
+        "design_tokens",
+        "variaveis_css",
+        "regras"
+      ],
+      "properties": {
+        "design_tokens": {
+          "type": "object",
+          "title": "Design Tokens",
+          "description": "Agrupamento estruturado dos tokens fundamentais do sistema de design usados para implementar a interface com consistência.",
+          "required": [
+            "cores",
+            "tipografia",
+            "espacamento",
+            "bordas",
+            "sombras",
+            "breakpoints"
+          ],
+          "properties": {
+            "cores": {
+              "type": "array",
+              "title": "Tokens de Cor",
+              "description": "Lista consolidada de tokens de cor utilizados no CSS do produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "tipografia": {
+              "type": "array",
+              "title": "Tokens Tipográficos",
+              "description": "Lista dos tokens tipográficos usados para tamanhos, pesos e alturas de linha.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/typographic_token"
+              }
+            },
+            "espacamento": {
+              "type": "array",
+              "title": "Tokens de Espaçamento",
+              "description": "Lista dos tokens de espaçamento usados no sistema CSS.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/spacing_token"
+              }
+            },
+            "bordas": {
+              "type": "array",
+              "title": "Tokens de Borda",
+              "description": "Lista dos tokens que definem raios, espessuras e estilos de borda.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/border_token"
+              }
+            },
+            "sombras": {
+              "type": "array",
+              "title": "Tokens de Sombra",
+              "description": "Lista dos tokens de sombra usados para profundidade, elevação e destaque.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/shadow_token"
+              }
+            },
+            "breakpoints": {
+              "type": "array",
+              "title": "Breakpoints",
+              "description": "Lista dos pontos de quebra do sistema responsivo.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/breakpoint_token"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "variaveis_css": {
+          "type": "array",
+          "title": "Variáveis CSS",
+          "description": "Lista de variáveis CSS recomendadas para a implementação do tema e dos componentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/css_variable"
+          }
+        },
+        "regras": {
+          "type": "array",
+          "title": "Regras CSS",
+          "description": "Lista de regras técnicas para uso correto das variáveis, tokens e padrões visuais no CSS do produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra CSS",
+            "description": "Regra operacional para implementar a interface com CSS moderno e consistente.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "diretrizes_react": {
+      "type": "object",
+      "title": "Diretrizes React",
+      "description": "Orientações para implementação da interface em React. Deve cobrir composição, estrutura de componentes, estados, animações e práticas de acessibilidade.",
+      "required": [
+        "arquitetura",
+        "componentizacao",
+        "animacao",
+        "acessibilidade",
+        "padroes_de_estado"
+      ],
+      "properties": {
+        "arquitetura": {
+          "type": "array",
+          "title": "Arquitetura React",
+          "description": "Lista de princípios e decisões de arquitetura para a implementação do frontend em React.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Princípio de Arquitetura",
+            "description": "Regra de estruturação do aplicativo React.",
+            "minLength": 1
+          }
+        },
+        "componentizacao": {
+          "type": "array",
+          "title": "Componentização",
+          "description": "Lista de orientações sobre como decompor a interface em componentes reutilizáveis e previsíveis.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra de Componentização",
+            "description": "Diretriz para composição e reutilização de componentes em React.",
+            "minLength": 1
+          }
+        },
+        "animacao": {
+          "type": "array",
+          "title": "Uso de Animação",
+          "description": "Lista de recomendações para animação em React, incluindo quando usar Motion e como manter o movimento funcional.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Diretriz de Animação",
+            "description": "Regra para aplicar animações e transições em React.",
+            "minLength": 1
+          }
+        },
+        "acessibilidade": {
+          "type": "array",
+          "title": "Acessibilidade",
+          "description": "Lista de práticas de acessibilidade que devem ser respeitadas na implementação React.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prática de Acessibilidade",
+            "description": "Prática técnica para tornar a interface acessível.",
+            "minLength": 1
+          }
+        },
+        "padroes_de_estado": {
+          "type": "array",
+          "title": "Padrões de Estado",
+          "description": "Lista de padrões recomendados para representar estados como loading, erro, vazio, bloqueio e permissão em componentes React.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Padrão de Estado",
+            "description": "Diretriz para controle e representação de estado no frontend React.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "exemplos_de_implementacao": {
+      "type": "array",
+      "title": "Exemplos de Implementação",
+      "description": "Exemplos concretos de como aplicar a direção estética em partes reais da interface. Cada item deve mostrar um cenário de uso e como a proposta visual se traduz em frontend.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/implementation_example"
+      }
+    },
+    "riscos_visuais": {
+      "type": "array",
+      "title": "Riscos Visuais",
+      "description": "Lista de riscos que podem comprometer a qualidade da interface se a direção estética for mal aplicada, acompanhados de impacto e mitigação.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/visual_risk"
+      }
+    },
+    "recomendacoes_finais": {
+      "type": "object",
+      "title": "Recomendações Finais",
+      "description": "Fechamento da proposta estética com prioridades, síntese de decisão e próximos passos recomendados para implementação.",
+      "required": [
+        "decisao_final",
+        "prioridades",
+        "proximos_passos"
+      ],
+      "properties": {
+        "decisao_final": {
+          "type": "string",
+          "title": "Decisão Final",
+          "description": "Síntese conclusiva da direção estética recomendada para o produto.",
+          "minLength": 1
+        },
+        "prioridades": {
+          "type": "array",
+          "title": "Prioridades",
+          "description": "Lista de prioridades de design e implementação que devem ser atacadas primeiro para manter coerência visual.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prioridade",
+            "description": "Prioridade concreta para a execução da proposta estética.",
+            "minLength": 1
+          }
+        },
+        "proximos_passos": {
+          "type": "array",
+          "title": "Próximos Passos",
+          "description": "Lista de ações objetivas seguintes para transformar a direção estética em um sistema visual aplicável.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Próximo Passo",
+            "description": "Ação prática a ser executada após a definição da estética inicial.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "color_token": {
+      "type": "object",
+      "title": "Token de Cor",
+      "description": "Objeto semântico que representa uma cor do sistema visual com nome, valor e intenção de uso.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Token de Cor",
+          "description": "Nome descritivo da cor dentro do sistema de design.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor da Cor",
+          "description": "Valor serializado da cor, como hex, rgb, oklch ou outro formato válido para implementação.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso da Cor",
+          "description": "Contexto funcional ou visual em que a cor deve ser aplicada.",
+          "minLength": 1
+        },
+        "contraste": {
+          "type": "string",
+          "title": "Contraste Recomendado",
+          "description": "Orientação sobre contraste esperado ou combinação de contraste ideal para essa cor.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "state_color_token": {
+      "type": "object",
+      "title": "Token de Cor de Estado",
+      "description": "Objeto semântico que representa uma cor associada a um estado funcional da interface, como sucesso ou erro.",
+      "required": [
+        "estado",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Nome do estado funcional associado à cor.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor da Cor",
+          "description": "Valor serializado da cor usada para o estado.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Estado",
+          "description": "Situação de interface em que essa cor de estado deve ser aplicada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "typographic_level": {
+      "type": "object",
+      "title": "Nível Tipográfico",
+      "description": "Representa um nível da hierarquia tipográfica do sistema com tamanho, peso, espaçamento e função.",
+      "required": [
+        "nivel",
+        "tamanho",
+        "peso",
+        "line_height",
+        "uso"
+      ],
+      "properties": {
+        "nivel": {
+          "type": "string",
+          "title": "Nível",
+          "description": "Identificador do nível tipográfico, como display, heading ou body.",
+          "minLength": 1
+        },
+        "tamanho": {
+          "type": "string",
+          "title": "Tamanho",
+          "description": "Tamanho recomendado para o nível tipográfico.",
+          "minLength": 1
+        },
+        "peso": {
+          "type": "string",
+          "title": "Peso",
+          "description": "Peso tipográfico recomendado para o nível.",
+          "minLength": 1
+        },
+        "line_height": {
+          "type": "string",
+          "title": "Altura de Linha",
+          "description": "Altura de linha recomendada para manter legibilidade e densidade visual.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Nível",
+          "description": "Contexto de aplicação do nível tipográfico na interface.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "spacing_token": {
+      "type": "object",
+      "title": "Token de Espaçamento",
+      "description": "Representa um token de espaçamento usado pelo sistema para margens, paddings, gaps e alinhamentos.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Token",
+          "description": "Nome do token de espaçamento dentro do sistema.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor do Espaçamento",
+          "description": "Valor serializado do espaçamento, preferencialmente em unidades consistentes com o sistema.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Espaçamento",
+          "description": "Onde e por que esse token de espaço deve ser utilizado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "layout_spec": {
+      "type": "object",
+      "title": "Especificação de Layout",
+      "description": "Descrição do comportamento do layout em um determinado breakpoint, com foco em estrutura, densidade e prioridades de uso.",
+      "required": [
+        "estrutura",
+        "densidade",
+        "navegacao",
+        "prioridades",
+        "comportamento"
+      ],
+      "properties": {
+        "estrutura": {
+          "type": "string",
+          "title": "Estrutura",
+          "description": "Descrição da organização espacial da tela neste breakpoint.",
+          "minLength": 1
+        },
+        "densidade": {
+          "type": "string",
+          "title": "Densidade",
+          "description": "Descrição do nível de densidade informacional esperado para esse layout.",
+          "minLength": 1
+        },
+        "navegacao": {
+          "type": "string",
+          "title": "Navegação",
+          "description": "Comportamento de navegação predominante no breakpoint.",
+          "minLength": 1
+        },
+        "prioridades": {
+          "type": "array",
+          "title": "Prioridades do Layout",
+          "description": "Lista dos elementos que devem receber atenção primeiro neste layout.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prioridade",
+            "description": "Elemento ou área prioritária no layout.",
+            "minLength": 1
+          }
+        },
+        "comportamento": {
+          "type": "string",
+          "title": "Comportamento",
+          "description": "Descrição do comportamento responsivo ou funcional específico desse layout.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "component_spec": {
+      "type": "object",
+      "title": "Especificação de Componente",
+      "description": "Descrição detalhada de um componente reutilizável, cobrindo aparência, variantes, estados, comportamento e cuidados de uso.",
+      "required": [
+        "intencao",
+        "variantes",
+        "estados",
+        "comportamento",
+        "acessibilidade"
+      ],
+      "properties": {
+        "intencao": {
+          "type": "string",
+          "title": "Intenção",
+          "description": "Função do componente dentro do sistema e o problema de interface que ele resolve.",
+          "minLength": 1
+        },
+        "variantes": {
+          "type": "array",
+          "title": "Variantes",
+          "description": "Lista das variações visuais ou funcionais disponíveis para o componente.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Variante",
+            "description": "Nome ou descrição de uma variante do componente.",
+            "minLength": 1
+          }
+        },
+        "estados": {
+          "type": "array",
+          "title": "Estados",
+          "description": "Lista dos estados visuais e interativos que o componente deve suportar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Estado",
+            "description": "Estado do componente, como hover, focus, disabled ou loading.",
+            "minLength": 1
+          }
+        },
+        "comportamento": {
+          "type": "string",
+          "title": "Comportamento",
+          "description": "Descrição de como o componente deve responder a interações, conteúdo variável e contextos diferentes.",
+          "minLength": 1
+        },
+        "acessibilidade": {
+          "type": "string",
+          "title": "Acessibilidade",
+          "description": "Requisitos de acessibilidade específicos do componente, incluindo contraste, foco, teclado e leitura por tecnologia assistiva.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "motion_duration": {
+      "type": "object",
+      "title": "Duração de Movimento",
+      "description": "Token de duração usado em animações e transições para dar coerência ao comportamento temporal da interface.",
+      "required": [
+        "nome",
+        "valor_ms",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome da Duração",
+          "description": "Nome descritivo do token de duração.",
+          "minLength": 1
+        },
+        "valor_ms": {
+          "type": "integer",
+          "title": "Valor em Milissegundos",
+          "description": "Duração numérica da animação ou transição em milissegundos.",
+          "minimum": 0
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso da Duração",
+          "description": "Situação em que essa duração deve ser aplicada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "easing_token": {
+      "type": "object",
+      "title": "Token de Easing",
+      "description": "Representa uma curva de movimento usada em transições e animações da interface.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Easing",
+          "description": "Nome descritivo da curva de movimento.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor do Easing",
+          "description": "Valor serializado da curva, como cubic-bezier ou palavra-chave equivalente.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Easing",
+          "description": "Contexto em que a curva de movimento deve ser usada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "microinteraction_spec": {
+      "type": "object",
+      "title": "Microinteração",
+      "description": "Descrição de uma microinteração funcional da interface, incluindo gatilho, resposta e finalidade.",
+      "required": [
+        "gatilho",
+        "resposta",
+        "finalidade"
+      ],
+      "properties": {
+        "gatilho": {
+          "type": "string",
+          "title": "Gatilho",
+          "description": "Ação ou evento que inicia a microinteração.",
+          "minLength": 1
+        },
+        "resposta": {
+          "type": "string",
+          "title": "Resposta",
+          "description": "Comportamento visual ou temporal que ocorre após o gatilho.",
+          "minLength": 1
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Objetivo prático da microinteração dentro da experiência do produto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "interface_state": {
+      "type": "object",
+      "title": "Estado de Interface",
+      "description": "Representação semântica de um estado funcional da interface, contendo finalidade, mensagem e ação apropriadas ao contexto.",
+      "required": [
+        "objetivo",
+        "mensagem",
+        "acao_principal",
+        "visual"
+      ],
+      "properties": {
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo do Estado",
+          "description": "O que esse estado pretende comunicar ou resolver no fluxo da interface.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Texto principal exibido ao usuário nesse estado.",
+          "minLength": 1
+        },
+        "acao_principal": {
+          "type": "string",
+          "title": "Ação Principal",
+          "description": "Ação de recuperação, continuação ou navegação recomendada para o usuário.",
+          "minLength": 1
+        },
+        "visual": {
+          "type": "string",
+          "title": "Direção Visual",
+          "description": "Descrição da aparência e da linguagem visual associadas a esse estado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "typographic_token": {
+      "type": "object",
+      "title": "Token Tipográfico",
+      "description": "Token tipográfico usado na implementação CSS para representar tamanhos, pesos, alturas de linha ou combinações relacionadas.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Token Tipográfico",
+          "description": "Nome do token tipográfico.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor Tipográfico",
+          "description": "Valor serializado do token, como tamanho, peso ou linha de base.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Token",
+          "description": "Finalidade do token dentro do sistema tipográfico.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "border_token": {
+      "type": "object",
+      "title": "Token de Borda",
+      "description": "Token que define propriedades de borda do sistema, como raio, espessura ou estilo.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Token de Borda",
+          "description": "Nome do token de borda.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor da Borda",
+          "description": "Valor serializado da borda, como raio ou espessura.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso da Borda",
+          "description": "Contexto em que a borda deve ser aplicada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "shadow_token": {
+      "type": "object",
+      "title": "Token de Sombra",
+      "description": "Token que define camadas de sombra e elevação visual do sistema.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Token de Sombra",
+          "description": "Nome do token de sombra.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor da Sombra",
+          "description": "Valor serializado da sombra, normalmente em sintaxe CSS.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso da Sombra",
+          "description": "Contexto de aplicação da sombra no produto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "breakpoint_token": {
+      "type": "object",
+      "title": "Breakpoint",
+      "description": "Token que define um ponto de quebra responsivo do sistema.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome do Breakpoint",
+          "description": "Nome simbólico do breakpoint.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor do Breakpoint",
+          "description": "Valor CSS do breakpoint, normalmente em pixels, rem ou outra unidade coerente.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso do Breakpoint",
+          "description": "Contexto responsivo em que o breakpoint deve ser aplicado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "css_variable": {
+      "type": "object",
+      "title": "Variável CSS",
+      "description": "Variável CSS recomendada para uso no tema e nos componentes do sistema.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome da Variável",
+          "description": "Nome da variável CSS.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor da Variável",
+          "description": "Valor CSS serializado associado à variável.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso da Variável",
+          "description": "Finalidade da variável no código frontend.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "implementation_example": {
+      "type": "object",
+      "title": "Exemplo de Implementação",
+      "description": "Exemplo prático de aplicação da direção estética em uma parte real da interface.",
+      "required": [
+        "cenario",
+        "componentes_envolvidos",
+        "resultado_esperado",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario": {
+          "type": "string",
+          "title": "Cenário",
+          "description": "Descrição do contexto de interface no qual a implementação acontece.",
+          "minLength": 1
+        },
+        "componentes_envolvidos": {
+          "type": "array",
+          "title": "Componentes Envolvidos",
+          "description": "Lista dos componentes ou áreas da interface usadas no exemplo.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Componente ou elemento usado no exemplo.",
+            "minLength": 1
+          }
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Efeito visual e funcional esperado após a aplicação da proposta.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Notas sobre execução, limitações ou cuidados do exemplo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "visual_risk": {
+      "type": "object",
+      "title": "Risco Visual",
+      "description": "Risco associado à implementação da estética, incluindo o impacto negativo e a forma de mitigação.",
+      "required": [
+        "risco",
+        "impacto",
+        "mitigacao"
+      ],
+      "properties": {
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Descrição do risco visual ou de experiência.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Consequência negativa esperada caso o risco ocorra.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigação",
+          "description": "Medida recomendada para reduzir ou eliminar o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

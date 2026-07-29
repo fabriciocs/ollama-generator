@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Estrutura Final da Saída da Etapa 0 (Estética Inicial)",
+  "description": "Define a estrutura JSON que representa o conteúdo do arquivo '0-estetica-inicial.md', que documenta a direção criativa, conceito visual, paleta de cores, tipografia e diretrizes de UX/UI para um produto SaaS corporativo.",
+  "required": ["nome_do_produto", "secoes"],
+  "properties": {
+    "nome_do_produto": {
+      "type": "string",
+      "title": "Nome do Produto",
+      "description": "Nome do produto ou sistema para o qual a estética inicial está sendo definida, extraído do título principal do documento.",
+      "examples": ["AgentOps", "TenantManager Pro"]
+    },
+    "secoes": {
+      "type": "array",
+      "title": "Seções do Documento de Estética",
+      "description": "Lista de seções que compõem o arquivo de estética, na ordem definida pelo prompt.",
+      "minItems": 15,
+      "items": {
+        "type": "object",
+        "title": "Seção do Documento",
+        "description": "Representa uma seção nomeada do documento de estética, contendo um título e seu conteúdo textual.",
+        "required": ["titulo", "conteudo"],
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "title": "Título da Seção",
+            "description": "O título exato da seção conforme especificado no prompt. O valor deve ser um dos itens do enum.",
+            "enum": [
+              "Direção criativa",
+              "Diagnóstico anti-slop",
+              "Conceito visual",
+              "Paleta de cores",
+              "Tipografia",
+              "Sistema de espaçamento",
+              "Layouts",
+              "Componentes",
+              "Movimento e microinterações",
+              "Estados de interface",
+              "Diretrizes CSS",
+              "Diretrizes React",
+              "Exemplos de implementação",
+              "Riscos visuais",
+              "Recomendações finais"
+            ]
+          },
+          "conteudo": {
+            "type": "string",
+            "title": "Conteúdo da Seção",
+            "description": "O conteúdo textual completo gerado para a seção, seguindo as diretrizes do prompt (ex: para 'Layouts', deve conter subseções para Desktop, Tablet e Mobile). Pode conter formatação Markdown.",
+            "examples": ["A paleta de cores é composta por tons de azul petróleo..."]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

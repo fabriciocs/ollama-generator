@@ -1,0 +1,2518 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saida da Etapa 7 - Design Visual UI e Prototipo Navegavel",
+  "description": "Schema JSON que representa semanticamente a saida final esperada pela Etapa 7. O artefato deve descrever o conteudo integral do dashboard HTML 7.html, incluindo cabecalho, referencia estetica, cards de indicadores, resumo executivo, contexto consolidado, fontes de entrada, direcao visual aplicada, tokens, componentes, padroes de tela, layouts, telas prioritarias, especificacao visual por tela, wireframes, prototipo navegavel, navegacao por perfil, estados visuais, dashboards, formularios, IA, integracoes, billing, acessibilidade, criterios de aceite, riscos, lacunas, diretrizes de UX/UI, recomendacoes, referencias, proximos passos, interatividade, progresso visual e destaques.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "cabecalho",
+    "referencia_estetica",
+    "cards_de_indicadores",
+    "resumo_executivo",
+    "contexto_consolidado_do_produto",
+    "fontes_e_documentos_de_entrada",
+    "direcao_visual_aplicada",
+    "tokens_de_design",
+    "componentes_principais",
+    "padroes_de_tela",
+    "layouts_principais",
+    "telas_prioritarias_para_prototipacao",
+    "especificacao_visual_por_tela",
+    "wireframes_visuais_textuais_refinados",
+    "prototipo_navegavel_conceitual",
+    "navegacao_por_perfil",
+    "estados_visuais",
+    "dashboards_e_visualizacao_de_dados",
+    "formularios",
+    "ia_e_automacoes",
+    "integracoes_e_sincronizacoes",
+    "billing_e_limites_de_plano",
+    "acessibilidade_e_responsividade",
+    "criterios_de_aceite_visual_e_de_prototipo",
+    "riscos_visuais_e_de_prototipacao",
+    "lacunas_e_pendencias",
+    "diretrizes_ux_ui",
+    "recomendacoes_para_etapa_8",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Numero da Etapa",
+      "description": "Identificador numerico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 7.",
+      "const": 7
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como referencia oficial para a geracao desta saida.",
+      "const": "7-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saida",
+      "description": "Nome do arquivo final produzido pela etapa.",
+      "const": "7.html"
+    },
+    "cabecalho": {
+      "title": "Cabecalho do Dashboard",
+      "description": "Bloco de identificacao no topo do dashboard com nome do produto, etapa, arquivos, data, contexto e contagens chave da consolidacao.",
+      "$ref": "#/$defs/Cabecalho"
+    },
+    "referencia_estetica": {
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo o status do arquivo 0-estetica-inicial.md e as restricoes aplicadas quando a referencia nao estiver disponivel.",
+      "$ref": "#/$defs/ReferenciaEstetica"
+    },
+    "cards_de_indicadores": {
+      "type": "array",
+      "title": "Cards de Indicadores",
+      "description": "Conjunto de indicadores resumidos exibidos no topo do dashboard para leitura rapida da consolidacao da Etapa 7.",
+      "minItems": 12,
+      "items": {
+        "$ref": "#/$defs/CardIndicador"
+      }
+    },
+    "resumo_executivo": {
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 7 com leitura consolidada do que foi modelado, do escopo considerado e das limitacoes da documentacao.",
+      "$ref": "#/$defs/ResumoExecutivo"
+    },
+    "contexto_consolidado_do_produto": {
+      "title": "Contexto Consolidado do Produto",
+      "description": "Conjunto consolidado de informacoes sobre nome, tipo de sistema, segmento, publico, proposta de valor, perfis, fluxos, restricoes e contexto de uso herdados das etapas anteriores.",
+      "$ref": "#/$defs/ContextoConsolidado"
+    },
+    "fontes_e_documentos_de_entrada": {
+      "type": "array",
+      "title": "Fontes e Documentos de Entrada",
+      "description": "Lista rastreavel dos documentos e materiais usados como entrada oficial para a documentacao de visual da Etapa 7.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DocumentoEntrada"
+      }
+    },
+    "direcao_visual_aplicada": {
+      "title": "Direcao Visual Aplicada",
+      "description": "Consolidacao pratica da estetica oficial em diretrizes visuais, composicao, densidade, tipografia, layout e regras anti genericas.",
+      "$ref": "#/$defs/DirecaoVisualAplicada"
+    },
+    "tokens_de_design": {
+      "type": "array",
+      "title": "Tokens de Design",
+      "description": "Tabela de tokens visuais e semanticos usados para orientar o frontend e o design system inicial.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TokenDesign"
+      }
+    },
+    "componentes_principais": {
+      "type": "array",
+      "title": "Componentes Principais",
+      "description": "Tabela dos componentes de interface, suas variacoes, estados e regras de uso.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ComponentePrincipal"
+      }
+    },
+    "padroes_de_tela": {
+      "type": "array",
+      "title": "Padroes de Tela",
+      "description": "Tabela dos tipos de tela com sua estrutura visual, componentes e regras de layout.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PadraoDeTela"
+      }
+    },
+    "layouts_principais": {
+      "type": "array",
+      "title": "Layouts Principais",
+      "description": "Tabela dos layouts estruturais usados pelo dashboard e pela prototipacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/LayoutPrincipal"
+      }
+    },
+    "telas_prioritarias_para_prototipacao": {
+      "type": "array",
+      "title": "Telas Prioritarias para Prototipacao",
+      "description": "Tabela das telas priorizadas para prototipacao e validacao visual.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TelaPrioritaria"
+      }
+    },
+    "especificacao_visual_por_tela": {
+      "type": "array",
+      "title": "Especificacao Visual por Tela",
+      "description": "Detalhamento visual por tela prioritaria, incluindo objetivo, layout, componentes, hierarquia, estados, microcopy, responsividade e criterios de aceite.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EspecificacaoVisualTela"
+      }
+    },
+    "wireframes_visuais_textuais_refinados": {
+      "type": "array",
+      "title": "Wireframes Visuais Textuais Refinados",
+      "description": "Representacao textual refinada das telas principais em formato de wireframe conceitual, adaptado a estetica oficial do produto.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/WireframeTextual"
+      }
+    },
+    "prototipo_navegavel_conceitual": {
+      "type": "array",
+      "title": "Prototipo Navegavel Conceitual",
+      "description": "Mapa de navegacao com origem, acao, destino, condicao, feedback e observacoes para o prototipo conceitual.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PrototipoNavegavel"
+      }
+    },
+    "navegacao_por_perfil": {
+      "type": "array",
+      "title": "Navegacao por Perfil",
+      "description": "Tabela dos menus, telas, acoes e restricoes visiveis por perfil de usuario.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/NavegacaoPerfil"
+      }
+    },
+    "estados_visuais": {
+      "type": "array",
+      "title": "Estados Visuais",
+      "description": "Tabela dos estados de interface e suas representacoes visuais, mensagens e acoes disponiveis.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EstadoVisual"
+      }
+    },
+    "dashboards_e_visualizacao_de_dados": {
+      "type": "array",
+      "title": "Dashboards e Visualizacao de Dados",
+      "description": "Tabela de tipos de visualizacao e cuidados visuais para cards KPI, graficos, rankings, funis e tabelas analiticas.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DashboardVisualizacao"
+      }
+    },
+    "formularios": {
+      "type": "array",
+      "title": "Formularios",
+      "description": "Tabela dos padroes de formulario e respectivas regras de validacao e feedback.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FormularioPadrao"
+      }
+    },
+    "ia_e_automacoes": {
+      "type": "array",
+      "title": "IA e Automacoes",
+      "description": "Tabela dos padroes de IA e automacao, incluindo transparencia, revisao humana e mitigacao de risco.",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/$defs/IAPadrao"
+      }
+    },
+    "integracoes_e_sincronizacoes": {
+      "type": "array",
+      "title": "Integracoes e Sincronizacoes",
+      "description": "Tabela dos estados e comportamentos visuais para integracoes, sincronizacoes, importacao, exportacao e recuperacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/IntegracaoPadrao"
+      }
+    },
+    "billing_e_limites_de_plano": {
+      "type": "array",
+      "title": "Billing e Limites de Plano",
+      "description": "Tabela dos cenarios de billing, planos, limites, bloqueios e upgrades quando aplicaveis.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/BillingPadrao"
+      }
+    },
+    "acessibilidade_e_responsividade": {
+      "type": "array",
+      "title": "Acessibilidade e Responsividade",
+      "description": "Tabela dos requisitos de acessibilidade visual e comportamento responsivo por item ou componente.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/AcessibilidadeResponsividade"
+      }
+    },
+    "criterios_de_aceite_visual_e_de_prototipo": {
+      "type": "array",
+      "title": "Criterios de Aceite Visual e de Prototipo",
+      "description": "Tabela dos criterios de aceite para validar visual, responsividade, acessibilidade, navegacao, consistencia e estados.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CriterioAceiteVisual"
+      }
+    },
+    "riscos_visuais_e_de_prototipacao": {
+      "type": "array",
+      "title": "Riscos Visuais e de Prototipacao",
+      "description": "Inventario dos riscos de design visual e prototipacao com categoria, criticidade, impacto e mitigacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RiscoVisual"
+      }
+    },
+    "lacunas_e_pendencias": {
+      "type": "array",
+      "title": "Lacunas e Pendencias",
+      "description": "Tabela das lacunas, pendencias e pontos que ainda precisam de validacao, decisao ou evidencia adicional.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/LacunaPendencia"
+      }
+    },
+    "diretrizes_ux_ui": {
+      "title": "Diretrizes de UX/UI",
+      "description": "Registro das diretrizes visuais aplicadas ao dashboard com base no arquivo estetico oficial ou, se ausente, em uma diretriz provisoria e neutra.",
+      "$ref": "#/$defs/DiretrizesUXUI"
+    },
+    "recomendacoes_para_etapa_8": {
+      "type": "array",
+      "title": "Recomendacoes para a Etapa 8",
+      "description": "Lista de recomendacoes para a proxima etapa de backlog, plano de implementacao e QA.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RecomendacaoEtapa8"
+      }
+    },
+    "fontes_e_referencias": {
+      "type": "array",
+      "title": "Fontes e Referencias",
+      "description": "Lista rastreavel das fontes, evidencias e referencias usadas na consolidacao da etapa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FonteReferencia"
+      }
+    },
+    "proximos_passos": {
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "$ref": "#/$defs/ProximosPassos"
+    },
+    "interatividade": {
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "$ref": "#/$defs/Interatividade"
+    },
+    "progresso_visual": {
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "$ref": "#/$defs/ProgressoVisual"
+    },
+    "destaques": {
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard, incluindo telas essenciais, componentes criticos, riscos altos, lacunas criticas e itens transversais.",
+      "$ref": "#/$defs/Destaques"
+    },
+    "contadores": {
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "$ref": "#/$defs/Contadores"
+    }
+  },
+  "$defs": {
+    "lista_texto": {
+      "type": "array",
+      "title": "Lista de Texto",
+      "description": "Lista semanticamente simples de textos relacionados ao item pai.",
+      "items": {
+        "type": "string",
+        "title": "Item de Texto",
+        "description": "Texto individual da lista.",
+        "minLength": 1
+      }
+    },
+    "Cabecalho": {
+      "type": "object",
+      "title": "Cabecalho",
+      "description": "Identificacao principal do dashboard com nome do produto, etapa, arquivos, data, contexto e contagens chave.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "nome_da_etapa",
+        "arquivos_de_entrada",
+        "arquivo_estetico_usado",
+        "arquivo_de_saida",
+        "data_de_geracao",
+        "tipo_de_sistema",
+        "segmento_analisado",
+        "quantidade_cards",
+        "quantidade_telas_prioritarias",
+        "quantidade_componentes",
+        "quantidade_tokens",
+        "quantidade_wireframes",
+        "quantidade_estados",
+        "quantidade_riscos",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado nesta etapa.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando existir.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rotulo textual da etapa representada no dashboard.",
+          "const": "Etapa 7 - Design Visual UI e Prototipo Navegavel"
+        },
+        "arquivos_de_entrada": {
+          "type": "array",
+          "title": "Arquivos de Entrada",
+          "description": "Lista dos arquivos e materiais usados como entrada oficial no dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Arquivo de Entrada",
+            "description": "Nome ou caminho de um arquivo de entrada.",
+            "minLength": 1
+          }
+        },
+        "arquivo_estetico_usado": {
+          "type": "string",
+          "title": "Arquivo Estetico Usado",
+          "description": "Arquivo de estetica usado para orientar a construcao visual do dashboard.",
+          "const": "0-estetica-inicial.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saida",
+          "description": "Nome do arquivo final produzido pela etapa.",
+          "const": "7.html"
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geracao",
+          "description": "Data e hora de geracao do dashboard em formato legivel e rastreavel.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Tipo de sistema consolidado a partir das etapas anteriores.",
+          "minLength": 1
+        },
+        "segmento_analisado": {
+          "type": "string",
+          "title": "Segmento Analisado",
+          "description": "Segmento, nicho ou contexto de mercado consolidado na etapa.",
+          "minLength": 1
+        },
+        "quantidade_cards": {
+          "type": "integer",
+          "title": "Quantidade de Cards",
+          "description": "Quantidade total de cards de indicadores usados no topo do dashboard.",
+          "minimum": 0
+        },
+        "quantidade_telas_prioritarias": {
+          "type": "integer",
+          "title": "Quantidade de Telas Prioritarias",
+          "description": "Quantidade total de telas priorizadas para prototipacao.",
+          "minimum": 0
+        },
+        "quantidade_componentes": {
+          "type": "integer",
+          "title": "Quantidade de Componentes",
+          "description": "Quantidade total de componentes principais consolidados.",
+          "minimum": 0
+        },
+        "quantidade_tokens": {
+          "type": "integer",
+          "title": "Quantidade de Tokens",
+          "description": "Quantidade total de tokens de design consolidados.",
+          "minimum": 0
+        },
+        "quantidade_wireframes": {
+          "type": "integer",
+          "title": "Quantidade de Wireframes",
+          "description": "Quantidade total de wireframes conceituais textuais produzidos.",
+          "minimum": 0
+        },
+        "quantidade_estados": {
+          "type": "integer",
+          "title": "Quantidade de Estados",
+          "description": "Quantidade total de estados de interface consolidados.",
+          "minimum": 0
+        },
+        "quantidade_riscos": {
+          "type": "integer",
+          "title": "Quantidade de Riscos",
+          "description": "Quantidade total de riscos de visualizacao e prototipacao identificados.",
+          "minimum": 0
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa sugerida a partir da consolidacao desta saida.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenciaEstetica": {
+      "type": "object",
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo disponibilidade, decisao visual e restricoes derivadas de 0-estetica-inicial.md.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "direcao_visual_sintetica",
+        "diretrizes_aplicadas",
+        "restricoes_visuais",
+        "observacao"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo de estetica que deve orientar a implementacao visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Indica se a referencia estetica estava disponivel, ausente ou usada apenas como base provisoria.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "direcao_visual_sintetica": {
+          "type": "string",
+          "title": "Direcao Visual Sintetica",
+          "description": "Resumo da direcao visual aplicada ao dashboard, descrevendo tema, densidade, ritmo e linguagem geral.",
+          "minLength": 1
+        },
+        "diretrizes_aplicadas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "restricoes_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a disponibilidade da referencia estetica e seus impactos.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CardIndicador": {
+      "type": "object",
+      "title": "Card de Indicador",
+      "description": "Indicador resumido exibido no topo do dashboard para leitura rapida e priorizacao visual.",
+      "required": [
+        "titulo",
+        "valor",
+        "descricao",
+        "categoria",
+        "destaque",
+        "observacoes"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Rotulo curto do indicador.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor sintetico exibido no card.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Explicacao objetiva do que o indicador representa.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do indicador para apoio a leitura e filtragem.",
+          "enum": [
+            "contexto",
+            "visual",
+            "prototipo",
+            "navegacao",
+            "estado",
+            "acessibilidade",
+            "risco",
+            "prioridade"
+          ]
+        },
+        "destaque": {
+          "type": "boolean",
+          "title": "Destaque",
+          "description": "Indica se o card deve receber destaque visual.",
+          "default": false
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o indicador.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResumoExecutivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 7 com foco no que foi consolidado, no escopo considerado e nas principais limitacoes.",
+      "required": [
+        "objetivo",
+        "escopo_considerado",
+        "estetica_oficial_utilizada",
+        "principais_decisoes_visuais",
+        "principais_telas_prioritarias",
+        "principais_componentes_definidos",
+        "principais_padroes_de_interacao_visual",
+        "principais_riscos_visuais",
+        "limitacoes_da_documentacao",
+        "relacao_com_a_etapa_6",
+        "relacao_com_as_proximas_etapas",
+        "nivel_de_maturidade_do_design_visual"
+      ],
+      "properties": {
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da documentacao visual da etapa.",
+          "minLength": 1
+        },
+        "escopo_considerado": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estetica_oficial_utilizada": {
+          "type": "string",
+          "title": "Estetica Oficial Utilizada",
+          "description": "Sintese da direcao estetica aplicada ao dashboard.",
+          "minLength": 1
+        },
+        "principais_decisoes_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_telas_prioritarias": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_componentes_definidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_padroes_de_interacao_visual": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_riscos_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "limitacoes_da_documentacao": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "relacao_com_a_etapa_6": {
+          "type": "string",
+          "title": "Relacao com a Etapa 6",
+          "description": "Como a Etapa 7 deriva e amplia o que foi definido na Etapa 6.",
+          "minLength": 1
+        },
+        "relacao_com_as_proximas_etapas": {
+          "type": "string",
+          "title": "Relacao com as Proximas Etapas",
+          "description": "Como a Etapa 7 prepara a continuidade do processo para a Etapa 8.",
+          "minLength": 1
+        },
+        "nivel_de_maturidade_do_design_visual": {
+          "type": "string",
+          "title": "Nivel de Maturidade do Design Visual",
+          "description": "Leitura sintetica do nivel de maturidade visual documentado.",
+          "enum": [
+            "inicial",
+            "em_evolucao",
+            "consistente",
+            "avancado"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContextoConsolidado": {
+      "type": "object",
+      "title": "Contexto Consolidado do Produto",
+      "description": "Consolidacao do contexto do produto necessaria para orientar escolhas visuais, prototipacao e leitura dos perfis de uso.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "tipo_de_sistema",
+        "segmento",
+        "publico_alvo",
+        "proposta_de_valor",
+        "stakeholders",
+        "perfis_prioritarios",
+        "principais_jornadas",
+        "principais_fluxos",
+        "restricoes_de_dominio",
+        "observacoes"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome consolidado do produto.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando existir.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Tipo do sistema ou plataforma analisada.",
+          "minLength": 1
+        },
+        "segmento": {
+          "type": "string",
+          "title": "Segmento",
+          "description": "Segmento de mercado ou contexto de uso do produto.",
+          "minLength": 1
+        },
+        "publico_alvo": {
+          "type": "string",
+          "title": "Publico Alvo",
+          "description": "Publico principal considerado nas decisoes visuais.",
+          "minLength": 1
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Resumo do valor central entregue pelo produto.",
+          "minLength": 1
+        },
+        "stakeholders": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "perfis_prioritarios": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_jornadas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "principais_fluxos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "restricoes_de_dominio": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o contexto consolidado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentoEntrada": {
+      "type": "object",
+      "title": "Documento de Entrada",
+      "description": "Registro rastreavel de um arquivo ou material usado como entrada oficial na etapa.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "documento_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do documento.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do documento de entrada.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo ou nome do documento de entrada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou organizacao responsavel pelo documento.",
+          "minLength": 1
+        },
+        "documento_ou_url": {
+          "type": "string",
+          "title": "Documento ou URL",
+          "description": "Caminho de arquivo, URL ou referencia documental usada como fonte.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a qualidade, confianca ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DirecaoVisualAplicada": {
+      "type": "object",
+      "title": "Direcao Visual Aplicada",
+      "description": "Direcao visual aplicada de forma pratica a partir do arquivo estetico oficial.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "personalidade_visual",
+        "atmosfera",
+        "linguagem_estetica",
+        "principios_visuais",
+        "paleta_de_cores",
+        "tipografia",
+        "densidade",
+        "composicao",
+        "ritmo_visual",
+        "tom_da_interface",
+        "padroes_de_componentes",
+        "padroes_de_layout",
+        "padroes_de_dashboard",
+        "regras_anti_genericas",
+        "restricoes_visuais",
+        "diretrizes_de_acessibilidade",
+        "diretrizes_de_responsividade",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo estetico que orienta as decisoes visuais.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Status de disponibilidade do arquivo estetico.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "personalidade_visual": {
+          "type": "string",
+          "title": "Personalidade Visual",
+          "description": "Traços de personalidade visual que devem aparecer no dashboard.",
+          "minLength": 1
+        },
+        "atmosfera": {
+          "type": "string",
+          "title": "Atmosfera",
+          "description": "Sensacao geral que a interface deve transmitir.",
+          "minLength": 1
+        },
+        "linguagem_estetica": {
+          "type": "string",
+          "title": "Linguagem Estetica",
+          "description": "Linguagem visual e narrativa usada na interface.",
+          "minLength": 1
+        },
+        "principios_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "paleta_de_cores": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "tipografia": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "densidade": {
+          "type": "string",
+          "title": "Densidade",
+          "description": "Nivel de densidade de informacao esperado.",
+          "minLength": 1
+        },
+        "composicao": {
+          "type": "string",
+          "title": "Composicao",
+          "description": "Composicao visual e organizacao espacial preferida.",
+          "minLength": 1
+        },
+        "ritmo_visual": {
+          "type": "string",
+          "title": "Ritmo Visual",
+          "description": "Ritmo visual e espacamento entre blocos e tabelas.",
+          "minLength": 1
+        },
+        "tom_da_interface": {
+          "type": "string",
+          "title": "Tom da Interface",
+          "description": "Tom verbal e visual adotado na interface.",
+          "minLength": 1
+        },
+        "padroes_de_componentes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "padroes_de_layout": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "padroes_de_dashboard": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "regras_anti_genericas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "restricoes_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_acessibilidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_responsividade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a aplicacao visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TokenDesign": {
+      "type": "object",
+      "title": "Token de Design",
+      "description": "Token visual, semantico ou espacial usado para orientar a implementacao.",
+      "required": [
+        "token",
+        "categoria",
+        "valor_ou_descricao",
+        "uso_recomendado",
+        "observacoes"
+      ],
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "Token",
+          "description": "Nome do token de design.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do token, como cor, tipografia, espaco, raio, sombra, grid ou estado.",
+          "minLength": 1
+        },
+        "valor_ou_descricao": {
+          "type": "string",
+          "title": "Valor ou Descricao",
+          "description": "Valor pratico ou descricao semantica do token.",
+          "minLength": 1
+        },
+        "uso_recomendado": {
+          "type": "string",
+          "title": "Uso Recomendado",
+          "description": "Contexto de uso mais adequado para o token.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o token.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ComponentePrincipal": {
+      "type": "object",
+      "title": "Componente Principal",
+      "description": "Componente de interface com sua finalidade, variacoes, estados e regras de uso.",
+      "required": [
+        "componente",
+        "finalidade",
+        "variacoes",
+        "estados",
+        "regras_de_uso",
+        "observacoes"
+      ],
+      "properties": {
+        "componente": {
+          "type": "string",
+          "title": "Componente",
+          "description": "Nome do componente.",
+          "minLength": 1
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Finalidade principal do componente.",
+          "minLength": 1
+        },
+        "variacoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "regras_de_uso": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o componente.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PadraoDeTela": {
+      "type": "object",
+      "title": "Padrao de Tela",
+      "description": "Padrao de tela com estrutura visual, componentes e regras de layout.",
+      "required": [
+        "tipo_de_tela",
+        "estrutura_visual",
+        "componentes_principais",
+        "quando_usar",
+        "regras_de_layout",
+        "observacoes"
+      ],
+      "properties": {
+        "tipo_de_tela": {
+          "type": "string",
+          "title": "Tipo de Tela",
+          "description": "Categoria da tela ou padrao visual.",
+          "minLength": 1
+        },
+        "estrutura_visual": {
+          "type": "string",
+          "title": "Estrutura Visual",
+          "description": "Descricao da composicao visual da tela.",
+          "minLength": 1
+        },
+        "componentes_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "quando_usar": {
+          "type": "string",
+          "title": "Quando Usar",
+          "description": "Cenario indicado para este padrao de tela.",
+          "minLength": 1
+        },
+        "regras_de_layout": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o padrao de tela.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "LayoutPrincipal": {
+      "type": "object",
+      "title": "Layout Principal",
+      "description": "Layout estrutural usado pelo dashboard e pela prototipacao.",
+      "required": [
+        "layout",
+        "uso",
+        "estrutura",
+        "comportamento_responsivo",
+        "observacoes"
+      ],
+      "properties": {
+        "layout": {
+          "type": "string",
+          "title": "Layout",
+          "description": "Nome do layout.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Uso principal do layout.",
+          "minLength": 1
+        },
+        "estrutura": {
+          "type": "string",
+          "title": "Estrutura",
+          "description": "Descricao da estrutura visual do layout.",
+          "minLength": 1
+        },
+        "comportamento_responsivo": {
+          "type": "string",
+          "title": "Comportamento Responsivo",
+          "description": "Comportamento esperado em diferentes larguras de tela.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o layout.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TelaPrioritaria": {
+      "type": "object",
+      "title": "Tela Prioritaria",
+      "description": "Tela priorizada para prototipacao, com fluxo, perfil, motivo e componentes necessarios.",
+      "required": [
+        "tela",
+        "fluxo_relacionado",
+        "perfil_principal",
+        "prioridade",
+        "motivo",
+        "componentes_necessarios",
+        "observacoes"
+      ],
+      "properties": {
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela prioritaria.",
+          "minLength": 1
+        },
+        "fluxo_relacionado": {
+          "type": "string",
+          "title": "Fluxo Relacionado",
+          "description": "Fluxo principal ao qual a tela pertence.",
+          "minLength": 1
+        },
+        "perfil_principal": {
+          "type": "string",
+          "title": "Perfil Principal",
+          "description": "Perfil de usuario mais relevante para esta tela.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade de prototipacao da tela.",
+          "enum": [
+            "essencial",
+            "importante",
+            "avancada",
+            "futura",
+            "experimental",
+            "dependente_de_validacao"
+          ]
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Justificativa para a priorizacao.",
+          "minLength": 1
+        },
+        "componentes_necessarios": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a priorizacao da tela.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EspecificacaoVisualTela": {
+      "type": "object",
+      "title": "Especificacao Visual por Tela",
+      "description": "Detalhamento visual completo de uma tela prioritaria.",
+      "required": [
+        "id_ancora",
+        "tela",
+        "fluxo_relacionado",
+        "prioridade",
+        "objetivo",
+        "perfil_principal",
+        "layout",
+        "componentes",
+        "hierarquia_visual",
+        "estados",
+        "microcopy",
+        "responsividade",
+        "acessibilidade",
+        "criterios_de_aceite_visual",
+        "observacoes"
+      ],
+      "properties": {
+        "id_ancora": {
+          "type": "string",
+          "title": "ID de Ancora",
+          "description": "Identificador interno usado para navegação entre blocos de prototipo.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela.",
+          "minLength": 1
+        },
+        "fluxo_relacionado": {
+          "type": "string",
+          "title": "Fluxo Relacionado",
+          "description": "Fluxo principal associado a esta tela.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da tela na prototipacao.",
+          "enum": [
+            "essencial",
+            "importante",
+            "avancada",
+            "futura",
+            "experimental",
+            "dependente_de_validacao"
+          ]
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo central da tela.",
+          "minLength": 1
+        },
+        "perfil_principal": {
+          "type": "string",
+          "title": "Perfil Principal",
+          "description": "Perfil mais impactado pela tela.",
+          "minLength": 1
+        },
+        "layout": {
+          "type": "string",
+          "title": "Layout",
+          "description": "Layout principal usado pela tela.",
+          "minLength": 1
+        },
+        "componentes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "hierarquia_visual": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "estados": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "microcopy": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "responsividade": {
+          "type": "string",
+          "title": "Responsividade",
+          "description": "Comportamento responsivo esperado para a tela.",
+          "minLength": 1
+        },
+        "acessibilidade": {
+          "type": "string",
+          "title": "Acessibilidade",
+          "description": "Cuidados de acessibilidade visual e de interacao para a tela.",
+          "minLength": 1
+        },
+        "criterios_de_aceite_visual": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a especificacao da tela.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "WireframeTextual": {
+      "type": "object",
+      "title": "Wireframe Textual",
+      "description": "Representacao textual refinada de uma tela principal em formato de wireframe conceitual.",
+      "required": [
+        "id_ancora",
+        "tela",
+        "wireframe_textual",
+        "observacoes"
+      ],
+      "properties": {
+        "id_ancora": {
+          "type": "string",
+          "title": "ID de Ancora",
+          "description": "Identificador interno para links e navegacao no prototipo.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Nome da tela representada.",
+          "minLength": 1
+        },
+        "wireframe_textual": {
+          "type": "string",
+          "title": "Wireframe Textual",
+          "description": "Estrutura textual do wireframe refinado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o wireframe.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PrototipoNavegavel": {
+      "type": "object",
+      "title": "Prototipo Navegavel Conceitual",
+      "description": "Mapa de navegacao e interacao entre telas do prototipo conceitual.",
+      "required": [
+        "origem",
+        "acao",
+        "destino",
+        "condicao",
+        "feedback",
+        "observacoes"
+      ],
+      "properties": {
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Tela ou bloco de origem da transicao.",
+          "minLength": 1
+        },
+        "acao": {
+          "type": "string",
+          "title": "Acao",
+          "description": "Acao do usuario que dispara a transicao.",
+          "minLength": 1
+        },
+        "destino": {
+          "type": "string",
+          "title": "Destino",
+          "description": "Tela ou bloco de destino da transicao.",
+          "minLength": 1
+        },
+        "condicao": {
+          "type": "string",
+          "title": "Condicao",
+          "description": "Condicao necessaria para a transicao ocorrer.",
+          "minLength": 1
+        },
+        "feedback": {
+          "type": "string",
+          "title": "Feedback",
+          "description": "Retorno visual ou textual dado ao usuario.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a navegacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "NavegacaoPerfil": {
+      "type": "object",
+      "title": "Navegacao por Perfil",
+      "description": "Menus, telas, acoes e restricoes visiveis para um perfil de usuario.",
+      "required": [
+        "perfil",
+        "menus_visiveis",
+        "telas_principais",
+        "acoes_principais",
+        "restricoes",
+        "observacoes"
+      ],
+      "properties": {
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Nome do perfil analisado.",
+          "minLength": 1
+        },
+        "menus_visiveis": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "telas_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "acoes_principais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "restricoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a navegacao do perfil.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EstadoVisual": {
+      "type": "object",
+      "title": "Estado Visual",
+      "description": "Representacao visual de um estado de interface.",
+      "required": [
+        "estado",
+        "representacao_visual",
+        "mensagem",
+        "acao_disponivel",
+        "observacoes"
+      ],
+      "properties": {
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Nome sintetico do estado.",
+          "minLength": 1
+        },
+        "representacao_visual": {
+          "type": "string",
+          "title": "Representacao Visual",
+          "description": "Descricao de como o estado deve aparecer visualmente.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Texto exibido ao usuario no estado.",
+          "minLength": 1
+        },
+        "acao_disponivel": {
+          "type": "string",
+          "title": "Acao Disponivel",
+          "description": "Acao que o usuario pode executar neste estado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o estado visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DashboardVisualizacao": {
+      "type": "object",
+      "title": "Dashboard e Visualizacao de Dados",
+      "description": "Padrao de visualizacao de dados usado no dashboard.",
+      "required": [
+        "tipo_de_visualizacao",
+        "uso",
+        "dados_exibidos",
+        "interacoes",
+        "cuidados_visuais",
+        "observacoes"
+      ],
+      "properties": {
+        "tipo_de_visualizacao": {
+          "type": "string",
+          "title": "Tipo de Visualizacao",
+          "description": "Tipo de visualizacao de dados.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Uso principal desta visualizacao.",
+          "minLength": 1
+        },
+        "dados_exibidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "interacoes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "cuidados_visuais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a visualizacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FormularioPadrao": {
+      "type": "object",
+      "title": "Formulario Padrao",
+      "description": "Padrao de formulario com validacao e feedback.",
+      "required": [
+        "padrao_de_formulario",
+        "quando_usar",
+        "campos",
+        "validacao",
+        "feedback",
+        "observacoes"
+      ],
+      "properties": {
+        "padrao_de_formulario": {
+          "type": "string",
+          "title": "Padrao de Formulario",
+          "description": "Nome do padrao de formulario.",
+          "minLength": 1
+        },
+        "quando_usar": {
+          "type": "string",
+          "title": "Quando Usar",
+          "description": "Cenario indicado para o formulario.",
+          "minLength": 1
+        },
+        "campos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "validacao": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "feedback": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o formulario.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "IAPadrao": {
+      "type": "object",
+      "title": "Padrao de IA e Automacao",
+      "description": "Padrao visual e funcional relacionado a IA ou automacao.",
+      "required": [
+        "padrao_de_ia",
+        "onde_aparece",
+        "comportamento_visual",
+        "transparencia",
+        "revisao_humana",
+        "risco",
+        "mitigacao"
+      ],
+      "properties": {
+        "padrao_de_ia": {
+          "type": "string",
+          "title": "Padrao de IA",
+          "description": "Nome do padrao de IA ou automacao.",
+          "minLength": 1
+        },
+        "onde_aparece": {
+          "type": "string",
+          "title": "Onde Aparece",
+          "description": "Local da interface onde o padrao aparece.",
+          "minLength": 1
+        },
+        "comportamento_visual": {
+          "type": "string",
+          "title": "Comportamento Visual",
+          "description": "Comportamento visual esperado do recurso.",
+          "minLength": 1
+        },
+        "transparencia": {
+          "type": "string",
+          "title": "Transparencia",
+          "description": "Como a interface explicita a origem ou confianca da saida.",
+          "minLength": 1
+        },
+        "revisao_humana": {
+          "type": "string",
+          "title": "Revisao Humana",
+          "description": "Como a revisao humana deve acontecer na interface.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco principal do uso de IA ou automacao.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Mitigacao proposta para reduzir o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "IntegracaoPadrao": {
+      "type": "object",
+      "title": "Padrao de Integracao",
+      "description": "Estado visual e recuperacao para integracoes e sincronizacoes.",
+      "required": [
+        "padrao_de_integracao",
+        "estado_visual",
+        "acao_do_usuario",
+        "mensagem",
+        "recuperacao",
+        "observacoes"
+      ],
+      "properties": {
+        "padrao_de_integracao": {
+          "type": "string",
+          "title": "Padrao de Integracao",
+          "description": "Nome do padrao de integracao.",
+          "minLength": 1
+        },
+        "estado_visual": {
+          "type": "string",
+          "title": "Estado Visual",
+          "description": "Estado visual exibido pela integracao.",
+          "minLength": 1
+        },
+        "acao_do_usuario": {
+          "type": "string",
+          "title": "Acao do Usuario",
+          "description": "Acao do usuario nesse estado.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem exibida na interface.",
+          "minLength": 1
+        },
+        "recuperacao": {
+          "type": "string",
+          "title": "Recuperacao",
+          "description": "Forma de recuperar ou retomar a integracao.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a integracao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "BillingPadrao": {
+      "type": "object",
+      "title": "Padrao de Billing",
+      "description": "Cenario visual de billing, plano ou limite.",
+      "required": [
+        "cenario",
+        "componente_visual",
+        "mensagem",
+        "acao_principal",
+        "cuidado_de_ux",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Nome do cenario de billing ou limite de plano.",
+          "minLength": 1
+        },
+        "componente_visual": {
+          "type": "string",
+          "title": "Componente Visual",
+          "description": "Componente visual usado no cenario.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem exibida ao usuario.",
+          "minLength": 1
+        },
+        "acao_principal": {
+          "type": "string",
+          "title": "Acao Principal",
+          "description": "Acao principal esperada do usuario.",
+          "minLength": 1
+        },
+        "cuidado_de_ux": {
+          "type": "string",
+          "title": "Cuidado de UX",
+          "description": "Cuidado de UX necessario para evitar friccao ou ambiguidade.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o cenario de billing.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "AcessibilidadeResponsividade": {
+      "type": "object",
+      "title": "Acessibilidade e Responsividade",
+      "description": "Item de acessibilidade visual e responsividade.",
+      "required": [
+        "item",
+        "regra_visual",
+        "criterio_verificavel",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome do requisito de acessibilidade ou responsividade.",
+          "minLength": 1
+        },
+        "regra_visual": {
+          "type": "string",
+          "title": "Regra Visual",
+          "description": "Regra visual que deve ser seguida.",
+          "minLength": 1
+        },
+        "criterio_verificavel": {
+          "type": "string",
+          "title": "Criterio Verificavel",
+          "description": "Forma objetiva de verificar o cumprimento da regra.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o item.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CriterioAceiteVisual": {
+      "type": "object",
+      "title": "Criterio de Aceite Visual",
+      "description": "Criterio usado para validar a saida visual e o prototipo.",
+      "required": [
+        "item",
+        "criterio_de_aceite",
+        "tipo",
+        "como_validar",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome resumido do criterio.",
+          "minLength": 1
+        },
+        "criterio_de_aceite": {
+          "type": "string",
+          "title": "Criterio de Aceite",
+          "description": "Descricao objetiva do criterio.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do criterio de aceite.",
+          "enum": [
+            "visual",
+            "responsivo",
+            "acessibilidade",
+            "navegacao",
+            "componente",
+            "estado",
+            "fluxo",
+            "microcopy",
+            "prototipo",
+            "consistencia"
+          ]
+        },
+        "como_validar": {
+          "type": "string",
+          "title": "Como Validar",
+          "description": "Forma de validar o criterio.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o criterio.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RiscoVisual": {
+      "type": "object",
+      "title": "Risco Visual",
+      "description": "Risco relacionado ao design visual ou a prototipacao.",
+      "required": [
+        "item",
+        "categoria",
+        "criticidade",
+        "impacto",
+        "probabilidade",
+        "mitigacao",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome do risco.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria principal do risco.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Nivel de criticidade do risco.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado caso o risco se concretize.",
+          "minLength": 1
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Probabilidade estimada do risco.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta"
+          ]
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Acao sugerida para mitigar o risco.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "LacunaPendencia": {
+      "type": "object",
+      "title": "Lacuna ou Pendencia",
+      "description": "Registro de uma lacuna, decisao pendente ou informacao faltante na consolidacao.",
+      "required": [
+        "item",
+        "tipo",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome resumido da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da pendencia, como decisao, validacao, evidencia, dependencia ou risco.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da lacuna na consolidacao ou na implementacao.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade para resolucao da lacuna ou pendencia.",
+          "enum": [
+            "essencial",
+            "importante",
+            "avancada",
+            "futura",
+            "experimental",
+            "dependente_de_validacao"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a pendencia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiretrizesUXUI": {
+      "type": "object",
+      "title": "Diretrizes de UX/UI",
+      "description": "Diretrizes visuais e de experiencia derivadas do arquivo estetico oficial ou de uma diretriz provisoria quando a referencia nao estiver disponivel.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "principios_aplicados",
+        "diretrizes_de_layout",
+        "diretrizes_de_componentes",
+        "diretrizes_de_densidade",
+        "diretrizes_de_responsividade",
+        "diretrizes_de_acessibilidade",
+        "diretrizes_de_microcopy",
+        "padroes_proibidos",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo estetico que orienta as decisoes de UX/UI.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Status de disponibilidade do arquivo estetico.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "principios_aplicados": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_layout": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_componentes": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_densidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_responsividade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_acessibilidade": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "diretrizes_de_microcopy": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "padroes_proibidos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a aplicacao visual e suas restricoes.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacaoEtapa8": {
+      "type": "object",
+      "title": "Recomendacao para a Etapa 8",
+      "description": "Recomendacao para backlog, plano de implementacao, QA e handoff da proxima etapa.",
+      "required": [
+        "foco",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "foco": {
+          "type": "string",
+          "title": "Foco",
+          "description": "Area ou assunto que deve ser tratado na Etapa 8.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao objetiva da recomendacao.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado da recomendacao no produto ou na continuidade do trabalho.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade sugerida para executar a recomendacao.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a recomendacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FonteReferencia": {
+      "type": "object",
+      "title": "Fonte e Referencia",
+      "description": "Registro rastreavel de uma fonte, documento ou referencia usada na consolidacao.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "documento_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo de fonte, como documento, arquivo local, pesquisa, benchmark ou site oficial.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo ou nome da fonte consultada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou organizacao responsavel pela fonte.",
+          "minLength": 1
+        },
+        "documento_ou_url": {
+          "type": "string",
+          "title": "Documento ou URL",
+          "description": "URL, caminho de arquivo ou referencia documental usada como fonte.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a qualidade, confianca ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProximosPassos": {
+      "type": "object",
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "required": [
+        "acoes_imediatas",
+        "prioridades",
+        "riscos_a_monitorar",
+        "questoes_em_aberto",
+        "observacoes"
+      ],
+      "properties": {
+        "acoes_imediatas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "prioridades": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "riscos_a_monitorar": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "questoes_em_aberto": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes finais sobre continuidade e sequenciamento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "required": [
+        "alternar_tema",
+        "expandir_recolher_secoes",
+        "filtros",
+        "busca_textual",
+        "copiar_resumo_executivo",
+        "copiar_especificacao_visual_de_uma_tela",
+        "copiar_wireframes_textuais",
+        "copiar_tabelas_principais",
+        "exportar_markdown",
+        "imprimir_ou_pdf",
+        "mostrar_progresso_visual",
+        "destacar_telas_essenciais",
+        "destacar_componentes_criticos",
+        "destacar_riscos_altos",
+        "destacar_lacunas_criticas",
+        "destacar_itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_auditoria_ia",
+        "navegar_por_ancoras_internas"
+      ],
+      "properties": {
+        "alternar_tema": {
+          "type": "object",
+          "title": "Alternar Tema",
+          "description": "Configuracao da possibilidade de alternar tema claro e escuro, quando compativel com a estetica oficial.",
+          "required": [
+            "disponivel",
+            "tema_padrao",
+            "justificativa"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a alternancia de tema esta disponivel no dashboard.",
+              "default": false
+            },
+            "tema_padrao": {
+              "type": "string",
+              "title": "Tema Padrao",
+              "description": "Tema padrao escolhido para a interface.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Justificativa para a decisao sobre tema.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "expandir_recolher_secoes": {
+          "type": "boolean",
+          "title": "Expandir e Recolher Secoes",
+          "description": "Indica se as secoes podem ser expandidas e recolhidas.",
+          "default": true
+        },
+        "filtros": {
+          "type": "object",
+          "title": "Filtros",
+          "description": "Conjunto de filtros globais disponiveis no dashboard.",
+          "required": [
+            "componentes_por_categoria",
+            "telas_por_fluxo",
+            "telas_por_prioridade",
+            "estados_por_tipo",
+            "criterios_por_tipo",
+            "riscos_por_criticidade",
+            "padroes_por_uso"
+          ],
+          "properties": {
+            "componentes_por_categoria": {
+              "type": "boolean",
+              "title": "Componentes por Categoria",
+              "description": "Permite filtrar componentes por categoria.",
+              "default": true
+            },
+            "telas_por_fluxo": {
+              "type": "boolean",
+              "title": "Telas por Fluxo",
+              "description": "Permite filtrar telas por fluxo.",
+              "default": true
+            },
+            "telas_por_prioridade": {
+              "type": "boolean",
+              "title": "Telas por Prioridade",
+              "description": "Permite filtrar telas por prioridade.",
+              "default": true
+            },
+            "estados_por_tipo": {
+              "type": "boolean",
+              "title": "Estados por Tipo",
+              "description": "Permite filtrar estados visuais por tipo.",
+              "default": true
+            },
+            "criterios_por_tipo": {
+              "type": "boolean",
+              "title": "Criterios por Tipo",
+              "description": "Permite filtrar criterios de aceite por tipo.",
+              "default": true
+            },
+            "riscos_por_criticidade": {
+              "type": "boolean",
+              "title": "Riscos por Criticidade",
+              "description": "Permite filtrar riscos por criticidade.",
+              "default": true
+            },
+            "padroes_por_uso": {
+              "type": "boolean",
+              "title": "Padroes por Uso",
+              "description": "Permite filtrar padroes por uso.",
+              "default": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "busca_textual": {
+          "type": "object",
+          "title": "Busca Textual",
+          "description": "Configuracao da busca livre em todo o dashboard.",
+          "required": [
+            "disponivel",
+            "escopo",
+            "comportamento"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a busca textual global esta disponivel.",
+              "default": true
+            },
+            "escopo": {
+              "type": "string",
+              "title": "Escopo",
+              "description": "Escopo da busca textual dentro do dashboard.",
+              "minLength": 1
+            },
+            "comportamento": {
+              "type": "string",
+              "title": "Comportamento",
+              "description": "Descricao de como a busca deve localizar e destacar resultados.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "copiar_resumo_executivo": {
+          "type": "boolean",
+          "title": "Copiar Resumo Executivo",
+          "description": "Indica se o usuario pode copiar o resumo executivo.",
+          "default": true
+        },
+        "copiar_especificacao_visual_de_uma_tela": {
+          "type": "boolean",
+          "title": "Copiar Especificacao Visual de uma Tela",
+          "description": "Indica se o usuario pode copiar a especificacao visual de uma tela.",
+          "default": true
+        },
+        "copiar_wireframes_textuais": {
+          "type": "boolean",
+          "title": "Copiar Wireframes Textuais",
+          "description": "Indica se o usuario pode copiar os wireframes textuais.",
+          "default": true
+        },
+        "copiar_tabelas_principais": {
+          "type": "boolean",
+          "title": "Copiar Tabelas Principais",
+          "description": "Indica se o usuario pode copiar as tabelas principais.",
+          "default": true
+        },
+        "exportar_markdown": {
+          "type": "boolean",
+          "title": "Exportar Markdown",
+          "description": "Indica se o dashboard permite exportacao em Markdown.",
+          "default": true
+        },
+        "imprimir_ou_pdf": {
+          "type": "boolean",
+          "title": "Imprimir ou PDF",
+          "description": "Indica se o dashboard permite impressao ou salvamento em PDF.",
+          "default": true
+        },
+        "mostrar_progresso_visual": {
+          "type": "boolean",
+          "title": "Mostrar Progresso Visual",
+          "description": "Indica se a interface exibe progresso visual da etapa.",
+          "default": true
+        },
+        "destacar_telas_essenciais": {
+          "type": "boolean",
+          "title": "Destacar Telas Essenciais",
+          "description": "Indica se as telas essenciais devem ser destacadas visualmente.",
+          "default": true
+        },
+        "destacar_componentes_criticos": {
+          "type": "boolean",
+          "title": "Destacar Componentes Criticos",
+          "description": "Indica se os componentes criticos devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_riscos_altos": {
+          "type": "boolean",
+          "title": "Destacar Riscos Altos",
+          "description": "Indica se os riscos altos devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_lacunas_criticas": {
+          "type": "boolean",
+          "title": "Destacar Lacunas Criticas",
+          "description": "Indica se as lacunas criticas devem ser destacadas visualmente.",
+          "default": true
+        },
+        "destacar_itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_auditoria_ia": {
+          "type": "boolean",
+          "title": "Destacar Itens Transversais",
+          "description": "Indica se itens relacionados a multi tenant, billing, permissoes, integracoes, auditoria e IA devem ser destacados.",
+          "default": true
+        },
+        "navegar_por_ancoras_internas": {
+          "type": "boolean",
+          "title": "Navegar por Anchors Internas",
+          "description": "Indica se o dashboard permite navegar por ancoras internas entre blocos.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProgressoVisual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "required": [
+        "percentual_conclusao",
+        "status",
+        "marcos",
+        "indicadores",
+        "proxima_etapa_recomendada",
+        "observacoes"
+      ],
+      "properties": {
+        "percentual_conclusao": {
+          "type": "integer",
+          "title": "Percentual de Conclusao",
+          "description": "Percentual visual de completude da etapa.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status sintetico do progresso.",
+          "enum": [
+            "nao_iniciado",
+            "em_andamento",
+            "parcial",
+            "concluido"
+          ]
+        },
+        "marcos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "indicadores": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa recomendada.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o progresso visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard.",
+      "required": [
+        "telas_essenciais",
+        "componentes_criticos",
+        "riscos_altos",
+        "lacunas_criticas",
+        "itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_auditoria_ia"
+      ],
+      "properties": {
+        "telas_essenciais": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "componentes_criticos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "riscos_altos": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "lacunas_criticas": {
+          "$ref": "#/$defs/lista_texto"
+        },
+        "itens_relacionados_a_multi_tenant_billing_permissoes_integracoes_auditoria_ia": {
+          "$ref": "#/$defs/lista_texto"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "required": [
+        "documentos_entrada",
+        "cards",
+        "telas_prioritarias",
+        "componentes",
+        "tokens",
+        "wireframes",
+        "estados",
+        "riscos",
+        "secoes",
+        "nivel_maturidade_do_design_visual"
+      ],
+      "properties": {
+        "documentos_entrada": {
+          "type": "integer",
+          "title": "Documentos de Entrada",
+          "description": "Quantidade de documentos de entrada considerados.",
+          "minimum": 0
+        },
+        "cards": {
+          "type": "integer",
+          "title": "Cards",
+          "description": "Quantidade de cards de indicadores.",
+          "minimum": 0
+        },
+        "telas_prioritarias": {
+          "type": "integer",
+          "title": "Telas Prioritarias",
+          "description": "Quantidade de telas priorizadas para prototipacao.",
+          "minimum": 0
+        },
+        "componentes": {
+          "type": "integer",
+          "title": "Componentes",
+          "description": "Quantidade de componentes principais consolidados.",
+          "minimum": 0
+        },
+        "tokens": {
+          "type": "integer",
+          "title": "Tokens",
+          "description": "Quantidade de tokens de design consolidados.",
+          "minimum": 0
+        },
+        "wireframes": {
+          "type": "integer",
+          "title": "Wireframes",
+          "description": "Quantidade de wireframes conceituais textuais produzidos.",
+          "minimum": 0
+        },
+        "estados": {
+          "type": "integer",
+          "title": "Estados",
+          "description": "Quantidade total de estados de interface consolidados.",
+          "minimum": 0
+        },
+        "riscos": {
+          "type": "integer",
+          "title": "Riscos",
+          "description": "Quantidade total de riscos de visualizacao e prototipacao identificados.",
+          "minimum": 0
+        },
+        "secoes": {
+          "type": "integer",
+          "title": "Secoes",
+          "description": "Quantidade de secoes principais do dashboard.",
+          "minimum": 0
+        },
+        "nivel_maturidade_do_design_visual": {
+          "type": "string",
+          "title": "Nivel de Maturidade do Design Visual",
+          "description": "Leitura sintetica do nivel de maturidade visual documentado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

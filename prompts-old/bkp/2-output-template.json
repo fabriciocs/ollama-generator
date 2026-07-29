@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "title": "Estrutura Final da Saída da Etapa 2 (Dashboard HTML)",
+  "description": "Define que a saída da Etapa 2 é um documento HTML completo, autocontido, representando um dashboard interativo de pesquisa de mercado e benchmarking. Ele deve conter todas as seções especificadas, incluindo análises de concorrentes, matrizes comparativas, tabelas consolidadas e recursos interativos como filtros, busca e alternância de tema.",
+  "contentMediaType": "text/html",
+  "minLength": 1,
+  "required": ["html_content"],
+  "properties": {
+    "html_content": {
+      "type": "string",
+      "title": "Conteúdo HTML do Dashboard",
+      "description": "O código-fonte HTML completo, autocontido (CSS e JS embutidos), que implementa o dashboard de pesquisa de mercado. Deve ser semanticamente correto, responsivo e funcional, cumprindo todos os requisitos de conteúdo e interatividade listados no prompt.",
+      "pattern": "^<!DOCTYPE html>.*",
+      "examples": ["<!DOCTYPE html><html lang=\"pt-BR\">..."]
+    }
+  },
+  "additionalProperties": false
+}

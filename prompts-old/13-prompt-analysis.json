@@ -1,0 +1,2970 @@
+{
+  "prompt": {
+    "id": "13",
+    "file": "13-prompt.md",
+    "title": "Goal",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are a specialist in: * Requirements Engineering * Software Architecture * Document Analysis * Product Design * UX/UI * JSON Modeling * SaaS Systems * HTML Dashboards * Semantic Structure * Information Architecture Your mission is to analyze all available `.html` and `.md` files and generate the final artifact for this stage: Mandatory product context: the canonical tree must represent a super-admin platform with, at minimum, the domains Dashboard, Tenant Context/Selection, Tenants, Plans, Billing, Feature Management, Roles and Permissions, Audit, Templates, AI, Global Settings, and Validation Engine, including login, active scope, and administration navigation. --- # Goal Consolidate all documentation produced in the previous stages into a single navigable, complete, hierarchical JSON structure. The file `13.json` will be the canonical representation of the system and will serve as the source for: * automatic dashboard generation; * automatic menu generation; * automatic route gene...",
+    "role": "You are a specialist in:",
+    "summary": "You are a specialist in: * Requirements Engineering * Software Architecture * Document Analysis * Product Design * UX/UI * JSON Modeling * SaaS Systems * HTML Dashboards * Semantic Structure * Information Architecture Your mission is to analyze all available `.html` and `.md` files and generate the final artifact for this stage: Mandatory product context: the canonical tree must represent a super-admin platform with, at minimum, the domains Dashboard, Tenant Context/Selection, Tenants, Plans, Billing, Feature Management, Roles and Permissions, Audit, Templates, AI, Global Settings, and Validation Engine, including login, active scope, and administration navigation. --- # Goal Consolidate all...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "407d226cf419d49e26e3a9ecbbf2dd121ad2b143532bacc8cc25cce051506a06"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.2-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "2-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "3-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "5-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "6-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "7-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "8-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "9-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "10-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "11-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "12-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.1.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.2.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "10.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "11.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "12.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "13.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "2.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "3.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4.1.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "5.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "6.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "7.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "8.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "9.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1.2-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "2-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "3-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "4-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "4.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "5-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "6-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "7-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "8-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "9-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "10-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "11-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "12-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "1.1.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "1.2.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "1.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "10.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "11.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "12.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "13.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "2.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "3.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "4.1.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "4.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "5.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "6.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "7.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "8.html",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "9.html",
+        "type": "source_input",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "Mandatory product context: the canonical tree must represent a super-admin platform with, at minimum, the domains Dashboard, Tenant Context/Selection, Tenants, Plans, Billing, Feature Management, Roles and Permissions, Audit, Templates, AI, Global Settings, and Validation Engine, including login, active scope, and administration navigation.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "# Mandatory Process",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "Do not summarize.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "Do not simplify.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "Do not omit.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "The structure must exactly respect the hierarchy found in the documentation.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "# Mandatory Rules",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "Each found item must have:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "# Required File Structure",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "The `conteudo` field must contain the full text extracted from the documentation.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "Every found item must exist inside `13.json`.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "The file `13.json` must represent 100% of the functional and documentary structure found in the analyzed files.",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "automatic menu generation;",
+      "automatic route generation;",
+      "automatic navigation generation;",
+      "menus;",
+      "submenus;",
+      "screens;"
+    ],
+    "flows": [],
+    "experience": [
+      "UX/UI"
+    ],
+    "ui": [
+      "Requirements Engineering",
+      "UX/UI",
+      "HTML Dashboards",
+      "automatic dashboard generation;",
+      "complete dashboard;",
+      "screens;",
+      "components;"
+    ],
+    "layout": [],
+    "communication": []
+  },
+  "boundaries": {
+    "scope": [
+      "objectives;",
+      "objectives;"
+    ],
+    "restrictions": [
+      "Do not summarize.",
+      "Do not simplify.",
+      "Do not omit."
+    ],
+    "responsibilities": [],
+    "limitations": []
+  },
+  "documents": [
+    {
+      "file": "0-estetica-inicial.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "1.1.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "1.2.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "1.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "10.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "11.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "12.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "13.json",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "2.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "3.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "4.1.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "4.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "5.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "6.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "7.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "8.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "9.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    }
+  ],
+  "outputTemplate": {
+    "file": "13-output-template.json",
+    "title": "Estrutura da Saída da Etapa 13 - Árvore Canônica do Superadministrador",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema JSON que representa semanticamente o arquivo 13.json. A saída final deve consolidar o dashboard, a navegação, as rotas, o catálogo global e a árvore hierárquica completa de domínios, módulos, funcionalidades, telas, seções, subseções e componentes da plataforma de superadministrador.",
+    "schemaSource": "provided",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Estrutura da Saída da Etapa 13 - Árvore Canônica do Superadministrador",
+      "description": "Schema JSON que representa semanticamente o arquivo 13.json. A saída final deve consolidar o dashboard, a navegação, as rotas, o catálogo global e a árvore hierárquica completa de domínios, módulos, funcionalidades, telas, seções, subseções e componentes da plataforma de superadministrador.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "etapa",
+        "arquivo_de_entrada",
+        "arquivo_de_saida",
+        "metadata",
+        "dashboard",
+        "menu",
+        "routes",
+        "catalogo",
+        "dominios"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "integer",
+          "title": "Número da Etapa",
+          "description": "Identificador numérico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 13.",
+          "const": 13
+        },
+        "arquivo_de_entrada": {
+          "type": "string",
+          "title": "Arquivo de Entrada",
+          "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do artefato. Deve apontar para o texto-base da Etapa 13.",
+          "const": "13-prompt.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saída",
+          "description": "Nome do arquivo JSON final produzido pela etapa. Deve permanecer fixo em 13.json, conforme o prompt.",
+          "const": "13.json"
+        },
+        "metadata": {
+          "$ref": "#/$defs/metadata"
+        },
+        "dashboard": {
+          "$ref": "#/$defs/dashboard"
+        },
+        "menu": {
+          "type": "array",
+          "title": "Menu",
+          "description": "Árvore de navegação gerada automaticamente a partir da estrutura canônica do sistema.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/menu_item"
+          }
+        },
+        "routes": {
+          "type": "array",
+          "title": "Rotas",
+          "description": "Lista de rotas identificadas a partir da hierarquia funcional do sistema.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/route_item"
+          }
+        },
+        "catalogo": {
+          "$ref": "#/$defs/catalogo"
+        },
+        "dominios": {
+          "type": "array",
+          "title": "Domínios",
+          "description": "Árvore principal do sistema, organizada em domínios, módulos, funcionalidades, telas, seções, subseções e componentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/domain_item"
+          }
+        }
+      },
+      "$defs": {
+        "metadata": {
+          "type": "object",
+          "title": "Metadados",
+          "description": "Informações de rastreabilidade e consolidação do arquivo 13.json.",
+          "required": [
+            "arquivo",
+            "versao",
+            "origem",
+            "geradoEm",
+            "totalDominios",
+            "totalModulos",
+            "totalFuncionalidades",
+            "totalTelas"
+          ],
+          "properties": {
+            "arquivo": {
+              "type": "string",
+              "title": "Arquivo",
+              "description": "Nome do arquivo final gerado pela etapa.",
+              "const": "13.json"
+            },
+            "versao": {
+              "type": "string",
+              "title": "Versão",
+              "description": "Versão semântica do artefato canônico consolidado.",
+              "const": "1.0"
+            },
+            "origem": {
+              "type": "string",
+              "title": "Origem",
+              "description": "Origem documental do conteúdo consolidado. Deve indicar que o arquivo deriva da análise de HTML e Markdown.",
+              "const": "Analise dos arquivos HTML e Markdown"
+            },
+            "geradoEm": {
+              "type": "string",
+              "title": "Gerado Em",
+              "description": "Data e hora de geração do arquivo em formato legível e rastreável.",
+              "minLength": 1
+            },
+            "totalDominios": {
+              "type": "integer",
+              "title": "Total de Domínios",
+              "description": "Quantidade total de domínios consolidados na árvore final.",
+              "minimum": 0
+            },
+            "totalModulos": {
+              "type": "integer",
+              "title": "Total de Módulos",
+              "description": "Quantidade total de módulos consolidados na árvore final.",
+              "minimum": 0
+            },
+            "totalFuncionalidades": {
+              "type": "integer",
+              "title": "Total de Funcionalidades",
+              "description": "Quantidade total de funcionalidades consolidadas na árvore final.",
+              "minimum": 0
+            },
+            "totalTelas": {
+              "type": "integer",
+              "title": "Total de Telas",
+              "description": "Quantidade total de telas consolidadas na árvore final.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "dashboard": {
+          "type": "object",
+          "title": "Dashboard",
+          "description": "Bloco raiz da visão consolidada da plataforma. Deve representar uma síntese executiva do sistema canônico e orientar a leitura inicial do artefato.",
+          "required": [
+            "id",
+            "titulo",
+            "objetivo",
+            "conteudo"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do dashboard canônico.",
+              "minLength": 1
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título semântico do dashboard principal do sistema.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo principal do dashboard como visão de operação, controle e leitura executiva.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo textual completo associado ao dashboard canônico.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "menu_item": {
+          "type": "object",
+          "title": "Item de Menu",
+          "description": "Item da navegação hierárquica, com rótulo visível, rota associada, ícone e filhos recursivos.",
+          "required": [
+            "id",
+            "label",
+            "rota",
+            "icone",
+            "filhos"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do item de navegação.",
+              "minLength": 1
+            },
+            "label": {
+              "type": "string",
+              "title": "Rótulo",
+              "description": "Texto exibido ao usuário no menu.",
+              "minLength": 1
+            },
+            "rota": {
+              "type": "string",
+              "title": "Rota",
+              "description": "Caminho de navegação associado ao item de menu.",
+              "minLength": 1
+            },
+            "icone": {
+              "type": "string",
+              "title": "Ícone",
+              "description": "Nome, chave ou referência do ícone visual usado no menu.",
+              "minLength": 1
+            },
+            "filhos": {
+              "type": "array",
+              "title": "Filhos",
+              "description": "Subitens do menu para representar a hierarquia de navegação.",
+              "items": {
+                "$ref": "#/$defs/menu_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "route_item": {
+          "type": "object",
+          "title": "Rota",
+          "description": "Registro de rota identificado a partir da árvore funcional do sistema.",
+          "required": [
+            "id",
+            "path",
+            "titulo",
+            "origem"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único da rota.",
+              "minLength": 1
+            },
+            "path": {
+              "type": "string",
+              "title": "Path",
+              "description": "Caminho da rota no sistema.",
+              "minLength": 1
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título legível da rota.",
+              "minLength": 1
+            },
+            "origem": {
+              "type": "string",
+              "title": "Origem",
+              "description": "Origem estrutural ou documental da rota, indicando de onde ela foi inferida.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "catalogo": {
+          "type": "object",
+          "title": "Catálogo Global",
+          "description": "Catálogo consolidado dos elementos semânticos extraídos da árvore canônica, incluindo domínios, módulos, funcionalidades, telas, seções, componentes, eventos, ações e endpoints.",
+          "required": [
+            "dominios",
+            "modulos",
+            "funcionalidades",
+            "telas",
+            "secoes",
+            "componentes",
+            "eventos",
+            "acoes",
+            "endpoints"
+          ],
+          "properties": {
+            "dominios": {
+              "type": "array",
+              "title": "Domínios",
+              "description": "Itens do catálogo que representam domínios consolidados.",
+              "items": {
+                "$ref": "#/$defs/catalog_domain_item"
+              }
+            },
+            "modulos": {
+              "type": "array",
+              "title": "Módulos",
+              "description": "Itens do catálogo que representam módulos consolidados.",
+              "items": {
+                "$ref": "#/$defs/catalog_module_item"
+              }
+            },
+            "funcionalidades": {
+              "type": "array",
+              "title": "Funcionalidades",
+              "description": "Itens do catálogo que representam funcionalidades consolidadas.",
+              "items": {
+                "$ref": "#/$defs/catalog_feature_item"
+              }
+            },
+            "telas": {
+              "type": "array",
+              "title": "Telas",
+              "description": "Itens do catálogo que representam telas consolidadas.",
+              "items": {
+                "$ref": "#/$defs/catalog_screen_item"
+              }
+            },
+            "secoes": {
+              "type": "array",
+              "title": "Seções",
+              "description": "Itens do catálogo que representam seções consolidadas.",
+              "items": {
+                "$ref": "#/$defs/catalog_section_item"
+              }
+            },
+            "componentes": {
+              "type": "array",
+              "title": "Componentes",
+              "description": "Itens do catálogo que representam componentes consolidados.",
+              "items": {
+                "$ref": "#/$defs/catalog_component_item"
+              }
+            },
+            "eventos": {
+              "type": "array",
+              "title": "Eventos",
+              "description": "Itens do catálogo que representam eventos identificados na documentação.",
+              "items": {
+                "$ref": "#/$defs/catalog_event_item"
+              }
+            },
+            "acoes": {
+              "type": "array",
+              "title": "Ações",
+              "description": "Itens do catálogo que representam ações identificadas na documentação.",
+              "items": {
+                "$ref": "#/$defs/catalog_action_item"
+              }
+            },
+            "endpoints": {
+              "type": "array",
+              "title": "Endpoints",
+              "description": "Itens do catálogo que representam endpoints identificados na documentação.",
+              "items": {
+                "$ref": "#/$defs/catalog_endpoint_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "domain_item": {
+          "type": "object",
+          "title": "Domínio",
+          "description": "Nó de primeiro nível da árvore canônica, responsável por agrupar módulos e representar uma área funcional maior do sistema.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo",
+            "modulos"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do domínio.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação usada para referenciar o domínio.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como domain para representar o primeiro nível da árvore.",
+              "const": "domain"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título do domínio funcional.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo do domínio dentro da plataforma canônica.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral extraído ou consolidado para esse domínio.",
+              "minLength": 1
+            },
+            "modulos": {
+              "type": "array",
+              "title": "Módulos",
+              "description": "Lista de módulos pertencentes ao domínio.",
+              "items": {
+                "$ref": "#/$defs/module_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "module_item": {
+          "type": "object",
+          "title": "Módulo",
+          "description": "Agrupamento intermediário abaixo do domínio, usado para organizar funcionalidades relacionadas.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo",
+            "funcionalidades"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do módulo.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação do módulo.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como module.",
+              "const": "module"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título do módulo.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo do módulo dentro do domínio.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral associado ao módulo.",
+              "minLength": 1
+            },
+            "funcionalidades": {
+              "type": "array",
+              "title": "Funcionalidades",
+              "description": "Lista de funcionalidades agrupadas pelo módulo.",
+              "items": {
+                "$ref": "#/$defs/feature_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "feature_item": {
+          "type": "object",
+          "title": "Funcionalidade",
+          "description": "Agrupamento funcional abaixo do módulo, responsável por organizar telas e experiências de uso.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo",
+            "telas"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único da funcionalidade.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação da funcionalidade.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como feature.",
+              "const": "feature"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título da funcionalidade.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo prático da funcionalidade.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral associado à funcionalidade.",
+              "minLength": 1
+            },
+            "telas": {
+              "type": "array",
+              "title": "Telas",
+              "description": "Lista de telas pertencentes à funcionalidade.",
+              "items": {
+                "$ref": "#/$defs/screen_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "screen_item": {
+          "type": "object",
+          "title": "Tela",
+          "description": "Unidade de interface de usuário que pode conter componentes e seções.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo",
+            "componentes",
+            "secoes"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único da tela.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação da tela.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como screen.",
+              "const": "screen"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título da tela.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo da tela no fluxo do usuário.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral associado à tela.",
+              "minLength": 1
+            },
+            "componentes": {
+              "type": "array",
+              "title": "Componentes",
+              "description": "Lista de componentes visíveis ou relacionados à tela.",
+              "items": {
+                "$ref": "#/$defs/component_item"
+              }
+            },
+            "secoes": {
+              "type": "array",
+              "title": "Seções",
+              "description": "Lista de seções presentes na tela.",
+              "items": {
+                "$ref": "#/$defs/section_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "section_item": {
+          "type": "object",
+          "title": "Seção",
+          "description": "Agrupamento interno de uma tela, usado para organizar blocos de conteúdo e subseções.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo",
+            "subsecoes"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único da seção.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação da seção.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como section.",
+              "const": "section"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título da seção.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo da seção dentro da tela.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral associado à seção.",
+              "minLength": 1
+            },
+            "subsecoes": {
+              "type": "array",
+              "title": "Subseções",
+              "description": "Lista de subseções contidas na seção.",
+              "items": {
+                "$ref": "#/$defs/subsection_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "subsection_item": {
+          "type": "object",
+          "title": "Subseção",
+          "description": "Nível mais granular da hierarquia textual e estrutural, usado para detalhar uma seção.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único da subseção.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação da subseção.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como subsection.",
+              "const": "subsection"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título da subseção.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo específico da subseção.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo textual integral associado à subseção.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "component_item": {
+          "type": "object",
+          "title": "Componente",
+          "description": "Elemento de interface reutilizável ou atômico associado a uma tela.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do componente.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico ou abreviação do componente.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo do nó, que deve ser fixado como component.",
+              "const": "component"
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título do componente.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo do componente dentro da interface.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo integral associado ao componente.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "catalog_item_base": {
+          "type": "object",
+          "title": "Item de Catálogo",
+          "description": "Registro semântico genérico usado no catálogo global para representar entidades extraídas da árvore canônica.",
+          "required": [
+            "id",
+            "codigo",
+            "tipo",
+            "titulo",
+            "objetivo",
+            "conteudo"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador único do item do catálogo.",
+              "minLength": 1
+            },
+            "codigo": {
+              "type": "string",
+              "title": "Código",
+              "description": "Código semântico do item.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo semântico do item do catálogo.",
+              "minLength": 1
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título do item do catálogo.",
+              "minLength": 1
+            },
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo ou papel semântico do item.",
+              "minLength": 1
+            },
+            "conteudo": {
+              "type": "string",
+              "title": "Conteúdo",
+              "description": "Conteúdo textual integral relacionado ao item.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "catalog_domain_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "domain"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_module_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "module"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_feature_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "feature"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_screen_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "screen"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_section_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "section"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_component_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "component"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_event_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "event"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_action_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "action"
+                }
+              }
+            }
+          ]
+        },
+        "catalog_endpoint_item": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/catalog_item_base"
+            },
+            {
+              "properties": {
+                "tipo": {
+                  "const": "endpoint"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "outputExample": {
+    "file": "13-output.json",
+    "title": "Goal",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "etapa": 13,
+      "arquivo_de_entrada": "13-prompt.md",
+      "arquivo_de_saida": "13.json",
+      "metadata": "string",
+      "dashboard": "string",
+      "menu": [
+        "string"
+      ],
+      "routes": [
+        "string"
+      ],
+      "catalogo": "string",
+      "dominios": [
+        "string"
+      ]
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "Goal",
+      "objective": "Definir e orientar a parte 'Goal' do prompt.",
+      "description": "Consolidate all documentation produced in the previous stages into a single navigable, complete, hierarchical JSON structure. The file `13.json` will be the canonical representation of the system and will serve as the source for: * automatic dashboard generation; * automatic menu generation; * automatic route generation; * automatic documentation generation; * automatic React frontend generation; * automatic navigation generation; * automatic semantic search generation; * automatic RAG and AI generation; ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "Input Files",
+      "objective": "Definir e orientar a parte 'Input Files' do prompt.",
+      "description": "Analyze in full: In addition to: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "Mandatory Process",
+      "objective": "Definir e orientar a parte 'Mandatory Process' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "1. Identify the Structure",
+      "objective": "Definir e orientar a parte '1. Identify the Structure' do prompt.",
+      "description": "Identify and catalog: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 5,
+      "level": 2,
+      "title": "2. Full Extraction",
+      "objective": "Definir e orientar a parte '2. Full Extraction' do prompt.",
+      "description": "Extract in full: * titles; * descriptions; * objectives; * content; * rules; * notes; * specifications; * definitions; * relationships. Do not summarize. Do not simplify. Do not omit. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "Do not summarize.",
+        "Do not simplify.",
+        "Do not omit."
+      ]
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "3. Hierarchical Reconstruction",
+      "objective": "Definir e orientar a parte '3. Hierarchical Reconstruction' do prompt.",
+      "description": "Rebuild the entire system tree. The structure must exactly respect the hierarchy found in the documentation. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "The structure must exactly respect the hierarchy found in the documentation."
+      ]
+    },
+    {
+      "index": 7,
+      "level": 1,
+      "title": "Mandatory Rules",
+      "objective": "Definir e orientar a parte 'Mandatory Rules' do prompt.",
+      "description": "Each found item must have: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "Each found item must have:"
+      ]
+    },
+    {
+      "index": 8,
+      "level": 1,
+      "title": "Required File Structure",
+      "objective": "Definir e orientar a parte 'Required File Structure' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "Root",
+      "objective": "Definir e orientar a parte 'Root' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 1,
+      "title": "Metadata",
+      "objective": "Definir e orientar a parte 'Metadata' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 11,
+      "level": 1,
+      "title": "Dashboard",
+      "objective": "Definir e orientar a parte 'Dashboard' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 12,
+      "level": 1,
+      "title": "Domain",
+      "objective": "Definir e orientar a parte 'Domain' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 1,
+      "title": "Module",
+      "objective": "Definir e orientar a parte 'Module' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 1,
+      "title": "Feature",
+      "objective": "Definir e orientar a parte 'Feature' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 15,
+      "level": 1,
+      "title": "Screen",
+      "objective": "Definir e orientar a parte 'Screen' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 16,
+      "level": 1,
+      "title": "Section",
+      "objective": "Definir e orientar a parte 'Section' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 17,
+      "level": 1,
+      "title": "Subsection",
+      "objective": "Definir e orientar a parte 'Subsection' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 1,
+      "title": "Components",
+      "objective": "Definir e orientar a parte 'Components' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 1,
+      "title": "Menus",
+      "objective": "Definir e orientar a parte 'Menus' do prompt.",
+      "description": "Automatically generate the complete navigation tree. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 1,
+      "title": "Routes",
+      "objective": "Definir e orientar a parte 'Routes' do prompt.",
+      "description": "Automatically generate every identified route. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 1,
+      "title": "Global Catalog",
+      "objective": "Definir e orientar a parte 'Global Catalog' do prompt.",
+      "description": "Generate a consolidated catalog. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 22,
+      "level": 1,
+      "title": "Content",
+      "objective": "Definir e orientar a parte 'Content' do prompt.",
+      "description": "For each found element, store: The `conteudo` field must contain the full text extracted from the documentation. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "The `conteudo` field must contain the full text extracted from the documentation."
+      ]
+    },
+    {
+      "index": 23,
+      "level": 1,
+      "title": "Information Preservation",
+      "objective": "Definir e orientar a parte 'Information Preservation' do prompt.",
+      "description": "No information may be discarded. No section may be removed. No business rule may be summarized. No feature may be omitted. Every found item must exist inside `13.json`. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "Every found item must exist inside `13.json`."
+      ]
+    },
+    {
+      "index": 24,
+      "level": 1,
+      "title": "Final Result",
+      "objective": "Definir e orientar a parte 'Final Result' do prompt.",
+      "description": "Generate only: containing: * complete dashboard; * complete hierarchical structure; * menus; * submenus; * domains; * modules; * features; * screens; * sections; * subsections; * components; * rules; * entities; * events; * actions; * endpoints; * integrations; * reports; * objectives; * full content; * global catalog. The file `13.json` must represent 100% of the functional and documentary structure found in the analyzed files.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ],
+      "rules": [
+        "The file `13.json` must represent 100% of the functional and documentary structure found in the analyzed files."
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "Mandatory Process",
+      "objective": "Executar a instrução operacional 'Mandatory Process'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "1. Identify the Structure",
+      "objective": "Executar a instrução operacional '1. Identify the Structure'.",
+      "description": "Identify and catalog: ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "2. Full Extraction",
+      "objective": "Executar a instrução operacional '2. Full Extraction'.",
+      "description": "Extract in full: * titles; * descriptions; * objectives; * content; * rules; * notes; * specifications; * definitions; * relationships. Do not summarize. Do not simplify. Do not omit. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "3. Hierarchical Reconstruction",
+      "objective": "Executar a instrução operacional '3. Hierarchical Reconstruction'.",
+      "description": "Rebuild the entire system tree. The structure must exactly respect the hierarchy found in the documentation. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "0-estetica-inicial.md",
+        "1.1.html",
+        "1.2.html",
+        "1.html",
+        "10.html",
+        "11.html",
+        "12.html",
+        "13.json",
+        "2.html",
+        "3.html",
+        "4.1.html",
+        "4.html",
+        "5.html",
+        "6.html",
+        "7.html",
+        "8.html",
+        "9.html"
+      ],
+      "outputs": [
+        "13-output.json"
+      ]
+    }
+  ]
+}

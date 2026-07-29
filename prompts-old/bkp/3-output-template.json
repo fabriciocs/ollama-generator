@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "title": "Estrutura Final da Saída da Etapa 3 (Dashboard HTML)",
+  "description": "Define que a saída da Etapa 3 é um documento HTML completo, autocontido, representando um dashboard interativo para a análise estratégica e especificação inicial do produto. Ele deve consolidar todos os documentos e análises das etapas anteriores em 22 seções obrigatórias, que vão desde o resumo executivo até as recomendações para a Etapa 4.",
+  "contentMediaType": "text/html",
+  "minLength": 1,
+  "required": ["html_content"],
+  "properties": {
+    "html_content": {
+      "type": "string",
+      "title": "Conteúdo HTML do Dashboard",
+      "description": "O código-fonte HTML completo, incluindo CSS e JavaScript embutidos, que implementa o dashboard de análise estratégica. Deve ser semanticamente correto, responsivo, funcional e conter todas as seções, tabelas, matrizes, e elementos interativos (como filtros, busca, alternador de tema) definidos no prompt.",
+      "pattern": "^<!DOCTYPE html>.*",
+      "examples": ["<!DOCTYPE html><html lang=\"pt-BR\">..."]
+    }
+  },
+  "additionalProperties": false
+}

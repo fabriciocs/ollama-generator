@@ -1,0 +1,23 @@
+# Etapas enumeradas encontradas em `*-prompt.md`
+
+- **0** — Visual foundation, Material Design 3 tokens, global CSS and design rules — prompt: `0-prompt.md`; análise: `0-prompt-analysis.json`; template: `0-output-template.json`; saída canônica: `./0.json`.
+- **0.1** — Main product brand identity assets and brand manifest — prompt: `0.1-prompt.md`; análise: `0.1-prompt-analysis.json`; template: `0.1-output-template.json`; saída canônica: `./0.1.json`.
+- **1** — Initial idea and problem framing — prompt: `1-prompt.md`; análise: `1-prompt-analysis.json`; template: `1-output-template.json`; saída canônica: `./1.json`.
+- **1.2** — Analysis of open questions from Stage 1 — prompt: `1.2-prompt.md`; análise: `1.2-prompt-analysis.json`; template: `1.2-output-template.json`; saída canônica: `./1.2.json`.
+- **2** — Market research and benchmarking — prompt: `2-prompt.md`; análise: `2-prompt-analysis.json`; template: `2-output-template.json`; saída canônica: `./2.json`.
+- **3** — Strategic analysis and initial specification — prompt: `3-prompt.md`; análise: `3-prompt-analysis.json`; template: `3-output-template.json`; saída canônica: `./3.json`.
+- **4** — Structured functional specification — prompt: `4-prompt.md`; análise: `4-prompt-analysis.json`; template: `4-output-template.json`; saída canônica: `./4.json`.
+- **4.1** — Complete specification consolidation — prompt: `4.1-prompt.md`; análise: `4.1-prompt-analysis.json`; template: `4.1-output-template.json`; saída canônica: `./4.1.json`.
+- **5** — Data model and information architecture — prompt: `5-prompt.md`; análise: `5-prompt-analysis.json`; template: `5-output-template.json`; saída canônica: `./5.json`.
+- **6** — UX flows, journeys and interaction architecture — prompt: `6-prompt.md`; análise: `6-prompt-analysis.json`; template: `6-output-template.json`; saída canônica: `./6.json`.
+- **7** — Visual UI design and navigable prototype specification — prompt: `7-prompt.md`; análise: `7-prompt-analysis.json`; template: `7-output-template.json`; saída canônica: `./7.json`.
+- **8** — Backlog, implementation plan and QA strategy — prompt: `8-prompt.md`; análise: `8-prompt-analysis.json`; template: `8-output-template.json`; saída canônica: `./8.json`.
+- **9** — Technical architecture and solution design — prompt: `9-prompt.md`; análise: `9-prompt-analysis.json`; template: `9-output-template.json`; saída canônica: `./9.json`.
+- **10** — Security, privacy, compliance and governance — prompt: `10-prompt.md`; análise: `10-prompt-analysis.json`; template: `10-output-template.json`; saída canônica: `./10.json`.
+- **11** — Final documentation, operations, evolution and handoff — prompt: `11-prompt.md`; análise: `11-prompt-analysis.json`; template: `11-output-template.json`; saída canônica: `./11.json`.
+- **12** — Google Stitch project instructions as JSON specification — prompt: `12-prompt.md`; análise: `12-prompt-analysis.json`; template: `12-output-template.json`; saída canônica: `./12.json`.
+- **13** — Canonical system tree and semantic structure — prompt: `13-prompt.md`; análise: `13-prompt-analysis.json`; template: `13-output-template.json`; saída canônica: `./13.json`.
+- **13.1** — Complete visual representation specification without HTML — prompt: `13.1-prompt.md`; análise: `13.1-prompt-analysis.json`; template: `13.1-output-template.json`; saída canônica: `./13.1.json`.
+- **14** — Google Stitch project build plan as JSON specification — prompt: `14-prompt.md`; análise: `14-prompt-analysis.json`; template: `14-output-template.json`; saída canônica: `./14.json`.
+- **14.1** — Google Stitch screen generation specification — prompt: `14.1-prompt.md`; análise: `14.1-prompt-analysis.json`; template: `14.1-output-template.json`; saída canônica: `./14.1.json`.
+- **15** — Google Stitch finalization/export specification — prompt: `15-prompt.md`; análise: `15-prompt-analysis.json`; template: **não encontrado**; saída canônica: `./15.json`.

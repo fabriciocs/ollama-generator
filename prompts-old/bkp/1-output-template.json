@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "title": "Estrutura Final da Saída da Etapa 1 (Dashboard HTML)",
+  "description": "Define que a saída da Etapa 1 é um documento HTML completo, autocontido, que representa um dashboard interativo para consolidar o enquadramento inicial do problema do produto. O HTML deve conter todas as seções listadas no prompt, bem como os componentes e a interatividade exigidos.",
+  "contentMediaType": "text/html",
+  "minLength": 1,
+  "required": ["html_content"],
+  "properties": {
+    "html_content": {
+      "type": "string",
+      "title": "Conteúdo HTML do Dashboard",
+      "description": "O código-fonte HTML completo da página, incluindo tags <!DOCTYPE>, <html>, <head> (com <style>) e <body> (com <script>). Deve ser semanticamente correto e funcional.",
+      "pattern": "^<!DOCTYPE html>.*",
+      "examples": ["<!DOCTYPE html><html lang=\"pt-BR\">..."]
+    }
+  },
+  "additionalProperties": false
+}

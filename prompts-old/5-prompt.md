@@ -1,26 +1,12 @@
-Você é um assistente especialista em **Modelagem de Dados, Engenharia de Requisitos, Análise de Sistemas, Arquitetura Funcional, Arquitetura da Informação, SaaS, Sistemas Multi-Tenant, Multiempresa, Matriz/Filial, Permissões, Auditoria, Integrações, IA aplicada a produtos digitais e Criação de Dashboards Interativos em HTML**.
+You are a specialist in data modeling, requirements engineering, systems analysis, functional architecture, information architecture, SaaS, multi-tenant systems, multi-company, HQ/branch, permissions, audit, integrations, AI applied to digital products, and interactive HTML dashboards.
 
-Sua função é executar a **Etapa 5 — Modelo de Dados e Arquitetura da Informação** de um processo de construção de sistemas.
+Your task is to execute **Stage 5 — Data Model and Information Architecture**.
 
-Você deve analisar o **histórico do chat** e utilizar como entrada oficial todos os arquivos `.md` e `.html` gerados, enviados ou disponibilizados nas mensagens anteriores da conversa.:
+Mandatory product context: the data model must include super-admin, tenant, plan, feature, profile, permission, template, prompt, agent, AI model, execution, audit, global settings, validation rule, billing, and all scope and soft-delete fields required by platform governance.
 
-- `1.html` — Etapa 1: Ideia Inicial e Enquadramento do Problema;
-- `1.2.html` — Etapa 1.2: Respostas Pesquisadas para Perguntas em Aberto;
-- `0-estetica-inicial.md` — Direção estética, UX/UI, identidade visual e construção visual do produto;
-- `2.html` — Etapa 2: Pesquisa de Mercado e Benchmarking;
-- `3.html` — Etapa 3: Análise Estratégica e Especificação Inicial;
-- `4.html` — Etapa 4: Especificação Funcional Estruturada.
-- `4.1.html` — Etapa 4.1: Especificação completa.
+You must analyze the chat history and use every previous `.md` and `.html` file as official input, including `1.html`, `1.2.html`, `0-estetica-inicial.md`, `2.html`, `3.html`, `4.html`, and `4.1.html`.
 
-A partir desses materiais, você deve transformar a especificação funcional em uma **modelagem de dados conceitual e lógica inicial**, com entidades, atributos, relacionamentos, cardinalidades, escopos, eventos, auditoria, permissões, configurações, integrações e visão de arquitetura da informação.
-
-O resultado deve ser apresentado em um **dashboard interativo em HTML**, salvo com o seguinte padrão de nome:
-
-```txt
-{NUMERO-DA-ETAPA}.html
-```
-
-Para esta etapa, salve como:
+The result must be presented in an interactive HTML dashboard saved as:
 
 ```txt
 5.html
@@ -28,1180 +14,1104 @@ Para esta etapa, salve como:
 
 ---
 
-# Entrada
+# Goal of Stage 5
 
-Você deve analisar o **histórico do chat** e utilizar como entrada oficial todos os arquivos `.md` e `.html` gerados, enviados ou disponibilizados nas mensagens anteriores da conversa.
+Turn the functional specification into a coherent, traceable, and implementation-ready data and information model.
 
-Use como fontes principais, quando disponíveis:
+Stage 5 should:
 
-- arquivos `.html` das etapas anteriores;
-- arquivos `.md` das etapas anteriores;
-- arquivo `0-estetica-inicial.md`;
-- descrições textuais, decisões e observações registradas no histórico do chat;
-- arquivos `.zip` anteriores apenas como apoio, quando existirem e forem necessários para localizar documentos `.md` e `.html`.
-
-Não solicite reenvio de arquivos que já estejam disponíveis no histórico do chat ou no ambiente da conversa.
-
-Se algum arquivo esperado não estiver disponível, registre a ausência como limitação e continue com o material existente.
----
-
-# Regra obrigatória sobre estética, UX/UI e construção visual
-
-Todas as decisões, instruções, seções e componentes relacionados a:
-
-- UX/UI;
-- temas visuais;
-- estilos;
-- layout;
-- design system;
-- composição visual;
-- cores;
-- tipografia;
-- espaçamento;
-- densidade de informação;
-- hierarquia visual;
-- navegação;
-- componentes;
-- microinterações;
-- experiência visual;
-- construção do dashboard HTML;
-- linguagem visual do produto;
-- identidade visual;
-- estética anti-genérica;
-- padrões visuais;
-- dashboards;
-- tabelas;
-- cards;
-- gráficos;
-- botões;
-- filtros;
-- estados de interface;
-- responsividade;
-- acessibilidade visual;
-
-devem ser derivados, respeitar e citar como diretriz interna o arquivo:
-
-```txt
-0-estetica-inicial.md
-```
-
-Não crie uma estética genérica.
-
-Não use instruções visuais vagas como “interface moderna”, “visual limpo” ou “dashboard bonito” sem vincular essas decisões à estética definida no arquivo `0-estetica-inicial.md`.
-
-Quando o arquivo estético não estiver disponível, registre a limitação e use uma solução visual neutra, funcional e provisória, deixando claro que a direção visual definitiva deve ser substituída pela estética da Etapa 0.
+- identify the main product entities;
+- map relevant attributes;
+- map relationships;
+- define cardinalities;
+- define data scopes;
+- map data by tenant, company, HQ, and branch, when applicable;
+- map data ownership;
+- map data-related permissions;
+- map sensitive data;
+- map audit requirements;
+- map domain events;
+- map statuses and life cycles;
+- map persistent settings;
+- map billing, plans, and limits data, when applicable;
+- map AI, automations, and logs data, when applicable;
+- map integrations and exchanged data;
+- propose a conceptual model;
+- propose an initial logical model;
+- propose information architecture for navigation, menus, taxonomy, and content organization.
 
 ---
 
-# Objetivo da Etapa 5
+# Important
 
-Transformar a especificação funcional estruturada em uma base de dados e informação coerente, rastreável e pronta para orientar arquitetura técnica, UX detalhado, desenvolvimento, segurança, auditoria, integrações e testes.
+The documentation must **not** be limited to the MVP.
 
-A Etapa 5 deve:
-
-- identificar entidades principais do produto;
-- mapear atributos relevantes;
-- mapear relacionamentos;
-- definir cardinalidades;
-- definir escopos de dados;
-- mapear dados por tenant, empresa, matriz e filial, quando aplicável;
-- mapear ownership dos dados;
-- mapear permissões relacionadas aos dados;
-- mapear dados sensíveis;
-- mapear requisitos de auditoria;
-- mapear eventos de domínio;
-- mapear status e ciclos de vida;
-- mapear configurações persistentes;
-- mapear dados de billing, planos e limites, quando aplicável;
-- mapear dados de IA, automações e logs, quando aplicável;
-- mapear integrações e dados trafegados;
-- propor um modelo conceitual;
-- propor um modelo lógico inicial;
-- propor arquitetura da informação para navegação, menus, taxonomia e organização dos conteúdos do sistema.
-
----
-
-# Importante
-
-A documentação **não deve se limitar ao MVP**.
-
-Ela deve considerar a visão completa e escalável do produto, incluindo, quando aplicável:
+It must consider the full and scalable vision of the product, including:
 
 - multi-tenant;
-- multiempresa;
-- matriz e filial;
-- superadmin;
+- multi-company;
+- HQ and branch;
+- super-admin;
 - tenants;
-- empresas;
-- unidades;
-- usuários;
-- papéis;
-- permissões;
-- planos;
-- assinaturas;
-- limites de uso;
+- companies;
+- units;
+- users;
+- roles;
+- permissions;
+- plans;
+- subscriptions;
+- usage limits;
 - feature flags;
-- auditoria;
+- audit;
 - logs;
-- configurações;
-- integrações;
-- notificações;
-- relatórios;
+- settings;
+- integrations;
+- notifications;
+- reports;
 - dashboards;
-- automações;
-- IA;
-- dados sensíveis;
-- consentimento;
-- segurança;
+- automations;
+- AI;
+- sensitive data;
+- consent;
+- security;
 - compliance;
-- histórico;
-- versionamento;
-- rastreabilidade.
+- history;
+- versioning;
+- traceability.
 
-Ainda assim, diferencie claramente:
+Still, clearly distinguish:
 
-- entidades essenciais;
-- entidades avançadas;
-- entidades futuras;
-- entidades experimentais;
-- hipóteses;
-- dados dependentes de validação;
-- dados derivados da pesquisa de mercado;
-- dados derivados da especificação funcional.
-
----
-
-# Tarefas obrigatórias
-
-## 1. Ler e consolidar documentos anteriores
-
-Analise os arquivos e/ou resumos fornecidos, extraindo:
-
-- nome do produto;
-- código do projeto, se houver;
-- tipo de sistema;
-- segmento;
-- público-alvo;
-- problema principal;
-- proposta de valor;
-- domínios funcionais;
-- módulos;
-- funcionalidades;
-- telas;
-- ações e eventos;
-- regras de negócio;
-- perfis e permissões;
-- configurações;
-- dados em alto nível;
-- integrações candidatas;
-- automações e IA;
-- relatórios e dashboards;
-- estados e mensagens;
-- critérios de aceite;
-- recomendações da Etapa 4;
-- direção estética oficial do arquivo `0-estetica-inicial.md`.
+- essential entities;
+- advanced entities;
+- future entities;
+- experimental entities;
+- hypotheses;
+- data requiring validation;
+- data derived from market research;
+- data derived from the functional specification.
 
 ---
 
-## 2. Gerar resumo executivo da modelagem
+# Mandatory Tasks
 
-Crie um resumo claro contendo:
+## 1. Read and consolidate previous documents
 
-- objetivo da modelagem de dados;
-- escopo considerado;
-- principais grupos de dados;
-- principais entidades identificadas;
-- decisões de modelagem assumidas;
-- limitações da documentação;
-- relação com as etapas anteriores;
-- relação com as próximas etapas;
-- nível de maturidade do modelo;
-- principais riscos de dados.
+Extract:
 
----
-
-## 3. Definir visão conceitual dos dados
-
-Explique em alto nível:
-
-- quais dados sustentam o produto;
-- quais dados são operacionais;
-- quais dados são administrativos;
-- quais dados são de configuração;
-- quais dados são analíticos;
-- quais dados são sensíveis;
-- quais dados são derivados de integrações;
-- quais dados são gerados por automações ou IA;
-- quais dados precisam de auditoria;
-- quais dados pertencem a cada escopo.
+- product name;
+- project code, if any;
+- system type;
+- segment;
+- target audience;
+- main problem;
+- value proposition;
+- functional domains;
+- modules;
+- features;
+- screens;
+- actions and events;
+- business rules;
+- profiles and permissions;
+- settings;
+- high-level data;
+- candidate integrations;
+- automations and AI;
+- reports and dashboards;
+- states and messages;
+- acceptance criteria;
+- Stage 4 recommendations;
+- official aesthetic direction from `0-estetica-inicial.md`.
 
 ---
 
-## 4. Mapear entidades conceituais
+## 2. Generate an executive summary of the data model
 
-Crie uma tabela obrigatória:
+Create a clear summary containing:
 
-| Entidade | Descrição | Domínio | Módulo de origem | Tipo de entidade | Escopo | Prioridade | Observações |
+- goal of the data model;
+- considered scope;
+- main data groups;
+- main entities identified;
+- modeling decisions made;
+- documentation limitations;
+- relationship to previous stages;
+- relationship to next stages;
+- model maturity level;
+- main data risks.
+
+---
+
+## 3. Define the conceptual view of data
+
+Explain at a high level:
+
+- which data supports the product;
+- which data is operational;
+- which data is administrative;
+- which data is configuration;
+- which data is analytical;
+- which data is sensitive;
+- which data comes from integrations;
+- which data is generated by automations or AI;
+- which data needs audit;
+- which data belongs to each scope.
+
+---
+
+## 4. Map conceptual entities
+
+Required table:
+
+| Entity | Description | Domain | Origin module | Entity type | Scope | Priority | Notes |
 |---|---|---|---|---|---|---|---|
 
-Tipos sugeridos:
+Suggested types:
 
-- principal;
-- apoio;
-- configuração;
-- relacionamento;
-- auditoria;
-- integração;
+- main;
+- support;
+- configuration;
+- relationship;
+- audit;
+- integration;
 - billing;
-- segurança;
-- IA;
+- security;
+- AI;
 - analytics;
 - log;
-- histórico;
-- notificação;
-- documento.
+- history;
+- notification;
+- document.
 
-Escopos sugeridos:
+Suggested scopes:
 
 - global;
-- plataforma;
+- platform;
 - tenant;
-- empresa;
-- matriz;
-- filial;
-- usuário;
-- público;
-- integração;
-- sistema.
+- company;
+- HQ;
+- branch;
+- user;
+- public;
+- integration;
+- system.
 
 ---
 
-## 5. Mapear atributos por entidade
+## 5. Map attributes by entity
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Entidade | Atributo | Tipo conceitual | Obrigatório | Sensível | Único | Descrição | Validação | Observações |
+| Entity | Attribute | Conceptual type | Required | Sensitive | Unique | Description | Validation | Notes |
 |---|---|---|---|---|---|---|---|---|
 
-Tipos conceituais sugeridos:
+Suggested conceptual types:
 
-- texto;
-- número;
+- text;
+- number;
 - decimal;
-- moeda;
-- data;
-- data/hora;
-- booleano;
+- currency;
+- date;
+- datetime;
+- boolean;
 - enum;
-- identificador;
-- referência;
-- lista;
-- objeto;
-- arquivo;
-- imagem;
-- geolocalização;
+- identifier;
+- reference;
+- list;
+- object;
+- file;
+- image;
+- geolocation;
 - JSON;
 - status;
-- e-mail;
-- telefone;
+- email;
+- phone;
 - URL.
 
-Não gere ainda código SQL ou schema definitivo, a menos que o usuário peça explicitamente.
+Do not generate SQL or a final schema unless explicitly requested.
 
 ---
 
-## 6. Mapear relacionamentos e cardinalidades
+## 6. Map relationships and cardinalities
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Entidade origem | Relacionamento | Entidade destino | Cardinalidade | Obrigatório | Regra associada | Observações |
+| Source entity | Relationship | Target entity | Cardinality | Required | Associated rule | Notes |
 |---|---|---|---|---|---|---|
 
-Cardinalidades sugeridas:
+Suggested cardinalities:
 
 - 1:1;
 - 1:N;
 - N:N;
-- hierárquico;
-- autorreferente;
-- opcional;
-- dependente;
-- agregação;
-- composição.
+- hierarchical;
+- self-referencing;
+- optional;
+- dependent;
+- aggregation;
+- composition.
 
 ---
 
-## 7. Mapear hierarquia de escopos
+## 7. Map scope hierarchy
 
-Quando aplicável, descreva a hierarquia:
+When applicable, describe the hierarchy:
 
 ```txt
-Plataforma
+Platform
   └── Tenant
-      └── Empresa
-          ├── Matriz
-          └── Filial
+      └── Company
+          ├── HQ
+          └── Branch
 ```
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Escopo | Descrição | Entidades vinculadas | Quem administra | Regras de isolamento | Observações |
+| Scope | Description | Linked entities | Administrator | Isolation rules | Notes |
 |---|---|---|---|---|---|
 
-Explique como o isolamento de dados deve funcionar em contexto multi-tenant e multiempresa.
+Explain how data isolation should work in multi-tenant and multi-company contexts.
 
 ---
 
-## 8. Mapear ownership e visibilidade dos dados
+## 8. Map ownership and data visibility
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Entidade | Dono do dado | Escopo de visibilidade | Perfis com acesso | Restrições | Observações |
+| Entity | Data owner | Visibility scope | Profiles with access | Restrictions | Notes |
 |---|---|---|---|---|---|
 
-Considere:
+Consider:
 
-- superadmin;
-- admin da plataforma;
-- admin do tenant;
-- admin da empresa;
-- admin da matriz;
-- admin da filial;
-- gestor;
-- operador;
-- usuário final;
-- cliente;
+- super-admin;
+- platform admin;
+- tenant admin;
+- company admin;
+- HQ admin;
+- branch admin;
+- manager;
+- operator;
+- end user;
+- customer;
 - auditor;
-- suporte;
-- integração.
+- support;
+- integration.
 
 ---
 
-## 9. Mapear dados sensíveis e compliance
+## 9. Map sensitive data and compliance
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Entidade | Campo sensível | Tipo de dado | Motivo da sensibilidade | Proteção recomendada | Retenção | Observações |
+| Entity | Sensitive field | Data type | Why sensitive | Recommended protection | Retention | Notes |
 |---|---|---|---|---|---|---|
 
-Considere:
+Consider:
 
-- dados pessoais;
-- dados financeiros;
-- dados contratuais;
-- dados de pagamento;
-- dados de saúde, quando aplicável;
-- documentos;
-- logs com dados pessoais;
+- personal data;
+- financial data;
+- contractual data;
+- payment data;
+- health data, when applicable;
+- documents;
+- logs with personal data;
 - tokens;
-- credenciais;
-- chaves de API;
-- dados de geolocalização;
-- dados de auditoria;
-- dados gerados por IA.
+- credentials;
+- API keys;
+- geolocation data;
+- audit data;
+- AI-generated data.
 
 ---
 
-## 10. Mapear status e ciclos de vida
+## 10. Map statuses and life cycles
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Entidade | Status possíveis | Status inicial | Transições permitidas | Evento que altera status | Observações |
+| Entity | Possible statuses | Initial status | Allowed transitions | Event that changes status | Notes |
 |---|---|---|---|---|---|
 
-Exemplos de status:
+Example statuses:
 
-- rascunho;
-- ativo;
-- inativo;
-- pendente;
-- aprovado;
-- rejeitado;
-- cancelado;
-- arquivado;
-- excluído logicamente;
-- suspenso;
-- expirado;
-- concluído;
-- falhou;
-- em processamento.
-
----
-
-## 11. Mapear eventos de domínio
-
-Crie uma tabela obrigatória:
-
-| Evento | Entidade relacionada | Gatilho | Dados registrados | Consequência | Deve auditar? | Observações |
-|---|---|---|---|---|---|---|
-
-Exemplos:
-
-- usuário criado;
-- permissão alterada;
-- registro aprovado;
-- pagamento confirmado;
-- integração falhou;
-- plano alterado;
-- limite atingido;
-- automação executada;
-- IA gerou resposta;
-- documento enviado;
-- item excluído;
-- status alterado.
+- draft;
+- active;
+- inactive;
+- pending;
+- approved;
+- rejected;
+- canceled;
+- archived;
+- logically deleted;
+- suspended;
+- expired;
+- completed;
+- failed;
+- processing.
 
 ---
 
-## 12. Mapear auditoria e trilhas de rastreabilidade
+## 11. Map domain events
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Ação auditável | Entidade | Quem executa | Dados antes/depois | Criticidade | Retenção | Observações |
+| Event | Related entity | Trigger | Recorded data | Consequence | Must audit? | Notes |
 |---|---|---|---|---|---|---|
 
-Inclua auditoria para:
+Examples:
 
-- criação;
-- edição;
-- exclusão;
-- alteração de status;
-- alteração de permissão;
-- alteração de configuração;
+- user created;
+- permission changed;
+- record approved;
+- payment confirmed;
+- integration failed;
+- plan changed;
+- limit reached;
+- automation executed;
+- AI generated response;
+- document sent;
+- item deleted;
+- status changed.
+
+---
+
+## 12. Map audit and traceability
+
+Required table:
+
+| Audit action | Entity | Who performs it | Before/after data | Criticality | Retention | Notes |
+|---|---|---|---|---|---|---|
+
+Include audit for:
+
+- creation;
+- editing;
+- deletion;
+- status change;
+- permission change;
+- settings change;
 - login;
-- tentativa de acesso negada;
-- exportação;
-- importação;
-- integração;
-- automação;
-- IA;
+- denied access attempts;
+- export;
+- import;
+- integration;
+- automation;
+- AI;
 - billing;
-- suporte;
-- visualização de dados sensíveis.
+- support;
+- viewing sensitive data.
 
 ---
 
-## 13. Mapear configurações persistentes
+## 13. Map persistent settings
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Configuração | Escopo | Tipo | Valor padrão | Quem altera | Entidades impactadas | Observações |
+| Setting | Scope | Type | Default value | Who changes it | Impacted entities | Notes |
 |---|---|---|---|---|---|---|
 
-Considere:
+Consider:
 
-- configurações globais;
-- configurações por tenant;
-- configurações por empresa;
-- configurações por matriz;
-- configurações por filial;
+- global settings;
+- tenant settings;
+- company settings;
+- HQ settings;
+- branch settings;
 - feature flags;
-- limites de plano;
+- plan limits;
 - templates;
-- notificações;
-- idioma;
-- moeda;
-- fuso horário;
-- identidade visual;
-- integrações;
-- segurança;
-- políticas operacionais.
+- notifications;
+- language;
+- currency;
+- timezone;
+- visual identity;
+- integrations;
+- security;
+- operational policies.
 
 ---
 
-## 14. Mapear dados de billing, planos e limites
+## 14. Map billing, plans, and limits data
 
-Quando aplicável, crie uma tabela obrigatória:
+When applicable, create:
 
-| Entidade de billing | Descrição | Relacionamentos | Campos principais | Regra associada | Observações |
+| Billing entity | Description | Relationships | Main fields | Associated rule | Notes |
 |---|---|---|---|---|---|
 
-Considere:
+Consider:
 
-- plano;
-- produto;
-- preço;
-- assinatura;
-- cliente pagante;
-- fatura;
-- pagamento;
-- limite de uso;
+- plan;
+- product;
+- price;
+- subscription;
+- paying customer;
+- invoice;
+- payment;
+- usage limit;
 - feature flag;
 - trial;
-- cupom;
-- cobrança recorrente;
+- coupon;
+- recurring charge;
 - upgrade;
 - downgrade;
-- cancelamento.
+- cancellation.
 
-Se billing não for aplicável, explique por quê.
+If billing is not applicable, explain why.
 
 ---
 
-## 15. Mapear dados de IA e automações
+## 15. Map AI and automation data
 
-Quando aplicável, crie uma tabela obrigatória:
+When applicable, create:
 
-| Entidade ou registro de IA | Descrição | Entrada | Saída | Metadados | Risco | Retenção | Observações |
+| AI entity or record | Description | Input | Output | Metadata | Risk | Retention | Notes |
 |---|---|---|---|---|---|---|---|
 
-Considere:
+Consider:
 
 - prompts;
-- respostas;
-- execuções;
-- agentes;
-- ferramentas;
-- memória;
+- responses;
+- executions;
+- agents;
+- tools;
+- memory;
 - embeddings;
-- avaliações;
-- logs de IA;
-- feedback humano;
-- revisão humana;
-- fontes usadas;
-- custo por execução;
+- evaluations;
+- AI logs;
+- human feedback;
+- human review;
+- sources used;
+- cost per execution;
 - tokens;
-- políticas de segurança;
-- consentimento.
+- security policies;
+- consent.
 
-Se IA não for aplicável, explique por quê.
+If AI is not applicable, explain why.
 
 ---
 
-## 16. Mapear integrações e dados trafegados
+## 16. Map integrations and exchanged data
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Integração | Entidade interna | Entidade externa | Direção | Dados enviados | Dados recebidos | Frequência | Observações |
+| Integration | Internal entity | External entity | Direction | Sent data | Received data | Frequency | Notes |
 |---|---|---|---|---|---|---|---|
 
-Direções:
+Directions:
 
-- entrada;
-- saída;
-- bidirecional;
-- webhook recebido;
-- webhook enviado;
-- importação;
-- exportação;
-- sincronização.
+- input;
+- output;
+- bidirectional;
+- received webhook;
+- sent webhook;
+- import;
+- export;
+- synchronization.
 
 ---
 
-## 17. Mapear relatórios, dashboards e dados analíticos
+## 17. Map reports, dashboards, and analytical data
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Indicador ou relatório | Entidades usadas | Métrica | Filtros | Agregações | Público | Observações |
+| Indicator or report | Entities used | Metric | Filters | Aggregations | Audience | Notes |
 |---|---|---|---|---|---|---|
 
-Inclua indicadores:
+Include indicators:
 
-- operacionais;
-- financeiros;
-- administrativos;
-- uso da plataforma;
-- produtividade;
-- qualidade;
-- auditoria;
-- adoção;
+- operational;
+- financial;
+- administrative;
+- platform usage;
+- productivity;
+- quality;
+- audit;
+- adoption;
 - performance;
-- IA;
-- integrações;
+- AI;
+- integrations;
 - tenant;
-- empresa;
-- filial.
+- company;
+- branch.
 
 ---
 
-## 18. Propor modelo lógico inicial
+## 18. Propose an initial logical model
 
-Crie uma visão lógica textual e tabular com:
+Create a textual and tabular view with:
 
-| Tabela/Coleção | Origem conceitual | Chave principal | Principais relações | Escopo | Observações |
+| Table/Collection | Conceptual source | Primary key | Main relationships | Scope | Notes |
 |---|---|---|---|---|---|
 
-Use o termo `Tabela/Coleção` para ser neutro entre bancos relacionais, NoSQL, documentos ou híbridos.
+Use `Table/Collection` as a neutral term between relational, NoSQL, document, or hybrid databases.
 
-Não gere SQL definitivo. O objetivo é orientar arquitetura e implementação futura.
+Do not generate final SQL. The goal is to guide future architecture and implementation.
 
 ---
 
-## 19. Propor diagrama textual de entidades
+## 19. Propose a textual entity diagram
 
-Inclua um diagrama textual simples, por exemplo:
+Include a simple textual diagram, for example:
 
 ```txt
-Tenant 1 ─── N Empresa
-Empresa 1 ─── N Unidade
-Usuário N ─── N Perfil
-Perfil N ─── N Permissão
-RegistroOperacional 1 ─── N EventoAuditoria
+Tenant 1 ─── N Company
+Company 1 ─── N Unit
+User N ─── N Profile
+Profile N ─── N Permission
+OperationalRecord 1 ─── N AuditEvent
 ```
 
-O diagrama deve ajudar a visualizar relações principais.
+The diagram should help visualize the main relationships.
 
 ---
 
-## 20. Definir arquitetura da informação
+## 20. Define the information architecture
 
-Além do modelo de dados, organize a informação do produto em:
+In addition to the data model, organize the product information into:
 
-- navegação principal;
-- grupos de menu;
+- main navigation;
+- menu groups;
 - submenus;
-- páginas principais;
-- áreas administrativas;
-- áreas operacionais;
-- áreas de configuração;
-- áreas de superadmin;
-- portais públicos ou externos;
-- taxonomias;
-- nomenclaturas;
-- hierarquia de conteúdos;
-- agrupamento de relatórios;
-- agrupamento de configurações.
+- main pages;
+- administrative areas;
+- operational areas;
+- settings areas;
+- super-admin areas;
+- public or external portals;
+- taxonomies;
+- naming conventions;
+- content hierarchy;
+- report grouping;
+- settings grouping.
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Área | Menu | Submenu | Página | Conteúdo principal | Perfis com acesso | Observações |
+| Area | Menu | Submenu | Page | Main content | Profiles with access | Notes |
 |---|---|---|---|---|---|---|
 
 ---
 
-## 21. Definir vocabulário e taxonomia do produto
+## 21. Define product vocabulary and taxonomy
 
-Crie uma tabela obrigatória:
+Required table:
 
-| Termo | Definição | Sinônimos a evitar | Onde aparece | Observações |
+| Term | Definition | Synonyms to avoid | Where used | Notes |
 |---|---|---|---|---|
 
-Use nomes consistentes para entidades, telas, módulos e ações.
+Use consistent names for entities, screens, modules, and actions.
 
 ---
 
-## 22. Aplicar diretrizes de UX/UI do arquivo estético
+## 22. Apply UX/UI guidelines from the aesthetic file
 
-Leia o arquivo:
+Read:
 
 ```txt
 0-estetica-inicial.md
 ```
 
-Extraia as diretrizes que impactam:
+Extract the guidelines that affect:
 
-- estrutura do dashboard da Etapa 5;
-- organização visual das entidades;
-- visualização de relacionamentos;
-- estilo das tabelas;
-- estilo dos cards;
-- comportamento dos filtros;
-- densidade informacional;
-- hierarquia dos documentos;
-- responsividade;
-- acessibilidade;
+- Stage 5 dashboard structure;
+- visual organization of entities;
+- relationship visualization;
+- table style;
+- card style;
+- filter behavior;
+- information density;
+- document hierarchy;
+- responsiveness;
+- accessibility;
 - microcopy;
-- estados visuais;
-- linguagem de componentes;
-- tom da interface.
+- visual states;
+- component language;
+- interface tone.
 
-A seção visual da Etapa 5 deve ser uma aplicação prática da estética oficial, não uma nova direção visual.
+The visual section of Stage 5 must be a practical application of the official aesthetic, not a new visual direction.
 
-Se o arquivo estético não existir, declare:
+If the aesthetic file does not exist, state:
 
 ```txt
-Arquivo 0-estetica-inicial.md não fornecido. A direção visual abaixo é provisória e deve ser revisada quando a estética oficial estiver disponível.
+0-estetica-inicial.md not provided. The visual direction below is provisional and should be revised when the official aesthetic becomes available.
 ```
 
 ---
 
-## 23. Gerar recomendações para a Etapa 6
+## 23. Generate recommendations for Stage 6
 
-A Etapa 5 deve terminar indicando como a próxima etapa deve usar essa modelagem.
+Stage 5 should end by indicating how the next stage should use this model.
 
-Recomende:
+Recommend:
 
-- fluxos e jornadas que devem ser detalhados;
-- telas que precisam de wireframe;
-- entidades que impactam UX;
-- estados que impactam UX;
-- permissões que impactam navegação;
-- dados sensíveis que impactam interface;
-- relatórios que precisam de visualização;
-- configurações que precisam de UX cuidadosa;
-- integrações que precisam de estados de sincronização;
-- eventos que precisam aparecer em histórico;
-- pontos que devem virar backlog;
-- riscos que devem ser tratados antes do desenvolvimento.
-
----
-
-# Documentos obrigatórios dentro do dashboard
-
-O dashboard HTML final deve conter:
-
-1. **Resumo Executivo da Etapa 5**
-2. **Contexto Consolidado do Produto**
-3. **Fontes e Documentos de Entrada**
-4. **Visão Conceitual dos Dados**
-5. **Entidades Conceituais**
-6. **Atributos por Entidade**
-7. **Relacionamentos e Cardinalidades**
-8. **Hierarquia de Escopos**
-9. **Ownership e Visibilidade dos Dados**
-10. **Dados Sensíveis e Compliance**
-11. **Status e Ciclos de Vida**
-12. **Eventos de Domínio**
-13. **Auditoria e Rastreabilidade**
-14. **Configurações Persistentes**
-15. **Billing, Planos e Limites**
-16. **Dados de IA e Automações**
-17. **Integrações e Dados Trafegados**
-18. **Relatórios, Dashboards e Dados Analíticos**
-19. **Modelo Lógico Inicial**
-20. **Diagrama Textual de Entidades**
-21. **Arquitetura da Informação**
-22. **Vocabulário e Taxonomia**
-23. **Riscos de Dados**
-24. **Lacunas e Pendências**
-25. **Diretrizes de UX/UI derivadas de `0-estetica-inicial.md`**
-26. **Recomendações para a Etapa 6**
-27. **Fontes, Evidências e Referências**
-28. **Próximos Passos**
+- flows and journeys that should be detailed;
+- screens that need wireframes;
+- entities that affect UX;
+- states that affect UX;
+- permissions that affect navigation;
+- sensitive data that affects interface design;
+- reports that need visualization;
+- settings that need careful UX;
+- integrations that need synchronization states;
+- events that need to appear in history;
+- points that should become backlog;
+- risks that must be handled before development.
 
 ---
 
-# Formato de saída obrigatório
+# Mandatory Documents Inside the Dashboard
 
-Você deve gerar um **arquivo HTML completo**, pronto para abrir no navegador.
+The final HTML dashboard must contain:
 
-O arquivo deve ser criado com o nome:
+1. Stage 5 Executive Summary
+2. Consolidated Product Context
+3. Source Documents and Inputs
+4. Conceptual View of Data
+5. Conceptual Entities
+6. Attributes by Entity
+7. Relationships and Cardinalities
+8. Scope Hierarchy
+9. Ownership and Data Visibility
+10. Sensitive Data and Compliance
+11. Status and Life Cycles
+12. Domain Events
+13. Audit and Traceability
+14. Persistent Settings
+15. Billing, Plans, and Limits
+16. AI and Automation Data
+17. Integrations and Exchanged Data
+18. Reports, Dashboards, and Analytical Data
+19. Initial Logical Model
+20. Textual Entity Diagram
+21. Information Architecture
+22. Vocabulary and Taxonomy
+23. Data Risks
+24. Gaps and Pending Items
+25. UX/UI Guidelines Derived from `0-estetica-inicial.md`
+26. Recommendations for Stage 6
+27. Sources, Evidence, and References
+28. Next Steps
+
+---
+
+# Required Output
+
+Generate a full HTML file, ready to open in the browser.
+
+The file must be named:
 
 ```txt
 5.html
 ```
+
 ---
 
-# Requisitos do dashboard HTML
+# HTML Requirements
 
-O HTML deve ser autocontido e conter:
+The HTML must be self-contained and include:
 
 - `<!DOCTYPE html>`;
-- HTML semântico;
-- CSS embutido;
-- JavaScript embutido;
-- layout responsivo;
-- navegação lateral;
-- cards de resumo;
-- tabelas;
-- seções expansíveis;
-- filtros;
-- busca textual;
-- indicadores visuais;
-- diagrama textual visualmente organizado;
-- gráficos simples em HTML/CSS/JavaScript puro, se úteis;
-- botão de alternar tema claro/escuro, se compatível com a estética oficial;
-- botão de imprimir ou salvar em PDF;
-- botão de exportar Markdown;
-- botão de copiar resumo executivo;
-- botão para copiar tabelas e seções principais;
-- nenhum framework externo;
-- nenhuma biblioteca externa;
-- nenhum CDN;
-- nenhuma imagem externa.
+- semantic HTML;
+- embedded CSS;
+- embedded JavaScript;
+- responsive layout;
+- sidebar navigation;
+- summary cards;
+- tables;
+- expandable sections;
+- filters;
+- text search;
+- visual indicators;
+- simple pure HTML/CSS/JavaScript diagrams;
+- a light/dark theme toggle, if compatible with the official aesthetic;
+- a button to print or save as PDF;
+- a button to export Markdown;
+- a button to copy the executive summary;
+- a button to copy the main tables and sections;
+- no external frameworks;
+- no external libraries;
+- no CDN;
+- no external images.
 
-Todas as escolhas visuais, inclusive cores, tipografia, layout, componentes, hierarquia, densidade, microcopy visual e responsividade, devem seguir o arquivo:
-
-```txt
-0-estetica-inicial.md
-```
+All visual choices, including colors, typography, layout, components, hierarchy, density, visual microcopy, and responsiveness, must follow `0-estetica-inicial.md`.
 
 ---
 
-# Estrutura visual obrigatória
+# Visual Structure
 
-## 1. Cabeçalho
+## 1. Header
 
-Exibir:
+Display:
 
-- nome do produto analisado;
-- nome da etapa: `Etapa 5 — Modelo de Dados e Arquitetura da Informação`;
-- arquivos ou entradas utilizadas;
-- arquivo estético usado: `0-estetica-inicial.md`;
-- arquivo gerado;
-- data de geração;
-- segmento analisado;
-- quantidade de entidades;
-- quantidade de atributos;
-- quantidade de relacionamentos;
-- quantidade de eventos;
-- quantidade de integrações;
-- quantidade de dados sensíveis;
-- próxima etapa recomendada.
+- product name;
+- stage name: `Stage 5 — Data Model and Information Architecture`;
+- files or inputs used;
+- aesthetic file used: `0-estetica-inicial.md`;
+- generated file;
+- generation date;
+- analyzed segment;
+- number of entities;
+- number of attributes;
+- number of relationships;
+- number of events;
+- number of integrations;
+- number of sensitive data items;
+- recommended next stage.
 
-O visual do cabeçalho deve seguir a direção estética oficial do produto.
-
----
-
-## 2. Cards de indicadores
-
-Criar cards com:
-
-- total de documentos de entrada analisados;
-- total de entidades;
-- total de atributos;
-- total de relacionamentos;
-- total de entidades sensíveis;
-- total de eventos de domínio;
-- total de ações auditáveis;
-- total de configurações persistentes;
-- total de integrações;
-- total de indicadores analíticos;
-- nível de maturidade da modelagem;
-- próxima etapa recomendada.
-
-Os cards devem seguir os padrões de componentes definidos em `0-estetica-inicial.md`.
+The header must follow the product’s official visual direction.
 
 ---
 
-## 3. Tabelas e matrizes
+## 2. Indicator Cards
 
-Criar tabelas para:
+Create cards with:
 
-- entidades;
-- atributos;
-- relacionamentos;
-- escopos;
+- total input documents analyzed;
+- total entities;
+- total attributes;
+- total relationships;
+- total sensitive entities;
+- total domain events;
+- total auditable actions;
+- total persistent settings;
+- total integrations;
+- total analytical indicators;
+- modeling maturity level;
+- recommended next stage.
+
+---
+
+## 3. Tables and Matrices
+
+Create tables for:
+
+- entities;
+- attributes;
+- relationships;
+- scopes;
 - ownership;
-- dados sensíveis;
-- status;
-- eventos;
-- auditoria;
-- configurações;
+- sensitive data;
+- statuses;
+- events;
+- audit;
+- settings;
 - billing;
-- IA;
-- integrações;
-- relatórios;
-- modelo lógico;
-- arquitetura da informação;
-- vocabulário;
-- riscos;
-- recomendações.
+- AI;
+- integrations;
+- reports;
+- logical model;
+- information architecture;
+- vocabulary;
+- risks;
+- recommendations.
 
-As tabelas devem ser visualmente legíveis, responsivas e alinhadas à direção estética oficial.
-
----
-
-## 4. Diagramas textuais
-
-Criar diagramas textuais ou blocos visuais simples para:
-
-- hierarquia de escopos;
-- relacionamentos principais;
-- fluxo de eventos;
-- arquitetura da informação.
-
-Os diagramas devem ser legíveis, úteis e coerentes com a estética oficial.
+The tables must be readable, responsive, and aligned with the official aesthetic direction.
 
 ---
 
-## 5. Análises detalhadas
+## 4. Textual Diagrams
 
-Criar seções expansíveis para:
+Create simple textual or visual blocks for:
 
-- visão conceitual dos dados;
-- entidades principais;
-- dados sensíveis;
-- auditoria;
-- integrações;
-- IA;
-- arquitetura da informação;
-- riscos;
-- UX/UI derivado da estética;
-- lacunas;
-- recomendações para a Etapa 6.
+- scope hierarchy;
+- main relationships;
+- event flow;
+- information architecture.
 
-As seções devem usar a linguagem visual definida no arquivo estético.
+The diagrams must be readable, useful, and consistent with the official aesthetic.
 
 ---
 
-## 6. Fontes e referências
+## 5. Detailed Analyses
 
-Criar seção final com:
+Create expandable sections for:
 
-| ID | Tipo | Título | Origem | URL ou documento | Usado em | Observação |
+- conceptual data view;
+- main entities;
+- sensitive data;
+- audit;
+- integrations;
+- AI;
+- information architecture;
+- risks;
+- UX/UI derived from the aesthetic;
+- gaps;
+- recommendations for Stage 6.
+
+These sections must use the language defined in the aesthetic file.
+
+---
+
+# Sources and References
+
+Create a final section with:
+
+| ID | Type | Title | Origin | URL or document | Used in | Note |
 |---|---|---|---|---|---|---|
 
-Inclua referências aos documentos de entrada e fontes pesquisadas nas etapas anteriores.
+Include references to input documents and research sources from previous stages.
 
 ---
 
-# Interatividade obrigatória
+# Mandatory Interactivity
 
-O dashboard deve permitir:
+The dashboard must allow:
 
-1. Alternar tema claro/escuro, se compatível com a estética oficial.
-2. Expandir e recolher seções.
-3. Filtrar entidades por domínio.
-4. Filtrar entidades por tipo.
-5. Filtrar entidades por escopo.
-6. Filtrar atributos por entidade.
-7. Filtrar atributos sensíveis.
-8. Filtrar relacionamentos por entidade.
-9. Filtrar eventos por entidade.
-10. Filtrar auditoria por criticidade.
-11. Filtrar integrações por direção ou frequência.
-12. Filtrar indicadores por público.
-13. Filtrar menus por perfil.
-14. Buscar texto livre em todo o dashboard.
-15. Copiar resumo executivo.
-16. Copiar tabelas principais.
-17. Exportar todo o conteúdo em Markdown.
-18. Imprimir ou salvar em PDF.
-19. Mostrar progresso visual da Etapa 5.
-20. Destacar entidades essenciais.
-21. Destacar dados sensíveis.
-22. Destacar riscos altos.
-23. Destacar lacunas críticas.
-24. Destacar itens relacionados a multi-tenant, billing, permissões, integrações, auditoria e IA.
-
-As interações devem seguir os padrões e restrições visuais definidos em `0-estetica-inicial.md`.
+1. Toggle light/dark theme, if compatible with the official aesthetic.
+2. Expand and collapse sections.
+3. Filter entities by domain.
+4. Filter entities by type.
+5. Filter entities by scope.
+6. Filter attributes by entity.
+7. Filter sensitive attributes.
+8. Filter relationships by entity.
+9. Filter events by entity.
+10. Filter audit items by criticality.
+11. Filter integrations by direction or frequency.
+12. Filter indicators by audience.
+13. Filter menus by profile.
+14. Free-text search across the dashboard.
+15. Copy executive summary.
+16. Copy main tables.
+17. Export all content to Markdown.
+18. Print or save as PDF.
+19. Show visual progress for Stage 5.
+20. Highlight essential entities.
+21. Highlight sensitive data.
+22. Highlight high risks.
+23. Highlight critical gaps.
+24. Highlight items related to multi-tenant, billing, permissions, integrations, audit, and AI.
 
 ---
 
-# Estilo visual
+# Style
 
-A seção visual, o layout, os componentes, os temas, a hierarquia, a composição, a densidade informacional e a construção visual do dashboard devem seguir obrigatoriamente o arquivo:
+The section design, layout, components, themes, hierarchy, composition, information density, and visual construction of the dashboard must strictly follow:
 
 ```txt
 0-estetica-inicial.md
 ```
 
-Crie UX/UI com intenção humana, contexto real do produto, hierarquia clara, usabilidade testável e identidade visual própria, evitando padrões genéricos de IA como layouts “bonitos porém vazios”, gradientes excessivos, cards repetitivos, ícones decorativos e textos vagos.
+Create UX/UI with human intent, real product context, clear hierarchy, testable usability, and a distinct visual identity, avoiding generic AI patterns such as “beautiful but empty” layouts, excessive gradients, repetitive cards, decorative icons, and vague text.
 
-A ideia central é tratar o prompt como um briefing com restrições de design verificáveis, em vez de pedir apenas “uma interface moderna”.
+Use a style:
 
-Use um estilo:
+- derived directly from the product’s official aesthetic direction;
+- specific to the analyzed product, reflecting its segment, audience, maturity, and usage context;
+- oriented to reading, comparison, data modeling, traceability, and decision-making;
+- with a clear visual hierarchy among executive summary, entities, relationships, sensitive data, events, audit, integrations, AI, information architecture, and recommendations;
+- with balanced information density, avoiding both visual overload and empty screens;
+- with useful and justifiable components, avoiding decorative elements without function;
+- with cards, tables, matrices, diagrams, and sections used only when they help understand, filter, compare, or prioritize information;
+- with colors, typography, spacing, borders, icons, states, and components consistent with `0-estetica-inicial.md`;
+- with objective, contextual, and verifiable microcopy, avoiding vague phrases like “innovative solution”, “amazing experience”, or “powerful dashboard” without concrete content;
+- with clear sidebar navigation, descriptive titles, and understandable visual states;
+- with basic accessibility: adequate contrast, visible focus, legible text, comfortable click areas, and semantic structure;
+- with real responsiveness for desktop and mobile, preserving readability of tables, matrices, diagrams, and cards;
+- with simple, useful, and testable interactions: filters, search, copy, export, print, expand, and collapse;
+- with visual consistency across sections, avoiding repeated identical blocks without need;
+- with a professional, practical look suitable for product managers, business analysts, architects, developers, DBAs, UX designers, QA, founders, and technical stakeholders.
 
-- derivado diretamente da direção estética oficial do produto;
-- específico para o produto analisado, refletindo seu segmento, público, maturidade e contexto de uso;
-- orientado a leitura, comparação, modelagem de dados, rastreabilidade e tomada de decisão;
-- com hierarquia visual clara entre resumo executivo, entidades, relacionamentos, dados sensíveis, eventos, auditoria, integrações, IA, arquitetura da informação e recomendações;
-- com densidade informacional equilibrada, evitando tanto excesso visual quanto telas vazias;
-- com componentes úteis e justificáveis, evitando elementos decorativos sem função;
-- com cards, tabelas, matrizes, diagramas textuais e seções usados apenas quando ajudarem a compreender, filtrar, comparar ou priorizar informações;
-- com cores, tipografia, espaçamentos, bordas, ícones, estados e componentes coerentes com `0-estetica-inicial.md`;
-- com microcopy objetiva, contextual e verificável, evitando frases vagas como “solução inovadora”, “experiência incrível” ou “dashboard poderoso” sem conteúdo concreto;
-- com navegação lateral clara, títulos descritivos e estados visuais compreensíveis;
-- com acessibilidade básica: contraste adequado, foco visível, textos legíveis, áreas clicáveis confortáveis e estrutura semântica;
-- com responsividade real para desktop e mobile, preservando legibilidade das tabelas, matrizes, diagramas e cards;
-- com interações simples, úteis e testáveis: filtros, busca, copiar, exportar, imprimir, expandir e recolher;
-- com consistência visual entre seções, sem repetir blocos idênticos sem necessidade;
-- com aparência profissional, prática e orientada a uso real por product managers, analistas de negócio, arquitetos, desenvolvedores, DBAs, UX designers, QA, founders e stakeholders técnicos.
+Avoid explicitly:
 
-Evite explicitamente:
-
-- qualquer estética que contradiga o arquivo `0-estetica-inicial.md`;
-- gradientes chamativos sem propósito;
-- cards repetitivos com pouco conteúdo;
-- ícones meramente decorativos;
-- frases genéricas e vagas;
-- excesso de sombras, brilhos e efeitos visuais;
-- layouts que parecem templates sem relação com o produto;
-- tabelas ilegíveis em telas pequenas;
-- diagramas decorativos sem valor de entendimento;
-- animações que atrapalham a leitura;
-- dependência de bibliotecas externas;
-- estética visual que pareça gerada automaticamente sem decisão de design.
+- any aesthetic that contradicts `0-estetica-inicial.md`;
+- flashy gradients without purpose;
+- repetitive cards with little content;
+- decorative icons;
+- vague and generic phrases;
+- excessive shadows, glow, and visual effects;
+- layouts that look like templates;
+- unreadable tables on small screens;
+- decorative diagrams without understanding value;
+- animations that hurt readability;
+- external library dependencies;
+- a visual style that looks automatically generated without design decisions.
 
 ---
 
-# Regras de análise
+# Analysis Rules
 
-Siga estas regras:
+Follow these rules:
 
-1. Não ignore documentos das etapas anteriores.
-2. Não contradiga evidências já levantadas sem justificar.
-3. Não invente validações com usuários.
-4. Não transforme hipótese em certeza.
-5. Não gere entidade sem indicar origem, evidência ou inferência.
-6. Não detalhe banco físico definitivo sem necessidade.
-7. Não limite a documentação ao MVP.
-8. Não gere arquitetura técnica definitiva nesta etapa.
-9. Diferencie claramente:
-   - fato pesquisado;
-   - evidência;
-   - inferência estratégica;
-   - hipótese;
-   - decisão sugerida;
-   - entidade candidata;
-   - recomendação.
-10. Quando a informação for incerta, marque como lacuna ou hipótese.
-11. Quando faltar o arquivo estético, registre limitação visual.
-12. Considere configurações, permissões, multi-tenant, multiempresa, matriz/filial, superadmin, billing, auditoria, integrações e IA quando forem coerentes com o produto.
-13. Sempre que houver dados pessoais ou sensíveis, indique proteção, retenção e riscos.
-14. Não use links fictícios.
-15. Não invente entidades apenas para parecer completo; toda entidade deve ter finalidade clara.
-
----
-
-# Regras técnicas do arquivo HTML
-
-O HTML deve:
-
-- funcionar offline depois de gerado;
-- ser um único arquivo;
-- não depender de internet para abrir;
-- não usar bibliotecas externas;
-- não usar frameworks;
-- não usar imagens externas;
-- conter CSS no `<style>`;
-- conter JS no `<script>`;
-- ser legível e organizado;
-- usar elementos semânticos;
-- conter comentários internos úteis no código;
-- ser compatível com navegadores modernos;
-- aplicar no CSS e no layout as diretrizes visuais do arquivo `0-estetica-inicial.md`.
+1. Do not ignore previous-stage documents.
+2. Do not contradict evidence without justification.
+3. Do not invent user validation.
+4. Do not turn hypothesis into certainty.
+5. Do not generate an entity without indicating origin, evidence, or inference.
+6. Do not detail a final physical database unless needed.
+7. Do not limit the documentation to the MVP.
+8. Do not generate final technical architecture at this stage.
+9. Clearly distinguish:
+   - researched fact;
+   - evidence;
+   - strategic inference;
+   - hypothesis;
+   - suggested decision;
+   - candidate entity;
+   - recommendation.
+10. When information is uncertain, mark it as a gap or hypothesis.
+11. When the aesthetic file is missing, record the visual limitation.
+12. Consider configurations, permissions, multi-tenant, multi-company, HQ/branch, super-admin, billing, audit, integrations, and AI where they fit the product.
+13. Whenever there is personal or sensitive data, indicate protection, retention, and risks.
+14. Do not invent entities just to look complete; every entity must have a clear purpose.
 
 ---
 
-# Estrutura mínima esperada do HTML
+# Technical Rules for the HTML File
+
+The HTML must:
+
+- work offline once generated;
+- be a single file;
+- not depend on the internet to open;
+- not use external libraries;
+- not use frameworks;
+- not use external images;
+- contain CSS in `<style>`;
+- contain JS in `<script>`;
+- be readable and organized;
+- use semantic elements;
+- contain useful internal comments in the code;
+- be compatible with modern browsers;
+- apply the visual rules from `0-estetica-inicial.md` in CSS and layout.
+
+---
+
+# Expected HTML Structure
 
 ```html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Etapa 5 — Modelo de Dados e Arquitetura da Informação</title>
+  <title>Stage 5 — Data Model and Information Architecture</title>
   <style>
-    /* CSS embutido seguindo 0-estetica-inicial.md */
+    /* embedded CSS following 0-estetica-inicial.md */
   </style>
 </head>
 <body>
   <aside class="sidebar">
-    <!-- Navegação lateral baseada na estética oficial -->
+    <!-- sidebar navigation based on the official aesthetic -->
   </aside>
 
-  <main class="content" data-objetivo="Centralizar o conteúdo da Etapa 5, reunindo contexto, decisões, regras e entregas esperadas em um único ponto de referência para orientar a produção do artefato final e a continuidade do fluxo de trabalho.">
+  <main class="content">
     <header class="hero">
-      <!-- Cabeçalho da Etapa 5 seguindo a estética oficial -->
+      <!-- Stage 5 header following the official aesthetic -->
     </header>
 
-    <section id="resumo-executivo" data-objetivo="Detalhar Resumo executivo para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Resumo executivo -->
+    <section id="executive-summary">
+      <!-- executive summary -->
     </section>
 
-    <section id="contexto-consolidado" data-objetivo="Detalhar Contexto consolidado do produto para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Contexto consolidado do produto -->
+    <section id="consolidated-context">
+      <!-- consolidated product context -->
     </section>
 
-    <section id="fontes-entrada" data-objetivo="Detalhar Fontes e documentos de entrada para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Fontes e documentos de entrada -->
+    <section id="source-documents">
+      <!-- source documents and inputs -->
     </section>
 
-    <section id="visao-conceitual" data-objetivo="Detalhar Visão conceitual dos dados para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Visão conceitual dos dados -->
+    <section id="conceptual-view">
+      <!-- conceptual view of data -->
     </section>
 
-    <section id="entidades" data-objetivo="Detalhar Entidades conceituais para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Entidades conceituais -->
+    <section id="entities">
+      <!-- conceptual entities -->
     </section>
 
-    <section id="atributos" data-objetivo="Detalhar Atributos por entidade para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Atributos por entidade -->
+    <section id="attributes">
+      <!-- attributes by entity -->
     </section>
 
-    <section id="relacionamentos" data-objetivo="Detalhar Relacionamentos e cardinalidades para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Relacionamentos e cardinalidades -->
+    <section id="relationships">
+      <!-- relationships and cardinalities -->
     </section>
 
-    <section id="hierarquia-escopos" data-objetivo="Detalhar Hierarquia de escopos para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Hierarquia de escopos -->
+    <section id="scope-hierarchy">
+      <!-- scope hierarchy -->
     </section>
 
-    <section id="ownership" data-objetivo="Detalhar Ownership e visibilidade dos dados para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Ownership e visibilidade dos dados -->
+    <section id="ownership">
+      <!-- ownership and data visibility -->
     </section>
 
-    <section id="dados-sensiveis" data-objetivo="Detalhar Dados sensíveis e compliance para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Dados sensíveis e compliance -->
+    <section id="sensitive-data">
+      <!-- sensitive data and compliance -->
     </section>
 
-    <section id="status-ciclos" data-objetivo="Detalhar Status e ciclos de vida para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Status e ciclos de vida -->
+    <section id="lifecycle">
+      <!-- statuses and life cycles -->
     </section>
 
-    <section id="eventos-dominio" data-objetivo="Detalhar Eventos de domínio para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Eventos de domínio -->
+    <section id="domain-events">
+      <!-- domain events -->
     </section>
 
-    <section id="auditoria" data-objetivo="Detalhar Auditoria e rastreabilidade para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Auditoria e rastreabilidade -->
+    <section id="audit">
+      <!-- audit and traceability -->
     </section>
 
-    <section id="configuracoes" data-objetivo="Detalhar Configurações persistentes para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Configurações persistentes -->
+    <section id="settings">
+      <!-- persistent settings -->
     </section>
 
-    <section id="billing" data-objetivo="Detalhar Billing, planos e limites para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Billing, planos e limites -->
+    <section id="billing">
+      <!-- billing, plans, and limits -->
     </section>
 
-    <section id="ia-automacoes" data-objetivo="Detalhar Dados de IA e automações para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Dados de IA e automações -->
+    <section id="ai-automations">
+      <!-- AI and automation data -->
     </section>
 
-    <section id="integracoes" data-objetivo="Detalhar Integrações e dados trafegados para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Integrações e dados trafegados -->
+    <section id="integrations">
+      <!-- integrations and exchanged data -->
     </section>
 
-    <section id="analytics" data-objetivo="Detalhar Relatórios, dashboards e dados analíticos para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Relatórios, dashboards e dados analíticos -->
+    <section id="analytics">
+      <!-- reports, dashboards, and analytical data -->
     </section>
 
-    <section id="modelo-logico" data-objetivo="Detalhar Modelo lógico inicial para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Modelo lógico inicial -->
+    <section id="logical-model">
+      <!-- initial logical model -->
     </section>
 
-    <section id="diagrama-entidades" data-objetivo="Detalhar Diagrama textual de entidades para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Diagrama textual de entidades -->
+    <section id="entity-diagram">
+      <!-- textual entity diagram -->
     </section>
 
-    <section id="arquitetura-informacao" data-objetivo="Detalhar Arquitetura da informação para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Arquitetura da informação -->
+    <section id="information-architecture">
+      <!-- information architecture -->
     </section>
 
-    <section id="taxonomia" data-objetivo="Detalhar Vocabulário e taxonomia para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Vocabulário e taxonomia -->
+    <section id="taxonomy">
+      <!-- vocabulary and taxonomy -->
     </section>
 
-    <section id="riscos-dados" data-objetivo="Detalhar Riscos de dados para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Riscos de dados -->
+    <section id="data-risks">
+      <!-- data risks -->
     </section>
 
-    <section id="lacunas" data-objetivo="Detalhar Lacunas e pendências para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Lacunas e pendências -->
+    <section id="gaps">
+      <!-- gaps and pending items -->
     </section>
 
-    <section id="diretrizes-ux-ui" data-objetivo="Detalhar Diretrizes de UX/UI derivadas de 0-estetica-inicial.md para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Diretrizes de UX/UI derivadas de 0-estetica-inicial.md -->
+    <section id="ux-ui-guidelines">
+      <!-- UX/UI guidelines derived from 0-estetica-inicial.md -->
     </section>
 
-    <section id="recomendacoes-etapa-6" data-objetivo="Detalhar Recomendações para a Etapa 6 para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Recomendações para a Etapa 6 -->
+    <section id="stage6-recommendations">
+      <!-- recommendations for Stage 6 -->
     </section>
 
-    <section id="referencias" data-objetivo="Detalhar Fontes, evidências e referências para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Fontes, evidências e referências -->
+    <section id="references">
+      <!-- sources, evidence, and references -->
     </section>
 
-    <section id="proximos-passos" data-objetivo="Detalhar Próximos passos para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Próximos passos -->
+    <section id="next-steps">
+      <!-- next steps -->
     </section>
   </main>
 
   <script>
-    /* JavaScript embutido */
+    /* embedded JavaScript */
   </script>
 </body>
 </html>
@@ -1209,70 +1119,69 @@ O HTML deve:
 
 ---
 
-# Critérios de qualidade
+# Quality Criteria
 
-A saída deve ser:
+The output should be:
 
-- estruturada;
-- ampla;
-- acionável;
-- rastreável;
-- coerente com as etapas anteriores;
-- útil para decisão de produto;
-- útil para orientar UX;
-- útil para orientar arquitetura técnica;
-- útil para orientar banco de dados;
-- útil para orientar desenvolvimento;
-- útil para orientar QA;
-- útil para orientar segurança;
-- clara sobre incertezas;
-- clara sobre hipóteses;
-- clara sobre riscos;
-- clara sobre lacunas restantes;
-- visualmente coerente com `0-estetica-inicial.md`.
-
----
-
-# Regras importantes
-
-1. Não ignore a Etapa 1.
-2. Não ignore a Etapa 0, quando fornecida.
-3. Não ignore a Etapa 2.
-4. Não ignore a Etapa 3.
-5. Não ignore a Etapa 4.
-6. Não ignore o arquivo `0-estetica-inicial.md`.
-7. Não crie estética paralela à estética oficial.
-8. Não invente fontes, dados ou validações.
-9. Não use links fictícios.
-10. Não dependa de bibliotecas externas no HTML.
-11. Não entregue apenas Markdown.
-12. Não gere arquivos separados.
-13. Gere apenas um HTML final, analise o conteúdo do HTML e procure por erros ou falhas e corrija.
-14. Salve o arquivo com o padrão `5.html`.
-15. Responda somente com o link para download e uma frase curta de confirmação.
+- structured;
+- broad;
+- actionable;
+- traceable;
+- consistent with previous stages;
+- useful for product decisions;
+- useful for guiding UX;
+- useful for guiding data modeling;
+- useful for guiding functional architecture;
+- useful for guiding backlog;
+- useful for guiding QA;
+- clear about uncertainties;
+- clear about hypotheses;
+- clear about risks;
+- clear about remaining gaps;
+- visually consistent with `0-estetica-inicial.md`.
 
 ---
 
-# Saída esperada do assistente
+# Important Rules
 
-Ao receber a entrada da Etapa 5, o assistente deve:
+1. Do not ignore Stage 1.
+2. Do not ignore Stage 0, when provided.
+3. Do not ignore Stage 2.
+4. Do not ignore Stage 3.
+5. Do not ignore Stage 4.
+6. Do not ignore the `0-estetica-inicial.md` file.
+7. Do not create a parallel aesthetic.
+8. Do not invent sources, data, or validations.
+9. Do not use fictitious links.
+10. Do not depend on external libraries in the HTML.
+11. Do not deliver Markdown only.
+12. Do not generate separate files.
+13. Generate only one final HTML, inspect it for errors or failures, and fix them.
+14. Save the file as `5.html`.
+15. Respond only with the download link and a short confirmation sentence.
 
-1. Ler os documentos das etapas anteriores.
-2. Ler o arquivo `0-estetica-inicial.md`.
-3. Extrair o contexto completo do produto.
-4. Consolidar entidades, atributos, relacionamentos, cardinalidades, escopos, ownership, dados sensíveis, eventos, auditoria, configurações, billing, IA, integrações, analytics e arquitetura da informação.
-5. Aplicar todas as decisões visuais a partir do arquivo estético oficial.
-6. Criar o dashboard HTML completo, analise o conteúdo do HTML e procure por erros ou falhas e corrija.
-7. Salvar o arquivo usando o padrão:
+---
+
+# Expected Output
+
+When receiving the Stage 5 input, the assistant must:
+
+1. Read the previous-stage documents.
+2. Read `0-estetica-inicial.md`.
+3. Extract the complete product context.
+4. Consolidate entities, attributes, relationships, cardinalities, scopes, ownership, sensitive data, events, audit, settings, billing, AI, integrations, analytics, and information architecture.
+5. Apply all visual decisions from the official aesthetic file.
+6. Create the full HTML dashboard, inspect it for errors or failures, and fix them.
+7. Save the file using:
 
 ```txt
 5.html
 ```
 
-8. Responder apenas com o link para download do arquivo e uma frase curta de confirmação.
+8. Respond only with the download link and a short confirmation sentence.
 
-Formato da resposta final:
+Final response format:
 
 ```html
-conteúdo do arquivo gerado
+content of the generated file
 ```

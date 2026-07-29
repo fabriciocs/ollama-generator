@@ -1,0 +1,5140 @@
+{
+  "prompt": {
+    "id": "15",
+    "file": "15-prompt.md",
+    "title": "General Rules",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are a specialist in: * Google Stitch * Product Design * UX Design * UI Design * Material Design 3 * Design Systems * Enterprise SaaS * Corporate Systems * Prompt Engineering * Frontend Architecture * System Navigation * Responsiveness * Product Engineering Your goal is to act as a complete agent for building, expanding, and maintaining projects in Stitch. Mandatory product context: the Stitch project must be assembled for a super-admin SaaS platform, including login, tenant selection, global dashboard, tenants management, plans, Stripe products, subscriptions, billing, checkout URLs, feature management, roles and permissions, audit, templates, AI, settings, and the validation engine. --- # General Rules Always: 1. Read all required files before taking any action. 2. Do not assume information without analyzing the artifacts. 3. Preserve the project’s visual consistency. 4. Preserve the existing Design System. 5. Avoid duplicate screens. 6. Reuse existing components. 7. Keep navigati...",
+    "role": "You are a specialist in:",
+    "summary": "You are a specialist in: * Google Stitch * Product Design * UX Design * UI Design * Material Design 3 * Design Systems * Enterprise SaaS * Corporate Systems * Prompt Engineering * Frontend Architecture * System Navigation * Responsiveness * Product Engineering Your goal is to act as a complete agent for building, expanding, and maintaining projects in Stitch. Mandatory product context: the Stitch project must be assembled for a super-admin SaaS platform, including login, tenant selection, global dashboard, tenants management, plans, Stripe products, subscriptions, billing, checkout URLs, feature management, roles and permissions, audit, templates, AI, settings, and the validation engine. ---...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "f2506b909614f619cee5cd9b56e4ac8351945e79b18efb6b8148fdb22f642529"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.2-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "2-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "3-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "4.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "5-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "6-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "7-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "8-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "9-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "10-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "11-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "12-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "13-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "13.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "14-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "14.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1.2-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "2-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "3-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "4-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "4.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "5-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "6-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "7-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "8-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "9-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "10-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "11-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "12-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "13-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "13.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "14-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "14.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "Mandatory product context: the Stitch project must be assembled for a super-admin SaaS platform, including login, tenant selection, global dashboard, tenants management, plans, Stripe products, subscriptions, billing, checkout URLs, feature management, roles and permissions, audit, templates, AI, settings, and the validation engine.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "1. Read all required files before taking any action.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "2. Do not assume information without analyzing the artifacts.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "5. Avoid duplicate screens.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "# REQUIRED SCREENS",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "Each file must contain:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "The prompt must be sufficient to generate the full feature without depending on the other files.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "Do not generate future features.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "Do not alter already completed features unless necessary for integration.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "4. Update the required navigation.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "Never process multiple files simultaneously.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "Avoid recreating screens that are already complete.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 13,
+      "rule": "All screens must start with:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 14,
+      "rule": "All screens must use:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 15,
+      "rule": "required fields",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "System Navigation",
+      "Avoid duplicate screens.",
+      "Keep navigation coherent.",
+      "Main core screens",
+      "Navigation Rules",
+      "flows",
+      "menus",
+      "screens",
+      "Update the required navigation.",
+      "existing screens",
+      "orphan screens",
+      "duplicate screens",
+      "the same navigation",
+      "total screens",
+      "total flows"
+    ],
+    "flows": [
+      "flows",
+      "Find the next unprocessed file.",
+      "total flows"
+    ],
+    "experience": [
+      "UX Design",
+      "UX Context"
+    ],
+    "ui": [
+      "UI Design",
+      "Read all required files before taking any action.",
+      "Avoid duplicate screens.",
+      "Reuse existing components.",
+      "Consider Desktop, Tablet, and Mobile.",
+      "components",
+      "Main core screens",
+      "Component Library",
+      "screens",
+      "Update the required navigation.",
+      "existing screens",
+      "orphan screens",
+      "duplicate screens",
+      "dashboard",
+      "required fields",
+      "tablet",
+      "total screens"
+    ],
+    "layout": [
+      "Responsiveness",
+      "Preserve the project’s visual consistency.",
+      "Consider Desktop, Tablet, and Mobile.",
+      "visual identity",
+      "visual language",
+      "layout",
+      "visual architecture",
+      "Visual context",
+      "Visual Context",
+      "Responsiveness Rules",
+      "Preserve visual consistency.",
+      "desktop",
+      "mobile"
+    ],
+    "communication": [
+      "visual language"
+    ]
+  },
+  "boundaries": {
+    "scope": [],
+    "restrictions": [
+      "2. Do not assume information without analyzing the artifacts.",
+      "5. Avoid duplicate screens.",
+      "Do not generate future features.",
+      "Do not alter already completed features unless necessary for integration.",
+      "Never process multiple files simultaneously.",
+      "Avoid recreating screens that are already complete."
+    ],
+    "responsibilities": [
+      "Read all required files before taking any action.",
+      "Update the required navigation.",
+      "required fields"
+    ],
+    "limitations": []
+  },
+  "documents": [
+    {
+      "file": "-stitch.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "/0-estetica-inicial.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "/1.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "/4.1.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "/5.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "/6.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "0-projeto.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "01-stitch.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "02-stitch.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "03-stitch.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "DESIGN.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "NAVIGATION-INVENTORY.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "PROJECT-AUDIT.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    }
+  ],
+  "outputTemplate": {
+    "file": "15-output-template.json",
+    "title": "Reconstructed output schema for General Rules",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema reconstruído semanticamente a partir do prompt porque não foi encontrado um arquivo de template correspondente no ZIP de templates.",
+    "schemaSource": "reconstructed",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Reconstructed output schema for General Rules",
+      "description": "Schema reconstruído semanticamente a partir do prompt porque não foi encontrado um arquivo de template correspondente no ZIP de templates.",
+      "type": "object",
+      "required": [
+        "general_rules",
+        "phase_1_visual_discovery_and_project_creation",
+        "input_files",
+        "objectives",
+        "product_vision",
+        "product_core",
+        "personas",
+        "main_flows",
+        "modules",
+        "initial_navigation",
+        "design_system",
+        "base_components",
+        "stitch_project_creation",
+        "design_md_generation",
+        "phase_2_feature_extraction",
+        "input_files_2",
+        "modeling_each_feature",
+        "objective",
+        "entities",
+        "flows",
+        "business_rules",
+        "permissions",
+        "navigation",
+        "required_screens",
+        "listing",
+        "create",
+        "edit",
+        "details",
+        "delete",
+        "generating_feature_files",
+        "content_of_each_stitch_md",
+        "product_context",
+        "module_context",
+        "feature_objective",
+        "user_journey",
+        "flows_2",
+        "navigation_2",
+        "components",
+        "applicable_design_system",
+        "responsiveness"
+      ],
+      "properties": {
+        "general_rules": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "phase_1_visual_discovery_and_project_creation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "input_files": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "objectives": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "product_vision": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "product_core": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "personas": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "main_flows": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "modules": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "initial_navigation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "design_system": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "base_components": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "stitch_project_creation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "design_md_generation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "phase_2_feature_extraction": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "input_files_2": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "modeling_each_feature": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "objective": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "entities": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "flows": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "business_rules": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "permissions": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "navigation": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "required_screens": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "listing": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "create": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "edit": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "details": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "delete": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "generating_feature_files": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "content_of_each_stitch_md": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "product_context": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "module_context": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "feature_objective": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "user_journey": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "flows_2": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "navigation_2": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "components": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "applicable_design_system": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        },
+        "responsiveness": {
+          "type": "object",
+          "required": [
+            "title",
+            "objective",
+            "description",
+            "content"
+          ],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "objective": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "outputExample": {
+    "file": "15-output.json",
+    "title": "General Rules",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "general_rules": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "phase_1_visual_discovery_and_project_creation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "input_files": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "objectives": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "product_vision": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "product_core": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "personas": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "main_flows": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "modules": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "initial_navigation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "design_system": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "base_components": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "stitch_project_creation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "design_md_generation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "phase_2_feature_extraction": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "input_files_2": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "modeling_each_feature": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "objective": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "entities": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "flows": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "business_rules": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "permissions": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "navigation": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "required_screens": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "listing": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "create": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "edit": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "details": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "delete": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "generating_feature_files": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "content_of_each_stitch_md": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "product_context": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "module_context": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "feature_objective": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "user_journey": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "flows_2": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "navigation_2": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "components": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "applicable_design_system": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      },
+      "responsiveness": {
+        "title": "string",
+        "objective": "string",
+        "description": "string",
+        "content": "string"
+      }
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "General Rules",
+      "objective": "Definir e orientar a parte 'General Rules' do prompt.",
+      "description": "Always: 1. Read all required files before taking any action. 2. Do not assume information without analyzing the artifacts. 3. Preserve the project’s visual consistency. 4. Preserve the existing Design System. 5. Avoid duplicate screens. 6. Reuse existing components. 7. Keep navigation coherent. 8. Keep naming coherent. 9. Use Material Design 3. 10. Consider Desktop, Tablet, and Mobile. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "1. Read all required files before taking any action.",
+        "2. Do not assume information without analyzing the artifacts.",
+        "5. Avoid duplicate screens."
+      ]
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "PHASE 1 - VISUAL DISCOVERY AND PROJECT CREATION",
+      "objective": "Definir e orientar a parte 'PHASE 1 - VISUAL DISCOVERY AND PROJECT CREATION' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 3,
+      "level": 2,
+      "title": "Input Files",
+      "objective": "Definir e orientar a parte 'Input Files' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "Objectives",
+      "objective": "Definir e orientar a parte 'Objectives' do prompt.",
+      "description": "Analyze deeply: * visual identity * visual language * components * layout * typography * palette * spacing * visual architecture * business core Extract:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 5,
+      "level": 3,
+      "title": "Product Vision",
+      "objective": "Definir e orientar a parte 'Product Vision' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 6,
+      "level": 3,
+      "title": "Product Core",
+      "objective": "Definir e orientar a parte 'Product Core' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 7,
+      "level": 3,
+      "title": "Personas",
+      "objective": "Definir e orientar a parte 'Personas' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 8,
+      "level": 3,
+      "title": "Main Flows",
+      "objective": "Definir e orientar a parte 'Main Flows' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 3,
+      "title": "Modules",
+      "objective": "Definir e orientar a parte 'Modules' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 3,
+      "title": "Initial Navigation",
+      "objective": "Definir e orientar a parte 'Initial Navigation' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 11,
+      "level": 3,
+      "title": "Design System",
+      "objective": "Definir e orientar a parte 'Design System' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 12,
+      "level": 3,
+      "title": "Base Components",
+      "objective": "Definir e orientar a parte 'Base Components' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 1,
+      "title": "STITCH PROJECT CREATION",
+      "objective": "Definir e orientar a parte 'STITCH PROJECT CREATION' do prompt.",
+      "description": "Use Stitch to create: * Project * Visual context * Functional context * Main core screens After creating it, generate: Containing: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 1,
+      "title": "DESIGN.MD GENERATION",
+      "objective": "Definir e orientar a parte 'DESIGN.MD GENERATION' do prompt.",
+      "description": "Create: Consolidating: * Product Context * UX Context * Visual Context * Design Tokens * Component Library * Navigation Rules * Responsiveness Rules * Naming Rules * Accessibility Rules * Stitch Prompting Rules This document will be the official source of truth for all future generations. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 15,
+      "level": 1,
+      "title": "PHASE 2 - FEATURE EXTRACTION",
+      "objective": "Definir e orientar a parte 'PHASE 2 - FEATURE EXTRACTION' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 16,
+      "level": 2,
+      "title": "Input Files",
+      "objective": "Definir e orientar a parte 'Input Files' do prompt.",
+      "description": "Extract: * features * entities * flows * menus * screens ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 17,
+      "level": 1,
+      "title": "MODELING EACH FEATURE",
+      "objective": "Definir e orientar a parte 'MODELING EACH FEATURE' do prompt.",
+      "description": "For each feature identify:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "Objective",
+      "objective": "Definir e orientar a parte 'Objective' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 2,
+      "title": "Entities",
+      "objective": "Definir e orientar a parte 'Entities' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "Flows",
+      "objective": "Definir e orientar a parte 'Flows' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "Business Rules",
+      "objective": "Definir e orientar a parte 'Business Rules' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "Permissions",
+      "objective": "Definir e orientar a parte 'Permissions' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "Navigation",
+      "objective": "Definir e orientar a parte 'Navigation' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 24,
+      "level": 1,
+      "title": "REQUIRED SCREENS",
+      "objective": "Definir e orientar a parte 'REQUIRED SCREENS' do prompt.",
+      "description": "When applicable:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 25,
+      "level": 3,
+      "title": "Listing",
+      "objective": "Definir e orientar a parte 'Listing' do prompt.",
+      "description": "Define: * fields * labels * filters * sorting * actions * pagination",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 26,
+      "level": 3,
+      "title": "Create",
+      "objective": "Definir e orientar a parte 'Create' do prompt.",
+      "description": "Define: * fields * labels * masks * validations",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 27,
+      "level": 3,
+      "title": "Edit",
+      "objective": "Definir e orientar a parte 'Edit' do prompt.",
+      "description": "Define: * fields * labels * masks * validations",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 28,
+      "level": 3,
+      "title": "Details",
+      "objective": "Definir e orientar a parte 'Details' do prompt.",
+      "description": "Define: * fields * labels * masks",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 29,
+      "level": 3,
+      "title": "Delete",
+      "objective": "Definir e orientar a parte 'Delete' do prompt.",
+      "description": "Define: * message * impacts * dependencies ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 30,
+      "level": 1,
+      "title": "GENERATING FEATURE FILES",
+      "objective": "Definir e orientar a parte 'GENERATING FEATURE FILES' do prompt.",
+      "description": "For each feature create: Example: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 31,
+      "level": 1,
+      "title": "CONTENT OF EACH *-STITCH.MD",
+      "objective": "Definir e orientar a parte 'CONTENT OF EACH *-STITCH.MD' do prompt.",
+      "description": "Each file must contain:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "Each file must contain:"
+      ]
+    },
+    {
+      "index": 32,
+      "level": 2,
+      "title": "Product Context",
+      "objective": "Definir e orientar a parte 'Product Context' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 33,
+      "level": 2,
+      "title": "Module Context",
+      "objective": "Definir e orientar a parte 'Module Context' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 34,
+      "level": 2,
+      "title": "Feature Objective",
+      "objective": "Definir e orientar a parte 'Feature Objective' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "User Journey",
+      "objective": "Definir e orientar a parte 'User Journey' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 36,
+      "level": 2,
+      "title": "Flows",
+      "objective": "Definir e orientar a parte 'Flows' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "Navigation",
+      "objective": "Definir e orientar a parte 'Navigation' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 38,
+      "level": 2,
+      "title": "Components",
+      "objective": "Definir e orientar a parte 'Components' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 39,
+      "level": 2,
+      "title": "Applicable Design System",
+      "objective": "Definir e orientar a parte 'Applicable Design System' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 40,
+      "level": 2,
+      "title": "Responsiveness",
+      "objective": "Definir e orientar a parte 'Responsiveness' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 41,
+      "level": 2,
+      "title": "States",
+      "objective": "Definir e orientar a parte 'States' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 42,
+      "level": 2,
+      "title": "Sample Data",
+      "objective": "Definir e orientar a parte 'Sample Data' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 43,
+      "level": 2,
+      "title": "Quality Criteria",
+      "objective": "Definir e orientar a parte 'Quality Criteria' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 44,
+      "level": 2,
+      "title": "Final Prompt for Stitch",
+      "objective": "Definir e orientar a parte 'Final Prompt for Stitch' do prompt.",
+      "description": "The prompt must be sufficient to generate the full feature without depending on the other files. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "The prompt must be sufficient to generate the full feature without depending on the other files."
+      ]
+    },
+    {
+      "index": 45,
+      "level": 1,
+      "title": "PHASE 3 - INCREMENTAL SCREEN GENERATION",
+      "objective": "Definir e orientar a parte 'PHASE 3 - INCREMENTAL SCREEN GENERATION' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 46,
+      "level": 2,
+      "title": "Input",
+      "objective": "Definir e orientar a parte 'Input' do prompt.",
+      "description": "Extract:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 47,
+      "level": 3,
+      "title": "Project ID",
+      "objective": "Definir e orientar a parte 'Project ID' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 48,
+      "level": 3,
+      "title": "Project Link",
+      "objective": "Definir e orientar a parte 'Project Link' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 49,
+      "level": 3,
+      "title": "Project Context",
+      "objective": "Definir e orientar a parte 'Project Context' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 50,
+      "level": 1,
+      "title": "EXECUTION",
+      "objective": "Definir e orientar a parte 'EXECUTION' do prompt.",
+      "description": "Use only one file: at a time. Generate only the screens for that feature. Do not generate future features. Do not alter already completed features unless necessary for integration. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "Do not generate future features.",
+        "Do not alter already completed features unless necessary for integration."
+      ]
+    },
+    {
+      "index": 51,
+      "level": 1,
+      "title": "PHASE 4 - SEQUENTIAL PROCESSING",
+      "objective": "Definir e orientar a parte 'PHASE 4 - SEQUENTIAL PROCESSING' do prompt.",
+      "description": "When requested: Execute: 1. Find the next unprocessed file. 2. Read only that file. 3. Apply it to the existing project. 4. Update the required navigation. 5. Preserve visual consistency. Never process multiple files simultaneously. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "4. Update the required navigation.",
+        "Never process multiple files simultaneously."
+      ]
+    },
+    {
+      "index": 52,
+      "level": 1,
+      "title": "PHASE 5 - TIMEOUT RECOVERY",
+      "objective": "Definir e orientar a parte 'PHASE 5 - TIMEOUT RECOVERY' do prompt.",
+      "description": "When a timeout occurs: Split the feature into smaller batches: * listing * create * edit * details Execute batch by batch. Record progress. Avoid recreating screens that are already complete. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "Avoid recreating screens that are already complete."
+      ]
+    },
+    {
+      "index": 53,
+      "level": 1,
+      "title": "PHASE 6 - NAMING GOVERNANCE",
+      "objective": "Definir e orientar a parte 'PHASE 6 - NAMING GOVERNANCE' do prompt.",
+      "description": "All screens must start with: Example: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "All screens must start with:"
+      ]
+    },
+    {
+      "index": 54,
+      "level": 1,
+      "title": "PHASE 7 - CLEANUP AND CONSOLIDATION",
+      "objective": "Definir e orientar a parte 'PHASE 7 - CLEANUP AND CONSOLIDATION' do prompt.",
+      "description": "Analyze all files: Execute:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 55,
+      "level": 2,
+      "title": "Inventory",
+      "objective": "Definir e orientar a parte 'Inventory' do prompt.",
+      "description": "List: * existing screens * orphan screens * duplicate screens ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 56,
+      "level": 2,
+      "title": "Cleanup",
+      "objective": "Definir e orientar a parte 'Cleanup' do prompt.",
+      "description": "Remove: * duplicates * obsolete items * tests * drafts ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 57,
+      "level": 2,
+      "title": "Renaming",
+      "objective": "Definir e orientar a parte 'Renaming' do prompt.",
+      "description": "Standardize names. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 58,
+      "level": 1,
+      "title": "PHASE 8 - NAVIGATION INVENTORY",
+      "objective": "Definir e orientar a parte 'PHASE 8 - NAVIGATION INVENTORY' do prompt.",
+      "description": "Analyze the complete project. Map:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 59,
+      "level": 2,
+      "title": "Menu -> Screen",
+      "objective": "Definir e orientar a parte 'Menu -> Screen' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 60,
+      "level": 2,
+      "title": "Screen -> Actions",
+      "objective": "Definir e orientar a parte 'Screen -> Actions' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 61,
+      "level": 2,
+      "title": "Action -> Destination",
+      "objective": "Definir e orientar a parte 'Action -> Destination' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 62,
+      "level": 2,
+      "title": "Flows",
+      "objective": "Definir e orientar a parte 'Flows' do prompt.",
+      "description": "Generate: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 63,
+      "level": 1,
+      "title": "PHASE 9 - GLOBAL RESPONSIVENESS",
+      "objective": "Definir e orientar a parte 'PHASE 9 - GLOBAL RESPONSIVENESS' do prompt.",
+      "description": "Analyze all screens. Apply:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 64,
+      "level": 2,
+      "title": "Desktop",
+      "objective": "Definir e orientar a parte 'Desktop' do prompt.",
+      "description": "* fixed sidebar",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 65,
+      "level": 2,
+      "title": "Tablet",
+      "objective": "Definir e orientar a parte 'Tablet' do prompt.",
+      "description": "* drawer",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 66,
+      "level": 2,
+      "title": "Mobile",
+      "objective": "Definir e orientar a parte 'Mobile' do prompt.",
+      "description": "* drawer ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 67,
+      "level": 1,
+      "title": "GLOBAL MENU",
+      "objective": "Definir e orientar a parte 'GLOBAL MENU' do prompt.",
+      "description": "All screens must use: * the same sidebar * the same top bar * the same navigation ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "All screens must use:"
+      ]
+    },
+    {
+      "index": 68,
+      "level": 1,
+      "title": "LOGO",
+      "objective": "Definir e orientar a parte 'LOGO' do prompt.",
+      "description": "Use: in: * login * sidebar * dashboard * headers ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 69,
+      "level": 1,
+      "title": "PHASE 10 - QUALITY AUDIT",
+      "objective": "Definir e orientar a parte 'PHASE 10 - QUALITY AUDIT' do prompt.",
+      "description": "Analyze all screens. Validate:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 70,
+      "level": 2,
+      "title": "Fields",
+      "objective": "Definir e orientar a parte 'Fields' do prompt.",
+      "description": "* labels * placeholders * masks",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 71,
+      "level": 2,
+      "title": "Forms",
+      "objective": "Definir e orientar a parte 'Forms' do prompt.",
+      "description": "* validations * required fields",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": [
+        "required fields"
+      ]
+    },
+    {
+      "index": 72,
+      "level": 2,
+      "title": "UX",
+      "objective": "Definir e orientar a parte 'UX' do prompt.",
+      "description": "* consistency",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 73,
+      "level": 2,
+      "title": "UI",
+      "objective": "Definir e orientar a parte 'UI' do prompt.",
+      "description": "* consistency",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 74,
+      "level": 2,
+      "title": "Navigation",
+      "objective": "Definir e orientar a parte 'Navigation' do prompt.",
+      "description": "* links",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 75,
+      "level": 2,
+      "title": "Responsiveness",
+      "objective": "Definir e orientar a parte 'Responsiveness' do prompt.",
+      "description": "* desktop * tablet * mobile ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 76,
+      "level": 1,
+      "title": "PHASE 11 - FINAL REPORT",
+      "objective": "Definir e orientar a parte 'PHASE 11 - FINAL REPORT' do prompt.",
+      "description": "Generate: Containing:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 77,
+      "level": 2,
+      "title": "Statistics",
+      "objective": "Definir e orientar a parte 'Statistics' do prompt.",
+      "description": "* total features * total screens * total flows",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 78,
+      "level": 2,
+      "title": "Problems Found",
+      "objective": "Definir e orientar a parte 'Problems Found' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 79,
+      "level": 2,
+      "title": "Problems Fixed",
+      "objective": "Definir e orientar a parte 'Problems Fixed' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 80,
+      "level": 2,
+      "title": "Pending Items",
+      "objective": "Definir e orientar a parte 'Pending Items' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 81,
+      "level": 2,
+      "title": "Recommended Improvements",
+      "objective": "Definir e orientar a parte 'Recommended Improvements' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 82,
+      "level": 2,
+      "title": "Next Steps",
+      "objective": "Definir e orientar a parte 'Next Steps' do prompt.",
+      "description": "This report represents the consolidated and current state of the Stitch project.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ],
+      "rules": []
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "PHASE 1 - VISUAL DISCOVERY AND PROJECT CREATION",
+      "objective": "Executar a instrução operacional 'PHASE 1 - VISUAL DISCOVERY AND PROJECT CREATION'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "PHASE 2 - FEATURE EXTRACTION",
+      "objective": "Executar a instrução operacional 'PHASE 2 - FEATURE EXTRACTION'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "PHASE 3 - INCREMENTAL SCREEN GENERATION",
+      "objective": "Executar a instrução operacional 'PHASE 3 - INCREMENTAL SCREEN GENERATION'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "EXECUTION",
+      "objective": "Executar a instrução operacional 'EXECUTION'.",
+      "description": "Use only one file: at a time. Generate only the screens for that feature. Do not generate future features. Do not alter already completed features unless necessary for integration. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 5,
+      "title": "PHASE 4 - SEQUENTIAL PROCESSING",
+      "objective": "Executar a instrução operacional 'PHASE 4 - SEQUENTIAL PROCESSING'.",
+      "description": "When requested: Execute: 1. Find the next unprocessed file. 2. Read only that file. 3. Apply it to the existing project. 4. Update the required navigation. 5. Preserve visual consistency. Never process multiple files simultaneously. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 6,
+      "title": "PHASE 5 - TIMEOUT RECOVERY",
+      "objective": "Executar a instrução operacional 'PHASE 5 - TIMEOUT RECOVERY'.",
+      "description": "When a timeout occurs: Split the feature into smaller batches: * listing * create * edit * details Execute batch by batch. Record progress. Avoid recreating screens that are already complete. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 7,
+      "title": "PHASE 6 - NAMING GOVERNANCE",
+      "objective": "Executar a instrução operacional 'PHASE 6 - NAMING GOVERNANCE'.",
+      "description": "All screens must start with: Example: ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 8,
+      "title": "PHASE 7 - CLEANUP AND CONSOLIDATION",
+      "objective": "Executar a instrução operacional 'PHASE 7 - CLEANUP AND CONSOLIDATION'.",
+      "description": "Analyze all files: Execute:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 9,
+      "title": "PHASE 8 - NAVIGATION INVENTORY",
+      "objective": "Executar a instrução operacional 'PHASE 8 - NAVIGATION INVENTORY'.",
+      "description": "Analyze the complete project. Map:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 10,
+      "title": "PHASE 9 - GLOBAL RESPONSIVENESS",
+      "objective": "Executar a instrução operacional 'PHASE 9 - GLOBAL RESPONSIVENESS'.",
+      "description": "Analyze all screens. Apply:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 11,
+      "title": "PHASE 10 - QUALITY AUDIT",
+      "objective": "Executar a instrução operacional 'PHASE 10 - QUALITY AUDIT'.",
+      "description": "Analyze all screens. Validate:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    },
+    {
+      "index": 12,
+      "title": "PHASE 11 - FINAL REPORT",
+      "objective": "Executar a instrução operacional 'PHASE 11 - FINAL REPORT'.",
+      "description": "Generate: Containing:",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "2-output.json",
+        "3-output.json",
+        "4-output.json",
+        "4.1-output.json",
+        "5-output.json",
+        "6-output.json",
+        "7-output.json",
+        "8-output.json",
+        "9-output.json",
+        "10-output.json",
+        "11-output.json",
+        "12-output.json",
+        "13-output.json",
+        "13.1-output.json",
+        "14-output.json",
+        "14.1-output.json"
+      ],
+      "outputs": [
+        "15-output.json"
+      ]
+    }
+  ]
+}

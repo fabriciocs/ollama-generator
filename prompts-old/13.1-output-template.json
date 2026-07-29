@@ -1,0 +1,2518 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 13.1 - Dashboard HTML Interativo do Superadministrador",
+  "description": "Schema JSON que representa semanticamente o artefato final esperado pela Etapa 13.1. A saída deve descrever, em formato normalizado, a estrutura completa do dashboard HTML interativo que consome 13.json e 0-estetica-inicial.md para renderizar navegação, busca, breadcrumb, cards, accordion, tree view, tabs, estados visuais, persistência e layout responsivo sem recarregar a página.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "fontes_de_entrada",
+    "documento",
+    "identidade_visual",
+    "estrutura_canonica",
+    "layout",
+    "header",
+    "sidebar",
+    "breadcrumb",
+    "busca_global",
+    "painel_inicial",
+    "area_principal",
+    "navegacao",
+    "interacoes",
+    "persistencia",
+    "estados",
+    "responsividade",
+    "arquitetura_javascript",
+    "acessibilidade"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "number",
+      "title": "Número da Etapa",
+      "description": "Identificador da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 13.1, pois a saída corresponde à Etapa 13.1 - Dashboard HTML Interativo do Superadministrador.",
+      "const": 13.1
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do schema. Deve apontar para o texto-base da Etapa 13.1.",
+      "const": "13.1-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo final esperado para esta etapa. Deve permanecer fixo em 13.1.html, conforme o prompt.",
+      "const": "13.1.html"
+    },
+    "fontes_de_entrada": {
+      "type": "object",
+      "title": "Fontes de Entrada",
+      "description": "Conjunto de arquivos e referências que alimentam a construção do dashboard HTML. Deve preservar a rastreabilidade entre a direção estética e a árvore canônica do sistema.",
+      "required": [
+        "arquivo_estetica",
+        "arquivo_canonico",
+        "arquivo_prompt",
+        "papel_da_fonte_estetica",
+        "papel_da_fonte_canonica"
+      ],
+      "properties": {
+        "arquivo_estetica": {
+          "type": "string",
+          "title": "Arquivo de Estética",
+          "description": "Arquivo de referência visual que define cores, tipografia, motion e direção estética do produto.",
+          "const": "0-estetica-inicial.md"
+        },
+        "arquivo_canonico": {
+          "type": "string",
+          "title": "Arquivo Canônico",
+          "description": "Arquivo de dados canônicos que contém a árvore de domínios, módulos, funcionalidades, telas, seções e subseções a serem renderizados.",
+          "const": "13.json"
+        },
+        "arquivo_prompt": {
+          "type": "string",
+          "title": "Arquivo Prompt",
+          "description": "Arquivo de prompt usado como referência para esta etapa.",
+          "const": "13.1-prompt.md"
+        },
+        "papel_da_fonte_estetica": {
+          "type": "string",
+          "title": "Papel da Fonte Estética",
+          "description": "Descrição do papel funcional da fonte estética na construção da interface, especialmente para tokens, cores, tipografia, superfícies e motion.",
+          "minLength": 1
+        },
+        "papel_da_fonte_canonica": {
+          "type": "string",
+          "title": "Papel da Fonte Canônica",
+          "description": "Descrição do papel funcional da fonte canônica na definição de menus, breadcrumb, conteúdo principal, navegação e contadores do dashboard.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "documento": {
+      "type": "object",
+      "title": "Documento",
+      "description": "Metadados semânticos do artefato HTML final. Este bloco descreve o propósito do documento, o idioma, o tipo de aplicação e o escopo funcional que ele precisa representar.",
+      "required": [
+        "titulo",
+        "descricao",
+        "idioma",
+        "tipo_de_artefato",
+        "escopo",
+        "contexto_operacional"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da aplicação ou do dashboard final renderizado pelo HTML.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição curta do propósito do documento e da experiência que ele entrega.",
+          "minLength": 1
+        },
+        "idioma": {
+          "type": "string",
+          "title": "Idioma",
+          "description": "Idioma principal da interface e do conteúdo renderizado.",
+          "const": "pt-BR"
+        },
+        "tipo_de_artefato": {
+          "type": "string",
+          "title": "Tipo de Artefato",
+          "description": "Categoria do artefato gerado. Nesta etapa, deve representar um dashboard HTML interativo.",
+          "const": "html_interativo"
+        },
+        "escopo": {
+          "type": "string",
+          "title": "Escopo",
+          "description": "Descrição do escopo funcional coberto pela interface, incluindo navegação administrativa, conteúdo canônico, busca e persistência local.",
+          "minLength": 1
+        },
+        "contexto_operacional": {
+          "type": "string",
+          "title": "Contexto Operacional",
+          "description": "Resumo do contexto de uso do sistema, com foco em control plane de superadministrador, escopo ativo, tenants, planos, permissões, auditoria, templates, IA, billing e validações.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "identidade_visual": {
+      "type": "object",
+      "title": "Identidade Visual",
+      "description": "Representação semântica da identidade visual aplicada ao HTML final. Deve consolidar tema, cores, tipografia, tokens, motion, superfícies, sombras e variações de modo claro e escuro.",
+      "required": [
+        "arquivo_referencia",
+        "tema_principal",
+        "paleta_de_cores",
+        "tipografia",
+        "tokens_css",
+        "surface",
+        "elevation",
+        "motion",
+        "shape_scale",
+        "modos",
+        "coerencia_estetica"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referência",
+          "description": "Arquivo de estética usado como base para a identidade visual e os tokens do dashboard.",
+          "const": "0-estetica-inicial.md"
+        },
+        "tema_principal": {
+          "type": "string",
+          "title": "Tema Principal",
+          "description": "Descrição do tema visual predominante da interface, incluindo atmosfera, contraste e intenção estética.",
+          "minLength": 1
+        },
+        "paleta_de_cores": {
+          "type": "array",
+          "title": "Paleta de Cores",
+          "description": "Lista das cores semânticas aplicadas à interface. Deve refletir exclusivamente a direção estética definida na fonte de referência.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/token_cor"
+          }
+        },
+        "tipografia": {
+          "type": "object",
+          "title": "Tipografia",
+          "description": "Síntese tipográfica aplicada ao dashboard. Deve preservar a família escolhida, seus usos e a lógica de hierarquia textual.",
+          "required": [
+            "titulos",
+            "corpo",
+            "mono",
+            "racional"
+          ],
+          "properties": {
+            "titulos": {
+              "$ref": "#/$defs/familia_tipografica"
+            },
+            "corpo": {
+              "$ref": "#/$defs/familia_tipografica"
+            },
+            "mono": {
+              "$ref": "#/$defs/familia_tipografica"
+            },
+            "racional": {
+              "type": "string",
+              "title": "Racional Tipográfico",
+              "description": "Justificativa da composição tipográfica e do uso das famílias para títulos, corpo e dados técnicos.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "tokens_css": {
+          "type": "object",
+          "title": "Tokens CSS",
+          "description": "Grupo de tokens que o HTML deve expor em :root para cores, espaçamentos, bordas, tipografia e sombras.",
+          "required": [
+            "cores",
+            "espacamentos",
+            "bordas",
+            "tipografia",
+            "sombras"
+          ],
+          "properties": {
+            "cores": {
+              "type": "array",
+              "title": "Tokens de Cores",
+              "description": "Lista dos tokens cromáticos usados na interface.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_cor"
+              }
+            },
+            "espacamentos": {
+              "type": "array",
+              "title": "Tokens de Espaçamento",
+              "description": "Lista dos espaços padronizados da interface, usados em margens, paddings e gaps.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "bordas": {
+              "type": "array",
+              "title": "Tokens de Borda",
+              "description": "Lista das medidas e estilos de borda empregados na interface.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "tipografia": {
+              "type": "array",
+              "title": "Tokens Tipográficos",
+              "description": "Lista de tokens tipográficos usados para tamanhos, pesos, line-height e tracking.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "sombras": {
+              "type": "array",
+              "title": "Tokens de Sombras",
+              "description": "Lista de sombras usadas como elevação e separação visual.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "surface": {
+          "type": "object",
+          "title": "Surface",
+          "description": "Descrição das superfícies visuais da aplicação, incluindo fundo, cards, painéis e áreas de destaque.",
+          "required": [
+            "fundo",
+            "painel",
+            "card",
+            "overlay"
+          ],
+          "properties": {
+            "fundo": {
+              "type": "string",
+              "title": "Fundo",
+              "description": "Definição semântica da superfície de fundo principal.",
+              "minLength": 1
+            },
+            "painel": {
+              "type": "string",
+              "title": "Painel",
+              "description": "Definição semântica da superfície de painéis e containers.",
+              "minLength": 1
+            },
+            "card": {
+              "type": "string",
+              "title": "Card",
+              "description": "Definição semântica da superfície de cards e blocos modulares.",
+              "minLength": 1
+            },
+            "overlay": {
+              "type": "string",
+              "title": "Overlay",
+              "description": "Definição semântica de superfícies sobrepostas, como menus e estados flutuantes.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "elevation": {
+          "type": "object",
+          "title": "Elevation",
+          "description": "Descrição das camadas de profundidade visual usadas para organizar hierarquia e foco.",
+          "required": [
+            "nivel_0",
+            "nivel_1",
+            "nivel_2",
+            "nivel_3"
+          ],
+          "properties": {
+            "nivel_0": {
+              "type": "string",
+              "title": "Nível 0",
+              "description": "Plano base sem elevação perceptível.",
+              "minLength": 1
+            },
+            "nivel_1": {
+              "type": "string",
+              "title": "Nível 1",
+              "description": "Elevação leve para cards e containers primários.",
+              "minLength": 1
+            },
+            "nivel_2": {
+              "type": "string",
+              "title": "Nível 2",
+              "description": "Elevação intermediária para painéis e menus flutuantes.",
+              "minLength": 1
+            },
+            "nivel_3": {
+              "type": "string",
+              "title": "Nível 3",
+              "description": "Elevação alta para estados críticos e overlays.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "motion": {
+          "type": "object",
+          "title": "Motion",
+          "description": "Regras de movimento e microinterações da interface, incluindo transições, easing e feedback.",
+          "required": [
+            "duracoes",
+            "easing",
+            "microinteracoes",
+            "coerencia"
+          ],
+          "properties": {
+            "duracoes": {
+              "type": "array",
+              "title": "Durações",
+              "description": "Lista das durações de animação e transição usadas na interface.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "easing": {
+              "type": "array",
+              "title": "Easing",
+              "description": "Lista das curvas de easing usadas nas interações.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "microinteracoes": {
+              "type": "array",
+              "title": "Microinterações",
+              "description": "Lista das microinterações esperadas para hover, foco, expansão, seleção e feedback de busca.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Microinteração",
+                "description": "Uma microinteração específica da interface.",
+                "minLength": 1
+              }
+            },
+            "coerencia": {
+              "type": "string",
+              "title": "Coerência",
+              "description": "Explicação de como o movimento reforça clareza, densidade informacional e legibilidade.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "shape_scale": {
+          "type": "object",
+          "title": "Shape Scale",
+          "description": "Escala de formas usada para bordas, cantos arredondados e recortes visuais.",
+          "required": [
+            "raios",
+            "geometrias",
+            "racional"
+          ],
+          "properties": {
+            "raios": {
+              "type": "array",
+              "title": "Raios",
+              "description": "Lista dos níveis de raio usados na interface.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/token_simples"
+              }
+            },
+            "geometrias": {
+              "type": "array",
+              "title": "Geometrias",
+              "description": "Lista das formas predominantes usadas em cards, ícones, botões e painéis.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Geometria",
+                "description": "Uma geometria ou forma aplicada à interface.",
+                "minLength": 1
+              }
+            },
+            "racional": {
+              "type": "string",
+              "title": "Racional",
+              "description": "Motivo pelo qual a escala de formas foi escolhida para a experiência do dashboard.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "modos": {
+          "type": "object",
+          "title": "Modos",
+          "description": "Configuração das variações de tema claro e escuro aplicadas à interface.",
+          "required": [
+            "claro",
+            "escuro"
+          ],
+          "properties": {
+            "claro": {
+              "$ref": "#/$defs/modo_tema"
+            },
+            "escuro": {
+              "$ref": "#/$defs/modo_tema"
+            }
+          },
+          "additionalProperties": false
+        },
+        "coerencia_estetica": {
+          "type": "string",
+          "title": "Coerência Estética",
+          "description": "Explicação de como a interface mantém aderência total à direção estética fornecida pela fonte de referência.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "estrutura_canonica": {
+      "type": "object",
+      "title": "Estrutura Canônica",
+      "description": "Representação estrutural dos dados derivados de 13.json que alimentam menus, rotas, breadcrumb, dashboard inicial e conteúdo detalhado da interface.",
+      "required": [
+        "totais",
+        "menu",
+        "rotas",
+        "catalogo",
+        "dominios"
+      ],
+      "properties": {
+        "totais": {
+          "type": "object",
+          "title": "Totais",
+          "description": "Contadores consolidados a partir da estrutura canônica para apoiar cards, métricas e visão executiva.",
+          "required": [
+            "dominios",
+            "modulos",
+            "funcionalidades",
+            "telas",
+            "secoes"
+          ],
+          "properties": {
+            "dominios": {
+              "type": "integer",
+              "title": "Total de Domínios",
+              "description": "Quantidade total de domínios presentes em 13.json.",
+              "minimum": 0
+            },
+            "modulos": {
+              "type": "integer",
+              "title": "Total de Módulos",
+              "description": "Quantidade total de módulos presentes em 13.json.",
+              "minimum": 0
+            },
+            "funcionalidades": {
+              "type": "integer",
+              "title": "Total de Funcionalidades",
+              "description": "Quantidade total de funcionalidades presentes em 13.json.",
+              "minimum": 0
+            },
+            "telas": {
+              "type": "integer",
+              "title": "Total de Telas",
+              "description": "Quantidade total de telas presentes em 13.json.",
+              "minimum": 0
+            },
+            "secoes": {
+              "type": "integer",
+              "title": "Total de Seções",
+              "description": "Quantidade total de seções presentes em 13.json.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "menu": {
+          "type": "array",
+          "title": "Menu",
+          "description": "Árvore principal de navegação lateral derivada da estrutura canônica.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/menu_item"
+          }
+        },
+        "rotas": {
+          "type": "array",
+          "title": "Rotas",
+          "description": "Lista das rotas extraídas da árvore canônica e usadas para navegação sem recarregar a página.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/route_item"
+          }
+        },
+        "catalogo": {
+          "$ref": "#/$defs/catalogo_global"
+        },
+        "dominios": {
+          "type": "array",
+          "title": "Domínios",
+          "description": "Árvore hierárquica principal que organiza domínios, módulos, funcionalidades, telas, seções, subseções e componentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/domain_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "title": "Layout",
+      "description": "Descrição da estrutura visual do dashboard, incluindo a organização em header, sidebar e área principal, com comportamento mobile-first e breakpoints definidos.",
+      "required": [
+        "modelo",
+        "areas",
+        "mobile_first",
+        "breakpoints",
+        "densidade",
+        "comportamento_responsivo"
+      ],
+      "properties": {
+        "modelo": {
+          "type": "string",
+          "title": "Modelo",
+          "description": "Modelo estrutural do layout da interface, com navegação lateral e conteúdo principal.",
+          "const": "header_sidebar_conteudo"
+        },
+        "areas": {
+          "type": "array",
+          "title": "Áreas",
+          "description": "Lista das áreas semânticas do layout.",
+          "minItems": 3,
+          "items": {
+            "type": "string",
+            "title": "Área",
+            "description": "Uma área estrutural do layout.",
+            "minLength": 1
+          }
+        },
+        "mobile_first": {
+          "type": "boolean",
+          "title": "Mobile First",
+          "description": "Indica se a implementação prioriza a experiência em telas pequenas antes das maiores."
+        },
+        "breakpoints": {
+          "type": "array",
+          "title": "Breakpoints",
+          "description": "Lista dos breakpoints obrigatórios para responsividade.",
+          "minItems": 7,
+          "items": {
+            "type": "integer",
+            "title": "Breakpoint",
+            "description": "Valor do breakpoint em pixels.",
+            "enum": [320, 480, 768, 1024, 1280, 1440, 1920]
+          }
+        },
+        "densidade": {
+          "type": "string",
+          "title": "Densidade",
+          "description": "Descrição do nível de densidade informacional desejado para a interface.",
+          "minLength": 1
+        },
+        "comportamento_responsivo": {
+          "type": "string",
+          "title": "Comportamento Responsivo",
+          "description": "Descrição de como os blocos se reorganizam em telas menores, incluindo colapso da sidebar, adaptação dos cards e empilhamento de áreas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "header": {
+      "type": "object",
+      "title": "Header",
+      "description": "Bloco superior da interface com identidade do sistema, pesquisa, alternância de tema, estado de escopo e perfil.",
+      "required": [
+        "nome_sistema",
+        "pesquisa",
+        "tema",
+        "perfil",
+        "status_escopo_ativo",
+        "acoes_rapidas"
+      ],
+      "properties": {
+        "nome_sistema": {
+          "type": "string",
+          "title": "Nome do Sistema",
+          "description": "Nome visível do sistema exibido no topo da interface.",
+          "minLength": 1
+        },
+        "pesquisa": {
+          "$ref": "#/$defs/busca_config"
+        },
+        "tema": {
+          "$ref": "#/$defs/tema_config"
+        },
+        "perfil": {
+          "$ref": "#/$defs/perfil_config"
+        },
+        "status_escopo_ativo": {
+          "type": "string",
+          "title": "Status de Escopo Ativo",
+          "description": "Indicador textual do escopo atualmente selecionado, como tenant, domínio ou contexto administrativo ativo.",
+          "minLength": 1
+        },
+        "acoes_rapidas": {
+          "type": "array",
+          "title": "Ações Rápidas",
+          "description": "Lista das ações acessíveis no cabeçalho, se houver, como atualização visual, troca de contexto ou acesso a configurações.",
+          "items": {
+            "type": "string",
+            "title": "Ação Rápida",
+            "description": "Uma ação disponível no header.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sidebar": {
+      "type": "object",
+      "title": "Sidebar",
+      "description": "Navegação lateral, responsiva e colapsável, construída a partir dos domínios e módulos da estrutura canônica.",
+      "required": [
+        "colapsavel",
+        "responsiva",
+        "menu",
+        "estado_inicial",
+        "comportamento"
+      ],
+      "properties": {
+        "colapsavel": {
+          "type": "boolean",
+          "title": "Colapsável",
+          "description": "Indica se a navegação lateral pode ser recolhida."
+        },
+        "responsiva": {
+          "type": "boolean",
+          "title": "Responsiva",
+          "description": "Indica se a navegação lateral adapta-se automaticamente a diferentes larguras de tela."
+        },
+        "menu": {
+          "type": "array",
+          "title": "Menu",
+          "description": "Árvore de navegação exibida na sidebar.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/menu_item"
+          }
+        },
+        "estado_inicial": {
+          "type": "string",
+          "title": "Estado Inicial",
+          "description": "Estado inicial da sidebar ao carregar a página.",
+          "enum": [
+            "aberta",
+            "colapsada"
+          ]
+        },
+        "comportamento": {
+          "type": "string",
+          "title": "Comportamento",
+          "description": "Descrição do comportamento da sidebar em desktop e mobile, incluindo expansão, colapso e foco de itens ativos.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "breadcrumb": {
+      "type": "object",
+      "title": "Breadcrumb",
+      "description": "Navegação hierárquica da trilha ativa, refletindo o caminho Domínio > Módulo > Funcionalidade > Tela.",
+      "required": [
+        "separador",
+        "itens",
+        "formato",
+        "contexto"
+      ],
+      "properties": {
+        "separador": {
+          "type": "string",
+          "title": "Separador",
+          "description": "Símbolo ou string que separa os níveis da trilha de navegação.",
+          "minLength": 1
+        },
+        "itens": {
+          "type": "array",
+          "title": "Itens do Breadcrumb",
+          "description": "Lista ordenada dos elementos que compõem a trilha de navegação atual.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/breadcrumb_item"
+          }
+        },
+        "formato": {
+          "type": "string",
+          "title": "Formato",
+          "description": "Formato lógico esperado para a trilha de navegação.",
+          "const": "Domínio > Módulo > Funcionalidade > Tela"
+        },
+        "contexto": {
+          "type": "string",
+          "title": "Contexto",
+          "description": "Explicação do contexto representado pela trilha atual e da tela ativa.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "busca_global": {
+      "type": "object",
+      "title": "Busca Global",
+      "description": "Configuração da busca em tempo real aplicada ao conjunto de domínios, módulos, funcionalidades, telas, seções e subseções.",
+      "required": [
+        "habilitada",
+        "tempo_real",
+        "escopos",
+        "placeholder",
+        "comportamento",
+        "filtros"
+      ],
+      "properties": {
+        "habilitada": {
+          "type": "boolean",
+          "title": "Habilitada",
+          "description": "Indica se a busca global está disponível na interface."
+        },
+        "tempo_real": {
+          "type": "boolean",
+          "title": "Tempo Real",
+          "description": "Indica se a busca reage imediatamente à digitação."
+        },
+        "escopos": {
+          "type": "array",
+          "title": "Escopos",
+          "description": "Lista dos níveis da árvore que podem ser pesquisados.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/escopo_busca"
+          }
+        },
+        "placeholder": {
+          "type": "string",
+          "title": "Placeholder",
+          "description": "Texto de apoio exibido no campo de busca.",
+          "minLength": 1
+        },
+        "comportamento": {
+          "type": "string",
+          "title": "Comportamento",
+          "description": "Descrição de como a busca deve filtrar e destacar resultados relevantes.",
+          "minLength": 1
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Lista de filtros auxiliares aplicados à busca global.",
+          "items": {
+            "$ref": "#/$defs/filtro_busca"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "painel_inicial": {
+      "type": "object",
+      "title": "Painel Inicial",
+      "description": "Resumo executivo exibido automaticamente ao carregar a aplicação, com contadores e cartões de visão geral.",
+      "required": [
+        "titulo",
+        "subtitulo",
+        "metricas",
+        "cards",
+        "mensagem_contextual"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do painel inicial.",
+          "minLength": 1
+        },
+        "subtitulo": {
+          "type": "string",
+          "title": "Subtítulo",
+          "description": "Texto de apoio que contextualiza a visão inicial.",
+          "minLength": 1
+        },
+        "metricas": {
+          "type": "array",
+          "title": "Métricas",
+          "description": "Lista das métricas principais mostradas no dashboard inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/metric_card"
+          }
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards",
+          "description": "Lista de cards gerados automaticamente a partir da estrutura canônica.",
+          "items": {
+            "$ref": "#/$defs/card_resumo"
+          }
+        },
+        "mensagem_contextual": {
+          "type": "string",
+          "title": "Mensagem Contextual",
+          "description": "Mensagem que explica o estado atual do dashboard e o que o usuário encontra ao entrar.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "area_principal": {
+      "type": "object",
+      "title": "Área Principal",
+      "description": "Conteúdo central do dashboard, onde a seleção da navegação lateral e a busca global são refletidas com título, objetivo, conteúdo, seções, subseções, componentes, tabs, accordion e tree view.",
+      "required": [
+        "visao_ativa",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "secoes",
+        "tree_view",
+        "tabs",
+        "accordion",
+        "cards",
+        "empty_state",
+        "loading_state"
+      ],
+      "properties": {
+        "visao_ativa": {
+          "type": "string",
+          "title": "Visão Ativa",
+          "description": "Nome da visão, domínio ou tela atualmente exibida no conteúdo central.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do conteúdo principal exibido ao usuário.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do bloco de conteúdo atualmente renderizado.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual resumido associado à seleção ativa.",
+          "minLength": 1
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções",
+          "description": "Lista de seções exibidas no conteúdo principal.",
+          "items": {
+            "$ref": "#/$defs/secao_conteudo"
+          }
+        },
+        "tree_view": {
+          "type": "array",
+          "title": "Tree View",
+          "description": "Árvore hierárquica usada para exibir a estrutura canônica de modo navegável.",
+          "items": {
+            "$ref": "#/$defs/tree_node"
+          }
+        },
+        "tabs": {
+          "type": "array",
+          "title": "Tabs",
+          "description": "Conjunto de abas usadas para agrupar conteúdos relacionados.",
+          "items": {
+            "$ref": "#/$defs/tab_item"
+          }
+        },
+        "accordion": {
+          "type": "array",
+          "title": "Accordion",
+          "description": "Conjunto de painéis expansíveis usados para seções e subseções.",
+          "items": {
+            "$ref": "#/$defs/accordion_item"
+          }
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards",
+          "description": "Cards renderizados na área principal para destacar informações, atalhos ou resumos.",
+          "items": {
+            "$ref": "#/$defs/card_resumo"
+          }
+        },
+        "empty_state": {
+          "$ref": "#/$defs/estado_visual"
+        },
+        "loading_state": {
+          "$ref": "#/$defs/estado_visual"
+        }
+      },
+      "additionalProperties": false
+    },
+    "navegacao": {
+      "type": "object",
+      "title": "Navegação",
+      "description": "Comportamento de navegação da aplicação, que deve operar sem recarregar a página e sincronizar menu, breadcrumb, conteúdo principal e persistência local.",
+      "required": [
+        "sem_recarregar_pagina",
+        "rota_ativa",
+        "ultima_tela",
+        "sincronizacao",
+        "historico_interno"
+      ],
+      "properties": {
+        "sem_recarregar_pagina": {
+          "type": "boolean",
+          "title": "Sem Recarregar Página",
+          "description": "Indica que toda navegação é feita em memória ou via roteamento interno, sem reload completo.",
+          "const": true
+        },
+        "rota_ativa": {
+          "type": "string",
+          "title": "Rota Ativa",
+          "description": "Rota atualmente selecionada na interface.",
+          "minLength": 1
+        },
+        "ultima_tela": {
+          "type": "string",
+          "title": "Última Tela",
+          "description": "Última tela acessada, usada para restaurar estado ao reabrir a interface.",
+          "minLength": 1
+        },
+        "sincronizacao": {
+          "type": "string",
+          "title": "Sincronização",
+          "description": "Descrição de como menu, breadcrumb, conteúdo e buscas se mantêm sincronizados.",
+          "minLength": 1
+        },
+        "historico_interno": {
+          "type": "array",
+          "title": "Histórico Interno",
+          "description": "Lista ordenada das seleções e rotas visitadas na sessão atual.",
+          "items": {
+            "$ref": "#/$defs/historico_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "interacoes": {
+      "type": "object",
+      "title": "Interações",
+      "description": "Conjunto de interações-chave previstas para a aplicação, incluindo busca, expansão de menu, alternância de tema, troca de abas e seleção de árvore.",
+      "required": [
+        "buscar",
+        "selecionar_menu",
+        "expandir_sidebar",
+        "abrir_accordion",
+        "alternar_tabs",
+        "selecionar_tree_view",
+        "alternar_tema"
+      ],
+      "properties": {
+        "buscar": {
+          "type": "string",
+          "title": "Buscar",
+          "description": "Descrição do comportamento da interação de busca.",
+          "minLength": 1
+        },
+        "selecionar_menu": {
+          "type": "string",
+          "title": "Selecionar Menu",
+          "description": "Descrição do comportamento ao selecionar um item de menu.",
+          "minLength": 1
+        },
+        "expandir_sidebar": {
+          "type": "string",
+          "title": "Expandir Sidebar",
+          "description": "Descrição do comportamento ao expandir ou colapsar a navegação lateral.",
+          "minLength": 1
+        },
+        "abrir_accordion": {
+          "type": "string",
+          "title": "Abrir Accordion",
+          "description": "Descrição do comportamento ao expandir seções em accordion.",
+          "minLength": 1
+        },
+        "alternar_tabs": {
+          "type": "string",
+          "title": "Alternar Tabs",
+          "description": "Descrição do comportamento ao trocar entre abas relacionadas.",
+          "minLength": 1
+        },
+        "selecionar_tree_view": {
+          "type": "string",
+          "title": "Selecionar Tree View",
+          "description": "Descrição do comportamento ao selecionar nós da árvore hierárquica.",
+          "minLength": 1
+        },
+        "alternar_tema": {
+          "type": "string",
+          "title": "Alternar Tema",
+          "description": "Descrição do comportamento ao alternar entre os modos claro e escuro.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "persistencia": {
+      "type": "object",
+      "title": "Persistência",
+      "description": "Regras de armazenamento local do estado da interface em localStorage.",
+      "required": [
+        "local_storage",
+        "tema",
+        "menu_aberto",
+        "ultima_tela",
+        "chaves"
+      ],
+      "properties": {
+        "local_storage": {
+          "type": "boolean",
+          "title": "Local Storage",
+          "description": "Indica se a aplicação usa localStorage para persistir estado de interface."
+        },
+        "tema": {
+          "type": "string",
+          "title": "Tema",
+          "description": "Nome da chave ou estado usado para persistir o tema atual.",
+          "minLength": 1
+        },
+        "menu_aberto": {
+          "type": "string",
+          "title": "Menu Aberto",
+          "description": "Nome da chave ou estado usado para persistir a abertura da sidebar.",
+          "minLength": 1
+        },
+        "ultima_tela": {
+          "type": "string",
+          "title": "Última Tela",
+          "description": "Nome da chave ou estado usado para persistir a última tela acessada.",
+          "minLength": 1
+        },
+        "chaves": {
+          "type": "array",
+          "title": "Chaves",
+          "description": "Lista das chaves persistidas no localStorage.",
+          "items": {
+            "$ref": "#/$defs/chave_local_storage"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "estados": {
+      "type": "object",
+      "title": "Estados",
+      "description": "Estados visuais e funcionais da interface, incluindo carregamento, vazio, erro e seleção ativa.",
+      "required": [
+        "carregando",
+        "vazio",
+        "erro",
+        "selecionado"
+      ],
+      "properties": {
+        "carregando": {
+          "$ref": "#/$defs/estado_visual"
+        },
+        "vazio": {
+          "$ref": "#/$defs/estado_visual"
+        },
+        "erro": {
+          "$ref": "#/$defs/estado_visual"
+        },
+        "selecionado": {
+          "$ref": "#/$defs/estado_visual"
+        }
+      },
+      "additionalProperties": false
+    },
+    "responsividade": {
+      "type": "object",
+      "title": "Responsividade",
+      "description": "Comportamento responsivo da interface com foco mobile-first e adaptação de layout, navegação e conteúdo.",
+      "required": [
+        "mobile_first",
+        "breakpoints",
+        "adaptoes",
+        "comportamento_sidebar",
+        "comportamento_conteudo"
+      ],
+      "properties": {
+        "mobile_first": {
+          "type": "boolean",
+          "title": "Mobile First",
+          "description": "Indica que a interface é pensada primeiro para telas pequenas.",
+          "const": true
+        },
+        "breakpoints": {
+          "type": "array",
+          "title": "Breakpoints",
+          "description": "Lista dos pontos de quebra usados pela aplicação.",
+          "minItems": 7,
+          "items": {
+            "type": "integer",
+            "title": "Breakpoint",
+            "description": "Valor do breakpoint em pixels.",
+            "enum": [320, 480, 768, 1024, 1280, 1440, 1920]
+          }
+        },
+        "adaptoes": {
+          "type": "array",
+          "title": "Adaptações",
+          "description": "Lista das adaptações previstas para diferentes larguras de tela.",
+          "items": {
+            "type": "string",
+            "title": "Adaptação",
+            "description": "Uma adaptação responsiva específica.",
+            "minLength": 1
+          }
+        },
+        "comportamento_sidebar": {
+          "type": "string",
+          "title": "Comportamento da Sidebar",
+          "description": "Descrição do comportamento da sidebar em mobile e desktop.",
+          "minLength": 1
+        },
+        "comportamento_conteudo": {
+          "type": "string",
+          "title": "Comportamento do Conteúdo",
+          "description": "Descrição de como a área principal se reorganiza em telas menores e maiores.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "arquitetura_javascript": {
+      "type": "object",
+      "title": "Arquitetura JavaScript",
+      "description": "Organização lógica do código em camadas, sem dependências externas obrigatórias, para suportar dados, navegação, renderização, tema e busca.",
+      "required": [
+        "data_layer",
+        "navigation_layer",
+        "rendering_layer",
+        "theme_layer",
+        "search_layer",
+        "sem_dependencias_externas"
+      ],
+      "properties": {
+        "data_layer": {
+          "type": "string",
+          "title": "Data Layer",
+          "description": "Descrição da camada responsável por carregar e estruturar os dados canônicos.",
+          "minLength": 1
+        },
+        "navigation_layer": {
+          "type": "string",
+          "title": "Navigation Layer",
+          "description": "Descrição da camada responsável pelo roteamento interno e sincronização de seleção.",
+          "minLength": 1
+        },
+        "rendering_layer": {
+          "type": "string",
+          "title": "Rendering Layer",
+          "description": "Descrição da camada responsável por montar header, sidebar, cards, accordion e conteúdo principal.",
+          "minLength": 1
+        },
+        "theme_layer": {
+          "type": "string",
+          "title": "Theme Layer",
+          "description": "Descrição da camada responsável pelo tema claro/escuro e pela aplicação de tokens.",
+          "minLength": 1
+        },
+        "search_layer": {
+          "type": "string",
+          "title": "Search Layer",
+          "description": "Descrição da camada responsável por indexar e filtrar os elementos pesquisáveis.",
+          "minLength": 1
+        },
+        "sem_dependencias_externas": {
+          "type": "boolean",
+          "title": "Sem Dependências Externas",
+          "description": "Indica que a solução deve ser implementável com HTML, CSS e JavaScript puro.",
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "acessibilidade": {
+      "type": "object",
+      "title": "Acessibilidade",
+      "description": "Requisitos de acessibilidade da interface, incluindo semântica, navegação por teclado, foco visível e rótulos claros.",
+      "required": [
+        "semantica",
+        "teclado",
+        "foco_visivel",
+        "rotulos",
+        "contraste"
+      ],
+      "properties": {
+        "semantica": {
+          "type": "string",
+          "title": "Semântica",
+          "description": "Descrição do uso de semântica apropriada para estruturar a interface.",
+          "minLength": 1
+        },
+        "teclado": {
+          "type": "string",
+          "title": "Teclado",
+          "description": "Descrição do suporte a navegação por teclado e atalhos básicos.",
+          "minLength": 1
+        },
+        "foco_visivel": {
+          "type": "string",
+          "title": "Foco Visível",
+          "description": "Descrição de como o foco deve ser apresentado visualmente.",
+          "minLength": 1
+        },
+        "rotulos": {
+          "type": "string",
+          "title": "Rótulos",
+          "description": "Descrição de como labels, aria-labels e textos auxiliares devem ser fornecidos.",
+          "minLength": 1
+        },
+        "contraste": {
+          "type": "string",
+          "title": "Contraste",
+          "description": "Descrição das expectativas de contraste entre texto, fundo e estados de interação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "token_cor": {
+      "type": "object",
+      "title": "Token de Cor",
+      "description": "Representa uma cor semântica da identidade visual. Deve carregar nome, valor e uso para permitir implementação consistente em CSS e superfícies do dashboard.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome descritivo da cor dentro do sistema visual.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor serializado da cor, como hex, rgb, oklch ou outro formato válido de implementação.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Contexto funcional ou visual em que a cor deve ser aplicada.",
+          "minLength": 1
+        },
+        "contraste": {
+          "type": "string",
+          "title": "Contraste",
+          "description": "Orientação opcional sobre o contraste esperado para esta cor em diferentes superfícies.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "familia_tipografica": {
+      "type": "object",
+      "title": "Família Tipográfica",
+      "description": "Representa uma família de fontes usada na interface. Deve registrar nome, fallbacks, peso preferencial e função de uso.",
+      "required": [
+        "nome",
+        "fallbacks",
+        "peso_preferencial",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome principal da família tipográfica.",
+          "minLength": 1
+        },
+        "fallbacks": {
+          "type": "array",
+          "title": "Fallbacks",
+          "description": "Lista de fontes alternativas para uso quando a fonte principal não estiver disponível.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Fonte Fallback",
+            "description": "Nome de uma fonte alternativa compatível com a proposta visual.",
+            "minLength": 1
+          }
+        },
+        "peso_preferencial": {
+          "type": "string",
+          "title": "Peso Preferencial",
+          "description": "Peso tipográfico recomendado para a aplicação principal da família.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Finalidade da família tipográfica dentro da identidade visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "token_simples": {
+      "type": "object",
+      "title": "Token Simples",
+      "description": "Token genérico usado para representar espaçamentos, bordas, sombras, durações, raios e outras unidades de implementação.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome do token.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor serializado do token.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Finalidade prática deste token na interface.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "modo_tema": {
+      "type": "object",
+      "title": "Modo de Tema",
+      "description": "Descrição semântica de um modo de tema visual, incluindo base de cores, superfícies e contraste.",
+      "required": [
+        "nome",
+        "descricao",
+        "contraste"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome do modo de tema.",
+          "enum": [
+            "claro",
+            "escuro"
+          ]
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do comportamento visual do tema.",
+          "minLength": 1
+        },
+        "contraste": {
+          "type": "string",
+          "title": "Contraste",
+          "description": "Descrição das expectativas de contraste no modo de tema.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "menu_item": {
+      "type": "object",
+      "title": "Item de Menu",
+      "description": "Item de navegação lateral com rótulo, rota, ícone e filhos recursivos. Deve refletir a hierarquia lógica do sistema.",
+      "required": [
+        "id",
+        "label",
+        "rota",
+        "icone",
+        "filhos"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do item de menu.",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto visível do item de menu.",
+          "minLength": 1
+        },
+        "rota": {
+          "type": "string",
+          "title": "Rota",
+          "description": "Caminho de navegação interno associado ao item.",
+          "minLength": 1
+        },
+        "icone": {
+          "type": "string",
+          "title": "Ícone",
+          "description": "Nome, chave ou referência do ícone usado no item.",
+          "minLength": 1
+        },
+        "filhos": {
+          "type": "array",
+          "title": "Filhos",
+          "description": "Subitens de navegação abaixo do item atual.",
+          "items": {
+            "$ref": "#/$defs/menu_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "route_item": {
+      "type": "object",
+      "title": "Rota",
+      "description": "Registro semântico de uma rota identificada na estrutura canônica.",
+      "required": [
+        "id",
+        "path",
+        "titulo",
+        "origem"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da rota.",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "title": "Path",
+          "description": "Caminho da rota no sistema.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título legível da rota.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem estrutural ou documental da rota.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalogo_global": {
+      "type": "object",
+      "title": "Catálogo Global",
+      "description": "Catálogo consolidado dos elementos semânticos extraídos da árvore canônica. Deve incluir entidades navegáveis e elementos de apoio para a renderização da interface.",
+      "required": [
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "telas",
+        "secoes",
+        "subsecoes",
+        "componentes"
+      ],
+      "properties": {
+        "dominios": {
+          "type": "array",
+          "title": "Domínios",
+          "description": "Itens do catálogo que representam domínios consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "modulos": {
+          "type": "array",
+          "title": "Módulos",
+          "description": "Itens do catálogo que representam módulos consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Itens do catálogo que representam funcionalidades consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "telas": {
+          "type": "array",
+          "title": "Telas",
+          "description": "Itens do catálogo que representam telas consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções",
+          "description": "Itens do catálogo que representam seções consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "subsecoes": {
+          "type": "array",
+          "title": "Subseções",
+          "description": "Itens do catálogo que representam subseções consolidadas.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Itens do catálogo que representam componentes consolidados.",
+          "items": {
+            "$ref": "#/$defs/catalog_item_base"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalog_item_base": {
+      "type": "object",
+      "title": "Item de Catálogo",
+      "description": "Registro semântico genérico usado no catálogo global para representar entidades extraídas da árvore canônica.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do item do catálogo.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico do item.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo semântico do item do catálogo.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do item do catálogo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo ou papel semântico do item.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual integral relacionado ao item.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "domain_item": {
+      "type": "object",
+      "title": "Domínio",
+      "description": "Nó de primeiro nível da árvore canônica, responsável por agrupar módulos e representar uma área funcional maior do sistema.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "modulos"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do domínio.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação usada para referenciar o domínio.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como domain para representar o primeiro nível da árvore.",
+          "const": "domain"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do domínio funcional.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do domínio dentro da plataforma canônica.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral extraído ou consolidado para esse domínio.",
+          "minLength": 1
+        },
+        "modulos": {
+          "type": "array",
+          "title": "Módulos",
+          "description": "Lista de módulos pertencentes ao domínio.",
+          "items": {
+            "$ref": "#/$defs/module_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "module_item": {
+      "type": "object",
+      "title": "Módulo",
+      "description": "Agrupamento intermediário abaixo do domínio, usado para organizar funcionalidades relacionadas.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "funcionalidades"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do módulo.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação do módulo.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como module.",
+          "const": "module"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do módulo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do módulo dentro do domínio.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado ao módulo.",
+          "minLength": 1
+        },
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Lista de funcionalidades agrupadas pelo módulo.",
+          "items": {
+            "$ref": "#/$defs/feature_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "feature_item": {
+      "type": "object",
+      "title": "Funcionalidade",
+      "description": "Agrupamento funcional abaixo do módulo, responsável por organizar telas e experiências de uso.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "telas"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da funcionalidade.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da funcionalidade.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como feature.",
+          "const": "feature"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da funcionalidade.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo prático da funcionalidade.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à funcionalidade.",
+          "minLength": 1
+        },
+        "telas": {
+          "type": "array",
+          "title": "Telas",
+          "description": "Lista de telas pertencentes à funcionalidade.",
+          "items": {
+            "$ref": "#/$defs/screen_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "screen_item": {
+      "type": "object",
+      "title": "Tela",
+      "description": "Unidade de interface que pode conter componentes, seções e subseções.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "componentes",
+        "secoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da tela.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da tela.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como screen.",
+          "const": "screen"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da tela.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da tela no fluxo do usuário.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à tela.",
+          "minLength": 1
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Lista de componentes visíveis ou relacionados à tela.",
+          "items": {
+            "$ref": "#/$defs/component_item"
+          }
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções",
+          "description": "Lista de seções presentes na tela.",
+          "items": {
+            "$ref": "#/$defs/section_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "section_item": {
+      "type": "object",
+      "title": "Seção",
+      "description": "Agrupamento interno de uma tela, usado para organizar blocos de conteúdo e subseções.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo",
+        "subsecoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da seção.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da seção.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como section.",
+          "const": "section"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da seção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da seção dentro da tela.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado à seção.",
+          "minLength": 1
+        },
+        "subsecoes": {
+          "type": "array",
+          "title": "Subseções",
+          "description": "Lista de subseções contidas na seção.",
+          "items": {
+            "$ref": "#/$defs/subsection_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "subsection_item": {
+      "type": "object",
+      "title": "Subseção",
+      "description": "Nível mais granular da hierarquia textual e estrutural, usado para detalhar uma seção.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único da subseção.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação da subseção.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como subsection.",
+          "const": "subsection"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da subseção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo específico da subseção.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo textual integral associado à subseção.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "component_item": {
+      "type": "object",
+      "title": "Componente",
+      "description": "Elemento de interface reutilizável ou atômico associado a uma tela.",
+      "required": [
+        "id",
+        "codigo",
+        "tipo",
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do componente.",
+          "minLength": 1
+        },
+        "codigo": {
+          "type": "string",
+          "title": "Código",
+          "description": "Código semântico ou abreviação do componente.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do nó, que deve ser fixado como component.",
+          "const": "component"
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do componente.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do componente dentro da interface.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo integral associado ao componente.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "breadcrumb_item": {
+      "type": "object",
+      "title": "Item do Breadcrumb",
+      "description": "Fragmento da trilha de navegação que representa um nível hierárquico do conteúdo ativo.",
+      "required": [
+        "label",
+        "rota",
+        "nivel"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Nome visível do item da trilha.",
+          "minLength": 1
+        },
+        "rota": {
+          "type": "string",
+          "title": "Rota",
+          "description": "Rota associada ao item da trilha.",
+          "minLength": 1
+        },
+        "nivel": {
+          "type": "string",
+          "title": "Nível",
+          "description": "Nível hierárquico representado pelo item da trilha.",
+          "enum": [
+            "dominio",
+            "modulo",
+            "funcionalidade",
+            "tela"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "escopo_busca": {
+      "type": "string",
+      "title": "Escopo de Busca",
+      "description": "Nível hierárquico pesquisável pela busca global.",
+      "enum": [
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "telas",
+        "secoes",
+        "subsecoes"
+      ]
+    },
+    "filtro_busca": {
+      "type": "object",
+      "title": "Filtro de Busca",
+      "description": "Filtro opcional aplicado à busca global para refinar a leitura dos resultados.",
+      "required": [
+        "nome",
+        "opcoes"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome do filtro.",
+          "minLength": 1
+        },
+        "opcoes": {
+          "type": "array",
+          "title": "Opções",
+          "description": "Lista de opções disponíveis para o filtro.",
+          "items": {
+            "type": "string",
+            "title": "Opção",
+            "description": "Uma opção de filtro.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "metric_card": {
+      "type": "object",
+      "title": "Card de Métrica",
+      "description": "Card resumido usado para apresentar métricas centrais do dashboard.",
+      "required": [
+        "label",
+        "valor",
+        "descricao"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Nome da métrica exibida no card.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "integer",
+          "title": "Valor",
+          "description": "Número da métrica exibida.",
+          "minimum": 0
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Explicação curta do que a métrica representa.",
+          "minLength": 1
+        },
+        "variante": {
+          "type": "string",
+          "title": "Variante",
+          "description": "Variante visual do card, como destaque, neutro ou secundário.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "card_resumo": {
+      "type": "object",
+      "title": "Card de Resumo",
+      "description": "Card gerado a partir da estrutura canônica para destacar domínios, módulos, funcionalidades ou telas relevantes.",
+      "required": [
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do card de resumo.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do item resumido no card.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Texto principal do card.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Categoria do card, como domínio, módulo, funcionalidade, tela, seção ou subseção.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "secao_conteudo": {
+      "type": "object",
+      "title": "Seção de Conteúdo",
+      "description": "Seção semântica exibida na área principal, com título, objetivo, conteúdo, subseções e componentes associados.",
+      "required": [
+        "titulo",
+        "objetivo",
+        "conteudo"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da seção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da seção na leitura da tela.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Texto ou descrição principal da seção.",
+          "minLength": 1
+        },
+        "subsecoes": {
+          "type": "array",
+          "title": "Subseções",
+          "description": "Subblocos associados a esta seção.",
+          "items": {
+            "$ref": "#/$defs/subsection_item"
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Componentes vinculados à seção.",
+          "items": {
+            "$ref": "#/$defs/component_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tree_node": {
+      "type": "object",
+      "title": "Nó da Árvore",
+      "description": "Nó genérico usado na tree view para representar a hierarquia do sistema em formato navegável.",
+      "required": [
+        "label",
+        "tipo",
+        "filhos"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto do nó na árvore.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo estrutural do nó na árvore.",
+          "enum": [
+            "domain",
+            "module",
+            "feature",
+            "screen",
+            "section",
+            "subsection",
+            "component"
+          ]
+        },
+        "filhos": {
+          "type": "array",
+          "title": "Filhos",
+          "description": "Nós filhos da árvore.",
+          "items": {
+            "$ref": "#/$defs/tree_node"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tab_item": {
+      "type": "object",
+      "title": "Tab",
+      "description": "Aba usada para agrupar conteúdos relacionados dentro da área principal.",
+      "required": [
+        "label",
+        "conteudo"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Nome da aba.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Descrição resumida do conteúdo exibido na aba.",
+          "minLength": 1
+        },
+        "ativo": {
+          "type": "boolean",
+          "title": "Ativo",
+          "description": "Indica se a aba está selecionada por padrão."
+        }
+      },
+      "additionalProperties": false
+    },
+    "accordion_item": {
+      "type": "object",
+      "title": "Accordion",
+      "description": "Painel expansível usado para organizar seções e subseções na área principal.",
+      "required": [
+        "titulo",
+        "conteudo",
+        "expandido"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do painel expansível.",
+          "minLength": 1
+        },
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Conteúdo exibido quando o painel está aberto.",
+          "minLength": 1
+        },
+        "expandido": {
+          "type": "boolean",
+          "title": "Expandido",
+          "description": "Indica se o painel começa expandido."
+        }
+      },
+      "additionalProperties": false
+    },
+    "estado_visual": {
+      "type": "object",
+      "title": "Estado Visual",
+      "description": "Estado visual padronizado para vazio, carregamento, erro ou seleção ativa.",
+      "required": [
+        "titulo",
+        "mensagem",
+        "acao_sugerida"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do estado visual.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem principal exibida ao usuário.",
+          "minLength": 1
+        },
+        "acao_sugerida": {
+          "type": "string",
+          "title": "Ação Sugerida",
+          "description": "Ação recomendada para sair do estado ou continuar a interação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "historico_item": {
+      "type": "object",
+      "title": "Item de Histórico",
+      "description": "Registro interno de navegação para restaurar contexto da sessão.",
+      "required": [
+        "rota",
+        "label"
+      ],
+      "properties": {
+        "rota": {
+          "type": "string",
+          "title": "Rota",
+          "description": "Rota visitada.",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Rótulo legível da rota visitada.",
+          "minLength": 1
+        },
+        "timestamp": {
+          "type": "string",
+          "title": "Timestamp",
+          "description": "Momento em que a rota foi registrada no histórico.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "chave_local_storage": {
+      "type": "object",
+      "title": "Chave de Local Storage",
+      "description": "Chave usada para persistir um estado específico da interface no navegador.",
+      "required": [
+        "nome",
+        "descricao"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome da chave persistida.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do que a chave armazena.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "busca_config": {
+      "type": "object",
+      "title": "Configuração de Busca",
+      "description": "Configuração do campo de pesquisa exibido no header.",
+      "required": [
+        "habilitada",
+        "placeholder"
+      ],
+      "properties": {
+        "habilitada": {
+          "type": "boolean",
+          "title": "Habilitada",
+          "description": "Indica se o campo de busca está visível e ativo."
+        },
+        "placeholder": {
+          "type": "string",
+          "title": "Placeholder",
+          "description": "Texto sugerido exibido no campo de busca.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "tema_config": {
+      "type": "object",
+      "title": "Configuração de Tema",
+      "description": "Configuração do alternador de tema no header.",
+      "required": [
+        "habilitado",
+        "modo_inicial"
+      ],
+      "properties": {
+        "habilitado": {
+          "type": "boolean",
+          "title": "Habilitado",
+          "description": "Indica se o alternador de tema está disponível."
+        },
+        "modo_inicial": {
+          "type": "string",
+          "title": "Modo Inicial",
+          "description": "Modo de tema exibido por padrão ao carregar a interface.",
+          "enum": [
+            "claro",
+            "escuro"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "perfil_config": {
+      "type": "object",
+      "title": "Configuração de Perfil",
+      "description": "Configuração do menu de perfil exibido no header.",
+      "required": [
+        "habilitado",
+        "rotulo"
+      ],
+      "properties": {
+        "habilitado": {
+          "type": "boolean",
+          "title": "Habilitado",
+          "description": "Indica se o perfil do usuário aparece no header."
+        },
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto exibido como identificação do perfil.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

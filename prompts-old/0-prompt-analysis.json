@@ -1,0 +1,3541 @@
+{
+  "prompt": {
+    "id": "0",
+    "file": "0-prompt.md",
+    "title": "Stage 0 — Initial Aesthetics",
+    "objective": "Executar a Etapa 0 — Estética Inicial gerando exclusivamente o arquivo 0-output.json como uma instância direta e integral do schema definido em schemas-used/0-output-template.json, sem envelope, sem metadados externos e sem campos fora do template.",
+    "description": "You are a specialist in digital art direction, UX/UI, Product Design, Design Systems, Frontend Design, Material Design 3, and anti-generic aesthetics for SaaS applications, enterprise platforms, operating systems, and digital products. Your task is to execute **Stage 0 — Initial Aesthetics** and, given an initial system idea, generate the file: Mandatory product context: this identity must serve an enterprise SaaS super-admin platform, with global and tenant-aware operation, high information density, permission states, billing indicators, AI administration, templates, auditability, and platform governance. The description may be incomplete. In that case: * make reasonable assumptions; * make justified design decisions; * avoid unnecessary questions; * continue with a coherent visual proposal. --- # Expected Input Receive a description of a system idea. Examples: or or --- # Goal Turn the system idea into an initial aesthetic direction that can guide: * UX; * UI; * Design System; * HTML...\n\nCOMPATIBILIDADE ESTRITA COM SCHEMA: ao executar esta etapa, o arquivo 0-output.json deve ser validado como documento inteiro contra schemas-used/0-output-template.json. O objeto raiz do JSON deve conter diretamente os campos exigidos pelo template, começando por etapa, nome_do_produto, direcao_criativa, diagnostico_anti_slop, conceito_visual, paleta_de_cores, tipografia, sistema_de_espacamento, layouts, componentes, movimento_e_microinteracoes, estados_de_interface, diretrizes_css, diretrizes_react, exemplos_de_implementacao, riscos_visuais e recomendacoes_finais. É proibido envolver a saída em id, title, objective, description ou content.",
+    "role": "You are a specialist in digital art direction, UX/UI, Product Design, Design Systems, Frontend Design, Material Design 3, and anti-generic aesthetics for SaaS applications, enterprise platforms, operating systems, and digital products.",
+    "summary": "Etapa 0 — Estética Inicial. Deve transformar a ideia inicial do sistema em uma direção estética inicial e salvar 0-output.json como instância direta do schema 0-output-template.json. O arquivo final não pode conter envelope; a raiz do JSON deve ser exatamente a estrutura exigida pelo template.",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "bdef4c4ea59bbdd28a7a4ab2f8c113cd02eddb2321ddb9aedc6d6db7d3c6d57a"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "type": "source_input",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "STRICT-SCHEMA-ROOT-001",
+      "category": "schema_compatibility",
+      "title": "Validar o documento inteiro contra o template",
+      "description": "O arquivo 0-output.json deve ser validado integralmente contra schemas-used/0-output-template.json. A validação não deve ser feita apenas sobre content ou qualquer subobjeto.",
+      "mandatory": true
+    },
+    {
+      "id": "STRICT-SCHEMA-ROOT-002",
+      "category": "schema_compatibility",
+      "title": "Proibir envelope de saída",
+      "description": "É proibido gerar 0-output.json no formato {id,title,objective,description,content}. O template da etapa 0 não possui esses campos na raiz e define additionalProperties=false.",
+      "mandatory": true
+    },
+    {
+      "id": "STRICT-SCHEMA-ROOT-003",
+      "category": "schema_compatibility",
+      "title": "Usar content apenas como rascunho interno, nunca como raiz final",
+      "description": "Caso o executor monte internamente uma resposta com content, somente o valor de content deve ser salvo em 0-output.json. O wrapper deve ser descartado antes de persistir o arquivo.",
+      "mandatory": true
+    },
+    {
+      "id": "STRICT-SCHEMA-ROOT-004",
+      "category": "schema_compatibility",
+      "title": "Respeitar additionalProperties=false",
+      "description": "Nenhum campo não declarado em 0-output-template.json pode existir no objeto raiz nem em objetos internos com additionalProperties=false.",
+      "mandatory": true
+    },
+    {
+      "id": "STRICT-SCHEMA-ROOT-005",
+      "category": "schema_compatibility",
+      "title": "Falhar se a validação estrutural falhar",
+      "description": "Se o documento inteiro não validar contra o template, a etapa deve ser considerada inválida e o arquivo deve ser corrigido antes da entrega.",
+      "mandatory": true
+    },
+    {
+      "index": 1,
+      "rule": "Mandatory product context: this identity must serve an enterprise SaaS super-admin platform, with global and tenant-aware operation, high information density, permission states, billing indicators, AI administration, templates, auditability, and platform governance.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "avoid unnecessary questions;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "The interface should feel purpose-built for the described product.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "# Required Structure",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "You must generate the file:",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "Menu"
+    ],
+    "flows": [],
+    "experience": [
+      "UX;",
+      "components with personality;",
+      "consistent experience across desktop, tablet, and mobile;",
+      "personality-free palettes;",
+      "Define complete component states.",
+      "Empty State",
+      "modern experience;"
+    ],
+    "ui": [
+      "UI;",
+      "HTML dashboards;",
+      "Reusable components.",
+      "components with personality;",
+      "consistent experience across desktop, tablet, and mobile;",
+      "dashboards that could fit any product;",
+      "flattened, tasteless components;",
+      "UI that looks like it was generated by AI;",
+      "components incompatible with Material Design 3.",
+      "Define reusable components.",
+      "Define complete component states.",
+      "Make creative, objective choices without requiring further questions.",
+      "Button",
+      "Table",
+      "Modal"
+    ],
+    "layout": [
+      "continue with a coherent visual proposal.",
+      "Mobile apps;",
+      "mobile first;",
+      "responsiveness;",
+      "product-specific visual identity;",
+      "clear visual hierarchy;",
+      "layouts oriented to usage context;",
+      "consistent experience across desktop, tablet, and mobile;",
+      "excessive visual noise;",
+      "non-responsive layouts;",
+      "Consider real desktop and mobile usage.",
+      "Briefly explain the logic behind visual decisions.",
+      "a distinct visual identity;",
+      "mobile first;",
+      "responsiveness;"
+    ],
+    "communication": [
+      "generic copy;"
+    ]
+  },
+  "boundaries": {
+    "scope": [
+      "Whenever the output generates HTML, apply `data-objective` to `main.content` and every `section`, using specific descriptive text for the stage and the purpose of each block.",
+      "Make creative, objective choices without requiring further questions.",
+      "No Permission"
+    ],
+    "restrictions": [
+      "avoid unnecessary questions;"
+    ],
+    "responsibilities": [],
+    "limitations": [
+      "Space Grotesk as a recurring fallback;"
+    ]
+  },
+  "documents": [
+    {
+      "file": "0-estetica-inicial.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "0-output.json",
+      "type": "strict_schema_instance",
+      "direction": "produced",
+      "required": true,
+      "description": "Arquivo final da etapa 0. Deve ser uma instância direta do schema 0-output-template.json, sem wrapper de metadados."
+    }
+  ],
+  "outputTemplate": {
+    "file": "0-output-template.json",
+    "title": "Estrutura da Saída da Etapa 0 - Estética Inicial",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema JSON que representa semanticamente o conteúdo do arquivo '0-estetica-inicial.md'. A saída final deve conter a direção estética inicial do produto, organizada nas mesmas 15 seções exigidas pelo prompt, com detalhes suficientes para orientar identidade visual, UX/UI, sistema de design, diretrizes CSS e diretrizes React.",
+    "schemaSource": "provided_source_of_truth",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Estrutura da Saída da Etapa 0 - Estética Inicial",
+      "description": "Schema JSON que representa semanticamente o conteúdo do arquivo '0-estetica-inicial.md'. A saída final deve conter a direção estética inicial do produto, organizada nas mesmas 15 seções exigidas pelo prompt, com detalhes suficientes para orientar identidade visual, UX/UI, sistema de design, diretrizes CSS e diretrizes React.",
+      "type": "object",
+      "required": [
+        "etapa",
+        "nome_do_produto",
+        "direcao_criativa",
+        "diagnostico_anti_slop",
+        "conceito_visual",
+        "paleta_de_cores",
+        "tipografia",
+        "sistema_de_espacamento",
+        "layouts",
+        "componentes",
+        "movimento_e_microinteracoes",
+        "estados_de_interface",
+        "diretrizes_css",
+        "diretrizes_react",
+        "exemplos_de_implementacao",
+        "riscos_visuais",
+        "recomendacoes_finais"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "integer",
+          "title": "Número da Etapa",
+          "description": "Identificador numérico da etapa inferida a partir do prompt de entrada. Para este arquivo, o valor deve ser 0, pois a saída corresponde à Etapa 0 - Estética Inicial.",
+          "const": 0
+        },
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome do sistema, produto ou plataforma para o qual a estética inicial está sendo definida. Deve alimentar o título do documento e orientar todas as decisões visuais subsequentes.",
+          "minLength": 1
+        },
+        "direcao_criativa": {
+          "type": "object",
+          "title": "Direção Criativa",
+          "description": "Síntese estratégica da proposta visual inicial. Deve explicar a intenção estética geral, o posicionamento visual, a personalidade desejada e a lógica que sustenta as escolhas de design.",
+          "required": [
+            "essencia",
+            "adjetivos",
+            "direcao_formal",
+            "justificativa",
+            "restricoes"
+          ],
+          "properties": {
+            "essencia": {
+              "type": "string",
+              "title": "Essência da Direção",
+              "description": "Frase ou parágrafo curto que resume a ideia central da proposta estética. Deve explicitar o que a interface parece ser e por que ela é apropriada para o produto.",
+              "minLength": 1
+            },
+            "adjetivos": {
+              "type": "array",
+              "title": "Adjetivos de Personalidade",
+              "description": "Lista de adjetivos que caracterizam a personalidade visual do produto. Deve conter termos coerentes com o contexto enterprise, evitando descrições genéricas.",
+              "minItems": 3,
+              "items": {
+                "type": "string",
+                "title": "Adjetivo",
+                "description": "Termo que descreve a personalidade visual desejada. Deve ser específico, útil e alinhado ao contexto do produto.",
+                "minLength": 1
+              }
+            },
+            "direcao_formal": {
+              "type": "string",
+              "title": "Direção Formal",
+              "description": "Descrição do estilo visual adotado, incluindo geometria, densidade, linguagem de formas e comportamento espacial da interface.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa da Direção",
+              "description": "Explicação objetiva sobre por que essa direção criativa é adequada ao produto, ao público e ao uso real em desktop e mobile.",
+              "minLength": 1
+            },
+            "restricoes": {
+              "type": "array",
+              "title": "Restrições Criativas",
+              "description": "Lista de limitações e escolhas a evitar para impedir estética genérica, excesso ornamental ou inconsistência com o sistema de produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Restrição",
+                "description": "Regra visual ou decisão negativa que ajuda a preservar a identidade proposta e evitar soluções incompatíveis.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "diagnostico_anti_slop": {
+          "type": "object",
+          "title": "Diagnóstico Anti-Slop",
+          "description": "Avaliação crítica do que deve ser evitado para impedir uma aparência genérica ou automática. Deve registrar padrões visuais a rejeitar, decisões adotadas e riscos resolvidos pela proposta estética.",
+          "required": [
+            "padroes_a_evitar",
+            "decisoes_que_diferenciam",
+            "riscos_resolvidos"
+          ],
+          "properties": {
+            "padroes_a_evitar": {
+              "type": "array",
+              "title": "Padrões a Evitar",
+              "description": "Lista dos padrões visuais, composicionais e tipográficos que seriam considerados genéricos, pasteurizados ou inadequados para o produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Padrão Evitado",
+                "description": "Descrição de um padrão visual ou de interface que deve ser evitado.",
+                "minLength": 1
+              }
+            },
+            "decisoes_que_diferenciam": {
+              "type": "array",
+              "title": "Decisões que Diferenciam",
+              "description": "Lista de escolhas que tornam a interface reconhecível, específica e alinhada ao contexto do produto, evitando soluções intercambiáveis.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Decisão Diferenciadora",
+                "description": "Decisão de design que cria identidade própria e reforça a adequação do sistema ao cenário descrito.",
+                "minLength": 1
+              }
+            },
+            "riscos_resolvidos": {
+              "type": "array",
+              "title": "Riscos Resolvidos",
+              "description": "Lista de riscos estéticos ou de usabilidade tratados pela proposta, como baixa legibilidade, excesso de ruído visual ou falta de hierarquia.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Risco Resolvido",
+                "description": "Risco específico mitigado pela direção visual proposta.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "conceito_visual": {
+          "type": "object",
+          "title": "Conceito Visual",
+          "description": "Definição do conceito visual central da interface. Deve traduzir a narrativa do produto em linguagem de forma, composição, ritmo, contraste e metáfora visual.",
+          "required": [
+            "metafora_central",
+            "formas_predominantes",
+            "sensacao_desejada",
+            "sinais_visuais"
+          ],
+          "properties": {
+            "metafora_central": {
+              "type": "string",
+              "title": "Metáfora Central",
+              "description": "Metáfora visual principal que guia a aparência do produto. Deve ser concreta o suficiente para orientar decisões de layout, elementos e comportamento.",
+              "minLength": 1
+            },
+            "formas_predominantes": {
+              "type": "array",
+              "title": "Formas Predominantes",
+              "description": "Lista de formas geométricas ou composicionais dominantes na interface, como blocos, linhas, painéis, grades ou contêineres.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Forma Predominante",
+                "description": "Elemento formal recorrente que contribui para a identidade visual do produto.",
+                "minLength": 1
+              }
+            },
+            "sensacao_desejada": {
+              "type": "array",
+              "title": "Sensação Desejada",
+              "description": "Lista de sensações que a interface deve transmitir ao usuário ao interagir com o sistema.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Sensação",
+                "description": "Impressão emocional ou funcional que a interface deve produzir.",
+                "minLength": 1
+              }
+            },
+            "sinais_visuais": {
+              "type": "array",
+              "title": "Sinais Visuais",
+              "description": "Lista de sinais visuais concretos que materializam o conceito, como contraste, densidade, ritmo, bordas, superfícies e hierarquia.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Sinal Visual",
+                "description": "Indício formal ou composicional que traduz o conceito em interface.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "paleta_de_cores": {
+          "type": "object",
+          "title": "Paleta de Cores",
+          "description": "Sistema cromático completo da estética inicial. Deve incluir cores principais, secundárias, acentos, neutros e cores de estado, com regras de uso e coerência com o contexto enterprise.",
+          "required": [
+            "cores_primarias",
+            "cores_secundarias",
+            "cores_de_acento",
+            "cores_neutras",
+            "cores_de_estado",
+            "regras_de_uso"
+          ],
+          "properties": {
+            "cores_primarias": {
+              "type": "array",
+              "title": "Cores Primárias",
+              "description": "Lista de cores base que sustentam a identidade visual principal do produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "cores_secundarias": {
+              "type": "array",
+              "title": "Cores Secundárias",
+              "description": "Lista de cores complementares usadas para equilíbrio visual, variação de superfície e suporte à hierarquia.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "cores_de_acento": {
+              "type": "array",
+              "title": "Cores de Acento",
+              "description": "Lista de cores reservadas para destaque, ação principal, alertas específicos e reforço de informação crítica.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "cores_neutras": {
+              "type": "array",
+              "title": "Cores Neutras",
+              "description": "Lista de tons neutros usados em superfícies, fundos, textos e bordas para sustentar legibilidade e densidade informacional.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/color_token"
+              }
+            },
+            "cores_de_estado": {
+              "type": "array",
+              "title": "Cores de Estado",
+              "description": "Lista de cores específicas para sucesso, aviso, erro, informação, desabilitado e outros estados funcionais da interface.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/state_color_token"
+              }
+            },
+            "regras_de_uso": {
+              "type": "array",
+              "title": "Regras de Uso da Paleta",
+              "description": "Lista de regras que definem onde cada cor pode ou não pode ser aplicada, incluindo contraste, hierarquia e consistência entre temas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Regra de Uso",
+                "description": "Regra operacional para aplicação da cor na interface.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "tipografia": {
+          "type": "object",
+          "title": "Tipografia",
+          "description": "Sistema tipográfico completo da estética inicial. Deve definir famílias, pesos, hierarquia, legibilidade, comportamento responsivo e papéis tipográficos do produto.",
+          "required": [
+            "familia_titulos",
+            "familia_corpo",
+            "familia_mono",
+            "hierarquia",
+            "regras"
+          ],
+          "properties": {
+            "familia_titulos": {
+              "type": "object",
+              "title": "Família de Títulos",
+              "description": "Definição da família tipográfica usada em títulos, chamadas e áreas de ênfase editorial da interface.",
+              "required": [
+                "nome",
+                "fallbacks",
+                "peso_preferencial",
+                "uso"
+              ],
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "title": "Nome da Família",
+                  "description": "Nome da fonte principal para títulos.",
+                  "minLength": 1
+                },
+                "fallbacks": {
+                  "type": "array",
+                  "title": "Fallbacks",
+                  "description": "Lista de fontes alternativas para garantir consistência tipográfica caso a fonte principal não esteja disponível.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Fonte Fallback",
+                    "description": "Fonte alternativa compatível com a proposta visual.",
+                    "minLength": 1
+                  }
+                },
+                "peso_preferencial": {
+                  "type": "string",
+                  "title": "Peso Preferencial",
+                  "description": "Peso tipográfico recomendado para títulos.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso da Família",
+                  "description": "Descrição de onde a família deve ser aplicada e por que ela reforça a leitura da interface.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "familia_corpo": {
+              "type": "object",
+              "title": "Família de Corpo",
+              "description": "Definição da família tipográfica usada no texto corrido, labels, descrições e conteúdo funcional.",
+              "required": [
+                "nome",
+                "fallbacks",
+                "peso_preferencial",
+                "uso"
+              ],
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "title": "Nome da Família",
+                  "description": "Nome da fonte principal para corpo de texto.",
+                  "minLength": 1
+                },
+                "fallbacks": {
+                  "type": "array",
+                  "title": "Fallbacks",
+                  "description": "Lista de fontes alternativas para a família de corpo.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Fonte Fallback",
+                    "description": "Fonte alternativa para garantir boa renderização.",
+                    "minLength": 1
+                  }
+                },
+                "peso_preferencial": {
+                  "type": "string",
+                  "title": "Peso Preferencial",
+                  "description": "Peso tipográfico recomendado para texto funcional e leitura longa.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso da Família",
+                  "description": "Descrição do papel da fonte de corpo na interface.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "familia_mono": {
+              "type": "object",
+              "title": "Família Monoespaçada",
+              "description": "Definição da família monoespaçada para códigos, dados tabulares, logs, tokens, IDs e elementos técnicos.",
+              "required": [
+                "nome",
+                "fallbacks",
+                "peso_preferencial",
+                "uso"
+              ],
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "title": "Nome da Família",
+                  "description": "Nome da fonte monoespaçada principal.",
+                  "minLength": 1
+                },
+                "fallbacks": {
+                  "type": "array",
+                  "title": "Fallbacks",
+                  "description": "Lista de fontes alternativas monoespaçadas.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Fonte Fallback",
+                    "description": "Fonte alternativa para uso monoespaçado.",
+                    "minLength": 1
+                  }
+                },
+                "peso_preferencial": {
+                  "type": "string",
+                  "title": "Peso Preferencial",
+                  "description": "Peso tipográfico recomendado para a fonte monoespaçada.",
+                  "minLength": 1
+                },
+                "uso": {
+                  "type": "string",
+                  "title": "Uso da Família",
+                  "description": "Descrição de onde a fonte monoespaçada deve aparecer.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "hierarquia": {
+              "type": "array",
+              "title": "Hierarquia Tipográfica",
+              "description": "Lista dos níveis tipográficos do sistema, com tamanhos, pesos e usos esperados para cada nível.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/typographic_level"
+              }
+            },
+            "regras": {
+              "type": "array",
+              "title": "Regras Tipográficas",
+              "description": "Lista de regras que regulam contraste, truncamento, tamanho mínimo e comportamento responsivo da tipografia.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Regra Tipográfica",
+                "description": "Regra operacional para uso da tipografia no produto.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "sistema_de_espacamento": {
+          "type": "object",
+          "title": "Sistema de Espaçamento",
+          "description": "Escala espacial que organiza margens, paddings, gaps e alinhamentos do layout. Deve ser consistente, reutilizável e compatível com a densidade informacional do produto.",
+          "required": [
+            "base",
+            "escala",
+            "regras"
+          ],
+          "properties": {
+            "base": {
+              "type": "string",
+              "title": "Base da Escala",
+              "description": "Unidade ou referência base usada para construir o sistema de espaçamento. Deve ser clara e consistente com o design system.",
+              "minLength": 1
+            },
+            "escala": {
+              "type": "array",
+              "title": "Escala de Espaçamento",
+              "description": "Lista de tokens de espaçamento usados no produto para garantir consistência entre componentes e layouts.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/spacing_token"
+              }
+            },
+            "regras": {
+              "type": "array",
+              "title": "Regras de Espaçamento",
+              "description": "Lista de regras que orientam o uso da escala espacial em diferentes densidades e pontos de quebra.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Regra de Espaçamento",
+                "description": "Regra para aplicação da escala de espaçamento.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "layouts": {
+          "type": "object",
+          "title": "Layouts",
+          "description": "Definição dos comportamentos de layout para desktop, tablet e mobile. Deve explicar estrutura, densidade, navegação, prioridades e adaptação responsiva em cada breakpoint.",
+          "required": [
+            "desktop",
+            "tablet",
+            "mobile"
+          ],
+          "properties": {
+            "desktop": {
+              "$ref": "#/$defs/layout_spec"
+            },
+            "tablet": {
+              "$ref": "#/$defs/layout_spec"
+            },
+            "mobile": {
+              "$ref": "#/$defs/layout_spec"
+            }
+          },
+          "additionalProperties": false
+        },
+        "componentes": {
+          "type": "object",
+          "title": "Componentes",
+          "description": "Sistema de componentes reutilizáveis exigidos pelo prompt. Cada componente deve descrever aparência, estados, variantes, comportamento e cuidados de implementação.",
+          "required": [
+            "botao",
+            "input",
+            "select",
+            "tabela",
+            "card",
+            "badge",
+            "menu",
+            "modal",
+            "empty_state",
+            "loading",
+            "erro",
+            "sem_permissao"
+          ],
+          "properties": {
+            "botao": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "input": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "select": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "tabela": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "card": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "badge": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "menu": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "modal": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "empty_state": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "loading": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "erro": {
+              "$ref": "#/$defs/component_spec"
+            },
+            "sem_permissao": {
+              "$ref": "#/$defs/component_spec"
+            }
+          },
+          "additionalProperties": false
+        },
+        "movimento_e_microinteracoes": {
+          "type": "object",
+          "title": "Movimento e Microinterações",
+          "description": "Diretrizes de animação, transição e resposta visual do sistema. Deve comunicar função, evitar excesso ornamental e reforçar feedback útil.",
+          "required": [
+            "principios",
+            "duracoes",
+            "easing",
+            "microinteracoes"
+          ],
+          "properties": {
+            "principios": {
+              "type": "array",
+              "title": "Princípios de Movimento",
+              "description": "Lista de princípios que orientam o uso de animação no produto, como propósito, parcimônia e legibilidade.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Princípio de Movimento",
+                "description": "Regra conceitual para animações e transições da interface.",
+                "minLength": 1
+              }
+            },
+            "duracoes": {
+              "type": "array",
+              "title": "Durações",
+              "description": "Lista de durações recomendadas para transições e animações em diferentes contextos de uso.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/motion_duration"
+              }
+            },
+            "easing": {
+              "type": "array",
+              "title": "Curvas de Easing",
+              "description": "Lista das curvas de aceleração e desaceleração recomendadas para estados de movimento do produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/easing_token"
+              }
+            },
+            "microinteracoes": {
+              "type": "array",
+              "title": "Microinterações",
+              "description": "Lista de microinterações úteis, com comportamento esperado e função na experiência do produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/microinteraction_spec"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "estados_de_interface": {
+          "type": "object",
+          "title": "Estados de Interface",
+          "description": "Definição semântica dos estados operacionais da interface para garantir consistência em situações vazias, de erro, carregamento, restrição de acesso e afins.",
+          "required": [
+            "empty_state",
+            "loading",
+            "erro",
+            "sem_permissao"
+          ],
+          "properties": {
+            "empty_state": {
+              "$ref": "#/$defs/interface_state"
+            },
+            "loading": {
+              "$ref": "#/$defs/interface_state"
+            },
+            "erro": {
+              "$ref": "#/$defs/interface_state"
+            },
+            "sem_permissao": {
+              "$ref": "#/$defs/interface_state"
+            }
+          },
+          "additionalProperties": false
+        },
+        "diretrizes_css": {
+          "type": "object",
+          "title": "Diretrizes CSS",
+          "description": "Normas técnicas para implementação visual em CSS. Deve cobrir design tokens, variáveis, cores, espaçamento, tipografia, bordas, sombras e breakpoints.",
+          "required": [
+            "design_tokens",
+            "variaveis_css",
+            "regras"
+          ],
+          "properties": {
+            "design_tokens": {
+              "type": "object",
+              "title": "Design Tokens",
+              "description": "Agrupamento estruturado dos tokens fundamentais do sistema de design usados para implementar a interface com consistência.",
+              "required": [
+                "cores",
+                "tipografia",
+                "espacamento",
+                "bordas",
+                "sombras",
+                "breakpoints"
+              ],
+              "properties": {
+                "cores": {
+                  "type": "array",
+                  "title": "Tokens de Cor",
+                  "description": "Lista consolidada de tokens de cor utilizados no CSS do produto.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/color_token"
+                  }
+                },
+                "tipografia": {
+                  "type": "array",
+                  "title": "Tokens Tipográficos",
+                  "description": "Lista dos tokens tipográficos usados para tamanhos, pesos e alturas de linha.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/typographic_token"
+                  }
+                },
+                "espacamento": {
+                  "type": "array",
+                  "title": "Tokens de Espaçamento",
+                  "description": "Lista dos tokens de espaçamento usados no sistema CSS.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/spacing_token"
+                  }
+                },
+                "bordas": {
+                  "type": "array",
+                  "title": "Tokens de Borda",
+                  "description": "Lista dos tokens que definem raios, espessuras e estilos de borda.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/border_token"
+                  }
+                },
+                "sombras": {
+                  "type": "array",
+                  "title": "Tokens de Sombra",
+                  "description": "Lista dos tokens de sombra usados para profundidade, elevação e destaque.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/shadow_token"
+                  }
+                },
+                "breakpoints": {
+                  "type": "array",
+                  "title": "Breakpoints",
+                  "description": "Lista dos pontos de quebra do sistema responsivo.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/breakpoint_token"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "variaveis_css": {
+              "type": "array",
+              "title": "Variáveis CSS",
+              "description": "Lista de variáveis CSS recomendadas para a implementação do tema e dos componentes.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/css_variable"
+              }
+            },
+            "regras": {
+              "type": "array",
+              "title": "Regras CSS",
+              "description": "Lista de regras técnicas para uso correto das variáveis, tokens e padrões visuais no CSS do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Regra CSS",
+                "description": "Regra operacional para implementar a interface com CSS moderno e consistente.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "diretrizes_react": {
+          "type": "object",
+          "title": "Diretrizes React",
+          "description": "Orientações para implementação da interface em React. Deve cobrir composição, estrutura de componentes, estados, animações e práticas de acessibilidade.",
+          "required": [
+            "arquitetura",
+            "componentizacao",
+            "animacao",
+            "acessibilidade",
+            "padroes_de_estado"
+          ],
+          "properties": {
+            "arquitetura": {
+              "type": "array",
+              "title": "Arquitetura React",
+              "description": "Lista de princípios e decisões de arquitetura para a implementação do frontend em React.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Princípio de Arquitetura",
+                "description": "Regra de estruturação do aplicativo React.",
+                "minLength": 1
+              }
+            },
+            "componentizacao": {
+              "type": "array",
+              "title": "Componentização",
+              "description": "Lista de orientações sobre como decompor a interface em componentes reutilizáveis e previsíveis.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Regra de Componentização",
+                "description": "Diretriz para composição e reutilização de componentes em React.",
+                "minLength": 1
+              }
+            },
+            "animacao": {
+              "type": "array",
+              "title": "Uso de Animação",
+              "description": "Lista de recomendações para animação em React, incluindo quando usar Motion e como manter o movimento funcional.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Diretriz de Animação",
+                "description": "Regra para aplicar animações e transições em React.",
+                "minLength": 1
+              }
+            },
+            "acessibilidade": {
+              "type": "array",
+              "title": "Acessibilidade",
+              "description": "Lista de práticas de acessibilidade que devem ser respeitadas na implementação React.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Prática de Acessibilidade",
+                "description": "Prática técnica para tornar a interface acessível.",
+                "minLength": 1
+              }
+            },
+            "padroes_de_estado": {
+              "type": "array",
+              "title": "Padrões de Estado",
+              "description": "Lista de padrões recomendados para representar estados como loading, erro, vazio, bloqueio e permissão em componentes React.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Padrão de Estado",
+                "description": "Diretriz para controle e representação de estado no frontend React.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "exemplos_de_implementacao": {
+          "type": "array",
+          "title": "Exemplos de Implementação",
+          "description": "Exemplos concretos de como aplicar a direção estética em partes reais da interface. Cada item deve mostrar um cenário de uso e como a proposta visual se traduz em frontend.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/implementation_example"
+          }
+        },
+        "riscos_visuais": {
+          "type": "array",
+          "title": "Riscos Visuais",
+          "description": "Lista de riscos que podem comprometer a qualidade da interface se a direção estética for mal aplicada, acompanhados de impacto e mitigação.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/visual_risk"
+          }
+        },
+        "recomendacoes_finais": {
+          "type": "object",
+          "title": "Recomendações Finais",
+          "description": "Fechamento da proposta estética com prioridades, síntese de decisão e próximos passos recomendados para implementação.",
+          "required": [
+            "decisao_final",
+            "prioridades",
+            "proximos_passos"
+          ],
+          "properties": {
+            "decisao_final": {
+              "type": "string",
+              "title": "Decisão Final",
+              "description": "Síntese conclusiva da direção estética recomendada para o produto.",
+              "minLength": 1
+            },
+            "prioridades": {
+              "type": "array",
+              "title": "Prioridades",
+              "description": "Lista de prioridades de design e implementação que devem ser atacadas primeiro para manter coerência visual.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Prioridade",
+                "description": "Prioridade concreta para a execução da proposta estética.",
+                "minLength": 1
+              }
+            },
+            "proximos_passos": {
+              "type": "array",
+              "title": "Próximos Passos",
+              "description": "Lista de ações objetivas seguintes para transformar a direção estética em um sistema visual aplicável.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Próximo Passo",
+                "description": "Ação prática a ser executada após a definição da estética inicial.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "$defs": {
+        "color_token": {
+          "type": "object",
+          "title": "Token de Cor",
+          "description": "Objeto semântico que representa uma cor do sistema visual com nome, valor e intenção de uso.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Token de Cor",
+              "description": "Nome descritivo da cor dentro do sistema de design.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Cor",
+              "description": "Valor serializado da cor, como hex, rgb, oklch ou outro formato válido para implementação.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Cor",
+              "description": "Contexto funcional ou visual em que a cor deve ser aplicada.",
+              "minLength": 1
+            },
+            "contraste": {
+              "type": "string",
+              "title": "Contraste Recomendado",
+              "description": "Orientação sobre contraste esperado ou combinação de contraste ideal para essa cor.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "state_color_token": {
+          "type": "object",
+          "title": "Token de Cor de Estado",
+          "description": "Objeto semântico que representa uma cor associada a um estado funcional da interface, como sucesso ou erro.",
+          "required": [
+            "estado",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "estado": {
+              "type": "string",
+              "title": "Estado",
+              "description": "Nome do estado funcional associado à cor.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Cor",
+              "description": "Valor serializado da cor usada para o estado.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Estado",
+              "description": "Situação de interface em que essa cor de estado deve ser aplicada.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "typographic_level": {
+          "type": "object",
+          "title": "Nível Tipográfico",
+          "description": "Representa um nível da hierarquia tipográfica do sistema com tamanho, peso, espaçamento e função.",
+          "required": [
+            "nivel",
+            "tamanho",
+            "peso",
+            "line_height",
+            "uso"
+          ],
+          "properties": {
+            "nivel": {
+              "type": "string",
+              "title": "Nível",
+              "description": "Identificador do nível tipográfico, como display, heading ou body.",
+              "minLength": 1
+            },
+            "tamanho": {
+              "type": "string",
+              "title": "Tamanho",
+              "description": "Tamanho recomendado para o nível tipográfico.",
+              "minLength": 1
+            },
+            "peso": {
+              "type": "string",
+              "title": "Peso",
+              "description": "Peso tipográfico recomendado para o nível.",
+              "minLength": 1
+            },
+            "line_height": {
+              "type": "string",
+              "title": "Altura de Linha",
+              "description": "Altura de linha recomendada para manter legibilidade e densidade visual.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Nível",
+              "description": "Contexto de aplicação do nível tipográfico na interface.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "spacing_token": {
+          "type": "object",
+          "title": "Token de Espaçamento",
+          "description": "Representa um token de espaçamento usado pelo sistema para margens, paddings, gaps e alinhamentos.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Token",
+              "description": "Nome do token de espaçamento dentro do sistema.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor do Espaçamento",
+              "description": "Valor serializado do espaçamento, preferencialmente em unidades consistentes com o sistema.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Espaçamento",
+              "description": "Onde e por que esse token de espaço deve ser utilizado.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "layout_spec": {
+          "type": "object",
+          "title": "Especificação de Layout",
+          "description": "Descrição do comportamento do layout em um determinado breakpoint, com foco em estrutura, densidade e prioridades de uso.",
+          "required": [
+            "estrutura",
+            "densidade",
+            "navegacao",
+            "prioridades",
+            "comportamento"
+          ],
+          "properties": {
+            "estrutura": {
+              "type": "string",
+              "title": "Estrutura",
+              "description": "Descrição da organização espacial da tela neste breakpoint.",
+              "minLength": 1
+            },
+            "densidade": {
+              "type": "string",
+              "title": "Densidade",
+              "description": "Descrição do nível de densidade informacional esperado para esse layout.",
+              "minLength": 1
+            },
+            "navegacao": {
+              "type": "string",
+              "title": "Navegação",
+              "description": "Comportamento de navegação predominante no breakpoint.",
+              "minLength": 1
+            },
+            "prioridades": {
+              "type": "array",
+              "title": "Prioridades do Layout",
+              "description": "Lista dos elementos que devem receber atenção primeiro neste layout.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Prioridade",
+                "description": "Elemento ou área prioritária no layout.",
+                "minLength": 1
+              }
+            },
+            "comportamento": {
+              "type": "string",
+              "title": "Comportamento",
+              "description": "Descrição do comportamento responsivo ou funcional específico desse layout.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "component_spec": {
+          "type": "object",
+          "title": "Especificação de Componente",
+          "description": "Descrição detalhada de um componente reutilizável, cobrindo aparência, variantes, estados, comportamento e cuidados de uso.",
+          "required": [
+            "intencao",
+            "variantes",
+            "estados",
+            "comportamento",
+            "acessibilidade"
+          ],
+          "properties": {
+            "intencao": {
+              "type": "string",
+              "title": "Intenção",
+              "description": "Função do componente dentro do sistema e o problema de interface que ele resolve.",
+              "minLength": 1
+            },
+            "variantes": {
+              "type": "array",
+              "title": "Variantes",
+              "description": "Lista das variações visuais ou funcionais disponíveis para o componente.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Variante",
+                "description": "Nome ou descrição de uma variante do componente.",
+                "minLength": 1
+              }
+            },
+            "estados": {
+              "type": "array",
+              "title": "Estados",
+              "description": "Lista dos estados visuais e interativos que o componente deve suportar.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Estado",
+                "description": "Estado do componente, como hover, focus, disabled ou loading.",
+                "minLength": 1
+              }
+            },
+            "comportamento": {
+              "type": "string",
+              "title": "Comportamento",
+              "description": "Descrição de como o componente deve responder a interações, conteúdo variável e contextos diferentes.",
+              "minLength": 1
+            },
+            "acessibilidade": {
+              "type": "string",
+              "title": "Acessibilidade",
+              "description": "Requisitos de acessibilidade específicos do componente, incluindo contraste, foco, teclado e leitura por tecnologia assistiva.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "motion_duration": {
+          "type": "object",
+          "title": "Duração de Movimento",
+          "description": "Token de duração usado em animações e transições para dar coerência ao comportamento temporal da interface.",
+          "required": [
+            "nome",
+            "valor_ms",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Duração",
+              "description": "Nome descritivo do token de duração.",
+              "minLength": 1
+            },
+            "valor_ms": {
+              "type": "integer",
+              "title": "Valor em Milissegundos",
+              "description": "Duração numérica da animação ou transição em milissegundos.",
+              "minimum": 0
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Duração",
+              "description": "Situação em que essa duração deve ser aplicada.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "easing_token": {
+          "type": "object",
+          "title": "Token de Easing",
+          "description": "Representa uma curva de movimento usada em transições e animações da interface.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Easing",
+              "description": "Nome descritivo da curva de movimento.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor do Easing",
+              "description": "Valor serializado da curva, como cubic-bezier ou palavra-chave equivalente.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Easing",
+              "description": "Contexto em que a curva de movimento deve ser usada.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "microinteraction_spec": {
+          "type": "object",
+          "title": "Microinteração",
+          "description": "Descrição de uma microinteração funcional da interface, incluindo gatilho, resposta e finalidade.",
+          "required": [
+            "gatilho",
+            "resposta",
+            "finalidade"
+          ],
+          "properties": {
+            "gatilho": {
+              "type": "string",
+              "title": "Gatilho",
+              "description": "Ação ou evento que inicia a microinteração.",
+              "minLength": 1
+            },
+            "resposta": {
+              "type": "string",
+              "title": "Resposta",
+              "description": "Comportamento visual ou temporal que ocorre após o gatilho.",
+              "minLength": 1
+            },
+            "finalidade": {
+              "type": "string",
+              "title": "Finalidade",
+              "description": "Objetivo prático da microinteração dentro da experiência do produto.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "interface_state": {
+          "type": "object",
+          "title": "Estado de Interface",
+          "description": "Representação semântica de um estado funcional da interface, contendo finalidade, mensagem e ação apropriadas ao contexto.",
+          "required": [
+            "objetivo",
+            "mensagem",
+            "acao_principal",
+            "visual"
+          ],
+          "properties": {
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo do Estado",
+              "description": "O que esse estado pretende comunicar ou resolver no fluxo da interface.",
+              "minLength": 1
+            },
+            "mensagem": {
+              "type": "string",
+              "title": "Mensagem",
+              "description": "Texto principal exibido ao usuário nesse estado.",
+              "minLength": 1
+            },
+            "acao_principal": {
+              "type": "string",
+              "title": "Ação Principal",
+              "description": "Ação de recuperação, continuação ou navegação recomendada para o usuário.",
+              "minLength": 1
+            },
+            "visual": {
+              "type": "string",
+              "title": "Direção Visual",
+              "description": "Descrição da aparência e da linguagem visual associadas a esse estado.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "typographic_token": {
+          "type": "object",
+          "title": "Token Tipográfico",
+          "description": "Token tipográfico usado na implementação CSS para representar tamanhos, pesos, alturas de linha ou combinações relacionadas.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Token Tipográfico",
+              "description": "Nome do token tipográfico.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor Tipográfico",
+              "description": "Valor serializado do token, como tamanho, peso ou linha de base.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Token",
+              "description": "Finalidade do token dentro do sistema tipográfico.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "border_token": {
+          "type": "object",
+          "title": "Token de Borda",
+          "description": "Token que define propriedades de borda do sistema, como raio, espessura ou estilo.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Token de Borda",
+              "description": "Nome do token de borda.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Borda",
+              "description": "Valor serializado da borda, como raio ou espessura.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Borda",
+              "description": "Contexto em que a borda deve ser aplicada.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "shadow_token": {
+          "type": "object",
+          "title": "Token de Sombra",
+          "description": "Token que define camadas de sombra e elevação visual do sistema.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Token de Sombra",
+              "description": "Nome do token de sombra.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Sombra",
+              "description": "Valor serializado da sombra, normalmente em sintaxe CSS.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Sombra",
+              "description": "Contexto de aplicação da sombra no produto.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "breakpoint_token": {
+          "type": "object",
+          "title": "Breakpoint",
+          "description": "Token que define um ponto de quebra responsivo do sistema.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome do Breakpoint",
+              "description": "Nome simbólico do breakpoint.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor do Breakpoint",
+              "description": "Valor CSS do breakpoint, normalmente em pixels, rem ou outra unidade coerente.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso do Breakpoint",
+              "description": "Contexto responsivo em que o breakpoint deve ser aplicado.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "css_variable": {
+          "type": "object",
+          "title": "Variável CSS",
+          "description": "Variável CSS recomendada para uso no tema e nos componentes do sistema.",
+          "required": [
+            "nome",
+            "valor",
+            "uso"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome da Variável",
+              "description": "Nome da variável CSS.",
+              "minLength": 1
+            },
+            "valor": {
+              "type": "string",
+              "title": "Valor da Variável",
+              "description": "Valor CSS serializado associado à variável.",
+              "minLength": 1
+            },
+            "uso": {
+              "type": "string",
+              "title": "Uso da Variável",
+              "description": "Finalidade da variável no código frontend.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "implementation_example": {
+          "type": "object",
+          "title": "Exemplo de Implementação",
+          "description": "Exemplo prático de aplicação da direção estética em uma parte real da interface.",
+          "required": [
+            "cenario",
+            "componentes_envolvidos",
+            "resultado_esperado",
+            "observacoes"
+          ],
+          "properties": {
+            "cenario": {
+              "type": "string",
+              "title": "Cenário",
+              "description": "Descrição do contexto de interface no qual a implementação acontece.",
+              "minLength": 1
+            },
+            "componentes_envolvidos": {
+              "type": "array",
+              "title": "Componentes Envolvidos",
+              "description": "Lista dos componentes ou áreas da interface usadas no exemplo.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Componente",
+                "description": "Componente ou elemento usado no exemplo.",
+                "minLength": 1
+              }
+            },
+            "resultado_esperado": {
+              "type": "string",
+              "title": "Resultado Esperado",
+              "description": "Efeito visual e funcional esperado após a aplicação da proposta.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas sobre execução, limitações ou cuidados do exemplo.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "visual_risk": {
+          "type": "object",
+          "title": "Risco Visual",
+          "description": "Risco associado à implementação da estética, incluindo o impacto negativo e a forma de mitigação.",
+          "required": [
+            "risco",
+            "impacto",
+            "mitigacao"
+          ],
+          "properties": {
+            "risco": {
+              "type": "string",
+              "title": "Risco",
+              "description": "Descrição do risco visual ou de experiência.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Consequência negativa esperada caso o risco ocorra.",
+              "minLength": 1
+            },
+            "mitigacao": {
+              "type": "string",
+              "title": "Mitigação",
+              "description": "Medida recomendada para reduzir ou eliminar o risco.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "executionCompatibilityContract": {
+      "sourceOfTruth": "schemas-used/0-output-template.json",
+      "validationTarget": "0-output.json as entire document",
+      "rootMode": "direct_schema_instance",
+      "mustValidateWith": "JSON Schema Draft 7",
+      "additionalPropertiesPolicy": "strict; reject undeclared fields where template declares additionalProperties=false",
+      "forbiddenEnvelope": {
+        "description": "O output final não pode usar o padrão de análise {id,title,objective,description,content}.",
+        "forbiddenRootProperties": [
+          "id",
+          "title",
+          "objective",
+          "description",
+          "content"
+        ]
+      },
+      "requiredRootProperties": [
+        "etapa",
+        "nome_do_produto",
+        "direcao_criativa",
+        "diagnostico_anti_slop",
+        "conceito_visual",
+        "paleta_de_cores",
+        "tipografia",
+        "sistema_de_espacamento",
+        "layouts",
+        "componentes",
+        "movimento_e_microinteracoes",
+        "estados_de_interface",
+        "diretrizes_css",
+        "diretrizes_react",
+        "exemplos_de_implementacao",
+        "riscos_visuais",
+        "recomendacoes_finais"
+      ]
+    }
+  },
+  "outputExample": {
+    "file": "0-output.json",
+    "title": "Instância direta válida do schema da Etapa 0",
+    "objective": "Demonstrar que o arquivo final deve ser o próprio objeto validável pelo template, sem envelope externo.",
+    "description": "A chave strictOutputRoot abaixo representa exatamente o objeto que deve ser salvo como 0-output.json. Não salvar as chaves file, title, objective, description ou strictOutputRoot no arquivo final; salvar somente o valor de strictOutputRoot.",
+    "rootMode": "direct_schema_instance",
+    "validationTarget": "entire_json_document",
+    "forbiddenWrapperKeysInFinalOutput": [
+      "id",
+      "title",
+      "objective",
+      "description",
+      "content"
+    ],
+    "strictOutputRoot": {
+      "etapa": 0,
+      "nome_do_produto": "Gestor de Estoque Hospitalar Preditivo",
+      "direcao_criativa": {
+        "essencia": "Interface clínica-operacional de alta confiabilidade, concebida como uma torre de controle de suprimentos críticos para antecipar ruptura, vencimento, falhas de rastreabilidade e necessidade de compra.",
+        "adjetivos": [
+          "clínico-operacional",
+          "preditivo",
+          "rastreável",
+          "regulatório",
+          "sóbrio",
+          "preciso",
+          "enterprise",
+          "auditável"
+        ],
+        "direcao_formal": "Visual enterprise denso e controlado, com tabelas robustas, cards analíticos compactos, badges semânticos, painéis laterais de rastreabilidade, geometria retangular de cantos moderados e ícones lineares funcionais.",
+        "justificativa": "Hospitais, clínicas e odontologia precisam tomar decisões rápidas sobre lote, validade, compra e conformidade. A estética deve transmitir segurança, prevenção e governança, sem parecer um dashboard genérico.",
+        "restricoes": [
+          "Evitar estética lúdica ou wellness genérica.",
+          "Não usar IA como brilho ou robô; usar IA como previsão explicável.",
+          "Não depender apenas de cor para comunicar risco.",
+          "Não esconder lote, validade e origem em telas secundárias.",
+          "Não transformar alertas críticos em notificações comuns."
+        ]
+      },
+      "diagnostico_anti_slop": {
+        "padroes_a_evitar": [
+          "Dashboard SaaS genérico com cards grandes e gráficos decorativos.",
+          "Ícones médicos usados como enfeite sem valor operacional.",
+          "Gradientes futuristas sem relação com rastreabilidade.",
+          "Tabelas bonitas, mas pobres em lote, validade, previsão e ação recomendada.",
+          "Alertas vermelhos sem hierarquia de severidade."
+        ],
+        "decisoes_que_diferenciam": [
+          "Tratar o sistema como centro de comando hospitalar.",
+          "Colocar lote, serial, validade e NF-e no centro da linguagem visual.",
+          "Usar previsão com confiança, motivo e horizonte temporal.",
+          "Valorizar tabela operacional como componente principal.",
+          "Separar risco crítico, preventivo, regulatório e preditivo."
+        ],
+        "riscos_resolvidos": [
+          "Reduz percepção de produto genérico.",
+          "Aumenta confiança em ambientes regulados.",
+          "Torna a IA explicável e acionável.",
+          "Melhora leitura de riscos antes da ruptura ou vencimento."
+        ]
+      },
+      "conceito_visual": {
+        "metafora_central": "Torre de controle de suprimentos clínicos, capaz de enxergar risco futuro e conduzir ações rastreáveis antes que o atendimento seja afetado.",
+        "formas_predominantes": [
+          "Cards compactos para indicadores críticos.",
+          "Tabelas densas com colunas fixas e badges de risco.",
+          "Painéis laterais para detalhe de item, lote e previsão.",
+          "Linhas temporais para validade, movimentação e auditoria.",
+          "Chips para Anvisa, NF-e, fornecedor, unidade e categoria."
+        ],
+        "sensacao_desejada": [
+          "Controle antes da urgência.",
+          "Confiança regulatória.",
+          "Precisão clínica.",
+          "Operação preventiva.",
+          "IA responsável e explicável."
+        ],
+        "sinais_visuais": [
+          "Bordas laterais para criticidade.",
+          "Badges com texto, cor e ícone.",
+          "Fonte mono para lote, serial e chave NF-e.",
+          "Indicador de confiança de previsão.",
+          "Ações recomendadas próximas do alerta."
+        ]
+      },
+      "paleta_de_cores": {
+        "cores_primarias": [
+          {
+            "nome": "Azul clínico profundo",
+            "valor": "#173B57",
+            "uso": "Navegação, cabeçalhos, identidade enterprise.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Ciano preditivo",
+            "valor": "#2C9FB3",
+            "uso": "Insights, previsão e ações assistidas por IA.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          }
+        ],
+        "cores_secundarias": [
+          {
+            "nome": "Verde controle",
+            "valor": "#2E7D5B",
+            "uso": "Estoque saudável e conformidade.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Azul metadado",
+            "valor": "#4F6473",
+            "uso": "Metadados operacionais e informações secundárias.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Índigo governança",
+            "valor": "#394867",
+            "uso": "Superadmin, auditoria e plataforma.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          }
+        ],
+        "cores_de_acento": [
+          {
+            "nome": "Âmbar validade",
+            "valor": "#D9911E",
+            "uso": "Vencimento próximo e compra preventiva.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Vermelho ruptura",
+            "valor": "#C43B3B",
+            "uso": "Ruptura, vencimento expirado e bloqueio crítico.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Roxo IA",
+            "valor": "#6F5DD3",
+            "uso": "Modelos, automações e explicabilidade de IA.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          }
+        ],
+        "cores_neutras": [
+          {
+            "nome": "Fundo principal",
+            "valor": "#F6F8FA",
+            "uso": "Base da aplicação.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Superfície",
+            "valor": "#FFFFFF",
+            "uso": "Cards, tabelas e formulários.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Borda sutil",
+            "valor": "#D8E0E6",
+            "uso": "Separação entre áreas densas.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Texto principal",
+            "valor": "#1F2933",
+            "uso": "Leitura principal.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          },
+          {
+            "nome": "Texto secundário",
+            "valor": "#5F6F7A",
+            "uso": "Labels e metadados.",
+            "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+          }
+        ],
+        "cores_de_estado": [
+          {
+            "estado": "success",
+            "valor": "#2E7D5B",
+            "uso": "Estoque seguro e conformidade."
+          },
+          {
+            "estado": "warning",
+            "valor": "#D9911E",
+            "uso": "Atenção preventiva, validade próxima ou compra sugerida."
+          },
+          {
+            "estado": "danger",
+            "valor": "#C43B3B",
+            "uso": "Ruptura, vencimento, bloqueio de lote ou falha crítica."
+          },
+          {
+            "estado": "info",
+            "valor": "#2C7DA0",
+            "uso": "Contexto preditivo e informações operacionais."
+          },
+          {
+            "estado": "neutral",
+            "valor": "#60717D",
+            "uso": "Estado informativo sem urgência."
+          }
+        ],
+        "regras_de_uso": [
+          "Vermelho somente para risco operacional real.",
+          "Âmbar para prevenção antes da criticidade.",
+          "Roxo apenas para IA e automação explicável.",
+          "Estados devem combinar cor, texto e ícone.",
+          "Fundos neutros devem preservar legibilidade em alta densidade."
+        ]
+      },
+      "tipografia": {
+        "familia_titulos": {
+          "nome": "Inter Tight",
+          "fallbacks": [
+            "Inter",
+            "Segoe UI",
+            "Arial",
+            "sans-serif"
+          ],
+          "peso_preferencial": "600 a 700",
+          "uso": "Títulos de página, seções e indicadores principais."
+        },
+        "familia_corpo": {
+          "nome": "Inter",
+          "fallbacks": [
+            "Segoe UI",
+            "Roboto",
+            "Arial",
+            "sans-serif"
+          ],
+          "peso_preferencial": "400 a 600",
+          "uso": "Labels, tabelas, filtros, menus e textos operacionais."
+        },
+        "familia_mono": {
+          "nome": "Roboto Mono",
+          "fallbacks": [
+            "Consolas",
+            "SFMono-Regular",
+            "monospace"
+          ],
+          "peso_preferencial": "400 a 500",
+          "uso": "Lote, serial, SKU, chave NF-e, logs e auditoria."
+        },
+        "hierarquia": [
+          {
+            "nivel": "H1",
+            "tamanho": "28px",
+            "peso": "600",
+            "line_height": "36px",
+            "uso": "Título principal do módulo."
+          },
+          {
+            "nivel": "H2",
+            "tamanho": "22px",
+            "peso": "600",
+            "line_height": "30px",
+            "uso": "Seções operacionais."
+          },
+          {
+            "nivel": "H3",
+            "tamanho": "18px",
+            "peso": "600",
+            "line_height": "26px",
+            "uso": "Cards e painéis."
+          },
+          {
+            "nivel": "Body",
+            "tamanho": "14px",
+            "peso": "400",
+            "line_height": "20px",
+            "uso": "Texto padrão."
+          },
+          {
+            "nivel": "Table",
+            "tamanho": "13px",
+            "peso": "400/500",
+            "line_height": "18px",
+            "uso": "Tabelas densas."
+          },
+          {
+            "nivel": "Caption",
+            "tamanho": "12px",
+            "peso": "500",
+            "line_height": "16px",
+            "uso": "Metadados e auditoria."
+          },
+          {
+            "nivel": "Mono",
+            "tamanho": "12px",
+            "peso": "400/500",
+            "line_height": "16px",
+            "uso": "Identificadores técnicos."
+          }
+        ],
+        "regras": [
+          "Nunca reduzir tabelas críticas abaixo de 12px.",
+          "Usar peso 600 apenas para hierarquia e ação.",
+          "Identificadores regulatórios devem usar fonte mono.",
+          "Evitar títulos grandes demais em telas operacionais."
+        ]
+      },
+      "sistema_de_espacamento": {
+        "base": "Escala de 4px orientada a interfaces densas e responsivas.",
+        "escala": [
+          {
+            "nome": "space-1",
+            "valor": "4px",
+            "uso": "Ícone + texto e microgaps."
+          },
+          {
+            "nome": "space-2",
+            "valor": "8px",
+            "uso": "Badges, filtros e controles compactos."
+          },
+          {
+            "nome": "space-3",
+            "valor": "12px",
+            "uso": "Linhas de tabela e cards densos."
+          },
+          {
+            "nome": "space-4",
+            "valor": "16px",
+            "uso": "Padding padrão."
+          },
+          {
+            "nome": "space-6",
+            "valor": "24px",
+            "uso": "Separação de blocos."
+          },
+          {
+            "nome": "space-8",
+            "valor": "32px",
+            "uso": "Separação entre seções."
+          },
+          {
+            "nome": "space-12",
+            "valor": "48px",
+            "uso": "Estados vazios e telas introdutórias."
+          }
+        ],
+        "regras": [
+          "Manter área clicável mínima de 40px.",
+          "Aproximar filtros da tabela correspondente.",
+          "Destacar alertas críticos com respiro próprio.",
+          "Agrupar identificação, estoque, validade, previsão e rastreabilidade."
+        ]
+      },
+      "layouts": {
+        "desktop": {
+          "estrutura": "Sidebar persistente, topbar de tenant/unidade/setor, grid central e painel lateral de detalhe.",
+          "densidade": "Alta densidade controlada para operação hospitalar.",
+          "navegacao": "Menu lateral com busca, contexto de tenant e atalhos críticos.",
+          "prioridades": [
+            "Ruptura prevista",
+            "Vencimento próximo",
+            "Compras sugeridas",
+            "Lotes críticos",
+            "Pendências de rastreabilidade"
+          ],
+          "comportamento": "Tabelas ocupam a maior largura útil; detalhes abrem em painel lateral sem perder contexto."
+        },
+        "tablet": {
+          "estrutura": "Navegação recolhível, cards em duas colunas e filtros em drawer.",
+          "densidade": "Densidade média com prioridade para leitura e ação.",
+          "navegacao": "Drawer lateral e tabs contextuais.",
+          "prioridades": [
+            "Alertas",
+            "Lista de materiais",
+            "Detalhe do lote",
+            "Ação recomendada"
+          ],
+          "comportamento": "Painéis sobrepostos preservam contexto e evitam navegação excessiva."
+        },
+        "mobile": {
+          "estrutura": "Listas em cards por item, busca por material/lote/serial e páginas empilhadas de detalhe.",
+          "densidade": "Densidade compacta, priorizando decisões rápidas.",
+          "navegacao": "Bottom navigation ou menu compacto por domínio.",
+          "prioridades": [
+            "Status do item",
+            "Risco",
+            "Validade",
+            "Ação rápida"
+          ],
+          "comportamento": "Não replicar tabela completa; mostrar resumo acionável e rastreabilidade essencial."
+        }
+      },
+      "componentes": {
+        "botao": {
+          "intencao": "Executar ações críticas e preventivas com clareza operacional.",
+          "variantes": [
+            "primário",
+            "secundário",
+            "preditivo",
+            "destrutivo",
+            "terciário"
+          ],
+          "estados": [
+            "default",
+            "hover",
+            "focus",
+            "disabled",
+            "loading"
+          ],
+          "comportamento": "Labels explícitos como Gerar compra sugerida, Bloquear lote ou Importar NF-e.",
+          "acessibilidade": "Foco visível, contraste AA e aria-label quando houver ícone isolado."
+        },
+        "input": {
+          "intencao": "Capturar dados sensíveis de estoque, lote e fornecedor com validação imediata.",
+          "variantes": [
+            "texto",
+            "número",
+            "data",
+            "lote/serial",
+            "NF-e"
+          ],
+          "estados": [
+            "default",
+            "focus",
+            "erro",
+            "sucesso",
+            "disabled"
+          ],
+          "comportamento": "Suportar máscara, colagem e leitura por código quando aplicável.",
+          "acessibilidade": "Label persistente, erro textual e navegação por teclado."
+        },
+        "select": {
+          "intencao": "Selecionar entidades relacionadas sem interromper o fluxo.",
+          "variantes": [
+            "simples",
+            "com busca",
+            "multi-select",
+            "agrupado",
+            "com criação contextual"
+          ],
+          "estados": [
+            "default",
+            "open",
+            "selected",
+            "empty",
+            "disabled"
+          ],
+          "comportamento": "Agrupar por categoria, unidade, setor e fornecedor; permitir cadastrar relacionado em modal/painel.",
+          "acessibilidade": "Compatível com teclado, aria-expanded e leitura de opções."
+        },
+        "tabela": {
+          "intencao": "Ser o núcleo da operação de estoque hospitalar.",
+          "variantes": [
+            "compacta",
+            "confortável",
+            "com colunas fixas",
+            "com seleção em massa",
+            "com exportação"
+          ],
+          "estados": [
+            "loading",
+            "empty",
+            "erro",
+            "linha crítica",
+            "linha selecionada"
+          ],
+          "comportamento": "Oferecer ordenação, filtros, colunas configuráveis e destaque de risco por linha.",
+          "acessibilidade": "Cabeçalhos semânticos, foco por linha e alternativa mobile em cards."
+        },
+        "card": {
+          "intencao": "Resumir indicadores críticos sem perder contexto acionável.",
+          "variantes": [
+            "indicador",
+            "risco",
+            "previsão",
+            "auditoria"
+          ],
+          "estados": [
+            "normal",
+            "warning",
+            "critical",
+            "loading"
+          ],
+          "comportamento": "Mostrar métrica, tendência, contexto e atalho de ação.",
+          "acessibilidade": "Não depender só da cor; incluir texto e ícone."
+        },
+        "badge": {
+          "intencao": "Comunicar status regulatório, risco e previsão em espaços densos.",
+          "variantes": [
+            "success",
+            "warning",
+            "danger",
+            "info",
+            "neutral",
+            "ai"
+          ],
+          "estados": [
+            "default",
+            "hover",
+            "selecionado"
+          ],
+          "comportamento": "Combinar texto curto, cor semântica e ícone.",
+          "acessibilidade": "Texto sempre presente e contraste validado."
+        },
+        "menu": {
+          "intencao": "Organizar módulos enterprise e pendências por domínio.",
+          "variantes": [
+            "expandido",
+            "recolhido",
+            "com contador crítico"
+          ],
+          "estados": [
+            "ativo",
+            "hover",
+            "focus",
+            "disabled"
+          ],
+          "comportamento": "Separar Operação, Estoque, Compras, Rastreabilidade, IA, Relatórios e Administração.",
+          "acessibilidade": "Navegação por teclado e indicação textual de módulo ativo."
+        },
+        "modal": {
+          "intencao": "Confirmar ações ou permitir inclusão contextual curta.",
+          "variantes": [
+            "confirmação",
+            "criação rápida",
+            "revisão"
+          ],
+          "estados": [
+            "open",
+            "loading",
+            "erro"
+          ],
+          "comportamento": "Processos longos devem virar página ou painel lateral amplo.",
+          "acessibilidade": "Trap focus, fechamento previsível e descrição acessível."
+        },
+        "empty_state": {
+          "intencao": "Orientar implantação quando ainda faltam dados.",
+          "variantes": [
+            "sem histórico",
+            "sem lote",
+            "sem fornecedor",
+            "sem integração"
+          ],
+          "estados": [
+            "informativo",
+            "acionável"
+          ],
+          "comportamento": "Explicar próximo passo: importar NF-e, cadastrar materiais ou carregar planilha.",
+          "acessibilidade": "Mensagem clara e ação principal acessível."
+        },
+        "loading": {
+          "intencao": "Indicar carregamento preservando estrutura visual.",
+          "variantes": [
+            "skeleton de tabela",
+            "skeleton de card",
+            "processamento IA"
+          ],
+          "estados": [
+            "loading"
+          ],
+          "comportamento": "Exibir contexto quando houver cálculo preditivo ou validação de NF-e.",
+          "acessibilidade": "Evitar movimento excessivo e respeitar redução de movimento."
+        },
+        "erro": {
+          "intencao": "Comunicar falha com impacto e recuperação.",
+          "variantes": [
+            "erro técnico",
+            "erro de validação",
+            "erro de integração",
+            "erro regulatório"
+          ],
+          "estados": [
+            "visível",
+            "recuperável"
+          ],
+          "comportamento": "Informar causa provável, impacto e próxima ação.",
+          "acessibilidade": "Usar role alert quando crítico e texto legível."
+        },
+        "sem_permissao": {
+          "intencao": "Bloquear acesso de forma explicável por perfil, tenant, unidade ou plano.",
+          "variantes": [
+            "sem perfil",
+            "sem módulo",
+            "sem tenant",
+            "sem plano"
+          ],
+          "estados": [
+            "bloqueado"
+          ],
+          "comportamento": "Mostrar recurso bloqueado e como solicitar acesso.",
+          "acessibilidade": "Evitar expor dados sensíveis e oferecer caminho seguro."
+        }
+      },
+      "movimento_e_microinteracoes": {
+        "principios": [
+          "Movimento funcional e curto.",
+          "Transições preservam contexto.",
+          "Alertas críticos não competem com animações.",
+          "Mudança de status deve ser perceptível sem ser celebratória."
+        ],
+        "duracoes": [
+          {
+            "nome": "instantâneo",
+            "valor_ms": 100,
+            "uso": "Hover, foco e pequenos feedbacks."
+          },
+          {
+            "nome": "rápido",
+            "valor_ms": 160,
+            "uso": "Dropdowns e menus."
+          },
+          {
+            "nome": "painel",
+            "valor_ms": 220,
+            "uso": "Drawers e painéis laterais."
+          },
+          {
+            "nome": "transição composta",
+            "valor_ms": 280,
+            "uso": "Mudanças de página ou estado composto."
+          }
+        ],
+        "easing": [
+          {
+            "nome": "entrada suave",
+            "valor": "ease-out",
+            "uso": "Entrada de painel e feedback."
+          },
+          {
+            "nome": "saída curta",
+            "valor": "ease-in",
+            "uso": "Fechamento de elementos."
+          },
+          {
+            "nome": "material controlado",
+            "valor": "cubic-bezier(0.2, 0, 0, 1)",
+            "uso": "Transições principais."
+          }
+        ],
+        "microinteracoes": [
+          {
+            "gatilho": "Alterar quantidade",
+            "resposta": "Recalcular cobertura prevista e risco.",
+            "finalidade": "Mostrar impacto operacional imediato."
+          },
+          {
+            "gatilho": "Selecionar lote",
+            "resposta": "Destacar validade, origem, NF-e e movimentações.",
+            "finalidade": "Apoiar rastreabilidade."
+          },
+          {
+            "gatilho": "Aprovar compra sugerida",
+            "resposta": "Converter recomendação em pedido revisável.",
+            "finalidade": "Fechar ciclo preditivo."
+          },
+          {
+            "gatilho": "Previsão com baixa confiança",
+            "resposta": "Exibir motivo e pedir dados complementares.",
+            "finalidade": "Evitar confiança falsa."
+          },
+          {
+            "gatilho": "Aplicar filtro crítico",
+            "resposta": "Fixar chip do filtro ativo.",
+            "finalidade": "Manter contexto de auditoria."
+          }
+        ]
+      },
+      "estados_de_interface": {
+        "empty_state": {
+          "objetivo": "Orientar início ou ausência de dados.",
+          "mensagem": "Nenhum dado suficiente para previsão ainda.",
+          "acao_principal": "Importar NF-e ou cadastrar materiais.",
+          "visual": "Ilustração técnica discreta, lista de próximos passos e card de implantação."
+        },
+        "loading": {
+          "objetivo": "Indicar processamento sem perder estrutura.",
+          "mensagem": "Calculando cobertura e validando rastreabilidade.",
+          "acao_principal": "Aguardar carregamento.",
+          "visual": "Skeletons de tabela, cards e painel lateral."
+        },
+        "erro": {
+          "objetivo": "Explicar falha e recuperação.",
+          "mensagem": "Não foi possível carregar os lotes críticos.",
+          "acao_principal": "Tentar novamente ou revisar integração.",
+          "visual": "Banner de erro com borda vermelha, ícone e detalhes recolhíveis."
+        },
+        "sem_permissao": {
+          "objetivo": "Bloquear recurso sensível com clareza.",
+          "mensagem": "Seu perfil não permite visualizar compras ou auditoria deste tenant.",
+          "acao_principal": "Solicitar acesso ao administrador.",
+          "visual": "Card neutro com ícone de bloqueio e ação segura."
+        }
+      },
+      "diretrizes_css": {
+        "design_tokens": {
+          "cores": [
+            {
+              "nome": "--color-primary",
+              "valor": "#173B57",
+              "uso": "Cor primária do tema.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            },
+            {
+              "nome": "--color-predictive",
+              "valor": "#2C9FB3",
+              "uso": "Ações preditivas.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            },
+            {
+              "nome": "--color-ai",
+              "valor": "#6F5DD3",
+              "uso": "IA explicável.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            },
+            {
+              "nome": "--color-danger",
+              "valor": "#C43B3B",
+              "uso": "Risco crítico.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            },
+            {
+              "nome": "--color-warning",
+              "valor": "#D9911E",
+              "uso": "Atenção preventiva.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            },
+            {
+              "nome": "--color-surface",
+              "valor": "#FFFFFF",
+              "uso": "Superfícies.",
+              "contraste": "Usar com contraste mínimo AA e texto de apoio quando comunicar estado."
+            }
+          ],
+          "tipografia": [
+            {
+              "nome": "--font-title",
+              "valor": "Inter Tight, Inter, Segoe UI, sans-serif",
+              "uso": "Títulos."
+            },
+            {
+              "nome": "--font-body",
+              "valor": "Inter, Segoe UI, Roboto, sans-serif",
+              "uso": "Texto geral."
+            },
+            {
+              "nome": "--font-mono",
+              "valor": "Roboto Mono, Consolas, monospace",
+              "uso": "Identificadores técnicos."
+            },
+            {
+              "nome": "--text-table",
+              "valor": "13px",
+              "uso": "Tabelas densas."
+            }
+          ],
+          "espacamento": [
+            {
+              "nome": "--space-1",
+              "valor": "4px",
+              "uso": "Microgaps."
+            },
+            {
+              "nome": "--space-2",
+              "valor": "8px",
+              "uso": "Controles compactos."
+            },
+            {
+              "nome": "--space-4",
+              "valor": "16px",
+              "uso": "Padding padrão."
+            },
+            {
+              "nome": "--space-6",
+              "valor": "24px",
+              "uso": "Blocos."
+            }
+          ],
+          "bordas": [
+            {
+              "nome": "--radius-sm",
+              "valor": "6px",
+              "uso": "Controles compactos."
+            },
+            {
+              "nome": "--radius-md",
+              "valor": "8px",
+              "uso": "Botões e inputs."
+            },
+            {
+              "nome": "--border-subtle",
+              "valor": "1px solid #D8E0E6",
+              "uso": "Divisores."
+            }
+          ],
+          "sombras": [
+            {
+              "nome": "--shadow-card",
+              "valor": "0 1px 2px rgba(31,41,51,.06)",
+              "uso": "Cards sutis."
+            },
+            {
+              "nome": "--shadow-panel",
+              "valor": "0 8px 24px rgba(31,41,51,.12)",
+              "uso": "Painéis laterais."
+            },
+            {
+              "nome": "--shadow-focus",
+              "valor": "0 0 0 3px rgba(44,159,179,.22)",
+              "uso": "Foco acessível."
+            }
+          ],
+          "breakpoints": [
+            {
+              "nome": "--bp-mobile",
+              "valor": "360px",
+              "uso": "Mobile base."
+            },
+            {
+              "nome": "--bp-tablet",
+              "valor": "768px",
+              "uso": "Tablet."
+            },
+            {
+              "nome": "--bp-desktop",
+              "valor": "1200px",
+              "uso": "Desktop."
+            },
+            {
+              "nome": "--bp-wide",
+              "valor": "1440px",
+              "uso": "Telas amplas."
+            }
+          ]
+        },
+        "variaveis_css": [
+          {
+            "nome": "--color-primary",
+            "valor": "#173B57",
+            "uso": "Navegação e ações principais."
+          },
+          {
+            "nome": "--color-danger-bg",
+            "valor": "#FDE8E8",
+            "uso": "Fundo de risco crítico."
+          },
+          {
+            "nome": "--font-mono",
+            "valor": "Roboto Mono, Consolas, monospace",
+            "uso": "Lote e NF-e."
+          },
+          {
+            "nome": "--radius-md",
+            "valor": "8px",
+            "uso": "Raio padrão de controle."
+          },
+          {
+            "nome": "--table-row-height",
+            "valor": "40px",
+            "uso": "Linha mínima de tabela."
+          }
+        ],
+        "regras": [
+          "Manter contraste WCAG AA.",
+          "Usar bordas e tipografia antes de sombras fortes.",
+          "Encapsular tokens em componentes principais.",
+          "Estados coloridos devem ter texto e ícone."
+        ]
+      },
+      "diretrizes_react": {
+        "arquitetura": [
+          "Organizar por domínios: estoque, lotes, validade, previsão, compras, rastreabilidade e administração.",
+          "Separar layout enterprise, componentes de dados e componentes preditivos.",
+          "Preparar multi-tenant, multiunidade, permissões, feature flags e planos enterprise."
+        ],
+        "componentizacao": [
+          "InventoryRiskBadge.",
+          "PredictiveRecommendationCard.",
+          "TraceabilityTimeline.",
+          "StockCoverageIndicator.",
+          "OperationalDataTable.",
+          "PermissionState."
+        ],
+        "animacao": [
+          "Usar CSS transitions para feedback simples.",
+          "Usar animação composta apenas em painéis e mudanças de estado.",
+          "Respeitar prefers-reduced-motion."
+        ],
+        "acessibilidade": [
+          "Badges com aria-label completo.",
+          "Alertas críticos com role alert.",
+          "Foco visível em filtros, linhas e ações.",
+          "Tabela navegável por teclado.",
+          "Não depender exclusivamente de cor."
+        ],
+        "padroes_de_estado": [
+          "Previsão com confiança alta, média, baixa ou insuficiente.",
+          "Filtros salvos na URL.",
+          "Separar erro técnico, permissão, ausência de dados e alerta operacional.",
+          "Estados centralizados por domínio."
+        ]
+      },
+      "exemplos_de_implementacao": [
+        {
+          "cenario": "Dashboard inicial",
+          "componentes_envolvidos": [
+            "RiskCard",
+            "OperationalDataTable",
+            "PredictiveRecommendationCard"
+          ],
+          "resultado_esperado": "Usuário vê ruptura prevista, vencimentos, compras sugeridas e pendências de rastreabilidade na primeira dobra.",
+          "observacoes": "Priorizar decisão rápida e filtros por unidade."
+        },
+        {
+          "cenario": "Tabela de materiais",
+          "componentes_envolvidos": [
+            "OperationalDataTable",
+            "InventoryRiskBadge",
+            "StockCoverageIndicator"
+          ],
+          "resultado_esperado": "Linhas mostram estoque, consumo, previsão, lote crítico, validade e ação recomendada.",
+          "observacoes": "Colunas de item e status devem ser fixas."
+        },
+        {
+          "cenario": "Detalhe de lote",
+          "componentes_envolvidos": [
+            "TraceabilityTimeline",
+            "NF-e chip",
+            "AuditPanel"
+          ],
+          "resultado_esperado": "Operador entende origem, validade, movimentações e bloqueios do lote.",
+          "observacoes": "Usar fonte mono para serial e chave NF-e."
+        },
+        {
+          "cenario": "Compra sugerida por IA",
+          "componentes_envolvidos": [
+            "PredictiveRecommendationCard",
+            "SupplierSelect",
+            "ReviewPanel"
+          ],
+          "resultado_esperado": "Sistema explica previsão, confiança e fornecedor antes de gerar pedido.",
+          "observacoes": "Nunca aprovar compra sem revisão humana."
+        }
+      ],
+      "riscos_visuais": [
+        {
+          "risco": "Excesso de cores de alerta",
+          "impacto": "Usuário normaliza risco crítico.",
+          "mitigacao": "Limitar vermelho a ruptura, vencimento expirado e bloqueio real."
+        },
+        {
+          "risco": "Densidade excessiva",
+          "impacto": "Operadores menos técnicos podem perder contexto.",
+          "mitigacao": "Oferecer modo confortável e resumos por perfil."
+        },
+        {
+          "risco": "IA opaca",
+          "impacto": "Decisores podem desconfiar da recomendação.",
+          "mitigacao": "Mostrar motivo, confiança, dados usados e ação sugerida."
+        },
+        {
+          "risco": "Regulatório poluído",
+          "impacto": "Metadados podem saturar a tela.",
+          "mitigacao": "Mostrar Anvisa, NF-e e lote no contexto certo, com painéis progressivos."
+        }
+      ],
+      "recomendacoes_finais": {
+        "decisao_final": "Adotar direção estética de centro de comando hospitalar preditivo: sóbria, técnica, auditável, densa e orientada a risco, com IA explicável e rastreabilidade como pilares visuais.",
+        "prioridades": [
+          "Construir tokens de cor, tipografia e estados de risco.",
+          "Definir componentes de tabela, lote, previsão e rastreabilidade.",
+          "Criar padrão visual para recomendação preditiva com confiança.",
+          "Garantir acessibilidade desde o primeiro protótipo.",
+          "Projetar multi-tenant, unidade, permissões e auditoria desde o início."
+        ],
+        "proximos_passos": [
+          "Criar moodboard funcional.",
+          "Prototipar dashboard desktop.",
+          "Prototipar lista mobile por item/lote.",
+          "Validar paleta de risco com usuários operacionais.",
+          "Documentar design system inicial."
+        ]
+      }
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "Expected Input",
+      "objective": "Definir e orientar a parte 'Expected Input' do prompt.",
+      "description": "Receive a description of a system idea. Examples: or or ---",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "Goal",
+      "objective": "Definir e orientar a parte 'Goal' do prompt.",
+      "description": "Turn the system idea into an initial aesthetic direction that can guide: * UX; * UI; * Design System; * HTML dashboards; * React; * Web frontend; * Mobile apps; * Material Design 3; * Reusable components. ---",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "Visual Principles",
+      "objective": "Definir e orientar a parte 'Visual Principles' do prompt.",
+      "description": "Prioritize: * functional minimalism; * mobile first; * responsiveness; * adaptability; * Material Design 3 alignment; * product-specific visual identity; * distinctive and elegant typography; * consistent color systems; * intentional dominant colors; * adequate contrast; * accessibility; * clear visual hierarchy; * layouts oriented to usage context; * components with personality; * motion with purpose; * useful microinteractions; * realistic information density; * reusable tokens; * consistent experience across desktop, tablet, and mobile; * design oriented to the product’s real operation. The interface should feel purpose-built for the described product. ---",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": [
+        "The interface should feel purpose-built for the described product."
+      ]
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "Avoid",
+      "objective": "Definir e orientar a parte 'Avoid' do prompt.",
+      "description": "* Inter, Roboto, Arial, and system fonts as the default choice; * Space Grotesk as a recurring fallback; * purple gradients on white backgrounds; * generic SaaS aesthetics; * dashboards that could fit any product; * repetitive cards without purpose; * flattened, tasteless components; * personality-free palettes; * excessive glassmorphism; * decorative shadows; * animations without function; * decorative icons; * generic copy; * UI that looks like it was generated by AI; * aesthetic choices without justification; * excessive visual noise; * non-responsive layouts; * components incompatible with Material Design 3. ---",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "Implementation Rules",
+      "objective": "Definir e orientar a parte 'Implementation Rules' do prompt.",
+      "description": "* Use design tokens. * Use CSS variables. * Define a complete color system. * Define a complete typographic system. * Define reusable components. * Consider accessibility. * Consider dark mode and light mode when applicable. * Whenever the output generates HTML, apply `data-objective` to `main.content` and every `section`, using specific descriptive text for the stage and the purpose of each block. * Consider real desktop and mobile usage. * Prefer semantic HTML. * Prefer modern CSS. * Use Motion in React when appropriate. * Define complete component states. * Briefly explain the logic behind visual decisions. * Produce recommendations that can be implemented in a real frontend. * Make creat...",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 6,
+      "level": 1,
+      "title": "Required Structure",
+      "objective": "Definir e orientar a parte 'Required Structure' do prompt.",
+      "description": "You must generate the file: Using exactly the structure below: ```md",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": [
+        "You must generate the file:"
+      ]
+    },
+    {
+      "index": 7,
+      "level": 1,
+      "title": "0 — Initial Aesthetics — {PRODUCT NAME}",
+      "objective": "Definir e orientar a parte '0 — Initial Aesthetics — {PRODUCT NAME}' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "1. Creative direction",
+      "objective": "Definir e orientar a parte '1. Creative direction' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "2. Anti-slop diagnosis",
+      "objective": "Definir e orientar a parte '2. Anti-slop diagnosis' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 2,
+      "title": "3. Visual concept",
+      "objective": "Definir e orientar a parte '3. Visual concept' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 11,
+      "level": 2,
+      "title": "4. Color palette",
+      "objective": "Definir e orientar a parte '4. Color palette' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 12,
+      "level": 2,
+      "title": "5. Typography",
+      "objective": "Definir e orientar a parte '5. Typography' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 2,
+      "title": "6. Spacing system",
+      "objective": "Definir e orientar a parte '6. Spacing system' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 2,
+      "title": "7. Layouts",
+      "objective": "Definir e orientar a parte '7. Layouts' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 15,
+      "level": 3,
+      "title": "Desktop",
+      "objective": "Definir e orientar a parte 'Desktop' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 16,
+      "level": 3,
+      "title": "Tablet",
+      "objective": "Definir e orientar a parte 'Tablet' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 17,
+      "level": 3,
+      "title": "Mobile",
+      "objective": "Definir e orientar a parte 'Mobile' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 2,
+      "title": "8. Components",
+      "objective": "Definir e orientar a parte '8. Components' do prompt.",
+      "description": "- Button - Input - Select - Table - Card - Badge - Menu - Modal - Empty State - Loading - Error - No Permission",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 2,
+      "title": "9. Motion and microinteractions",
+      "objective": "Definir e orientar a parte '9. Motion and microinteractions' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 2,
+      "title": "10. Interface states",
+      "objective": "Definir e orientar a parte '10. Interface states' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 2,
+      "title": "11. CSS guidelines",
+      "objective": "Definir e orientar a parte '11. CSS guidelines' do prompt.",
+      "description": "Including: - Design Tokens - CSS Variables - Colors - Spacing - Typography - Borders - Shadows - Breakpoints",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 22,
+      "level": 2,
+      "title": "12. React guidelines",
+      "objective": "Definir e orientar a parte '12. React guidelines' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 23,
+      "level": 2,
+      "title": "13. Implementation examples",
+      "objective": "Definir e orientar a parte '13. Implementation examples' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 24,
+      "level": 2,
+      "title": "14. Visual risks",
+      "objective": "Definir e orientar a parte '14. Visual risks' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 25,
+      "level": 2,
+      "title": "15. Final recommendations",
+      "objective": "Definir e orientar a parte '15. Final recommendations' do prompt.",
+      "description": "``` ---",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 26,
+      "level": 1,
+      "title": "Expected Result",
+      "objective": "Definir e orientar a parte 'Expected Result' do prompt.",
+      "description": "Return only the full contents of: adapted to the user’s described system, with a focus on: * a distinct visual identity; * modern experience; * Material Design 3; * mobile first; * responsiveness; * accessibility; * real frontend implementation.",
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ],
+      "rules": []
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "1. Creative direction",
+      "objective": "Executar a instrução operacional '1. Creative direction'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "2. Anti-slop diagnosis",
+      "objective": "Executar a instrução operacional '2. Anti-slop diagnosis'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "3. Visual concept",
+      "objective": "Executar a instrução operacional '3. Visual concept'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "4. Color palette",
+      "objective": "Executar a instrução operacional '4. Color palette'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 5,
+      "title": "5. Typography",
+      "objective": "Executar a instrução operacional '5. Typography'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 6,
+      "title": "6. Spacing system",
+      "objective": "Executar a instrução operacional '6. Spacing system'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 7,
+      "title": "7. Layouts",
+      "objective": "Executar a instrução operacional '7. Layouts'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 8,
+      "title": "8. Components",
+      "objective": "Executar a instrução operacional '8. Components'.",
+      "description": "- Button - Input - Select - Table - Card - Badge - Menu - Modal - Empty State - Loading - Error - No Permission",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 9,
+      "title": "9. Motion and microinteractions",
+      "objective": "Executar a instrução operacional '9. Motion and microinteractions'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 10,
+      "title": "10. Interface states",
+      "objective": "Executar a instrução operacional '10. Interface states'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 11,
+      "title": "11. CSS guidelines",
+      "objective": "Executar a instrução operacional '11. CSS guidelines'.",
+      "description": "Including: - Design Tokens - CSS Variables - Colors - Spacing - Typography - Borders - Shadows - Breakpoints",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 12,
+      "title": "12. React guidelines",
+      "objective": "Executar a instrução operacional '12. React guidelines'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 13,
+      "title": "13. Implementation examples",
+      "objective": "Executar a instrução operacional '13. Implementation examples'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 14,
+      "title": "14. Visual risks",
+      "objective": "Executar a instrução operacional '14. Visual risks'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    },
+    {
+      "index": 15,
+      "title": "15. Final recommendations",
+      "objective": "Executar a instrução operacional '15. Final recommendations'.",
+      "description": "``` ---",
+      "dependencies": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-estetica-inicial.md"
+      ],
+      "outputs": [
+        "0-output.json"
+      ]
+    }
+  ],
+  "strictSchemaCompatibility": {
+    "validationDate": "2026-06-07T21:16:08.678779+00:00",
+    "checkedOutputFile": "0-output.json",
+    "checkedTemplateFile": "0-output-template.json",
+    "validationTarget": "entire_json_document",
+    "isCurrentOutputStrictlyCompatible": false,
+    "isCurrentOutputContentCompatible": true,
+    "detectedProblem": {
+      "type": "invalid_output_envelope",
+      "description": "O 0-output.json existente contém um envelope com id, title, objective, description e content. O template da etapa 0 não define esse envelope; ele exige que o objeto raiz seja diretamente o conteúdo da estética inicial.",
+      "unexpectedRootProperties": [
+        "id",
+        "title",
+        "objective",
+        "description",
+        "content"
+      ],
+      "missingRootRequiredProperties": [
+        "etapa",
+        "nome_do_produto",
+        "direcao_criativa",
+        "diagnostico_anti_slop",
+        "conceito_visual",
+        "paleta_de_cores",
+        "tipografia",
+        "sistema_de_espacamento",
+        "layouts",
+        "componentes",
+        "movimento_e_microinteracoes",
+        "estados_de_interface",
+        "diretrizes_css",
+        "diretrizes_react",
+        "exemplos_de_implementacao",
+        "riscos_visuais",
+        "recomendacoes_finais"
+      ]
+    },
+    "requiredCorrection": {
+      "outputRootMustBe": "direct_schema_instance",
+      "outputRootMustNotBe": "metadata_envelope",
+      "forbiddenRootProperties": [
+        "id",
+        "title",
+        "objective",
+        "description",
+        "content"
+      ],
+      "requiredRootProperties": [
+        "etapa",
+        "nome_do_produto",
+        "direcao_criativa",
+        "diagnostico_anti_slop",
+        "conceito_visual",
+        "paleta_de_cores",
+        "tipografia",
+        "sistema_de_espacamento",
+        "layouts",
+        "componentes",
+        "movimento_e_microinteracoes",
+        "estados_de_interface",
+        "diretrizes_css",
+        "diretrizes_react",
+        "exemplos_de_implementacao",
+        "riscos_visuais",
+        "recomendacoes_finais"
+      ],
+      "generationRule": "Ao gerar 0-output.json, escrever diretamente o objeto que valida contra 0-output-template.json. Se houver um objeto intermediário com content, descartar o envelope e salvar somente content como raiz do arquivo."
+    },
+    "validationErrors": [
+      {
+        "path": "/",
+        "message": "'etapa' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'nome_do_produto' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'direcao_criativa' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'diagnostico_anti_slop' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'conceito_visual' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'paleta_de_cores' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'tipografia' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'sistema_de_espacamento' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'layouts' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'componentes' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'movimento_e_microinteracoes' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'estados_de_interface' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'diretrizes_css' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'diretrizes_react' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'exemplos_de_implementacao' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'riscos_visuais' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "'recomendacoes_finais' is a required property"
+      },
+      {
+        "path": "/",
+        "message": "Additional properties are not allowed ('content', 'description', 'id', 'objective', 'title' were unexpected)"
+      }
+    ]
+  },
+  "executionInstructions": {
+    "outputFile": "0-output.json",
+    "templateFile": "schemas-used/0-output-template.json",
+    "generationSteps": [
+      "Ler a ideia inicial do sistema a partir de alpha.json ou da entrada textual equivalente.",
+      "Gerar todos os campos exigidos pelo schema do arquivo 0-output-template.json.",
+      "Montar o JSON final com raiz direta no schema, iniciando por etapa e nome_do_produto.",
+      "Não criar envelope com id, title, objective, description ou content.",
+      "Validar o arquivo 0-output.json inteiro contra 0-output-template.json.",
+      "Corrigir qualquer erro de required, type, enum, const, minItems, minLength ou additionalProperties antes da entrega."
+    ],
+    "finalOutputShape": {
+      "allowedRootProperties": [
+        "etapa",
+        "nome_do_produto",
+        "direcao_criativa",
+        "diagnostico_anti_slop",
+        "conceito_visual",
+        "paleta_de_cores",
+        "tipografia",
+        "sistema_de_espacamento",
+        "layouts",
+        "componentes",
+        "movimento_e_microinteracoes",
+        "estados_de_interface",
+        "diretrizes_css",
+        "diretrizes_react",
+        "exemplos_de_implementacao",
+        "riscos_visuais",
+        "recomendacoes_finais"
+      ],
+      "forbiddenRootProperties": [
+        "id",
+        "title",
+        "objective",
+        "description",
+        "content"
+      ],
+      "exampleRootStart": {
+        "etapa": 0,
+        "nome_do_produto": "<nome do produto>",
+        "direcao_criativa": "<objeto conforme template>"
+      }
+    }
+  }
+}

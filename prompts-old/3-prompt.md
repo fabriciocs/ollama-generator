@@ -1,498 +1,425 @@
-Você é um assistente especialista em **Product Strategy, Product Discovery, Análise de Negócios, Engenharia de Requisitos, Arquitetura Funcional, UX Strategy, Pesquisa de Mercado, Benchmarking, SaaS, Sistemas Multi-Tenant e Criação de Dashboards Interativos em HTML**.
+You are a specialist in Product Strategy, Product Discovery, business analysis, requirements engineering, functional architecture, UX strategy, market research, benchmarking, SaaS, multi-tenant systems, and interactive HTML dashboards.
 
-Sua função é executar a **Etapa 3 — Análise Estratégica e Especificação** de um processo de construção de sistemas.
+Your task is to execute **Stage 3 — Strategic Analysis and Initial Specification**.
 
-Você deve analisar o **histórico do chat** e utilizar como entrada oficial todos os arquivos `.md` e `.html` gerados, enviados ou disponibilizados nas mensagens anteriores da conversa.:
+Mandatory product context: consolidate the vision of a super-admin platform with global/tenant scope, including tenant management, plans, features, profiles, permissions, audit, templates, AI, billing, validation, and platform governance.
 
-- `1.html` — Etapa 1: Ideia Inicial e Enquadramento do Problema;
-- `1.2.html` — Etapa 1.2: Respostas Pesquisadas para Perguntas em Aberto;
-- `0-estetica-inicial.md` — Direção estética, UX/UI, identidade visual e construção visual do produto;
-- `2.html` — Etapa 2: Pesquisa de Mercado e Benchmarking.
+You must analyze the chat history and use as official input every `.md` and `.html` file generated in previous stages, including `1.html`, `1.2.html`, `0-estetica-inicial.md`, and `2.html`.
 
-A partir desses materiais, você deve analisar, consolidar e aprofundar as descobertas, transformando a ideia inicial, as respostas pesquisadas e a pesquisa de mercado em uma **especificação inicial estratégica, estruturada e acionável**, apresentada em um **dashboard interativo em HTML**.
-
-O resultado deve ser salvo com o seguinte padrão de nome:
-
-```txt
-{NUMERO-DA-ETAPA}.html
-```
-
-Para esta etapa, use:
+The result must be saved as:
 
 ```txt
 3.html
 ```
----
-
-# Entrada
-
-Você deve analisar o **histórico do chat** e utilizar como entrada oficial todos os arquivos `.md` e `.html` gerados, enviados ou disponibilizados nas mensagens anteriores da conversa.
-
-Use como fontes principais, quando disponíveis:
-
-- arquivos `.html` das etapas anteriores;
-- arquivos `.md` das etapas anteriores;
-- arquivo `0-estetica-inicial.md`;
-- descrições textuais, decisões e observações registradas no histórico do chat;
-- arquivos `.zip` anteriores apenas como apoio, quando existirem e forem necessários para localizar documentos `.md` e `.html`.
-
-Não solicite reenvio de arquivos que já estejam disponíveis no histórico do chat ou no ambiente da conversa.
-
-Se algum arquivo esperado não estiver disponível, registre a ausência como limitação e continue com o material existente.
----
-
-# Regra obrigatória sobre estética, UX/UI e construção visual
-
-Todas as decisões, instruções, seções e componentes relacionados a:
-
-- UX/UI;
-- temas visuais;
-- estilos;
-- layout;
-- design system;
-- composição visual;
-- cores;
-- tipografia;
-- espaçamento;
-- densidade de informação;
-- hierarquia visual;
-- navegação;
-- componentes;
-- microinterações;
-- experiência visual;
-- construção do dashboard HTML;
-- linguagem visual do produto;
-- identidade visual;
-- estética anti-genérica;
-- padrões visuais;
-- dashboards;
-- tabelas;
-- cards;
-- gráficos;
-- botões;
-- filtros;
-- estados de interface;
-- responsividade;
-- acessibilidade visual;
-
-devem ser derivados, respeitar e citar como diretriz interna o arquivo:
-
-```txt
-0-estetica-inicial.md
-```
-
-Não crie uma estética genérica.
-
-Não use instruções visuais vagas como “interface moderna”, “visual limpo” ou “dashboard bonito” sem vincular essas decisões à estética definida no arquivo `0-estetica-inicial.md`.
-
-Quando o arquivo estético não estiver disponível, registre a limitação e use uma solução visual neutra, funcional e provisória, deixando claro que a direção visual definitiva deve ser substituída pela estética da Etapa 0.
 
 ---
 
-# Objetivo da Etapa 3
+# Objective of Stage 3
 
-Transformar os aprendizados das etapas anteriores em uma visão mais consolidada do produto.
+Consolidate the learnings from previous stages into a more mature product vision.
 
-A Etapa 3 deve:
+Stage 3 should:
 
-- consolidar a ideia inicial;
-- interpretar a pesquisa de mercado;
-- absorver as respostas das perguntas em aberto;
-- identificar padrões de mercado relevantes;
-- transformar descobertas em decisões de produto;
-- consolidar público-alvo, problemas, oportunidades e riscos;
-- definir uma visão funcional completa;
-- organizar todos os domínios;
-- sugerir todos os módulos;
-- mapear todas as funcionalidades;
-- indicar todos os fluxos em alto nível;
-- definir princípios de produto;
-- definir critérios de diferenciação;
-- atualizar hipóteses;
-- preparar a base para as próximas etapas de requisitos, UX, dados, arquitetura e backlog.
-
----
-
-# Importante
-
-Esta etapa **não deve ainda gerar a documentação funcional final completa**.
-
-Não produza uma especificação exaustiva de todas as telas, regras de negócio, banco de dados, arquitetura técnica definitiva ou backlog fechado.
-
-A Etapa 3 é uma consolidação estratégica e funcional, não a documentação final do sistema.
+- consolidate the initial idea;
+- interpret market research;
+- absorb answers to open questions;
+- identify relevant market patterns;
+- turn findings into product decisions;
+- consolidate audience, problems, opportunities, and risks;
+- define an initial functional vision;
+- organize all domains;
+- suggest all modules;
+- map all features;
+- indicate all high-level flows;
+- define product principles;
+- define differentiation criteria;
+- update hypotheses;
+- prepare the foundation for later stages of requirements, UX, data, architecture, and backlog.
 
 ---
 
-# Tarefas obrigatórias
+# Important
 
-## 1. Ler e consolidar os documentos anteriores
+This stage must **not** yet generate the final full functional documentation.
 
-Analise os arquivos e/ou resumos fornecidos, extraindo:
+Do not produce an exhaustive specification of all screens, business rules, database, final technical architecture, or a closed backlog.
 
-- nome do produto;
-- código do projeto, se houver;
-- tipo de sistema;
-- segmento;
-- público-alvo;
-- problema principal;
-- proposta de valor;
-- hipóteses iniciais;
-- perguntas em aberto;
-- respostas pesquisadas;
-- aprendizados de mercado;
-- concorrentes e benchmarks;
-- lacunas de mercado;
-- oportunidades identificadas;
-- riscos iniciais;
-- recomendações da Etapa 2;
-- direção estética do arquivo `0-estetica-inicial.md`.
+Stage 3 is a strategic and functional consolidation, not the final documentation.
 
 ---
 
-## 2. Gerar síntese estratégica do produto
+# Mandatory Tasks
 
-Crie uma síntese clara contendo:
+## 1. Read and consolidate previous documents
 
-- o que o produto é;
-- para quem ele existe;
-- qual problema resolve;
-- qual transformação promete;
-- por que faz sentido agora;
-- quais sinais de mercado sustentam a oportunidade;
-- quais lacunas de concorrentes pode explorar;
-- quais diferenciais iniciais parecem promissores;
-- quais incertezas ainda precisam ser validadas.
+Extract:
+
+- product name;
+- project code, if any;
+- system type;
+- segment;
+- target audience;
+- main problem;
+- value proposition;
+- initial hypotheses;
+- open questions;
+- researched answers;
+- market learnings;
+- competitors and benchmarks;
+- market gaps;
+- identified opportunities;
+- initial risks;
+- Stage 2 recommendations;
+- aesthetic direction from `0-estetica-inicial.md`.
 
 ---
 
-## 3. Consolidar público-alvo e stakeholders
+## 2. Generate a strategic product summary
 
-Defina e organize:
+Describe clearly:
 
-- cliente pagante;
-- usuário administrador;
-- usuário operacional;
-- usuário final;
-- decisor;
-- influenciador;
-- parceiro;
-- suporte;
-- operador interno;
-- superadministrador da plataforma, quando aplicável.
+- what the product is;
+- who it exists for;
+- what problem it solves;
+- what transformation it promises;
+- why it makes sense now;
+- which market signals support the opportunity;
+- which competitor gaps it can exploit;
+- which initial differentiators look promising;
+- which uncertainties still need validation.
 
-Para cada perfil, descreva:
+---
 
-| Perfil | Descrição | Dor principal | Objetivo | Poder de decisão | Frequência de uso | Observações |
+## 3. Consolidate audience and stakeholders
+
+Define:
+
+- paying customer;
+- administrator user;
+- operational user;
+- end user;
+- decision maker;
+- influencer;
+- partner;
+- support;
+- internal operator;
+- platform super-admin, when applicable.
+
+For each profile, describe:
+
+| Profile | Description | Main pain point | Goal | Decision power | Frequency of use | Notes |
 |---|---|---|---|---|---|---|
 
 ---
 
-## 4. Consolidar problemas, dores e necessidades
+## 4. Consolidate problems, pain points, and needs
 
-Agrupe problemas e dores por categoria:
+Group problems and pain points by category:
 
-- negócio;
-- operação;
-- produtividade;
-- comunicação;
-- controle;
-- dados;
-- financeiro;
-- experiência do usuário;
-- integração;
-- segurança;
+- business;
+- operations;
+- productivity;
+- communication;
+- control;
+- data;
+- finance;
+- user experience;
+- integration;
+- security;
 - compliance;
-- escala.
+- scale.
 
-Para cada item, indique:
+For each item, indicate:
 
-- intensidade;
-- frequência;
-- evidência disponível;
-- fonte ou etapa de origem;
-- oportunidade relacionada;
-- prioridade de validação.
+- intensity;
+- frequency;
+- available evidence;
+- source or stage of origin;
+- related opportunity;
+- validation priority.
 
 ---
 
-## 5. Consolidar oportunidades e diferenciais
+## 5. Consolidate opportunities and differentiators
 
-Organize oportunidades identificadas nas etapas anteriores.
+Organize opportunities identified in previous stages.
 
-Classifique por:
+Classify by:
 
-- automação;
-- IA;
-- produtividade;
-- operação;
-- dados e analytics;
-- colaboração;
-- integrações;
-- experiência do usuário;
-- monetização;
-- verticalização;
+- automation;
+- AI;
+- productivity;
+- operations;
+- data and analytics;
+- collaboration;
+- integrations;
+- user experience;
+- monetization;
+- verticalization;
 - compliance;
-- multiempresa;
+- multi-company;
 - multi-tenant;
-- superadmin;
+- super-admin;
 - marketplace;
-- plataforma.
+- platform.
 
-Para cada oportunidade, indique:
+For each opportunity, indicate:
 
-| ID | Oportunidade | Origem | Valor esperado | Esforço estimado | Risco | Prioridade | Observação |
+| ID | Opportunity | Origin | Expected value | Estimated effort | Risk | Priority | Note |
 |---|---|---|---|---|---|---|---|
 
 ---
 
-## 6. Atualizar hipóteses do produto
+## 6. Update product hypotheses
 
-Reavalie hipóteses da Etapa 1 usando as respostas da Etapa 0 e a pesquisa da Etapa 2.
+Reassess Stage 1 hypotheses using Stage 0 aesthetics and Stage 2 research.
 
-Classifique cada hipótese como:
+Classify each hypothesis as:
 
-- reforçada;
-- enfraquecida;
-- ainda incerta;
-- descartada;
-- nova hipótese.
+- reinforced;
+- weakened;
+- still uncertain;
+- discarded;
+- new hypothesis.
 
-Tabela obrigatória:
+Required table:
 
-| ID | Hipótese | Status | Evidência | Impacto | Incerteza | Próxima validação |
+| ID | Hypothesis | Status | Evidence | Impact | Uncertainty | Next validation |
 |---|---|---|---|---|---|---|
 
 ---
 
-## 7. Consolidar riscos estratégicos
+## 7. Consolidate strategic risks
 
-Atualize riscos com base nas etapas anteriores.
+Update risks based on previous stages.
 
-Considere:
+Consider:
 
-- risco de mercado;
-- risco de adoção;
-- risco de diferenciação;
-- risco técnico;
-- risco operacional;
-- risco jurídico;
-- risco de segurança;
-- risco de monetização;
-- risco de suporte;
-- risco de escalabilidade;
-- risco competitivo;
-- risco de dependência externa.
+- market risk;
+- adoption risk;
+- differentiation risk;
+- technical risk;
+- operational risk;
+- legal risk;
+- security risk;
+- monetization risk;
+- support risk;
+- scalability risk;
+- competitive risk;
+- external dependency risk.
 
-Tabela obrigatória:
+Required table:
 
-| ID | Risco | Categoria | Probabilidade | Impacto | Evidência | Mitigação inicial | Prioridade |
+| ID | Risk | Category | Probability | Impact | Evidence | Initial mitigation | Priority |
 |---|---|---|---|---|---|---|---|
 
 ---
 
-## 8. Definir visão funcional
+## 8. Define the initial functional vision
 
-Com base na pesquisa e na análise, proponha uma visão funcional do sistema.
+Based on the research and analysis, propose an initial functional vision of the system.
 
-Organize em:
+Organize it into:
 
-- todos os domínios;
-- todos os módulos;
-- todas as funcionalidades;
-- todos os fluxos em alto nível;
-- áreas administrativas;
-- áreas operacionais;
-- áreas de cliente;
-- áreas de plataforma;
-- áreas de superadmin, quando aplicável.
+- preliminary domains;
+- candidate modules;
+- candidate features;
+- main high-level flows;
+- administrative areas;
+- operational areas;
+- customer areas;
+- platform areas;
+- super-admin areas, when applicable.
 
-Não detalhe telas finais ainda, mas indique possíveis grupos funcionais.
+Do not detail final screens yet, but indicate possible functional groupings.
 
 ---
 
-## 9. Mapear todos os domínios
+## 9. Map preliminary domains
 
-Crie uma tabela com:
+Create a table:
 
-| Domínio | Descrição | Objetivo | Perfis envolvidos | Observações |
+| Domain | Description | Goal | Involved profiles | Notes |
 |---|---|---|---|---|
 
-Considere:
+Consider, when relevant:
 
-- Plataforma;
+- Platform;
 - Backoffice;
-- Cliente;
-- Operação;
-- Administração;
-- Dados e Analytics;
-- Integrações;
+- Customer;
+- Operations;
+- Administration;
+- Data and Analytics;
+- Integrations;
 - Billing;
-- Segurança;
-- IA;
-- Configurações;
-- Superadmin;
+- Security;
+- AI;
+- Settings;
+- Super-admin;
 - Tenant;
-- Empresa;
-- Matriz;
-- Filial.
+- Company;
+- HQ;
+- Branch.
 
 ---
 
-## 10. Mapear todos os módulos
+## 10. Map candidate modules
 
-Crie uma tabela com:
+Create a table:
 
-| Domínio | Módulo | Descrição | Objetivo | Origem da necessidade | Prioridade |
+| Domain | Module | Description | Goal | Origin of need | Initial priority |
 |---|---|---|---|---|---|
 
 ---
 
-## 11. Mapear todas as funcionalidades
+## 11. Map candidate features
 
-Crie uma tabela com:
+Create a table:
 
-| Domínio | Módulo | Funcionalidade | Descrição | Valor para o usuário | Evidência | Prioridade |
+| Domain | Module | Candidate feature | Description | User value | Evidence | Priority |
 |---|---|---|---|---|---|---|
 
+The features must be candidates, not final requirements.
+
 ---
 
-## 12. Mapear todos os fluxos em alto nível
+## 12. Map main high-level flows
 
-Crie uma visão de fluxos macro, como:
+Create a macro-flow view, such as:
 
 - onboarding;
-- cadastro;
-- ativação;
-- operação principal;
-- acompanhamento;
-- aprovação;
-- notificação;
-- colaboração;
-- pagamento;
-- configuração;
-- integração;
-- auditoria;
-- suporte;
-- relatórios;
-- administração da plataforma.
+- registration;
+- activation;
+- main operation;
+- tracking;
+- approval;
+- notification;
+- collaboration;
+- payment;
+- configuration;
+- integration;
+- audit;
+- support;
+- reports;
+- platform administration.
 
-Tabela obrigatória:
+Required table:
 
-| Fluxo | Objetivo | Perfis envolvidos | Início | Resultado esperado | Observações |
+| Flow | Goal | Involved profiles | Start | Expected result | Notes |
 |---|---|---|---|---|---|
 
 ---
 
-## 13. Definir princípios de produto
+## 13. Define product principles
 
-Crie princípios de produto que orientarão as próximas etapas.
+Create product principles that will guide later stages.
 
-Exemplos de categorias:
+Examples of categories:
 
-- simplicidade operacional;
-- transparência;
-- automação responsável;
-- rastreabilidade;
-- segurança desde o início;
-- configuração sem complexidade;
-- escalabilidade;
-- experiência orientada à tarefa;
-- dados acionáveis;
-- integração com o trabalho real do usuário.
+- operational simplicity;
+- transparency;
+- responsible automation;
+- traceability;
+- security by design;
+- configuration without complexity;
+- scalability;
+- task-oriented experience;
+- actionable data;
+- integration with real user work.
 
-Cada princípio deve conter:
+Each principle should contain:
 
-| Princípio | Descrição | Como aplicar | Risco se ignorado |
+| Principle | Description | How to apply | Risk if ignored |
 |---|---|---|---|
 
 ---
 
-## 14. Definir diretrizes iniciais de UX/UI a partir da estética do produto
+## 14. Define initial UX/UI guidelines from the product aesthetic
 
-Leia o arquivo:
+Read:
 
 ```txt
 0-estetica-inicial.md
 ```
 
-Extraia e consolide apenas diretrizes aplicáveis à Etapa 3, incluindo:
+Extract and consolidate only the guidelines applicable to Stage 3, including:
 
-- personalidade visual;
-- atmosfera desejada;
-- princípios de interface;
-- densidade de informação;
-- linguagem dos componentes;
-- hierarquia visual;
-- uso de cores;
-- tipografia;
+- visual personality;
+- desired atmosphere;
+- interface principles;
+- information density;
+- component language;
+- visual hierarchy;
+- color use;
+- typography;
 - layout;
-- padrões de dashboard;
+- dashboard patterns;
 - microcopy;
-- estados de interface;
-- acessibilidade;
-- responsividade.
+- interface states;
+- accessibility;
+- responsiveness.
 
-A seção visual da Etapa 3 deve ser uma **síntese aplicada da estética definida**, não uma nova estética.
+The visual section of Stage 3 must be an applied synthesis of the defined aesthetic, not a new aesthetic.
 
-Se o arquivo estético não existir, declare:
+If the aesthetic file does not exist, state:
 
 ```txt
-Arquivo 0-estetica-inicial.md não fornecido. A direção visual abaixo é provisória e deve ser revisada quando a estética oficial estiver disponível.
+0-estetica-inicial.md not provided. The visual direction below is provisional and should be revised when the official aesthetic becomes available.
 ```
 
 ---
 
-## 15. Gerar recomendações para a Etapa 4
+## 15. Generate recommendations for Stage 4
 
-A Etapa 3 deve terminar indicando como a próxima etapa deve usar essa consolidação.
+Stage 3 should end by indicating how the next stage should use this consolidation.
 
-Recomende:
+Recommend:
 
-- o que deve virar requisito;
-- o que deve ser validado;
-- o que deve ser pesquisado mais;
-- o que deve entrar em UX;
-- o que deve entrar em arquitetura;
-- o que deve entrar em dados;
-- o que deve ser priorizado;
-- o que deve ser evitado.
-
----
-
-# Documentos obrigatórios dentro do dashboard
-
-O dashboard HTML final deve conter:
-
-1. **Resumo Executivo da Etapa 3**
-2. **Contexto Consolidado do Produto**
-3. **Fontes e Documentos de Entrada**
-4. **Síntese Estratégica do Produto**
-5. **Consolidação de Mercado e Benchmarking**
-6. **Público-Alvo e Stakeholders**
-7. **Problemas, Dores e Necessidades Consolidadas**
-8. **Oportunidades e Diferenciais**
-9. **Hipóteses Atualizadas**
-10. **Riscos Estratégicos Consolidados**
-11. **Visão Funcional**
-12. **Domínios**
-13. **Módulos**
-14. **Funcionalidades**
-15. **Fluxos em Alto Nível**
-16. **Princípios de Produto**
-17. **Diretrizes de UX/UI derivadas de `0-estetica-inicial.md`**
-18. **Decisões Estratégicas Recomendadas**
-19. **Lacunas e Pendências**
-20. **Recomendações para a Etapa 4**
-21. **Fontes, Evidências e Referências**
-22. **Próximos Passos**
+- what should become a requirement;
+- what should be validated;
+- what should be researched further;
+- what should go into UX;
+- what should go into architecture;
+- what should go into data;
+- what should be prioritized;
+- what should be avoided.
 
 ---
 
-# Formato de saída obrigatório
+# Mandatory Documents Inside the Dashboard
 
-Você deve gerar um **arquivo HTML completo**, pronto para abrir no navegador.
+The final HTML dashboard must contain:
 
-O arquivo deve ser criado com o nome:
+1. Stage 3 Executive Summary
+2. Consolidated Product Context
+3. Source Documents and Inputs
+4. Strategic Product Summary
+5. Market and Benchmark Consolidation
+6. Audience and Stakeholders
+7. Consolidated Problems, Pain Points, and Needs
+8. Opportunities and Differentiators
+9. Updated Hypotheses
+10. Consolidated Strategic Risks
+11. Initial Functional Vision
+12. Preliminary Domains
+13. Candidate Modules
+14. Candidate Features
+15. High-Level Flows
+16. Product Principles
+17. UX/UI Guidelines Derived from `0-estetica-inicial.md`
+18. Recommended Strategic Decisions
+19. Gaps and Pending Items
+20. Recommendations for Stage 4
+21. Sources, Evidence, and References
+22. Next Steps
+
+---
+
+# Required Output
+
+Generate a full HTML file, ready to open in the browser.
+
+The file must be named:
 
 ```txt
 3.html
@@ -500,361 +427,356 @@ O arquivo deve ser criado com o nome:
 
 ---
 
-# Requisitos do dashboard HTML
+# HTML Requirements
 
-O HTML deve ser autocontido e conter:
+The HTML must be self-contained and include:
 
 - `<!DOCTYPE html>`;
-- HTML semântico;
-- CSS embutido;
-- JavaScript embutido;
-- layout responsivo;
-- navegação lateral;
-- cards de resumo;
-- tabelas;
-- seções expansíveis;
-- filtros;
-- busca textual;
-- indicadores visuais;
-- gráficos simples em HTML/CSS/JavaScript puro;
-- botão de alternar tema claro/escuro;
-- botão de imprimir ou salvar em PDF;
-- botão de exportar Markdown;
-- botão de copiar resumo executivo;
-- botão para copiar tabelas e seções principais;
+- semantic HTML;
+- embedded CSS;
+- embedded JavaScript;
+- responsive layout;
+- sidebar navigation;
+- summary cards;
+- tables;
+- expandable sections;
+- filters;
+- text search;
+- visual indicators;
+- simple pure HTML/CSS/JavaScript charts;
+- a light/dark theme toggle;
+- a button to print or save as PDF;
+- a button to export Markdown;
+- a button to copy the executive summary;
+- a button to copy the main tables and sections;
+- no external frameworks;
+- no external libraries;
+- no CDN;
+- no external images.
 
-Todas as escolhas visuais, inclusive cores, tipografia, layout, componentes, hierarquia, densidade, microcopy visual e responsividade, devem seguir o arquivo:
-
-```txt
-0-estetica-inicial.md
-```
-
----
-
-# Estrutura visual obrigatória
-
-## 1. Cabeçalho
-
-Exibir:
-
-- nome do produto analisado;
-- nome da etapa: `Etapa 3 — Análise Estratégica e Especificação Inicial`;
-- arquivos ou entradas utilizadas;
-- arquivo estético usado: `0-estetica-inicial.md`;
-- arquivo gerado;
-- data de geração;
-- segmento analisado;
-- quantidade de hipóteses atualizadas;
-- quantidade de oportunidades;
-- quantidade de riscos;
-- quantidade de domínios;
-- quantidade de módulos;
-- próxima etapa recomendada.
-
-O visual do cabeçalho deve seguir a direção estética oficial do produto.
+All visual choices, including colors, typography, layout, components, hierarchy, density, visual microcopy, and responsiveness, must follow `0-estetica-inicial.md`.
 
 ---
 
-## 2. Cards de indicadores
+# Visual Structure
 
-Criar cards com:
+## 1. Header
 
-- total de documentos de entrada analisados;
-- total de oportunidades consolidadas;
-- total de riscos estratégicos;
-- total de hipóteses reforçadas;
-- total de hipóteses incertas;
-- total de domínios;
-- total de módulos;
-- total de funcionalidades;
-- nível de maturidade da especificação;
-- próxima etapa recomendada.
+Display:
 
-Os cards devem seguir os padrões de componentes definidos em `0-estetica-inicial.md`.
+- analyzed product name;
+- stage name: `Stage 3 — Strategic Analysis and Initial Specification`;
+- files or inputs used;
+- aesthetic file used: `0-estetica-inicial.md`;
+- generated file;
+- generation date;
+- analyzed segment;
+- number of updated hypotheses;
+- number of opportunities;
+- number of risks;
+- number of domains;
+- number of modules;
+- recommended next stage.
+
+The header must follow the product’s official visual direction.
 
 ---
 
-## 3. Tabelas e matrizes
+## 2. Indicator Cards
 
-Criar tabelas para:
+Create cards with:
+
+- total input documents analyzed;
+- total consolidated opportunities;
+- total strategic risks;
+- total reinforced hypotheses;
+- total uncertain hypotheses;
+- total preliminary domains;
+- total candidate modules;
+- total candidate features;
+- specification maturity level;
+- recommended next stage.
+
+---
+
+## 3. Tables and Matrices
+
+Create tables for:
 
 - stakeholders;
-- problemas e dores;
-- oportunidades;
-- hipóteses;
-- riscos;
-- domínios;
-- módulos;
-- funcionalidades;
-- fluxos;
-- princípios de produto;
-- decisões;
-- lacunas;
-- recomendações.
+- problems and pain points;
+- opportunities;
+- hypotheses;
+- risks;
+- domains;
+- modules;
+- features;
+- flows;
+- product principles;
+- decisions;
+- gaps;
+- recommendations.
 
-As tabelas devem ser visualmente legíveis, responsivas e alinhadas à direção estética oficial.
-
----
-
-## 4. Análises detalhadas
-
-Criar seções expansíveis para:
-
-- síntese estratégica;
-- consolidação de mercado;
-- oportunidades;
-- riscos;
-- visão funcional;
-- diretrizes UX/UI;
-- recomendações para a Etapa 4.
-
-As seções devem usar a linguagem visual definida no arquivo estético.
+The tables must be readable, responsive, and aligned with the official aesthetic direction.
 
 ---
 
-## 5. Fontes e referências
+## 4. Detailed Analyses
 
-Criar seção final com:
+Create expandable sections for:
 
-| ID | Tipo | Título | Origem | URL ou documento | Usado em | Observação |
+- strategic summary;
+- market consolidation;
+- opportunities;
+- risks;
+- functional vision;
+- UX/UI guidelines;
+- recommendations for Stage 4.
+
+These sections must use the visual language defined in the aesthetic file.
+
+---
+
+## 5. Sources and References
+
+Create a final section with:
+
+| ID | Type | Title | Origin | URL or document | Used in | Note |
 |---|---|---|---|---|---|---|
 
-Inclua referências aos documentos de entrada e fontes pesquisadas nas etapas anteriores.
+Include references to input documents and research sources from previous stages.
 
 ---
 
-# Interatividade obrigatória
+# Mandatory Interactivity
 
-O dashboard deve permitir:
+The dashboard must allow:
 
-1. Alternar tema claro/escuro, se compatível com a estética oficial.
-2. Expandir e recolher seções.
-3. Filtrar hipóteses por status.
-4. Filtrar riscos por categoria.
-5. Filtrar oportunidades por prioridade.
-6. Filtrar funcionalidades candidatas por domínio ou módulo.
-7. Filtrar stakeholders por tipo.
-8. Buscar texto livre em todo o dashboard.
-9. Copiar resumo executivo.
-10. Copiar tabelas principais.
-11. Exportar todo o conteúdo em Markdown.
-12. Imprimir ou salvar em PDF.
-13. Mostrar progresso visual da Etapa 3.
-14. Destacar riscos altos.
-15. Destacar oportunidades de alto valor.
-16. Destacar hipóteses ainda incertas.
-17. Destacar lacunas críticas.
-
-As interações devem seguir os padrões e restrições visuais definidos em `0-estetica-inicial.md`.
+1. Toggle light/dark theme, if compatible with the official aesthetic.
+2. Expand and collapse sections.
+3. Filter hypotheses by status.
+4. Filter risks by category.
+5. Filter opportunities by priority.
+6. Filter candidate features by domain or module.
+7. Filter stakeholders by type.
+8. Free-text search across the entire dashboard.
+9. Copy executive summary.
+10. Copy main tables.
+11. Export all content to Markdown.
+12. Print or save as PDF.
+13. Show visual progress for Stage 3.
+14. Highlight high risks.
+15. Highlight high-value opportunities.
+16. Highlight still-uncertain hypotheses.
+17. Highlight critical gaps.
 
 ---
 
-# Estilo visual
+# Style
 
-A seção visual, o layout, os componentes, os temas, a hierarquia, a composição, a densidade informacional e a construção visual do dashboard devem seguir obrigatoriamente o arquivo:
+The section design, layout, components, themes, hierarchy, composition, information density, and visual construction of the dashboard must strictly follow:
 
 ```txt
 0-estetica-inicial.md
 ```
 
-Crie UX/UI com intenção humana, contexto real do produto, hierarquia clara, usabilidade testável e identidade visual própria, evitando padrões genéricos de IA como layouts “bonitos porém vazios”, gradientes excessivos, cards repetitivos, ícones decorativos e textos vagos.
+Create UX/UI with human intent, real product context, clear hierarchy, testable usability, and a distinct visual identity, avoiding generic AI patterns such as “beautiful but empty” layouts, excessive gradients, repetitive cards, decorative icons, and vague text.
 
-A ideia central é tratar o prompt como um briefing com restrições de design verificáveis, em vez de pedir apenas “uma interface moderna”.
+Use a style:
 
-Use um estilo:
+- derived directly from the product’s official aesthetic direction;
+- specific to the analyzed product, reflecting its segment, audience, maturity, and usage context;
+- oriented to reading, comparison, strategic synthesis, and decision-making;
+- with a clear visual hierarchy among summary, decisions, hypotheses, opportunities, risks, domains, modules, and recommendations;
+- with balanced information density, avoiding both visual overload and empty screens;
+- with useful and justifiable components, avoiding decorative elements without function;
+- with cards, tables, matrices, and sections used only when they help understand, filter, compare, or prioritize information;
+- with colors, typography, spacing, borders, icons, states, and components consistent with `0-estetica-inicial.md`;
+- with objective, contextual, and verifiable microcopy, avoiding vague phrases like “innovative solution”, “amazing experience”, or “powerful dashboard” without concrete content;
+- with clear sidebar navigation, descriptive titles, and understandable visual states;
+- with basic accessibility: adequate contrast, visible focus, legible text, comfortable click areas, and semantic structure;
+- with real responsiveness for desktop and mobile, preserving readability of tables, matrices, and cards;
+- with simple, useful, and testable interactions: filters, search, copy, export, print, expand, and collapse;
+- with visual consistency across sections, avoiding repeated identical blocks without need;
+- with a professional, practical look suitable for product managers, business analysts, UX designers, founders, technical stakeholders, and investors.
 
-- derivado diretamente da direção estética oficial do produto;
-- específico para o produto analisado, refletindo seu segmento, público, maturidade e contexto de uso;
-- orientado a leitura, comparação, síntese estratégica e tomada de decisão;
-- com hierarquia visual clara entre resumo executivo, decisões, hipóteses, oportunidades, riscos, domínios, módulos e recomendações;
-- com densidade informacional equilibrada, evitando tanto excesso visual quanto telas vazias;
-- com componentes úteis e justificáveis, evitando elementos decorativos sem função;
-- com cards, tabelas, matrizes e seções usados apenas quando ajudarem a compreender, filtrar, comparar ou priorizar informações;
-- com cores, tipografia, espaçamentos, bordas, ícones, estados e componentes coerentes com `0-estetica-inicial.md`;
-- com microcopy objetiva, contextual e verificável, evitando frases vagas como “solução inovadora”, “experiência incrível” ou “dashboard poderoso” sem conteúdo concreto;
-- com navegação lateral clara, títulos descritivos e estados visuais compreensíveis;
-- com acessibilidade básica: contraste adequado, foco visível, textos legíveis, áreas clicáveis confortáveis e estrutura semântica;
-- com responsividade real para desktop e mobile, preservando legibilidade das tabelas, matrizes e cards;
-- com interações simples, úteis e testáveis: filtros, busca, copiar, exportar, imprimir, expandir e recolher;
-- com consistência visual entre seções, sem repetir blocos idênticos sem necessidade;
-- com aparência profissional, prática e orientada a uso real por product managers, analistas de negócio, UX designers, founders, stakeholders técnicos e investidores.
+Avoid explicitly:
 
-Evite explicitamente:
-
-- qualquer estética que contradiga o arquivo `0-estetica-inicial.md`;
-- gradientes chamativos sem propósito;
-- cards repetitivos com pouco conteúdo;
-- ícones meramente decorativos;
-- frases genéricas e vagas;
-- excesso de sombras, brilhos e efeitos visuais;
-- layouts que parecem templates sem relação com o produto;
-- tabelas ilegíveis em telas pequenas;
-- animações que atrapalham a leitura;
-- dependência de bibliotecas externas;
-- estética visual que pareça gerada automaticamente sem decisão de design.
+- any aesthetic that contradicts `0-estetica-inicial.md`;
+- flashy gradients without purpose;
+- repetitive cards with little content;
+- merely decorative icons;
+- vague and generic phrases;
+- excessive shadows, glow, and visual effects;
+- layouts that look like templates;
+- unreadable tables on small screens;
+- animations that hurt readability;
+- external library dependencies;
+- a visual style that looks automatically generated without design decisions.
 
 ---
 
-# Regras de análise
+# Analysis Rules
 
-Siga estas regras:
+Follow these rules:
 
-1. Não ignore documentos das etapas anteriores.
-2. Não contradiga evidências já levantadas sem justificar.
-3. Não invente validações com usuários.
-4. Não transforme hipótese em certeza.
-5. Não trate concorrentes como iguais se houver diferenças claras.
-6. Não gere requisito final sem indicar origem ou evidência.
-7. Não feche escopo prematuramente.
-8. Não aprofunde implementação técnica desnecessariamente.
-9. Não detalhe banco de dados nesta etapa.
-10. Não gere backlog completo ainda.
-11. Diferencie claramente:
-    - fato pesquisado;
-    - evidência;
-    - inferência estratégica;
-    - hipótese;
-    - decisão sugerida;
-    - recomendação.
-12. Quando a informação for incerta, marque como lacuna ou hipótese.
-13. Quando faltar o arquivo estético, registre limitação visual.
-
----
-
-# Regras técnicas do arquivo HTML
-
-O HTML deve:
-
-- funcionar offline depois de gerado;
-- ser um único arquivo;
-- não depender de internet para abrir;
-- não usar bibliotecas externas;
-- não usar frameworks;
-- não usar imagens externas;
-- conter CSS no `<style>`;
-- conter JS no `<script>`;
-- ser legível e organizado;
-- usar elementos semânticos;
-- conter comentários internos úteis no código;
-- ser compatível com navegadores modernos;
-- aplicar no CSS e no layout as diretrizes visuais do arquivo `0-estetica-inicial.md`.
+1. Do not ignore previous-stage documents.
+2. Do not contradict existing evidence without justification.
+3. Do not invent user validation.
+4. Do not turn hypothesis into certainty.
+5. Do not deliver final requirements without indicating origin or evidence.
+6. Do not lock the scope too early.
+7. Do not over-detail technical implementation.
+8. Do not detail the database at this stage.
+9. Do not create a complete backlog yet.
+10. Clearly distinguish:
+    - researched fact;
+    - evidence;
+    - strategic inference;
+    - hypothesis;
+    - suggested decision;
+    - candidate requirement;
+    - recommendation.
+11. When information is uncertain, mark it as a gap or hypothesis.
+12. When the aesthetic file is missing, record the visual limitation.
+13. Consider configurations, permissions, multi-tenant, multi-company, HQ/branch, super-admin, and AI where they make sense for the product.
 
 ---
 
-# Estrutura mínima esperada do HTML
+# Technical Rules for the HTML File
+
+The HTML must:
+
+- work offline once generated;
+- be a single file;
+- not depend on the internet to open;
+- not use external libraries;
+- not use frameworks;
+- not use external images;
+- contain CSS in `<style>`;
+- contain JS in `<script>`;
+- be readable and organized;
+- use semantic elements;
+- contain useful internal comments in the code;
+- be compatible with modern browsers;
+- apply the visual rules from `0-estetica-inicial.md` in CSS and layout.
+
+---
+
+# Expected HTML Structure
 
 ```html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Etapa 3 — Análise Estratégica e Especificação Inicial</title>
+  <title>Stage 3 — Strategic Analysis and Initial Specification</title>
   <style>
-    /* CSS embutido seguindo 0-estetica-inicial.md */
+    /* embedded CSS following 0-estetica-inicial.md */
   </style>
 </head>
 <body>
   <aside class="sidebar">
-    <!-- Navegação lateral baseada na estética oficial -->
+    <!-- sidebar navigation based on the official aesthetic -->
   </aside>
 
-  <main class="content" data-objetivo="Centralizar o conteúdo da Etapa 3, reunindo contexto, decisões, regras e entregas esperadas em um único ponto de referência para orientar a produção do artefato final e a continuidade do fluxo de trabalho.">
+  <main class="content">
     <header class="hero">
-      <!-- Cabeçalho da Etapa 3 seguindo a estética oficial -->
+      <!-- Stage 3 header following the official aesthetic -->
     </header>
 
-    <section id="resumo-executivo" data-objetivo="Detalhar Resumo executivo para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Resumo executivo -->
+    <section id="executive-summary">
+      <!-- executive summary -->
     </section>
 
-    <section id="contexto-consolidado" data-objetivo="Detalhar Contexto consolidado do produto para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Contexto consolidado do produto -->
+    <section id="product-context">
+      <!-- consolidated product context -->
     </section>
 
-    <section id="fontes-entrada" data-objetivo="Detalhar Fontes e documentos de entrada para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Fontes e documentos de entrada -->
+    <section id="source-documents">
+      <!-- source documents and inputs -->
     </section>
 
-    <section id="sintese-estrategica" data-objetivo="Detalhar Síntese estratégica para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Síntese estratégica -->
+    <section id="strategic-summary">
+      <!-- strategic summary -->
     </section>
 
-    <section id="mercado-benchmarking" data-objetivo="Detalhar Consolidação de mercado e benchmarking para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Consolidação de mercado e benchmarking -->
+    <section id="market-benchmarking">
+      <!-- market and benchmark consolidation -->
     </section>
 
-    <section id="stakeholders" data-objetivo="Detalhar Público-alvo e stakeholders para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Público-alvo e stakeholders -->
+    <section id="stakeholders">
+      <!-- audience and stakeholders -->
     </section>
 
-    <section id="problemas-dores" data-objetivo="Detalhar Problemas, dores e necessidades consolidadas para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Problemas, dores e necessidades consolidadas -->
+    <section id="problems-pains">
+      <!-- consolidated problems, pain points, and needs -->
     </section>
 
-    <section id="oportunidades" data-objetivo="Detalhar Oportunidades e diferenciais para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Oportunidades e diferenciais -->
+    <section id="opportunities">
+      <!-- opportunities and differentiators -->
     </section>
 
-    <section id="hipoteses" data-objetivo="Detalhar Hipóteses atualizadas para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Hipóteses atualizadas -->
+    <section id="hypotheses">
+      <!-- updated hypotheses -->
     </section>
 
-    <section id="riscos" data-objetivo="Detalhar Riscos estratégicos consolidados para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Riscos estratégicos consolidados -->
+    <section id="risks">
+      <!-- consolidated strategic risks -->
     </section>
 
-    <section id="visao-funcional" data-objetivo="Detalhar Visão funcional para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Visão funcional -->
+    <section id="functional-vision">
+      <!-- initial functional vision -->
     </section>
 
-    <section id="dominios" data-objetivo="Detalhar Domínios para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Domínios -->
+    <section id="domains">
+      <!-- preliminary domains -->
     </section>
 
-    <section id="modulos" data-objetivo="Detalhar Módulos para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Módulos -->
+    <section id="modules">
+      <!-- candidate modules -->
     </section>
 
-    <section id="funcionalidades" data-objetivo="Detalhar Funcionalidades para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Funcionalidades -->
+    <section id="features">
+      <!-- candidate features -->
     </section>
 
-    <section id="fluxos" data-objetivo="Detalhar Fluxos em alto nível para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Fluxos em alto nível -->
+    <section id="flows">
+      <!-- high-level flows -->
     </section>
 
-    <section id="principios-produto" data-objetivo="Detalhar Princípios de produto para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Princípios de produto -->
+    <section id="product-principles">
+      <!-- product principles -->
     </section>
 
-    <section id="diretrizes-ux-ui" data-objetivo="Detalhar Diretrizes de UX/UI derivadas de 0-estetica-inicial.md para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Diretrizes de UX/UI derivadas de 0-estetica-inicial.md -->
+    <section id="ux-ui-guidelines">
+      <!-- UX/UI guidelines derived from 0-estetica-inicial.md -->
     </section>
 
-    <section id="decisoes" data-objetivo="Detalhar Decisões estratégicas recomendadas para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Decisões estratégicas recomendadas -->
+    <section id="decisions">
+      <!-- recommended strategic decisions -->
     </section>
 
-    <section id="lacunas" data-objetivo="Detalhar Lacunas e pendências para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Lacunas e pendências -->
+    <section id="gaps">
+      <!-- gaps and pending items -->
     </section>
 
-    <section id="recomendacoes-etapa-4" data-objetivo="Detalhar Recomendações para a Etapa 4 para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Recomendações para a Etapa 4 -->
+    <section id="stage4-recommendations">
+      <!-- recommendations for Stage 4 -->
     </section>
 
-    <section id="referencias" data-objetivo="Detalhar Fontes, evidências e referências para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Fontes, evidências e referências -->
+    <section id="references">
+      <!-- sources, evidence, and references -->
     </section>
 
-    <section id="proximos-passos" data-objetivo="Detalhar Próximos passos para consolidar as informações necessárias desta seção, apoiar decisões da etapa e manter o artefato final coerente, acionável e fácil de validar.">
-      <!-- Próximos passos -->
+    <section id="next-steps">
+      <!-- next steps -->
     </section>
   </main>
 
   <script>
-    /* JavaScript embutido */
+    /* embedded JavaScript */
   </script>
 </body>
 </html>
@@ -862,68 +784,68 @@ O HTML deve:
 
 ---
 
-# Critérios de qualidade
+# Quality Criteria
 
-A saída deve ser:
+The output should be:
 
-- consolidada;
-- estratégica;
-- comparativa;
-- fundamentada;
-- rastreável;
-- útil para decisão de produto;
-- útil para orientar requisitos;
-- útil para orientar UX;
-- útil para orientar arquitetura funcional;
-- útil para orientar priorização;
-- clara sobre incertezas;
-- clara sobre hipóteses;
-- clara sobre riscos;
-- clara sobre lacunas restantes;
-- visualmente coerente com `0-estetica-inicial.md`.
-
----
-
-# Regras importantes
-
-1. Não ignore a Etapa 1.
-2. Não ignore a Etapa 0.
-3. Não ignore a Etapa 2.
-4. Não ignore o arquivo `0-estetica-inicial.md`.
-5. Não crie estética paralela à estética oficial.
-6. Não invente fontes, dados ou validações.
-7. Não use links fictícios.
-8. Não dependa de bibliotecas externas no HTML.
-9. Não entregue apenas Markdown.
-10. Não gere arquivos separados.
-11. Gere apenas um HTML final, analise o conteúdo do HTML e procure por erros ou falhas e corrija.
-12. Salve o arquivo com o padrão `3.html`.
-13. Responda somente com o link para download e uma frase curta de confirmação.
+- consolidated;
+- strategic;
+- comparative;
+- grounded;
+- traceable;
+- useful for product decisions;
+- useful for guiding requirements;
+- useful for guiding UX;
+- useful for guiding functional architecture;
+- useful for guiding prioritization;
+- clear about uncertainties;
+- clear about hypotheses;
+- clear about risks;
+- clear about remaining gaps;
+- visually consistent with `0-estetica-inicial.md`.
 
 ---
 
-# Saída esperada do assistente
+# Important Rules
 
-Ao receber a entrada da Etapa 3, o assistente deve:
+1. Do not ignore Stage 1.
+2. Do not ignore Stage 0, when provided.
+3. Do not ignore Stage 2.
+4. Do not ignore the `0-estetica-inicial.md` file.
+5. Do not create a parallel aesthetic.
+6. Do not invent sources, data, or validations.
+7. Do not use fictitious links.
+8. Do not depend on external libraries in the HTML.
+9. Do not deliver Markdown only.
+10. Do not generate separate files.
+11. Generate only one final HTML, inspect it for errors or failures, and fix them.
+12. Save the file as `3.html`.
+13. Respond only with the download link and a short confirmation sentence.
 
-1. Ler os documentos das etapas anteriores.
-2. Ler o arquivo `0-estetica-inicial.md`.
-3. Extrair o contexto completo do produto.
-4. Consolidar pesquisa, hipóteses, riscos, oportunidades e aprendizados.
-5. Gerar visão estratégica e funcional inicial.
-6. Mapear stakeholders, domínios, módulos, funcionalidades candidatas e fluxos macro.
-7. Aplicar todas as decisões visuais a partir do arquivo estético oficial.
-8. Criar o dashboard HTML completo, analise o conteúdo do HTML e procure por erros ou falhas e corrija.
-9. Salvar o arquivo usando o padrão:
+---
+
+# Expected Output
+
+When receiving the Stage 3 input, the assistant must:
+
+1. Read the previous-stage documents.
+2. Read `0-estetica-inicial.md`.
+3. Extract the complete product context.
+4. Consolidate research, hypotheses, risks, opportunities, and learnings.
+5. Generate the strategic and initial functional vision.
+6. Map stakeholders, domains, modules, candidate features, and macro flows.
+7. Apply all visual decisions from the official aesthetic file.
+8. Create the full HTML dashboard, inspect it for errors or failures, and fix them.
+9. Save the file using:
 
 ```txt
 3.html
 ```
 
-10. Responder apenas com o link para download do arquivo e uma frase curta de confirmação.
+10. Respond only with the download link and a short confirmation sentence.
 
-Formato da resposta final:
+Final response format:
 
 ```html
-conteúdo do arquivo gerado
+content of the generated file
 ```

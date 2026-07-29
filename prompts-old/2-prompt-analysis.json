@@ -1,0 +1,4560 @@
+{
+  "prompt": {
+    "id": "2",
+    "file": "2-prompt.md",
+    "title": "Stage 2 — Market Research and Benchmarking",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to `0-estetica-inicial.md`. Your task is to execute **Stage 2 — Market Research and Benchmarking**. Mandatory product context: the research must compare global administration platforms, SaaS control planes, tenant management consoles, IAM suites, billing/subscription management, feature management, template management, AI ops, and validation engines, not just standard operational products. You must analyze the chat history and use all previous `.md` and `.html` files as official input, especially the Stage 1 and Stage 1.2 outputs. The result must be consolidated into an interactive HTML dashboard saved as: --- # User Input The user may provide one of the following: 1. A plain-text initial idea. 2. A summary of Stage 1. 3. A Stage 1 HTML file. 4. A Stage 1.2 ...",
+    "role": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to `0-estetica-inicial.md`.",
+    "summary": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to `0-estetica-inicial.md`. Your task is to execute **Stage 2 — Market Research and Benchmarking**. Mandatory product context: the research must compare global administration platforms, SaaS control planes, tenant management consoles, IAM suites, billing/subscription management, feature management, template management, AI ops, and validation engines, not just standard operational products. You must analyze the chat history and use all previous `.md` and `.html` fi...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "7a896d1de30e3bf622444ed0b70fa3502ee2407401c81ebc8a4b53e681f37db3"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1.2-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "2.html",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1.2-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0-estetica-inicial.md",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "2.html",
+        "type": "source_input",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to `0-estetica-inicial.md`.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "Mandatory product context: the research must compare global administration platforms, SaaS control planes, tenant management consoles, IAM suites, billing/subscription management, feature management, template management, AI ops, and validation engines, not just standard operational products.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "You must analyze the chat history and use all previous `.md` and `.html` files as official input, especially the Stage 1 and Stage 1.2 outputs.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "The result must be consolidated into an interactive HTML dashboard saved as:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "# Mandatory Aesthetic File",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "This file is the official visual direction for the product and must control all UX/UI decisions, themes, styles, layouts, composition, hierarchy, components, density, microinteractions, visual language, color usage, typography, rhythm, and the dashboard build.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "The stage should answer:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "which competitive risks must be considered;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "which learnings should guide later stages.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "This stage must **not** generate the full functional specification yet.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "Do not turn the research into a final backlog, final technical architecture, or closed requirement list.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "# Mandatory Tasks",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 13,
+      "rule": "# Mandatory Documents Inside the Dashboard",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 14,
+      "rule": "The final HTML dashboard must contain:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 15,
+      "rule": "# Required Output",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 16,
+      "rule": "The file must be named:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 17,
+      "rule": "The final response must contain a download link for the generated file.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 18,
+      "rule": "The HTML must be self-contained and include:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 19,
+      "rule": "Each source must include:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 20,
+      "rule": "# Mandatory Interactivity",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 21,
+      "rule": "The dashboard must allow:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 22,
+      "rule": "The dashboard’s visual construction must strictly follow:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 23,
+      "rule": "All decisions about UX/UI, theme, style, layout, composition, components, navigation, hierarchy, typography, colors, contrast, information density, spacing, visual rhythm, cards, tables, matrices, filters, states, microcopy, microinteractions, responsiveness, and visual construction must be derived from that file.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 24,
+      "rule": "Do not create a new visual direction for Stage 2.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 25,
+      "rule": "## Mandatory aesthetic application rules",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 26,
+      "rule": "restrictions on what to avoid.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 27,
+      "rule": "6. When the aesthetic file says certain styles should be avoided, do not use them.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 28,
+      "rule": "9. The visual experience must reinforce the product context and should not look like a reusable generic template.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 29,
+      "rule": "10. The aesthetic must support reading, comparison, and market-decision making.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 30,
+      "rule": "avoid creating a definitive visual identity;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 31,
+      "rule": "do not use flashy gradients, generic glassmorphism, excessive shadows, empty cards, or decorative elements without purpose;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 32,
+      "rule": "Even when the aesthetic file is missing, explicitly avoid:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 33,
+      "rule": "8. Do not rely on only one source for important conclusions.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 34,
+      "rule": "9. Do not invent data.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 35,
+      "rule": "10. Do not invent competitors.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 36,
+      "rule": "11. Do not use fictitious links.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 37,
+      "rule": "whether it should influence Stage 3;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 38,
+      "rule": "whether it should become a future requirement;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 39,
+      "rule": "whether it should be treated as an assumption;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 40,
+      "rule": "whether it should guide interviews, benchmarking, or prototyping.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 41,
+      "rule": "The HTML must:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 42,
+      "rule": "The output should be:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 43,
+      "rule": "1. Do not ignore Stage 1.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 44,
+      "rule": "2. Do not invent players, sources, or data.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 45,
+      "rule": "3. Do not treat inferences as facts.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 46,
+      "rule": "4. Do not use fictitious links.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 47,
+      "rule": "5. Do not depend on external libraries in the HTML.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 48,
+      "rule": "6. Do not deliver Markdown only.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 49,
+      "rule": "7. Do not generate separate files.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 50,
+      "rule": "When receiving the Stage 2 input, the assistant must:",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "which flows and modules are common;",
+      "Flow 1",
+      "Flow 2",
+      "5 UX, onboarding, dashboard, or flow references;",
+      "Flows, Screens, and UX Patterns Analysis",
+      "sidebar navigation aligned with the product aesthetic;",
+      "flows;",
+      "navigation patterns;",
+      "When the aesthetic file defines a specific dashboard, table, card, navigation, or layout pattern, use that pattern."
+    ],
+    "flows": [
+      "recommended next steps.",
+      "which flows and modules are common;",
+      "Flow 1",
+      "Flow 2",
+      "5 UX, onboarding, dashboard, or flow references;",
+      "Flows, Screens, and UX Patterns Analysis",
+      "flows;"
+    ],
+    "experience": [
+      "UX reference;",
+      "5 UX, onboarding, dashboard, or flow references;",
+      "Flows, Screens, and UX Patterns Analysis",
+      "observed UX;",
+      "product visual personality;",
+      "visual states;",
+      "The visual experience must reinforce the product context and should not look like a reusable generic template.",
+      "state in the dashboard that the official aesthetic direction was not provided;",
+      "vague copy such as “innovative solution”, “amazing experience”, or “powerful dashboard” without evidence;",
+      "whether it requires user validation;",
+      "useful for guiding UX;",
+      "Analyze competitors, substitutes, benchmarks, features, UX, monetization, integrations, gaps, and opportunities.",
+      "Create the full HTML dashboard with UX/UI, themes, styles, layouts, and construction consistent with `0-estetica-inicial.md`."
+    ],
+    "ui": [
+      "which learnings should guide later stages.",
+      "5 UX, onboarding, dashboard, or flow references;",
+      "Flows, Screens, and UX Patterns Analysis",
+      "summary cards aligned with the component system defined in `0-estetica-inicial.md`;",
+      "tables;",
+      "a button to print or save as PDF;",
+      "a button to export Markdown that converts the entire HTML to Markdown;",
+      "Read and interpret `0-estetica-inicial.md` before designing the dashboard.",
+      "card, table, form, filter, and panel styles;",
+      "Apply the aesthetic to the HTML dashboard without relying on external libraries, external images, frameworks, or CDNs.",
+      "When the aesthetic file defines a specific dashboard, table, card, navigation, or layout pattern, use that pattern.",
+      "When the aesthetic file includes token names, CSS variables, or design system guidance, reflect them in the embedded CSS.",
+      "state in the dashboard that the official aesthetic direction was not provided;",
+      "generic AI dashboard appearance;",
+      "unreadable tables;",
+      "vague copy such as “innovative solution”, “amazing experience”, or “powerful dashboard” without evidence;",
+      "Clearly distinguish:",
+      "Include the consulted URLs in the dashboard.",
+      "whether it requires user validation;",
+      "whether it should become a future requirement;",
+      "whether it should guide interviews, benchmarking, or prototyping.",
+      "useful for guiding specification;",
+      "useful for guiding UX;",
+      "useful for guiding positioning;",
+      "Create the full HTML dashboard with UX/UI, themes, styles, layouts, and construction consistent with `0-estetica-inicial.md`."
+    ],
+    "layout": [
+      "responsive layout aligned with `0-estetica-inicial.md`;",
+      "visual indicators aligned with the palette, status semantics, tokens, contrast, and visual language defined in `0-estetica-inicial.md`;",
+      "Show visual progress for Stage 2.",
+      "product visual personality;",
+      "grid and composition;",
+      "visual states;",
+      "responsiveness rules;",
+      "When the aesthetic file defines a specific dashboard, table, card, navigation, or layout pattern, use that pattern.",
+      "The visual experience must reinforce the product context and should not look like a reusable generic template.",
+      "use a neutral, professional, accessible, and functional visual base;",
+      "avoid creating a definitive visual identity;",
+      "“beautiful but empty” layouts;",
+      "visual effects that compete with the analysis;",
+      "apply the visual rules from `0-estetica-inicial.md` in CSS and layout;",
+      "Create the full HTML dashboard with UX/UI, themes, styles, layouts, and construction consistent with `0-estetica-inicial.md`."
+    ],
+    "communication": [
+      "visual indicators aligned with the palette, status semantics, tokens, contrast, and visual language defined in `0-estetica-inicial.md`;",
+      "Copy executive summary.",
+      "Copy analysis of a specific system.",
+      "aesthetic language;",
+      "vague copy such as “innovative solution”, “amazing experience”, or “powerful dashboard” without evidence;"
+    ]
+  },
+  "boundaries": {
+    "scope": [
+      "likely research scope.",
+      "Research Objective and Scope",
+      "objective;",
+      "Define the research scope."
+    ],
+    "restrictions": [
+      "Do not turn the research into a final backlog, final technical architecture, or closed requirement list.",
+      "Do not create a new visual direction for Stage 2.",
+      "restrictions on what to avoid.",
+      "6. When the aesthetic file says certain styles should be avoided, do not use them.",
+      "avoid creating a definitive visual identity;",
+      "do not use flashy gradients, generic glassmorphism, excessive shadows, empty cards, or decorative elements without purpose;",
+      "Even when the aesthetic file is missing, explicitly avoid:",
+      "8. Do not rely on only one source for important conclusions.",
+      "9. Do not invent data.",
+      "10. Do not invent competitors.",
+      "11. Do not use fictitious links.",
+      "1. Do not ignore Stage 1.",
+      "2. Do not invent players, sources, or data.",
+      "3. Do not treat inferences as facts.",
+      "4. Do not use fictitious links.",
+      "5. Do not depend on external libraries in the HTML.",
+      "6. Do not deliver Markdown only.",
+      "7. Do not generate separate files."
+    ],
+    "responsibilities": [
+      "which competitive risks must be considered;",
+      "which learnings should guide later stages.",
+      "When the aesthetic file says certain styles should be avoided, do not use them.",
+      "The visual experience must reinforce the product context and should not look like a reusable generic template.",
+      "The aesthetic must support reading, comparison, and market-decision making.",
+      "whether it should influence Stage 3;",
+      "whether it should become a future requirement;",
+      "whether it should be treated as an assumption;",
+      "whether it should guide interviews, benchmarking, or prototyping."
+    ],
+    "limitations": [
+      "Limitation 1",
+      "Limitation 2",
+      "limitations;",
+      "restrictions on what to avoid."
+    ]
+  },
+  "documents": [
+    {
+      "file": "0-estetica-inicial.md",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    },
+    {
+      "file": "2.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    }
+  ],
+  "outputTemplate": {
+    "file": "2-output-template.json",
+    "title": "Estrutura da Saída da Etapa 2 - Pesquisa de Mercado e Benchmarking",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema JSON que representa semanticamente o dashboard HTML da Etapa 2. A saída final deve consolidar o contexto do produto, a metodologia de pesquisa, o mapa de concorrentes, a classificação dos players, as análises detalhadas, as matrizes comparativas, as oportunidades, os riscos, as tendências, as fontes consultadas e os recursos de interatividade exigidos pelo prompt.",
+    "schemaSource": "provided",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Estrutura da Saída da Etapa 2 - Pesquisa de Mercado e Benchmarking",
+      "description": "Schema JSON que representa semanticamente o dashboard HTML da Etapa 2. A saída final deve consolidar o contexto do produto, a metodologia de pesquisa, o mapa de concorrentes, a classificação dos players, as análises detalhadas, as matrizes comparativas, as oportunidades, os riscos, as tendências, as fontes consultadas e os recursos de interatividade exigidos pelo prompt.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "etapa",
+        "arquivo_de_entrada",
+        "arquivo_de_saida",
+        "cabecalho",
+        "referencia_estetica",
+        "contexto_produto",
+        "objetivo_escopo_metodologia",
+        "resumo_executivo",
+        "mapa_concorrentes",
+        "classificacao_players",
+        "players_consolidados",
+        "analises_detalhadas",
+        "matriz_comparativa_funcionalidades",
+        "matriz_posicionamento_competitivo",
+        "analise_publico_alvo",
+        "analise_proposta_valor",
+        "modulos_funcionalidades_recorrentes",
+        "ux_fluxos_padroes",
+        "monetizacao",
+        "integracoes_ecossistema",
+        "diferenciais_competitivos",
+        "lacunas_mercado",
+        "oportunidades",
+        "riscos_competitivos",
+        "tendencias",
+        "aprendizados_estrategicos",
+        "hipoteses_atualizadas",
+        "recomendacoes_etapa_3",
+        "fontes_e_referencias",
+        "interatividade",
+        "progresso_visual",
+        "destaques",
+        "contadores"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "integer",
+          "title": "Número da Etapa",
+          "description": "Identificador numérico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 2, pois a saída corresponde à Etapa 2 - Pesquisa de Mercado e Benchmarking.",
+          "const": 2
+        },
+        "arquivo_de_entrada": {
+          "type": "string",
+          "title": "Arquivo de Entrada",
+          "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 2.",
+          "const": "2-prompt.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saída",
+          "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 2.html, conforme o prompt.",
+          "const": "2.html"
+        },
+        "cabecalho": {
+          "title": "Cabeçalho do Dashboard",
+          "description": "Bloco de identificação no topo do dashboard com o nome do produto, a etapa, os arquivos principais, a data, o segmento analisado e os indicadores de rastreabilidade.",
+          "$ref": "#/$defs/Cabecalho"
+        },
+        "referencia_estetica": {
+          "title": "Referência Estética",
+          "description": "Registro semântico da diretriz visual usada como base para a implementação do HTML. Deve refletir a necessidade de seguir 0-estetica-inicial.md quando disponível e de registrar a decisão visual quando não houver referência.",
+          "$ref": "#/$defs/ReferenciaEstetica"
+        },
+        "contexto_produto": {
+          "title": "Contexto do Produto",
+          "description": "Síntese do produto analisado, incluindo o nome provisório, o tipo de sistema, o segmento, o público, o problema, a proposta de valor e as hipóteses iniciais.",
+          "$ref": "#/$defs/ContextoProduto"
+        },
+        "objetivo_escopo_metodologia": {
+          "title": "Objetivo, Escopo e Metodologia",
+          "description": "Bloco que define o objetivo da pesquisa, o escopo investigado, as perguntas norteadoras e a metodologia usada para analisar o mercado.",
+          "$ref": "#/$defs/ObjetivoEscopoMetodologia"
+        },
+        "resumo_executivo": {
+          "title": "Resumo Executivo",
+          "description": "Síntese estratégica da pesquisa com os principais achados, implicações competitivas, lacunas e a leitura executiva do cenário analisado.",
+          "$ref": "#/$defs/ResumoExecutivo"
+        },
+        "mapa_concorrentes": {
+          "title": "Mapa de Concorrentes e Referências",
+          "description": "Visão agrupada dos players encontrados, organizada por categoria de análise, papel competitivo e nível de relevância.",
+          "$ref": "#/$defs/MapaConcorrentes"
+        },
+        "classificacao_players": {
+          "title": "Classificação dos Players",
+          "description": "Classificação explícita das soluções encontradas por tipo de concorrência, benchmark, referência técnica, substituto, solução open source ou solução enterprise.",
+          "$ref": "#/$defs/ClassificacaoPlayers"
+        },
+        "players_consolidados": {
+          "title": "Tabela Consolidada de Players",
+          "description": "Tabela consolidada com os principais players analisados, usada para apoiar comparação, filtragem e leitura rápida da pesquisa.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/PlayerConsolidado"
+          }
+        },
+        "analises_detalhadas": {
+          "title": "Análises Detalhadas por Sistema",
+          "description": "Coleção de seções expansíveis com a análise aprofundada de cada sistema relevante encontrado na pesquisa.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/AnaliseSistema"
+          }
+        },
+        "matriz_comparativa_funcionalidades": {
+          "title": "Matriz Comparativa de Funcionalidades",
+          "description": "Tabela comparativa usada para confrontar o produto proposto com concorrentes selecionados e revelar oportunidades de diferenciação.",
+          "$ref": "#/$defs/MatrizComparativaFuncionalidades"
+        },
+        "matriz_posicionamento_competitivo": {
+          "title": "Matriz de Posicionamento Competitivo",
+          "description": "Modelo visual e semântico que posiciona os players por eixos estratégicos, como simplicidade versus profundidade ou SMB versus enterprise.",
+          "$ref": "#/$defs/MatrizPosicionamentoCompetitivo"
+        },
+        "analise_publico_alvo": {
+          "title": "Análise de Público-Alvo por Concorrente",
+          "description": "Visão comparada dos públicos atendidos por cada concorrente ou referência, indicando quem compra, quem usa e em que contexto.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/AnalisePublicoAlvo"
+          }
+        },
+        "analise_proposta_valor": {
+          "title": "Análise de Proposta de Valor por Concorrente",
+          "description": "Avaliação comparada de como cada player se posiciona, quais dores resolve e quais argumentos sustenta para competir.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/AnalisePropostaValor"
+          }
+        },
+        "modulos_funcionalidades_recorrentes": {
+          "title": "Módulos e Funcionalidades Recorrentes",
+          "description": "Levantamento dos módulos, áreas e funcionalidades que se repetem entre as soluções analisadas e indicam padrão de mercado.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ModuloRecorrente"
+          }
+        },
+        "ux_fluxos_padroes": {
+          "title": "Fluxos, Telas e Padrões de UX",
+          "description": "Levantamento dos fluxos, telas, padrões de onboarding, navegação, dashboards e interações recorrentes observadas na pesquisa.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/UXFluxoPadrao"
+          }
+        },
+        "monetizacao": {
+          "title": "Modelos de Monetização",
+          "description": "Análise dos modelos de preço, planos, licenciamento e mecanismos comerciais observados entre os players pesquisados.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/MonetizacaoItem"
+          }
+        },
+        "integracoes_ecossistema": {
+          "title": "Integrações e Ecossistema",
+          "description": "Mapeamento das integrações, APIs, parceiros, conectoriais e padrões de ecossistema mais frequentes na categoria.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/IntegracaoItem"
+          }
+        },
+        "diferenciais_competitivos": {
+          "title": "Diferenciais Competitivos",
+          "description": "Lista das vantagens percebidas, ângulos de posicionamento e atributos de competição de cada sistema relevante.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/DiferencialCompetitivo"
+          }
+        },
+        "lacunas_mercado": {
+          "title": "Lacunas de Mercado Identificadas",
+          "description": "Lista das oportunidades não atendidas, fricções recorrentes e áreas em que a oferta de mercado parece incompleta.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/LacunaMercado"
+          }
+        },
+        "oportunidades": {
+          "title": "Oportunidades para o Produto",
+          "description": "Oportunidades priorizadas para o produto com base nas lacunas, tendências, diferenciais e limites observados na pesquisa.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/OportunidadeProduto"
+          }
+        },
+        "riscos_competitivos": {
+          "title": "Riscos Competitivos e Riscos de Produto",
+          "description": "Inventário de riscos estratégicos, de mercado e de produto identificados durante a análise competitiva.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/RiscoCompetitivo"
+          }
+        },
+        "tendencias": {
+          "title": "Tendências Relevantes",
+          "description": "Tendências de mercado, produto, UX, monetização, IA, automação e governança que influenciam a categoria analisada.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/TendenciaMercado"
+          }
+        },
+        "aprendizados_estrategicos": {
+          "title": "Aprendizados Estratégicos",
+          "description": "Leitura consolidada dos principais aprendizados da pesquisa e de como eles devem orientar as próximas etapas do processo.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/AprendizadoEstrategico"
+          }
+        },
+        "hipoteses_atualizadas": {
+          "title": "Hipóteses Atualizadas pela Pesquisa",
+          "description": "Hipóteses iniciais revisadas à luz da pesquisa, indicando o que foi reforçado, enfraquecido ou ainda precisa de validação.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/HipoteseAtualizada"
+          }
+        },
+        "recomendacoes_etapa_3": {
+          "title": "Recomendações para a Etapa 3",
+          "description": "Recomendações objetivas para a próxima etapa do processo, com foco em consolidação estratégica e preparação para especificação inicial.",
+          "$ref": "#/$defs/RecomendacoesEtapa3"
+        },
+        "fontes_e_referencias": {
+          "title": "Fontes e Referências Consultadas",
+          "description": "Lista rastreável de fontes consultadas para sustentar a pesquisa, as análises e as conclusões apresentadas no dashboard.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/FonteReferencia"
+          }
+        },
+        "interatividade": {
+          "title": "Interatividade",
+          "description": "Recursos interativos e comportamentos esperados no dashboard HTML, como filtros, busca, copiar, exportar, imprimir e expandir seções.",
+          "$ref": "#/$defs/Interatividade"
+        },
+        "progresso_visual": {
+          "title": "Progresso Visual",
+          "description": "Indicadores visuais de progresso e maturidade da etapa, usados para destacar a evolução da pesquisa e a proximidade da entrega.",
+          "$ref": "#/$defs/ProgressoVisual"
+        },
+        "destaques": {
+          "title": "Destaques",
+          "description": "Bloco de insights, alertas, decisões e pendências que merecem atenção rápida no dashboard.",
+          "$ref": "#/$defs/Destaques"
+        },
+        "contadores": {
+          "title": "Contadores",
+          "description": "Indicadores numéricos resumidos do dashboard, incluindo contagens de players, fontes, lacunas, oportunidades, riscos e funcionalidades recorrentes.",
+          "$ref": "#/$defs/Contadores"
+        }
+      },
+      "$defs": {
+        "Cabecalho": {
+          "type": "object",
+          "title": "Cabeçalho",
+          "description": "Identificação principal do dashboard com o nome do produto, a etapa, os arquivos usados e os indicadores resumidos da pesquisa.",
+          "required": [
+            "nome_do_produto",
+            "nome_da_etapa",
+            "arquivo_de_entrada",
+            "arquivo_de_saida",
+            "data_de_geracao",
+            "segmento_analisado",
+            "total_players_analisados",
+            "total_fontes_consultadas",
+            "principais_categorias_concorrentes"
+          ],
+          "properties": {
+            "nome_do_produto": {
+              "type": "string",
+              "title": "Nome do Produto",
+              "description": "Nome provisório do produto analisado nesta etapa.",
+              "minLength": 1
+            },
+            "nome_da_etapa": {
+              "type": "string",
+              "title": "Nome da Etapa",
+              "description": "Rótulo textual da etapa, que deve identificar explicitamente a Etapa 2 - Pesquisa de Mercado e Benchmarking.",
+              "minLength": 1
+            },
+            "arquivo_de_entrada": {
+              "type": "string",
+              "title": "Arquivo de Entrada",
+              "description": "Arquivo ou entrada usada como base para o dashboard.",
+              "minLength": 1
+            },
+            "arquivo_de_saida": {
+              "type": "string",
+              "title": "Arquivo de Saída",
+              "description": "Nome do arquivo HTML final produzido pela etapa.",
+              "minLength": 1
+            },
+            "data_de_geracao": {
+              "type": "string",
+              "title": "Data de Geração",
+              "description": "Data e hora em que o dashboard foi gerado, em formato legível e rastreável.",
+              "minLength": 1
+            },
+            "segmento_analisado": {
+              "type": "string",
+              "title": "Segmento Analisado",
+              "description": "Segmento ou nicho de mercado efetivamente investigado na etapa.",
+              "minLength": 1
+            },
+            "total_players_analisados": {
+              "type": "integer",
+              "title": "Total de Players Analisados",
+              "description": "Quantidade total de players, concorrentes ou referências consideradas na pesquisa.",
+              "minimum": 0
+            },
+            "total_fontes_consultadas": {
+              "type": "integer",
+              "title": "Total de Fontes Consultadas",
+              "description": "Quantidade total de fontes consultadas para sustentar a análise.",
+              "minimum": 0
+            },
+            "principais_categorias_concorrentes": {
+              "type": "array",
+              "title": "Principais Categorias de Concorrentes",
+              "description": "Categorias dominantes observadas entre os players analisados, como diretos, indiretos, substitutos, benchmarks e referências.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Categoria Concorrente",
+                "description": "Categoria principal identificada na pesquisa.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ReferenciaEstetica": {
+          "type": "object",
+          "title": "Referência Estética",
+          "description": "Registro semântico da base visual usada para o dashboard, incluindo disponibilidade, decisão visual e restrições derivadas de 0-estetica-inicial.md.",
+          "required": [
+            "arquivo_referencia",
+            "disponivel",
+            "decisao_de_tema",
+            "principios_aplicados",
+            "restricoes_visuais"
+          ],
+          "properties": {
+            "arquivo_referencia": {
+              "type": "string",
+              "title": "Arquivo de Referência",
+              "description": "Arquivo de estética que deve orientar a implementação visual.",
+              "const": "0-estetica-inicial.md"
+            },
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponível",
+              "description": "Indica se a referência estética estava disponível no contexto de execução.",
+              "default": false
+            },
+            "decisao_de_tema": {
+              "type": "string",
+              "title": "Decisão de Tema",
+              "description": "Decisão tomada sobre tema claro, escuro, híbrido ou único conforme a referência estética.",
+              "minLength": 1
+            },
+            "principios_aplicados": {
+              "type": "array",
+              "title": "Princípios Aplicados",
+              "description": "Lista dos princípios visuais, de navegação e de densidade aplicados ao dashboard.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Princípio Aplicado",
+                "description": "Um princípio visual aplicado ao HTML final.",
+                "minLength": 1
+              }
+            },
+            "restricoes_visuais": {
+              "type": "array",
+              "title": "Restrições Visuais",
+              "description": "Lista de aspectos visuais que devem ser evitados para preservar a estética oficial ou uma alternativa neutra quando a referência não estiver disponível.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Restrição Visual",
+                "description": "Um padrão visual a evitar.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ContextoProduto": {
+          "type": "object",
+          "title": "Contexto do Produto",
+          "description": "Síntese do produto analisado e das hipóteses iniciais usadas para orientar a pesquisa de mercado.",
+          "required": [
+            "nome_provisorio",
+            "categoria_sistema",
+            "segmento_mercado",
+            "publico_alvo",
+            "problema_principal",
+            "proposta_de_valor_inicial",
+            "dores_principais",
+            "oportunidades_iniciais",
+            "riscos_iniciais",
+            "hipoteses",
+            "perguntas_em_aberto",
+            "escopo_provavel"
+          ],
+          "properties": {
+            "nome_provisorio": {
+              "type": "string",
+              "title": "Nome Provisório",
+              "description": "Nome de trabalho do produto, usado como rótulo operacional durante a etapa.",
+              "minLength": 1
+            },
+            "categoria_sistema": {
+              "type": "string",
+              "title": "Categoria do Sistema",
+              "description": "Categoria funcional do sistema, como SaaS, plataforma, console, engine, suite ou outra equivalente.",
+              "minLength": 1
+            },
+            "segmento_mercado": {
+              "type": "string",
+              "title": "Segmento de Mercado",
+              "description": "Segmento ou nicho de mercado em que a solução pretende atuar.",
+              "minLength": 1
+            },
+            "publico_alvo": {
+              "type": "string",
+              "title": "Público-Alvo",
+              "description": "Público principal ou perfis centrais que se beneficiam da solução.",
+              "minLength": 1
+            },
+            "problema_principal": {
+              "type": "string",
+              "title": "Problema Principal",
+              "description": "Dor central ou necessidade que a proposta tenta resolver.",
+              "minLength": 1
+            },
+            "proposta_de_valor_inicial": {
+              "type": "string",
+              "title": "Proposta de Valor Inicial",
+              "description": "Tese inicial de valor percebido para o produto.",
+              "minLength": 1
+            },
+            "dores_principais": {
+              "type": "array",
+              "title": "Dores Principais",
+              "description": "Lista das dores, fricções ou ineficiências centrais ligadas ao problema.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Dor Principal",
+                "description": "Uma dor observada ou inferida no contexto do produto.",
+                "minLength": 1
+              }
+            },
+            "oportunidades_iniciais": {
+              "type": "array",
+              "title": "Oportunidades Iniciais",
+              "description": "Lista inicial de oportunidades percebidas antes da pesquisa aprofundada.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Oportunidade Inicial",
+                "description": "Uma oportunidade preliminar do produto.",
+                "minLength": 1
+              }
+            },
+            "riscos_iniciais": {
+              "type": "array",
+              "title": "Riscos Iniciais",
+              "description": "Lista dos riscos percebidos desde o contexto inicial, antes da validação de mercado.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Risco Inicial",
+                "description": "Um risco inicial ou hipótese de risco.",
+                "minLength": 1
+              }
+            },
+            "hipoteses": {
+              "type": "array",
+              "title": "Hipóteses",
+              "description": "Lista de hipóteses relevantes derivadas do contexto inicial.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Hipótese",
+                "description": "Uma hipótese a ser validada pela pesquisa.",
+                "minLength": 1
+              }
+            },
+            "perguntas_em_aberto": {
+              "type": "array",
+              "title": "Perguntas em Aberto",
+              "description": "Questões que ainda dependem de validação para consolidar o entendimento do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Pergunta",
+                "description": "Uma pergunta ainda sem resposta conclusiva.",
+                "minLength": 1
+              }
+            },
+            "escopo_provavel": {
+              "type": "string",
+              "title": "Escopo Provável",
+              "description": "Delimitação inicial do que a pesquisa deve cobrir, considerando o contexto e os arquivos de entrada.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "ObjetivoEscopoMetodologia": {
+          "type": "object",
+          "title": "Objetivo, Escopo e Metodologia",
+          "description": "Bloco que descreve o objetivo da pesquisa, as perguntas norteadoras, o método de levantamento e as limitações assumidas.",
+          "required": [
+            "objetivo_da_pesquisa",
+            "escopo_da_pesquisa",
+            "perguntas_norteadoras",
+            "metodologia",
+            "criterios_de_inclusao",
+            "limites_e_suposicoes"
+          ],
+          "properties": {
+            "objetivo_da_pesquisa": {
+              "type": "string",
+              "title": "Objetivo da Pesquisa",
+              "description": "Objetivo estratégico da etapa de mercado e benchmarking.",
+              "minLength": 1
+            },
+            "escopo_da_pesquisa": {
+              "type": "string",
+              "title": "Escopo da Pesquisa",
+              "description": "Delimitação temática, geográfica ou funcional da análise.",
+              "minLength": 1
+            },
+            "perguntas_norteadoras": {
+              "type": "array",
+              "title": "Perguntas Norteadoras",
+              "description": "Perguntas que guiam a coleta e a interpretação da pesquisa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Pergunta Norteadora",
+                "description": "Pergunta estratégica usada para guiar a análise.",
+                "minLength": 1
+              }
+            },
+            "metodologia": {
+              "type": "array",
+              "title": "Metodologia",
+              "description": "Lista dos passos ou abordagens usados para compor a pesquisa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Método",
+                "description": "Uma técnica ou abordagem de pesquisa aplicada.",
+                "minLength": 1
+              }
+            },
+            "criterios_de_inclusao": {
+              "type": "array",
+              "title": "Critérios de Inclusão",
+              "description": "Critérios usados para decidir quais players e fontes entram na análise.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Critério",
+                "description": "Um critério de inclusão aplicado à pesquisa.",
+                "minLength": 1
+              }
+            },
+            "limites_e_suposicoes": {
+              "type": "array",
+              "title": "Limites e Suposições",
+              "description": "Limitações da análise e hipóteses assumidas quando a evidência não foi conclusiva.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Limite ou Suposição",
+                "description": "Uma limitação ou suposição adotada na pesquisa.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ResumoExecutivo": {
+          "type": "object",
+          "title": "Resumo Executivo",
+          "description": "Síntese curta e estratégica da pesquisa, destacando o que o mercado oferece, onde estão as lacunas e o que isso implica para o produto.",
+          "required": [
+            "leitura_geral",
+            "principais_achados",
+            "implicacoes_estrategicas",
+            "conclusao",
+            "nivel_de_confianca"
+          ],
+          "properties": {
+            "leitura_geral": {
+              "type": "string",
+              "title": "Leitura Geral",
+              "description": "Resumo executivo da situação de mercado observada.",
+              "minLength": 1
+            },
+            "principais_achados": {
+              "type": "array",
+              "title": "Principais Achados",
+              "description": "Lista dos achados mais relevantes da pesquisa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Achado",
+                "description": "Um achado estratégico da pesquisa.",
+                "minLength": 1
+              }
+            },
+            "implicacoes_estrategicas": {
+              "type": "array",
+              "title": "Implicações Estratégicas",
+              "description": "Lista das implicações para posicionamento, escopo ou evolução do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Implicação Estratégica",
+                "description": "Uma implicação derivada dos achados.",
+                "minLength": 1
+              }
+            },
+            "conclusao": {
+              "type": "string",
+              "title": "Conclusão",
+              "description": "Conclusão executiva da etapa de benchmarking.",
+              "minLength": 1
+            },
+            "nivel_de_confianca": {
+              "type": "string",
+              "title": "Nível de Confiança",
+              "description": "Nível de confiança agregado na leitura executiva.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "MapaConcorrentes": {
+          "type": "object",
+          "title": "Mapa de Concorrentes",
+          "description": "Visão agrupada dos players encontrados, organizada por categoria de análise, papel competitivo e nível de relevância.",
+          "required": [
+            "grupos"
+          ],
+          "properties": {
+            "grupos": {
+              "type": "array",
+              "title": "Grupos de Concorrentes",
+              "description": "Agrupamento por categoria de concorrência ou referência.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/GrupoConcorrentes"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ClassificacaoPlayers": {
+          "type": "object",
+          "title": "Classificação dos Players",
+          "description": "Classificação explícita das soluções encontradas por tipo de referência, concorrência ou benchmark.",
+          "required": [
+            "concorrentes_diretos",
+            "concorrentes_indiretos",
+            "substitutos_manuais",
+            "benchmarks_aspiracionais",
+            "referencias_ux",
+            "referencias_tecnicas",
+            "referencias_monetizacao",
+            "solucoes_open_source",
+            "solucoes_enterprise"
+          ],
+          "properties": {
+            "concorrentes_diretos": {
+              "type": "array",
+              "title": "Concorrentes Diretos",
+              "description": "Lista dos players que competem pelo mesmo problema central.",
+              "items": {
+                "type": "string",
+                "title": "Concorrente Direto",
+                "description": "Nome de um concorrente direto.",
+                "minLength": 1
+              }
+            },
+            "concorrentes_indiretos": {
+              "type": "array",
+              "title": "Concorrentes Indiretos",
+              "description": "Lista dos players que resolvem parte do problema ou atacam o mesmo contexto de outra forma.",
+              "items": {
+                "type": "string",
+                "title": "Concorrente Indireto",
+                "description": "Nome de um concorrente indireto.",
+                "minLength": 1
+              }
+            },
+            "substitutos_manuais": {
+              "type": "array",
+              "title": "Substitutos Manuais",
+              "description": "Lista das alternativas manuais, planilhas, processos e soluções não software que substituem a plataforma.",
+              "items": {
+                "type": "string",
+                "title": "Substituto Manual",
+                "description": "Nome de um substituto manual ou processo alternativo.",
+                "minLength": 1
+              }
+            },
+            "benchmarks_aspiracionais": {
+              "type": "array",
+              "title": "Benchmarks Aspiracionais",
+              "description": "Lista de referências aspiracionais usadas para inspirar posicionamento, amplitude ou maturidade de produto.",
+              "items": {
+                "type": "string",
+                "title": "Benchmark Aspiracional",
+                "description": "Nome de um benchmark aspiracional.",
+                "minLength": 1
+              }
+            },
+            "referencias_ux": {
+              "type": "array",
+              "title": "Referências de UX",
+              "description": "Lista de referências usadas principalmente para fluxos, navegação, dashboards e padrões de interface.",
+              "items": {
+                "type": "string",
+                "title": "Referência de UX",
+                "description": "Nome de uma referência de UX.",
+                "minLength": 1
+              }
+            },
+            "referencias_tecnicas": {
+              "type": "array",
+              "title": "Referências Técnicas",
+              "description": "Lista de referências importantes para arquitetura, integração, API, segurança ou governança.",
+              "items": {
+                "type": "string",
+                "title": "Referência Técnica",
+                "description": "Nome de uma referência técnica.",
+                "minLength": 1
+              }
+            },
+            "referencias_monetizacao": {
+              "type": "array",
+              "title": "Referências de Monetização",
+              "description": "Lista de players ou modelos úteis para entender pricing, packaging e captura de valor.",
+              "items": {
+                "type": "string",
+                "title": "Referência de Monetização",
+                "description": "Nome de uma referência de monetização.",
+                "minLength": 1
+              }
+            },
+            "solucoes_open_source": {
+              "type": "array",
+              "title": "Soluções Open Source",
+              "description": "Lista das opções open source ou comunidade avaliadas na pesquisa.",
+              "items": {
+                "type": "string",
+                "title": "Solução Open Source",
+                "description": "Nome de uma solução open source.",
+                "minLength": 1
+              }
+            },
+            "solucoes_enterprise": {
+              "type": "array",
+              "title": "Soluções Enterprise",
+              "description": "Lista das soluções enterprise relevantes pela robustez, escala ou cobertura de domínio.",
+              "items": {
+                "type": "string",
+                "title": "Solução Enterprise",
+                "description": "Nome de uma solução enterprise.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "PlayerConsolidado": {
+          "type": "object",
+          "title": "Player Consolidado",
+          "description": "Registro consolidado de um player ou solução analisada para alimentar a tabela principal do dashboard.",
+          "required": [
+            "id",
+            "sistema",
+            "categoria",
+            "publico_alvo",
+            "proposta_de_valor",
+            "funcionalidades_chave",
+            "modelo_de_monetizacao",
+            "relevancia",
+            "confianca"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável do player dentro do dashboard.",
+              "minLength": 1
+            },
+            "sistema": {
+              "type": "string",
+              "title": "Sistema",
+              "description": "Nome do sistema ou da solução analisada.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria da solução no contexto da análise competitiva.",
+              "minLength": 1
+            },
+            "publico_alvo": {
+              "type": "string",
+              "title": "Público-Alvo",
+              "description": "Público atendido pelo player.",
+              "minLength": 1
+            },
+            "proposta_de_valor": {
+              "type": "string",
+              "title": "Proposta de Valor",
+              "description": "Resumo da tese de valor e do posicionamento do player.",
+              "minLength": 1
+            },
+            "funcionalidades_chave": {
+              "type": "array",
+              "title": "Funcionalidades-Chave",
+              "description": "Lista das funcionalidades centrais do player.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Funcionalidade Chave",
+                "description": "Uma funcionalidade central da solução.",
+                "minLength": 1
+              }
+            },
+            "modelo_de_monetizacao": {
+              "type": "string",
+              "title": "Modelo de Monetização",
+              "description": "Modelo comercial identificado para a solução.",
+              "minLength": 1
+            },
+            "relevancia": {
+              "type": "string",
+              "title": "Relevância",
+              "description": "Nível de relevância do player na análise.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "confianca": {
+              "type": "string",
+              "title": "Confiança",
+              "description": "Nível de confiança na leitura consolidada do player.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "AnaliseSistema": {
+          "type": "object",
+          "title": "Análise de Sistema",
+          "description": "Seção detalhada de um sistema semelhante, reunindo site, público, proposta de valor, funcionalidades, módulos, fluxos, integrações, monetização, diferenciais, limitações, aprendizados, oportunidades e fontes.",
+          "required": [
+            "id",
+            "nome",
+            "tipo_de_referencia",
+            "site_oficial",
+            "publico_alvo",
+            "proposta_de_valor",
+            "principais_funcionalidades",
+            "modulos_ou_areas_identificadas",
+            "fluxos_relevantes",
+            "integracoes_citadas",
+            "modelo_de_monetizacao",
+            "diferenciais_percebidos",
+            "limitacoes_percebidas",
+            "aprendizados_para_o_produto",
+            "oportunidades_derivadas",
+            "fontes_consultadas",
+            "nivel_de_confianca"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável da análise detalhada.",
+              "minLength": 1
+            },
+            "nome": {
+              "type": "string",
+              "title": "Nome",
+              "description": "Nome do sistema analisado.",
+              "minLength": 1
+            },
+            "tipo_de_referencia": {
+              "type": "string",
+              "title": "Tipo de Referência",
+              "description": "Classificação do papel deste sistema na análise competitiva.",
+              "minLength": 1
+            },
+            "site_oficial": {
+              "type": "string",
+              "title": "Site Oficial",
+              "description": "URL oficial do sistema analisado.",
+              "minLength": 1
+            },
+            "publico_alvo": {
+              "type": "string",
+              "title": "Público-Alvo",
+              "description": "Público atendido pelo sistema.",
+              "minLength": 1
+            },
+            "proposta_de_valor": {
+              "type": "string",
+              "title": "Proposta de Valor",
+              "description": "Posicionamento e promessa principal do sistema.",
+              "minLength": 1
+            },
+            "principais_funcionalidades": {
+              "type": "array",
+              "title": "Principais Funcionalidades",
+              "description": "Lista das funcionalidades centrais observadas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Funcionalidade",
+                "description": "Uma funcionalidade principal do sistema.",
+                "minLength": 1
+              }
+            },
+            "modulos_ou_areas_identificadas": {
+              "type": "array",
+              "title": "Módulos ou Áreas Identificadas",
+              "description": "Lista dos módulos, áreas ou domínios presentes na solução.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Módulo ou Área",
+                "description": "Um módulo ou área identificada.",
+                "minLength": 1
+              }
+            },
+            "fluxos_relevantes": {
+              "type": "array",
+              "title": "Fluxos Relevantes",
+              "description": "Lista de fluxos ou jornadas que se destacam na análise do sistema.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fluxo",
+                "description": "Um fluxo relevante do sistema.",
+                "minLength": 1
+              }
+            },
+            "integracoes_citadas": {
+              "type": "array",
+              "title": "Integrações Citadas",
+              "description": "Lista das integrações, parceiros ou conectores mencionados na pesquisa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Integração",
+                "description": "Uma integração citada pelo sistema ou pela análise.",
+                "minLength": 1
+              }
+            },
+            "modelo_de_monetizacao": {
+              "type": "string",
+              "title": "Modelo de Monetização",
+              "description": "Modelo comercial percebido para a solução.",
+              "minLength": 1
+            },
+            "diferenciais_percebidos": {
+              "type": "array",
+              "title": "Diferenciais Percebidos",
+              "description": "Lista dos diferenciais competitivos observados.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Diferencial",
+                "description": "Um diferencial percebido no sistema.",
+                "minLength": 1
+              }
+            },
+            "limitacoes_percebidas": {
+              "type": "array",
+              "title": "Limitações Percebidas",
+              "description": "Lista das limitações, ausências ou restrições percebidas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Limitação",
+                "description": "Uma limitação percebida no sistema.",
+                "minLength": 1
+              }
+            },
+            "aprendizados_para_o_produto": {
+              "type": "array",
+              "title": "Aprendizados para o Produto",
+              "description": "Lista dos aprendizados que o produto pode aproveitar a partir desta referência.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Aprendizado",
+                "description": "Um aprendizado extraído da análise.",
+                "minLength": 1
+              }
+            },
+            "oportunidades_derivadas": {
+              "type": "array",
+              "title": "Oportunidades Derivadas",
+              "description": "Lista das oportunidades diretamente derivadas da análise deste sistema.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Oportunidade Derivada",
+                "description": "Uma oportunidade sugerida pela análise.",
+                "minLength": 1
+              }
+            },
+            "fontes_consultadas": {
+              "type": "array",
+              "title": "Fontes Consultadas",
+              "description": "Lista das fontes usadas para produzir a análise do sistema.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Fonte",
+                "description": "Uma fonte consultada na análise.",
+                "minLength": 1
+              }
+            },
+            "nivel_de_confianca": {
+              "type": "string",
+              "title": "Nível de Confiança",
+              "description": "Nível de confiança na análise produzida para o sistema.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "GrupoConcorrentes": {
+          "type": "object",
+          "title": "Grupo de Concorrentes",
+          "description": "Agrupamento de players por categoria de análise para o mapa de concorrentes.",
+          "required": [
+            "categoria",
+            "players",
+            "papel_na_analise",
+            "nivel_de_relevancia"
+          ],
+          "properties": {
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria principal do grupo de concorrentes.",
+              "minLength": 1
+            },
+            "players": {
+              "type": "array",
+              "title": "Players",
+              "description": "Lista dos sistemas agrupados nesta categoria.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Player",
+                "description": "Nome de um player dentro do grupo.",
+                "minLength": 1
+              }
+            },
+            "papel_na_analise": {
+              "type": "string",
+              "title": "Papel na Análise",
+              "description": "Explicação do papel competitivo ou estratégico do grupo.",
+              "minLength": 1
+            },
+            "nivel_de_relevancia": {
+              "type": "string",
+              "title": "Nível de Relevância",
+              "description": "Nível de relevância do grupo para a análise.",
+              "enum": [
+                "Alto",
+                "Médio",
+                "Baixo"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "MatrizComparativaFuncionalidades": {
+          "type": "object",
+          "title": "Matriz Comparativa de Funcionalidades",
+          "description": "Estrutura da tabela comparativa de funcionalidades com o produto proposto e concorrentes selecionados.",
+          "required": [
+            "competidores_comparados",
+            "linhas"
+          ],
+          "properties": {
+            "competidores_comparados": {
+              "type": "array",
+              "title": "Competidores Comparados",
+              "description": "Lista dos competidores escolhidos para compor a matriz.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Competidor",
+                "description": "Nome de um competidor comparado na matriz.",
+                "minLength": 1
+              }
+            },
+            "linhas": {
+              "type": "array",
+              "title": "Linhas da Matriz",
+              "description": "Linhas de comparação por funcionalidade.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/MatrizFuncionalidadeLinha"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "MatrizPosicionamentoCompetitivo": {
+          "type": "object",
+          "title": "Matriz de Posicionamento Competitivo",
+          "description": "Estrutura do posicionamento competitivo com eixos conceituais e posicionamento dos players.",
+          "required": [
+            "eixos",
+            "posicionamentos"
+          ],
+          "properties": {
+            "eixos": {
+              "type": "array",
+              "title": "Eixos",
+              "description": "Lista dos eixos usados para posicionar os players na matriz.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/EixoPosicionamento"
+              }
+            },
+            "posicionamentos": {
+              "type": "array",
+              "title": "Posicionamentos",
+              "description": "Lista dos pontos de posicionamento de cada player nos eixos definidos.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/PosicionamentoCompetitivo"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "AnalisePublicoAlvo": {
+          "type": "object",
+          "title": "Análise de Público-Alvo",
+          "description": "Leitura comparada do público-alvo, decisores, usuários e contexto de adoção de um concorrente ou referência.",
+          "required": [
+            "sistema",
+            "publico_atendido",
+            "usuarios_principais",
+            "decisores",
+            "contexto_de_uso",
+            "observacoes"
+          ],
+          "properties": {
+            "sistema": {
+              "type": "string",
+              "title": "Sistema",
+              "description": "Nome do sistema analisado.",
+              "minLength": 1
+            },
+            "publico_atendido": {
+              "type": "string",
+              "title": "Público Atendido",
+              "description": "Descrição do público que o sistema prioriza.",
+              "minLength": 1
+            },
+            "usuarios_principais": {
+              "type": "array",
+              "title": "Usuários Principais",
+              "description": "Lista dos perfis que mais usam a solução.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Usuário Principal",
+                "description": "Um perfil de usuário principal.",
+                "minLength": 1
+              }
+            },
+            "decisores": {
+              "type": "array",
+              "title": "Decisores",
+              "description": "Lista dos papéis que aprovam ou compram a solução.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Decisor",
+                "description": "Um papel decisor relevante.",
+                "minLength": 1
+              }
+            },
+            "contexto_de_uso": {
+              "type": "string",
+              "title": "Contexto de Uso",
+              "description": "Cenário no qual o público tende a usar a solução.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre o encaixe do público-alvo.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "AnalisePropostaValor": {
+          "type": "object",
+          "title": "Análise de Proposta de Valor",
+          "description": "Leitura comparada de como cada concorrente se posiciona e que tese de valor sustenta no mercado.",
+          "required": [
+            "sistema",
+            "posicionamento",
+            "valor_central",
+            "argumentos_de_adesao",
+            "diferenciais",
+            "limites",
+            "observacoes"
+          ],
+          "properties": {
+            "sistema": {
+              "type": "string",
+              "title": "Sistema",
+              "description": "Nome do sistema analisado.",
+              "minLength": 1
+            },
+            "posicionamento": {
+              "type": "string",
+              "title": "Posicionamento",
+              "description": "Como o sistema se apresenta para o mercado.",
+              "minLength": 1
+            },
+            "valor_central": {
+              "type": "string",
+              "title": "Valor Central",
+              "description": "Tese central de valor percebida no concorrente.",
+              "minLength": 1
+            },
+            "argumentos_de_adesao": {
+              "type": "array",
+              "title": "Argumentos de Adesão",
+              "description": "Lista dos argumentos que sustentam a adoção da solução.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Argumento",
+                "description": "Um argumento de valor ou adesão.",
+                "minLength": 1
+              }
+            },
+            "diferenciais": {
+              "type": "array",
+              "title": "Diferenciais",
+              "description": "Lista dos diferenciais percebidos.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Diferencial",
+                "description": "Um diferencial competitivo.",
+                "minLength": 1
+              }
+            },
+            "limites": {
+              "type": "array",
+              "title": "Limites",
+              "description": "Lista das limitações percebidas na proposta de valor.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Limite",
+                "description": "Uma limitação percebida.",
+                "minLength": 1
+              }
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre a análise da proposta de valor.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "ModuloRecorrente": {
+          "type": "object",
+          "title": "Módulo Recorrente",
+          "description": "Registro de um módulo, área ou funcionalidade recorrente observada em vários players.",
+          "required": [
+            "modulo",
+            "funcionalidades_recorrentes",
+            "frequencia_observada",
+            "relevancia_estrategica"
+          ],
+          "properties": {
+            "modulo": {
+              "type": "string",
+              "title": "Módulo",
+              "description": "Nome do módulo recorrente.",
+              "minLength": 1
+            },
+            "funcionalidades_recorrentes": {
+              "type": "array",
+              "title": "Funcionalidades Recorrentes",
+              "description": "Lista das funcionalidades mais repetidas naquele módulo.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Funcionalidade Recorrente",
+                "description": "Uma funcionalidade repetida entre os players.",
+                "minLength": 1
+              }
+            },
+            "frequencia_observada": {
+              "type": "string",
+              "title": "Frequência Observada",
+              "description": "Nível de repetição do módulo no mercado.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "relevancia_estrategica": {
+              "type": "string",
+              "title": "Relevância Estratégica",
+              "description": "Importância do módulo para o posicionamento do produto.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "UXFluxoPadrao": {
+          "type": "object",
+          "title": "Fluxo ou Padrão de UX",
+          "description": "Registro de um fluxo, tela ou padrão de UX observado entre os concorrentes.",
+          "required": [
+            "fluxo_ou_padrao",
+            "sistemas_que_exibem",
+            "descricao",
+            "impacto_na_experiencia",
+            "observacoes"
+          ],
+          "properties": {
+            "fluxo_ou_padrao": {
+              "type": "string",
+              "title": "Fluxo ou Padrão",
+              "description": "Nome do fluxo ou padrão de UX.",
+              "minLength": 1
+            },
+            "sistemas_que_exibem": {
+              "type": "array",
+              "title": "Sistemas que Exibem",
+              "description": "Lista de sistemas nos quais o padrão foi observado.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Sistema",
+                "description": "Nome de um sistema que exibe o padrão.",
+                "minLength": 1
+              }
+            },
+            "descricao": {
+              "type": "string",
+              "title": "Descrição",
+              "description": "Descrição funcional do fluxo ou padrão.",
+              "minLength": 1
+            },
+            "impacto_na_experiencia": {
+              "type": "string",
+              "title": "Impacto na Experiência",
+              "description": "Como esse padrão afeta a experiência do usuário.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre o padrão de UX.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "MonetizacaoItem": {
+          "type": "object",
+          "title": "Modelo de Monetização",
+          "description": "Registro de um modelo comercial ou padrão de pricing observado na categoria.",
+          "required": [
+            "sistema_ou_modelo",
+            "tipo",
+            "estrutura_de_preco",
+            "frequencia",
+            "observacoes"
+          ],
+          "properties": {
+            "sistema_ou_modelo": {
+              "type": "string",
+              "title": "Sistema ou Modelo",
+              "description": "Nome do player ou do modelo comercial observado.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo de monetização, como assinatura, enterprise, por uso, freemium ou licença.",
+              "minLength": 1
+            },
+            "estrutura_de_preco": {
+              "type": "string",
+              "title": "Estrutura de Preço",
+              "description": "Descrição da lógica de preço ou packaging observada.",
+              "minLength": 1
+            },
+            "frequencia": {
+              "type": "string",
+              "title": "Frequência",
+              "description": "Frequência com que o modelo aparece nos players analisados.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre o modelo de monetização.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "IntegracaoItem": {
+          "type": "object",
+          "title": "Integração e Ecossistema",
+          "description": "Registro de integração, parceiro, API ou elemento do ecossistema observado na pesquisa.",
+          "required": [
+            "integracao_ou_ecossistema",
+            "sistemas_relacionados",
+            "frequencia",
+            "relevancia",
+            "observacoes"
+          ],
+          "properties": {
+            "integracao_ou_ecossistema": {
+              "type": "string",
+              "title": "Integração ou Ecossistema",
+              "description": "Nome da integração, parceiro ou elemento do ecossistema.",
+              "minLength": 1
+            },
+            "sistemas_relacionados": {
+              "type": "array",
+              "title": "Sistemas Relacionados",
+              "description": "Lista dos sistemas ou contextos nos quais a integração se relaciona.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Sistema Relacionado",
+                "description": "Um sistema ou contexto relacionado.",
+                "minLength": 1
+              }
+            },
+            "frequencia": {
+              "type": "string",
+              "title": "Frequência",
+              "description": "Frequência com que a integração aparece na categoria.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "relevancia": {
+              "type": "string",
+              "title": "Relevância",
+              "description": "Importância estratégica da integração para o produto.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre a integração ou o ecossistema.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "DiferencialCompetitivo": {
+          "type": "object",
+          "title": "Diferencial Competitivo",
+          "description": "Registro de um diferencial percebido em um player ou de uma alavanca competitiva observada na pesquisa.",
+          "required": [
+            "sistema",
+            "diferencial",
+            "forca",
+            "transferibilidade",
+            "observacoes"
+          ],
+          "properties": {
+            "sistema": {
+              "type": "string",
+              "title": "Sistema",
+              "description": "Nome do player associado ao diferencial.",
+              "minLength": 1
+            },
+            "diferencial": {
+              "type": "string",
+              "title": "Diferencial",
+              "description": "Descrição do diferencial competitivo observado.",
+              "minLength": 1
+            },
+            "forca": {
+              "type": "string",
+              "title": "Força",
+              "description": "Força percebida do diferencial na competição.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "transferibilidade": {
+              "type": "string",
+              "title": "Transferibilidade",
+              "description": "Grau em que o diferencial pode ser adaptado ou superado pelo produto analisado.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre o diferencial competitivo.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "LacunaMercado": {
+          "type": "object",
+          "title": "Lacuna de Mercado",
+          "description": "Registro de uma lacuna, dor não atendida ou área subexplorada no mercado analisado.",
+          "required": [
+            "lacuna",
+            "impacto",
+            "categoria",
+            "evidencia",
+            "prioridade"
+          ],
+          "properties": {
+            "lacuna": {
+              "type": "string",
+              "title": "Lacuna",
+              "description": "Descrição da lacuna de mercado identificada.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto estratégico da lacuna se permanecer sem atendimento.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria principal da lacuna.",
+              "minLength": 1
+            },
+            "evidencia": {
+              "type": "string",
+              "title": "Evidência",
+              "description": "Evidência ou sinal que sustenta a leitura da lacuna.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade estratégica para atacar a lacuna.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "OportunidadeProduto": {
+          "type": "object",
+          "title": "Oportunidade para o Produto",
+          "description": "Registro de uma oportunidade priorizada a partir das lacunas e aprendizados da pesquisa.",
+          "required": [
+            "oportunidade",
+            "valor_esperado",
+            "esforco_estimado",
+            "prioridade",
+            "origem",
+            "observacoes"
+          ],
+          "properties": {
+            "oportunidade": {
+              "type": "string",
+              "title": "Oportunidade",
+              "description": "Descrição da oportunidade identificada.",
+              "minLength": 1
+            },
+            "valor_esperado": {
+              "type": "string",
+              "title": "Valor Esperado",
+              "description": "Valor potencial gerado caso a oportunidade seja explorada.",
+              "minLength": 1
+            },
+            "esforco_estimado": {
+              "type": "string",
+              "title": "Esforço Estimado",
+              "description": "Esforço relativo esperado para explorar a oportunidade.",
+              "enum": [
+                "Baixo",
+                "Médio",
+                "Alto"
+              ]
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade estratégica da oportunidade.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "origem": {
+              "type": "string",
+              "title": "Origem",
+              "description": "Origem da oportunidade, como gap, tendência, benchmark ou aprendizado.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre a oportunidade.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "RiscoCompetitivo": {
+          "type": "object",
+          "title": "Risco Competitivo",
+          "description": "Registro de um risco associado ao mercado, ao produto ou à posição competitiva observada.",
+          "required": [
+            "risco",
+            "categoria",
+            "probabilidade",
+            "impacto",
+            "mitigacao"
+          ],
+          "properties": {
+            "risco": {
+              "type": "string",
+              "title": "Risco",
+              "description": "Descrição do risco identificado.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria do risco, como mercado, produto, tecnologia, monetização ou adoção.",
+              "minLength": 1
+            },
+            "probabilidade": {
+              "type": "string",
+              "title": "Probabilidade",
+              "description": "Probabilidade percebida de o risco acontecer.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto do risco caso se materialize.",
+              "enum": [
+                "Alto",
+                "Médio",
+                "Baixo"
+              ]
+            },
+            "mitigacao": {
+              "type": "string",
+              "title": "Mitigação",
+              "description": "Medida inicial sugerida para reduzir ou monitorar o risco.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "TendenciaMercado": {
+          "type": "object",
+          "title": "Tendência de Mercado",
+          "description": "Registro de uma tendência relevante observada na categoria, com evidências e implicações para o produto.",
+          "required": [
+            "tendencia",
+            "evidencia",
+            "impacto",
+            "relevancia",
+            "observacoes"
+          ],
+          "properties": {
+            "tendencia": {
+              "type": "string",
+              "title": "Tendência",
+              "description": "Nome ou síntese da tendência observada.",
+              "minLength": 1
+            },
+            "evidencia": {
+              "type": "string",
+              "title": "Evidência",
+              "description": "Evidência, sinal ou referência que apoia a tendência.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto esperado da tendência sobre o produto ou o mercado.",
+              "minLength": 1
+            },
+            "relevancia": {
+              "type": "string",
+              "title": "Relevância",
+              "description": "Relevância da tendência para a estratégia do produto.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas complementares sobre a tendência.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "AprendizadoEstrategico": {
+          "type": "object",
+          "title": "Aprendizado Estratégico",
+          "description": "Lição consolidada a partir da análise de mercado e benchmarking competitivo.",
+          "required": [
+            "aprendizado",
+            "implicacao",
+            "acao_sugerida",
+            "prioridade"
+          ],
+          "properties": {
+            "aprendizado": {
+              "type": "string",
+              "title": "Aprendizado",
+              "description": "Resumo do aprendizado estratégico obtido.",
+              "minLength": 1
+            },
+            "implicacao": {
+              "type": "string",
+              "title": "Implicação",
+              "description": "Implicação prática do aprendizado para o produto.",
+              "minLength": 1
+            },
+            "acao_sugerida": {
+              "type": "string",
+              "title": "Ação Sugerida",
+              "description": "Ação recomendada a partir do aprendizado.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade do aprendizado para a próxima etapa.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "HipoteseAtualizada": {
+          "type": "object",
+          "title": "Hipótese Atualizada",
+          "description": "Hipótese inicial revisada com base na pesquisa de mercado e benchmarking.",
+          "required": [
+            "hipotese",
+            "status",
+            "evidencia_atual",
+            "nivel_de_confianca",
+            "validacao_necessaria"
+          ],
+          "properties": {
+            "hipotese": {
+              "type": "string",
+              "title": "Hipótese",
+              "description": "Enunciado da hipótese revisada.",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string",
+              "title": "Status",
+              "description": "Situação da hipótese após a pesquisa.",
+              "enum": [
+                "Reforçada",
+                "Enfraquecida",
+                "Mantida",
+                "Nova",
+                "Pendente"
+              ]
+            },
+            "evidencia_atual": {
+              "type": "string",
+              "title": "Evidência Atual",
+              "description": "Evidência disponível neste momento para sustentar a hipótese.",
+              "minLength": 1
+            },
+            "nivel_de_confianca": {
+              "type": "string",
+              "title": "Nível de Confiança",
+              "description": "Nível de confiança atualizado da hipótese.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "validacao_necessaria": {
+              "type": "string",
+              "title": "Validação Necessária",
+              "description": "Validação restante para confirmar ou descartar a hipótese.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "RecomendacoesEtapa3": {
+          "type": "object",
+          "title": "Recomendações para a Etapa 3",
+          "description": "Conjunto de recomendações para orientar a transição da pesquisa para a consolidação estratégica da próxima etapa.",
+          "required": [
+            "prioridades_imediatas",
+            "validacoes_prioritarias",
+            "decisoes_pendentes",
+            "recomendacoes",
+            "criterios_de_sucesso"
+          ],
+          "properties": {
+            "prioridades_imediatas": {
+              "type": "array",
+              "title": "Prioridades Imediatas",
+              "description": "Lista de focos que devem ser tratados imediatamente na Etapa 3.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Prioridade",
+                "description": "Uma prioridade imediata.",
+                "minLength": 1
+              }
+            },
+            "validacoes_prioritarias": {
+              "type": "array",
+              "title": "Validações Prioritárias",
+              "description": "Lista das validações mais importantes para a próxima etapa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Validação",
+                "description": "Uma validação recomendada.",
+                "minLength": 1
+              }
+            },
+            "decisoes_pendentes": {
+              "type": "array",
+              "title": "Decisões Pendentes",
+              "description": "Lista das decisões que ainda precisam ser tomadas antes de avançar.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Decisão Pendente",
+                "description": "Uma decisão ainda aberta.",
+                "minLength": 1
+              }
+            },
+            "recomendacoes": {
+              "type": "array",
+              "title": "Recomendações",
+              "description": "Lista das recomendações estratégicas para a Etapa 3.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/RecomendacaoItem"
+              }
+            },
+            "criterios_de_sucesso": {
+              "type": "array",
+              "title": "Critérios de Sucesso",
+              "description": "Lista de critérios que indicarão se a Etapa 3 avançou com qualidade.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Critério de Sucesso",
+                "description": "Um critério usado para avaliar a qualidade do avanço.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "FonteReferencia": {
+          "type": "object",
+          "title": "Fonte e Referência",
+          "description": "Registro rastreável de uma fonte consultada na pesquisa.",
+          "required": [
+            "id",
+            "titulo",
+            "organizacao_ou_site",
+            "url",
+            "relacionamento",
+            "tipo_de_fonte"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável da fonte.",
+              "minLength": 1
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título ou nome da fonte consultada.",
+              "minLength": 1
+            },
+            "organizacao_ou_site": {
+              "type": "string",
+              "title": "Organização ou Site",
+              "description": "Organização, empresa ou site responsável pela fonte.",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "title": "URL",
+              "description": "Endereço da fonte consultada.",
+              "minLength": 1
+            },
+            "relacionamento": {
+              "type": "string",
+              "title": "Relacionamento",
+              "description": "Tema, sistema ou análise à qual a fonte se relaciona.",
+              "minLength": 1
+            },
+            "tipo_de_fonte": {
+              "type": "string",
+              "title": "Tipo de Fonte",
+              "description": "Classificação da fonte, como site oficial, documentação, pricing, concorrente, benchmark ou estudo setorial.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "Interatividade": {
+          "type": "object",
+          "title": "Interatividade",
+          "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+          "required": [
+            "alternancia_de_tema",
+            "expandir_recolher",
+            "filtros",
+            "busca_textual",
+            "copiar_resumo",
+            "copiar_analise_de_sistema",
+            "exportar_markdown",
+            "imprimir_ou_pdf",
+            "destaques_interativos"
+          ],
+          "properties": {
+            "alternancia_de_tema": {
+              "type": "object",
+              "title": "Alternância de Tema",
+              "description": "Configuração da possibilidade de alternar tema claro e escuro ou de manter um tema único imposto pela estética oficial.",
+              "required": [
+                "disponivel",
+                "decisao",
+                "justificativa"
+              ],
+              "properties": {
+                "disponivel": {
+                  "type": "boolean",
+                  "title": "Disponível",
+                  "description": "Indica se a alternância de tema está disponível no dashboard.",
+                  "default": false
+                },
+                "decisao": {
+                  "type": "string",
+                  "title": "Decisão",
+                  "description": "Decisão tomada sobre a implementação da alternância de tema.",
+                  "minLength": 1
+                },
+                "justificativa": {
+                  "type": "string",
+                  "title": "Justificativa",
+                  "description": "Justificativa da decisão tomada sobre tema.",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "expandir_recolher": {
+              "type": "boolean",
+              "title": "Expandir e Recolher",
+              "description": "Indica se as análises por sistema podem ser expandidas e recolhidas.",
+              "default": true
+            },
+            "filtros": {
+              "type": "array",
+              "title": "Filtros",
+              "description": "Lista dos filtros disponíveis no dashboard.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Filtro",
+                "description": "Um filtro ou controle interativo.",
+                "minLength": 1
+              }
+            },
+            "busca_textual": {
+              "type": "string",
+              "title": "Busca Textual",
+              "description": "Descrição do comportamento de busca livre no dashboard.",
+              "minLength": 1
+            },
+            "copiar_resumo": {
+              "type": "string",
+              "title": "Copiar Resumo",
+              "description": "Descrição da ação de copiar o resumo executivo.",
+              "minLength": 1
+            },
+            "copiar_analise_de_sistema": {
+              "type": "string",
+              "title": "Copiar Análise de Sistema",
+              "description": "Descrição da ação de copiar a análise de um sistema específico.",
+              "minLength": 1
+            },
+            "exportar_markdown": {
+              "type": "string",
+              "title": "Exportar Markdown",
+              "description": "Descrição do comportamento de exportação em Markdown.",
+              "minLength": 1
+            },
+            "imprimir_ou_pdf": {
+              "type": "string",
+              "title": "Imprimir ou PDF",
+              "description": "Descrição do comportamento de impressão ou salvamento em PDF.",
+              "minLength": 1
+            },
+            "destaques_interativos": {
+              "type": "array",
+              "title": "Destaques Interativos",
+              "description": "Lista dos elementos que devem receber destaque visual ou ações rápidas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Destaque Interativo",
+                "description": "Um destaque interativo do dashboard.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ProgressoVisual": {
+          "type": "object",
+          "title": "Progresso Visual",
+          "description": "Indicadores visuais de progresso e maturidade da etapa.",
+          "required": [
+            "percentual_conclusao",
+            "status",
+            "marcos",
+            "indicadores",
+            "proxima_etapa_recomendada",
+            "observacoes"
+          ],
+          "properties": {
+            "percentual_conclusao": {
+              "type": "integer",
+              "title": "Percentual de Conclusão",
+              "description": "Percentual visual de completude da etapa.",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "status": {
+              "type": "string",
+              "title": "Status",
+              "description": "Status visual do progresso.",
+              "minLength": 1
+            },
+            "marcos": {
+              "type": "array",
+              "title": "Marcos",
+              "description": "Marcos importantes da análise ou da produção do dashboard.",
+              "items": {
+                "type": "string",
+                "title": "Marco",
+                "description": "Um marco importante.",
+                "minLength": 1
+              }
+            },
+            "indicadores": {
+              "type": "array",
+              "title": "Indicadores",
+              "description": "Indicadores resumidos para leitura rápida do progresso.",
+              "items": {
+                "type": "string",
+                "title": "Indicador",
+                "description": "Um indicador de progresso.",
+                "minLength": 1
+              }
+            },
+            "proxima_etapa_recomendada": {
+              "type": "string",
+              "title": "Próxima Etapa Recomendada",
+              "description": "Nome ou rótulo da próxima etapa sugerida a partir dos aprendizados da pesquisa.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Observações adicionais sobre o progresso visual.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "Destaques": {
+          "type": "object",
+          "title": "Destaques",
+          "description": "Bloco de insights, alertas, decisões e pendências que merecem leitura rápida.",
+          "required": [
+            "insights",
+            "alertas",
+            "decisoes",
+            "pendencias"
+          ],
+          "properties": {
+            "insights": {
+              "type": "array",
+              "title": "Insights",
+              "description": "Principais insights extraídos da análise.",
+              "items": {
+                "type": "string",
+                "title": "Insight",
+                "description": "Um insight importante.",
+                "minLength": 1
+              }
+            },
+            "alertas": {
+              "type": "array",
+              "title": "Alertas",
+              "description": "Alertas ou pontos de atenção prioritários.",
+              "items": {
+                "type": "string",
+                "title": "Alerta",
+                "description": "Um alerta relevante.",
+                "minLength": 1
+              }
+            },
+            "decisoes": {
+              "type": "array",
+              "title": "Decisões",
+              "description": "Decisões tomadas ou recomendadas.",
+              "items": {
+                "type": "string",
+                "title": "Decisão",
+                "description": "Uma decisão relevante.",
+                "minLength": 1
+              }
+            },
+            "pendencias": {
+              "type": "array",
+              "title": "Pendências",
+              "description": "Pendências ainda abertas após a pesquisa.",
+              "items": {
+                "type": "string",
+                "title": "Pendência",
+                "description": "Uma pendência relevante.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "Contadores": {
+          "type": "object",
+          "title": "Contadores",
+          "description": "Indicadores numéricos resumidos do dashboard.",
+          "required": [
+            "concorrentes_diretos",
+            "concorrentes_indiretos",
+            "benchmarks",
+            "substitutos",
+            "funcionalidades_recorrentes",
+            "lacunas",
+            "oportunidades",
+            "riscos_competitivos",
+            "confianca_media",
+            "fontes",
+            "secoes"
+          ],
+          "properties": {
+            "concorrentes_diretos": {
+              "type": "integer",
+              "title": "Concorrentes Diretos",
+              "description": "Quantidade de concorrentes diretos identificados.",
+              "minimum": 0
+            },
+            "concorrentes_indiretos": {
+              "type": "integer",
+              "title": "Concorrentes Indiretos",
+              "description": "Quantidade de concorrentes indiretos identificados.",
+              "minimum": 0
+            },
+            "benchmarks": {
+              "type": "integer",
+              "title": "Benchmarks",
+              "description": "Quantidade de benchmarks aspiracionais incluídos.",
+              "minimum": 0
+            },
+            "substitutos": {
+              "type": "integer",
+              "title": "Substitutos",
+              "description": "Quantidade de substitutos manuais ou alternativos identificados.",
+              "minimum": 0
+            },
+            "funcionalidades_recorrentes": {
+              "type": "integer",
+              "title": "Funcionalidades Recorrentes",
+              "description": "Quantidade de funcionalidades recorrentes observadas.",
+              "minimum": 0
+            },
+            "lacunas": {
+              "type": "integer",
+              "title": "Lacunas",
+              "description": "Quantidade de lacunas de mercado identificadas.",
+              "minimum": 0
+            },
+            "oportunidades": {
+              "type": "integer",
+              "title": "Oportunidades",
+              "description": "Quantidade de oportunidades priorizadas.",
+              "minimum": 0
+            },
+            "riscos_competitivos": {
+              "type": "integer",
+              "title": "Riscos Competitivos",
+              "description": "Quantidade de riscos competitivos ou de produto levantados.",
+              "minimum": 0
+            },
+            "confianca_media": {
+              "type": "string",
+              "title": "Confiança Média",
+              "description": "Nível médio de confiança da pesquisa consolidada.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            },
+            "fontes": {
+              "type": "integer",
+              "title": "Fontes",
+              "description": "Quantidade de fontes consultadas e registradas.",
+              "minimum": 0
+            },
+            "secoes": {
+              "type": "integer",
+              "title": "Seções",
+              "description": "Quantidade de seções principais do dashboard.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "MatrizFuncionalidadeLinha": {
+          "type": "object",
+          "title": "Linha da Matriz de Funcionalidades",
+          "description": "Linha da tabela comparativa de funcionalidades com status por concorrente e oportunidade associada.",
+          "required": [
+            "funcionalidade",
+            "produto_proposto",
+            "concorrente_a",
+            "concorrente_b",
+            "concorrente_c",
+            "oportunidade"
+          ],
+          "properties": {
+            "funcionalidade": {
+              "type": "string",
+              "title": "Funcionalidade",
+              "description": "Nome da funcionalidade avaliada.",
+              "minLength": 1
+            },
+            "produto_proposto": {
+              "type": "string",
+              "title": "Produto Proposto",
+              "description": "Status da funcionalidade no produto proposto.",
+              "enum": [
+                "Sim",
+                "Não",
+                "Parcial",
+                "Não identificado"
+              ]
+            },
+            "concorrente_a": {
+              "type": "string",
+              "title": "Concorrente A",
+              "description": "Status da funcionalidade no primeiro concorrente comparado.",
+              "enum": [
+                "Sim",
+                "Não",
+                "Parcial",
+                "Não identificado"
+              ]
+            },
+            "concorrente_b": {
+              "type": "string",
+              "title": "Concorrente B",
+              "description": "Status da funcionalidade no segundo concorrente comparado.",
+              "enum": [
+                "Sim",
+                "Não",
+                "Parcial",
+                "Não identificado"
+              ]
+            },
+            "concorrente_c": {
+              "type": "string",
+              "title": "Concorrente C",
+              "description": "Status da funcionalidade no terceiro concorrente comparado.",
+              "enum": [
+                "Sim",
+                "Não",
+                "Parcial",
+                "Não identificado"
+              ]
+            },
+            "oportunidade": {
+              "type": "string",
+              "title": "Oportunidade",
+              "description": "Leitura da oportunidade associada à funcionalidade.",
+              "enum": [
+                "Diferencial possível",
+                "Oportunidade menor",
+                "Sem oportunidade",
+                "Não identificado"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "EixoPosicionamento": {
+          "type": "object",
+          "title": "Eixo de Posicionamento",
+          "description": "Definição de um eixo usado para ler o mercado e posicionar os players.",
+          "required": [
+            "nome",
+            "extremos",
+            "justificativa"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome",
+              "description": "Nome do eixo conceitual.",
+              "minLength": 1
+            },
+            "extremos": {
+              "type": "array",
+              "title": "Extremos",
+              "description": "Extremos conceituais do eixo.",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "title": "Extremo",
+                "description": "Um extremo do eixo.",
+                "minLength": 1
+              }
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Motivo pelo qual este eixo é útil para a leitura competitiva.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "PosicionamentoCompetitivo": {
+          "type": "object",
+          "title": "Posicionamento Competitivo",
+          "description": "Ponto ou leitura de posicionamento de um player em relação aos eixos definidos.",
+          "required": [
+            "sistema",
+            "posicao_relativa",
+            "quadrante_ou_territorio",
+            "leitura_estrategica",
+            "observacoes"
+          ],
+          "properties": {
+            "sistema": {
+              "type": "string",
+              "title": "Sistema",
+              "description": "Nome do player posicionado.",
+              "minLength": 1
+            },
+            "posicao_relativa": {
+              "type": "string",
+              "title": "Posição Relativa",
+              "description": "Leitura resumida da posição do player no mapa competitivo.",
+              "minLength": 1
+            },
+            "quadrante_ou_territorio": {
+              "type": "string",
+              "title": "Quadrante ou Território",
+              "description": "Território competitivo ou quadrante conceitual ocupado pelo player.",
+              "minLength": 1
+            },
+            "leitura_estrategica": {
+              "type": "string",
+              "title": "Leitura Estratégica",
+              "description": "Interpretação estratégica da posição observada.",
+              "minLength": 1
+            },
+            "observacoes": {
+              "type": "string",
+              "title": "Observações",
+              "description": "Notas adicionais sobre o posicionamento competitivo.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "RecomendacaoItem": {
+          "type": "object",
+          "title": "Recomendação",
+          "description": "Item individual de recomendação para a Etapa 3.",
+          "required": [
+            "recomendacao",
+            "motivo",
+            "impacto",
+            "prioridade"
+          ],
+          "properties": {
+            "recomendacao": {
+              "type": "string",
+              "title": "Recomendação",
+              "description": "Ação recomendada.",
+              "minLength": 1
+            },
+            "motivo": {
+              "type": "string",
+              "title": "Motivo",
+              "description": "Motivo da recomendação.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto esperado se a recomendação for adotada.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade da recomendação.",
+              "enum": [
+                "Alta",
+                "Média",
+                "Baixa"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "outputExample": {
+    "file": "2-output.json",
+    "title": "Stage 2 — Market Research and Benchmarking",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "etapa": 2,
+      "arquivo_de_entrada": "2-prompt.md",
+      "arquivo_de_saida": "2.html",
+      "cabecalho": "string",
+      "referencia_estetica": "string",
+      "contexto_produto": "string",
+      "objetivo_escopo_metodologia": "string",
+      "resumo_executivo": "string",
+      "mapa_concorrentes": "string",
+      "classificacao_players": "string",
+      "players_consolidados": [
+        "string"
+      ],
+      "analises_detalhadas": [
+        "string"
+      ],
+      "matriz_comparativa_funcionalidades": "string",
+      "matriz_posicionamento_competitivo": "string",
+      "analise_publico_alvo": [
+        "string"
+      ],
+      "analise_proposta_valor": [
+        "string"
+      ],
+      "modulos_funcionalidades_recorrentes": [
+        "string"
+      ],
+      "ux_fluxos_padroes": [
+        "string"
+      ],
+      "monetizacao": [
+        "string"
+      ],
+      "integracoes_ecossistema": [
+        "string"
+      ],
+      "diferenciais_competitivos": [
+        "string"
+      ],
+      "lacunas_mercado": [
+        "string"
+      ],
+      "oportunidades": [
+        "string"
+      ],
+      "riscos_competitivos": [
+        "string"
+      ],
+      "tendencias": [
+        "string"
+      ],
+      "aprendizados_estrategicos": [
+        "string"
+      ],
+      "hipoteses_atualizadas": [
+        "string"
+      ],
+      "recomendacoes_etapa_3": "string",
+      "fontes_e_referencias": [
+        "string"
+      ],
+      "interatividade": "string",
+      "progresso_visual": "string",
+      "destaques": "string",
+      "contadores": "string"
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "User Input",
+      "objective": "Definir e orientar a parte 'User Input' do prompt.",
+      "description": "The user may provide one of the following: 1. A plain-text initial idea. 2. A summary of Stage 1. 3. A Stage 1 HTML file. 4. A Stage 1.2 HTML file. 5. A set of observations about the product. When a Stage 1 HTML file exists, extract: - provisional product name; - system type; - segment; - target audience; - main problem; - initial value proposition; - hypotheses; - pain points; - opportunities; - risks; - open questions; - recommended next steps. If the input is incomplete, continue with reasonable hypotheses and clearly mark inferred content as **hypothesis**. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "Mandatory Aesthetic File",
+      "objective": "Definir e orientar a parte 'Mandatory Aesthetic File' do prompt.",
+      "description": "In addition to the idea, summary, or previous HTML, use: This file is the official visual direction for the product and must control all UX/UI decisions, themes, styles, layouts, composition, hierarchy, components, density, microinteractions, visual language, color usage, typography, rhythm, and the dashboard build. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "This file is the official visual direction for the product and must control all UX/UI decisions, themes, styles, layouts, composition, hierarchy, components, density, microinteractions, visual language, color usage, typography, rhythm, and the dashboard build."
+      ]
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "Goal of Stage 2",
+      "objective": "Definir e orientar a parte 'Goal of Stage 2' do prompt.",
+      "description": "Turn the initial product understanding into a structured, comparable, and actionable market analysis. The stage should answer: - what similar systems already exist; - how they position themselves; - which audiences they serve; - which problems they solve; - which features they offer; - which flows and modules are common; - which differentiators they use; - which monetization models they practice; - which integrations appear often; - which trends and patterns exist; - which gaps may become opportunities; - which competitive risks must be considered; - which learnings should guide later stages. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The stage should answer:",
+        "which competitive risks must be considered;",
+        "which learnings should guide later stages."
+      ]
+    },
+    {
+      "index": 4,
+      "level": 1,
+      "title": "Important",
+      "objective": "Definir e orientar a parte 'Important' do prompt.",
+      "description": "This stage must **not** generate the full functional specification yet. Do not turn the research into a final backlog, final technical architecture, or closed requirement list. The goal is to build a market foundation for the next stages. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "This stage must **not** generate the full functional specification yet.",
+        "Do not turn the research into a final backlog, final technical architecture, or closed requirement list."
+      ]
+    },
+    {
+      "index": 5,
+      "level": 1,
+      "title": "Mandatory Tasks",
+      "objective": "Definir e orientar a parte 'Mandatory Tasks' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "1. Interpret the product context",
+      "objective": "Definir e orientar a parte '1. Interpret the product context' do prompt.",
+      "description": "Identify: - provisional product name; - system category; - market segment; - target audience; - main problem; - initial value proposition; - main pain points; - relevant hypotheses; - open questions that depend on research; - likely research scope. If any data is missing, infer it as a hypothesis. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "2. Research similar solutions online",
+      "objective": "Definir e orientar a parte '2. Research similar solutions online' do prompt.",
+      "description": "Search for systems, platforms, apps, SaaS products, ERPs, CRMs, marketplaces, internal tools, automations, or services related to the product. Include: - direct competitors; - indirect competitors; - substitutes; - horizontal tools used to solve the same problem; - open-source solutions, when relevant; - enterprise solutions, when relevant; - local and international solutions, when applicable; - common industry practices; - recent trends; - reports, studies, and reliable references. Use current and trustworthy sources. Whenever information may change over time, verify it online. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "3. Classify the players found",
+      "objective": "Definir e orientar a parte '3. Classify the players found' do prompt.",
+      "description": "Classify each solution as: - direct competitor; - indirect competitor; - manual substitute; - complementary tool; - aspirational benchmark; - UX reference; - technical reference; - business model reference; - open-source solution; - enterprise solution. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "4. Analyze each similar system",
+      "objective": "Definir e orientar a parte '4. Analyze each similar system' do prompt.",
+      "description": "For each relevant system, provide: ```md",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 2,
+      "title": "System {n}: {Name}",
+      "objective": "Definir e orientar a parte 'System {n}: {Name}' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 11,
+      "level": 3,
+      "title": "Reference type",
+      "objective": "Definir e orientar a parte 'Reference type' do prompt.",
+      "description": "{Direct competitor, indirect competitor, benchmark, substitute, etc.}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 12,
+      "level": 3,
+      "title": "Official site",
+      "objective": "Definir e orientar a parte 'Official site' do prompt.",
+      "description": "{URL}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 3,
+      "title": "Target audience",
+      "objective": "Definir e orientar a parte 'Target audience' do prompt.",
+      "description": "{Audience served}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 3,
+      "title": "Value proposition",
+      "objective": "Definir e orientar a parte 'Value proposition' do prompt.",
+      "description": "{How the system positions itself}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 15,
+      "level": 3,
+      "title": "Main features",
+      "objective": "Definir e orientar a parte 'Main features' do prompt.",
+      "description": "- Feature 1 - Feature 2 - Feature 3",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 16,
+      "level": 3,
+      "title": "Identified modules or areas",
+      "objective": "Definir e orientar a parte 'Identified modules or areas' do prompt.",
+      "description": "- Module 1 - Module 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 17,
+      "level": 3,
+      "title": "Relevant flows",
+      "objective": "Definir e orientar a parte 'Relevant flows' do prompt.",
+      "description": "- Flow 1 - Flow 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 3,
+      "title": "Cited integrations",
+      "objective": "Definir e orientar a parte 'Cited integrations' do prompt.",
+      "description": "- Integration 1 - Integration 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 3,
+      "title": "Monetization model",
+      "objective": "Definir e orientar a parte 'Monetization model' do prompt.",
+      "description": "{Subscription, freemium, enterprise, per user, per usage, license, etc.}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 3,
+      "title": "Perceived differentiators",
+      "objective": "Definir e orientar a parte 'Perceived differentiators' do prompt.",
+      "description": "- Differentiator 1 - Differentiator 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 3,
+      "title": "Perceived limitations",
+      "objective": "Definir e orientar a parte 'Perceived limitations' do prompt.",
+      "description": "- Limitation 1 - Limitation 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 22,
+      "level": 3,
+      "title": "Learnings for the product",
+      "objective": "Definir e orientar a parte 'Learnings for the product' do prompt.",
+      "description": "- Learning 1 - Learning 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 23,
+      "level": 3,
+      "title": "Derived opportunities",
+      "objective": "Definir e orientar a parte 'Derived opportunities' do prompt.",
+      "description": "- Opportunity 1 - Opportunity 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 24,
+      "level": 3,
+      "title": "Sources consulted",
+      "objective": "Definir e orientar a parte 'Sources consulted' do prompt.",
+      "description": "- Source 1 - Source 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 25,
+      "level": 3,
+      "title": "Confidence level",
+      "objective": "Definir e orientar a parte 'Confidence level' do prompt.",
+      "description": "High / Medium / Low ``` ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 26,
+      "level": 1,
+      "title": "Minimum Research Scope",
+      "objective": "Definir e orientar a parte 'Minimum Research Scope' do prompt.",
+      "description": "Whenever possible, analyze at least: - 10 direct competitors or similar solutions; - 5 indirect competitors or substitutes; - 5 aspirational benchmarks; - 5 UX, onboarding, dashboard, or flow references; - 5 monetization or pricing references; - 5 references for relevant market trends. If the niche is very specific and there are not enough players, explain the limitation and broaden the analysis to adjacent substitutes and solutions. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 27,
+      "level": 1,
+      "title": "Mandatory Documents Inside the Dashboard",
+      "objective": "Definir e orientar a parte 'Mandatory Documents Inside the Dashboard' do prompt.",
+      "description": "The final HTML dashboard must contain: 1. Stage 2 Executive Summary 2. Context of the Analyzed Product 3. Research Objective and Scope 4. Research Methodology 5. Competitor and Reference Map 6. Player Classification 7. Detailed Analysis of Similar Systems 8. Feature Comparison Matrix 9. Competitive Positioning Matrix 10. Target Audience Analysis by Competitor 11. Value Proposition Analysis by Competitor 12. Recurring Modules and Features Analysis 13. Flows, Screens, and UX Patterns Analysis 14. Monetization Models Analysis 15. Integrations and Ecosystem Analysis 16. Competitive Differentiators Analysis 17. Identified Market Gaps 18. Opportunities for the Product 19. Competitive Risks and Pro...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The final HTML dashboard must contain:"
+      ]
+    },
+    {
+      "index": 28,
+      "level": 1,
+      "title": "Required Output",
+      "objective": "Definir e orientar a parte 'Required Output' do prompt.",
+      "description": "Generate a full HTML file, ready to open in the browser. The file must be named: The final response must contain a download link for the generated file. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The file must be named:",
+        "The final response must contain a download link for the generated file."
+      ]
+    },
+    {
+      "index": 29,
+      "level": 1,
+      "title": "HTML Requirements",
+      "objective": "Definir e orientar a parte 'HTML Requirements' do prompt.",
+      "description": "The HTML must be self-contained and include: - `<!DOCTYPE html>`; - semantic HTML; - embedded CSS; - embedded JavaScript; - responsive layout aligned with `0-estetica-inicial.md`; - sidebar navigation aligned with the product aesthetic; - summary cards aligned with the component system defined in `0-estetica-inicial.md`; - tables; - expandable sections; - filters; - text search; - visual indicators aligned with the palette, status semantics, tokens, contrast, and visual language defined in `0-estetica-inicial.md`; - simple charts using pure HTML/CSS/JavaScript; - a light/dark theme toggle only if compatible with the aesthetic direction; if the file defines a single theme or specific tokens, ...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The HTML must be self-contained and include:"
+      ]
+    },
+    {
+      "index": 30,
+      "level": 1,
+      "title": "Visual Structure",
+      "objective": "Definir e orientar a parte 'Visual Structure' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "1. Header",
+      "objective": "Definir e orientar a parte '1. Header' do prompt.",
+      "description": "Display: - product name; - stage name: `Stage 2 — Market Research and Benchmarking`; - source file or input; - generated file; - generation date; - analyzed segment; - total number of analyzed players; - number of consulted sources; - main competitor categories. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 32,
+      "level": 2,
+      "title": "2. Indicator Cards",
+      "objective": "Definir e orientar a parte '2. Indicator Cards' do prompt.",
+      "description": "Create cards for: - total direct competitors; - total indirect competitors; - total benchmarks; - total substitutes; - recurring features count; - identified gaps; - identified opportunities; - competitive risks; - average research confidence; - next recommended stage. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 33,
+      "level": 2,
+      "title": "3. Competitor Map",
+      "objective": "Definir e orientar a parte '3. Competitor Map' do prompt.",
+      "description": "Create a grouped view: | Category | Players | Role in the analysis | Relevance level | |---|---|---|---| | Direct competitors | {names} | Compete for the same problem | High | | Indirect competitors | {names} | Solve part of the problem | Medium | | Substitutes | {names} | Current user alternatives | High | | Benchmarks | {names} | Aspirational references | Medium | ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 34,
+      "level": 2,
+      "title": "4. Consolidated Player Table",
+      "objective": "Definir e orientar a parte '4. Consolidated Player Table' do prompt.",
+      "description": "Create a table with: | ID | System | Category | Target audience | Value proposition | Key features | Monetization model | Relevance | Confidence | |---|---|---|---|---|---|---|---|---| ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "5. Feature Comparison Matrix",
+      "objective": "Definir e orientar a parte '5. Feature Comparison Matrix' do prompt.",
+      "description": "Create a comparison table with: | Feature | Proposed product | Competitor A | Competitor B | Competitor C | Opportunity | |---|---|---|---|---|---| Use simple markers: - `Yes` - `No` - `Partial` - `Not identified` - `Possible differentiator` ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 36,
+      "level": 2,
+      "title": "6. Competitive Positioning Matrix",
+      "objective": "Definir e orientar a parte '6. Competitive Positioning Matrix' do prompt.",
+      "description": "Create a simple table or chart with conceptual axes such as: - simplicity vs. depth; - SMB vs. enterprise; - low automation vs. high automation; - horizontal vs. vertical; - self-service vs. consultative sales; - low cost vs. high value. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "7. Detailed Analysis by System",
+      "objective": "Definir e orientar a parte '7. Detailed Analysis by System' do prompt.",
+      "description": "For each analyzed system, create an expandable section containing: - name; - category; - site; - audience; - value proposition; - features; - modules; - flows; - observed UX; - monetization; - integrations; - differentiators; - limitations; - learnings; - derived opportunities; - sources; - confidence level. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 38,
+      "level": 2,
+      "title": "8. Sources and References",
+      "objective": "Definir e orientar a parte '8. Sources and References' do prompt.",
+      "description": "Create a final section with all consulted sources. Each source must include: | ID | Title | Organization/Site | URL | Related systems or themes | Source type | |---|---|---|---|---|---| Source types: - official site; - official documentation; - pricing page; - product page; - technical article; - market report; - industry study; - competitor; - benchmark; - legislation; - academic research; - news; - open-source repository; - product review. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "Each source must include:"
+      ]
+    },
+    {
+      "index": 39,
+      "level": 1,
+      "title": "Mandatory Interactivity",
+      "objective": "Definir e orientar a parte 'Mandatory Interactivity' do prompt.",
+      "description": "The dashboard must allow: 1. Toggle light/dark theme when the variation is available or compatible with `0-estetica-inicial.md`; otherwise keep the theme defined in the aesthetic file and record the decision. 2. Expand and collapse analyses by system. 3. Filter players by category. 4. Filter players by relevance. 5. Filter players by confidence level. 6. Filter recurring features. 7. Filter opportunities by priority. 8. Filter risks by category. 9. Free-text search across systems, features, opportunities, and sources. 10. Copy executive summary. 11. Copy analysis of a specific system. 12. Export all content to Markdown. 13. Print or save as PDF. 14. Show visual progress for Stage 2. 15. High...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The dashboard must allow:"
+      ]
+    },
+    {
+      "index": 40,
+      "level": 1,
+      "title": "Style and UX/UI According to `0-estetica-inicial.md`",
+      "objective": "Definir e orientar a parte 'Style and UX/UI According to `0-estetica-inicial.md`' do prompt.",
+      "description": "The dashboard’s visual construction must strictly follow: All decisions about UX/UI, theme, style, layout, composition, components, navigation, hierarchy, typography, colors, contrast, information density, spacing, visual rhythm, cards, tables, matrices, filters, states, microcopy, microinteractions, responsiveness, and visual construction must be derived from that file. Do not create a new visual direction for Stage 2.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The dashboard’s visual construction must strictly follow:",
+        "All decisions about UX/UI, theme, style, layout, composition, components, navigation, hierarchy, typography, colors, contrast, information density, spacing, visual rhythm, cards, tables, matrices, filters, states, microcopy, microinteractions, responsiveness, and visual construction must be derived from that file.",
+        "Do not create a new visual direction for Stage 2."
+      ]
+    },
+    {
+      "index": 41,
+      "level": 2,
+      "title": "Mandatory aesthetic application rules",
+      "objective": "Definir e orientar a parte 'Mandatory aesthetic application rules' do prompt.",
+      "description": "1. Read and interpret `0-estetica-inicial.md` before designing the dashboard. 2. Extract, when present: - product visual personality; - aesthetic language; - color palette; - semantic tokens; - typography; - grid and composition; - information density; - navigation patterns; - card, table, form, filter, and panel styles; - visual states; - microinteractions; - responsiveness rules; - restrictions on what to avoid. 3. Apply the aesthetic to the HTML dashboard without relying on external libraries, external images, frameworks, or CDNs. 4. When a generic preference conflicts with the aesthetic file, `0-estetica-inicial.md` wins. 5. When the aesthetic file defines a specific dashboard, table, ca...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "restrictions on what to avoid.",
+        "6. When the aesthetic file says certain styles should be avoided, do not use them.",
+        "9. The visual experience must reinforce the product context and should not look like a reusable generic template.",
+        "10. The aesthetic must support reading, comparison, and market-decision making."
+      ]
+    },
+    {
+      "index": 42,
+      "level": 2,
+      "title": "If the aesthetic file is not provided",
+      "objective": "Definir e orientar a parte 'If the aesthetic file is not provided' do prompt.",
+      "description": "If `0-estetica-inicial.md` is unavailable: - state in the dashboard that the official aesthetic direction was not provided; - use a neutral, professional, accessible, and functional visual base; - avoid creating a definitive visual identity; - do not use flashy gradients, generic glassmorphism, excessive shadows, empty cards, or decorative elements without purpose; - keep the structure ready for later adaptation to Stage 1.2.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "avoid creating a definitive visual identity;",
+        "do not use flashy gradients, generic glassmorphism, excessive shadows, empty cards, or decorative elements without purpose;"
+      ]
+    },
+    {
+      "index": 43,
+      "level": 2,
+      "title": "Visual Prohibitions",
+      "objective": "Definir e orientar a parte 'Visual Prohibitions' do prompt.",
+      "description": "Even when the aesthetic file is missing, explicitly avoid: - generic AI dashboard appearance; - “beautiful but empty” layouts; - excessive gradients unrelated to the product; - repetitive cards with little content; - decorative icons without function; - unreadable tables; - animations that interfere with reading; - visual effects that compete with the analysis; - vague copy such as “innovative solution”, “amazing experience”, or “powerful dashboard” without evidence; - any style incompatible with `0-estetica-inicial.md`. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "Even when the aesthetic file is missing, explicitly avoid:"
+      ]
+    },
+    {
+      "index": 44,
+      "level": 1,
+      "title": "Research Rules",
+      "objective": "Definir e orientar a parte 'Research Rules' do prompt.",
+      "description": "Follow these rules: 1. Research each extracted question deeply and in a targeted way. 2. Use reliable and current sources. 3. Prefer primary sources whenever possible. 4. For features and pricing, prioritize official product sites. 5. For technology, prioritize official documentation. 6. For market questions, prioritize reports, competitor sites, and recognized sources. 7. For legal, regulatory, or security questions, use official or specialized sources. 8. Do not rely on only one source for important conclusions. 9. Do not invent data. 10. Do not invent competitors. 11. Do not use fictitious links. 12. Clearly distinguish: - researched fact; - strategic inference; - hypothesis; - recommenda...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "8. Do not rely on only one source for important conclusions.",
+        "9. Do not invent data.",
+        "10. Do not invent competitors.",
+        "11. Do not use fictitious links."
+      ]
+    },
+    {
+      "index": 45,
+      "level": 1,
+      "title": "Product Analysis Rules",
+      "objective": "Definir e orientar a parte 'Product Analysis Rules' do prompt.",
+      "description": "For each system, feature, gap, or opportunity, evaluate: - how it affects the value proposition; - whether it changes the target audience; - whether it confirms or weakens Stage 1 hypotheses; - whether it creates new risks; - whether it reveals opportunities; - whether it requires user validation; - whether it should influence Stage 3; - whether it should become a future requirement; - whether it should be treated as an assumption; - whether it should guide interviews, benchmarking, or prototyping. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "whether it should influence Stage 3;",
+        "whether it should become a future requirement;",
+        "whether it should be treated as an assumption;",
+        "whether it should guide interviews, benchmarking, or prototyping."
+      ]
+    },
+    {
+      "index": 46,
+      "level": 1,
+      "title": "Technical Rules for the HTML File",
+      "objective": "Definir e orientar a parte 'Technical Rules for the HTML File' do prompt.",
+      "description": "The HTML must: - work offline once generated; - be a single file; - not depend on the internet to open; - not use external libraries; - not use frameworks; - not use external images; - contain CSS in `<style>`; - contain JS in `<script>`; - be readable and organized; - use semantic elements; - contain useful internal comments in the code; - be compatible with modern browsers; - apply the visual rules from `0-estetica-inicial.md` in CSS and layout; - be self-reviewed before delivery, looking for errors or failures; - fix any detected issues before saving. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The HTML must:"
+      ]
+    },
+    {
+      "index": 47,
+      "level": 1,
+      "title": "Expected HTML Structure",
+      "objective": "Definir e orientar a parte 'Expected HTML Structure' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 48,
+      "level": 1,
+      "title": "Quality Criteria",
+      "objective": "Definir e orientar a parte 'Quality Criteria' do prompt.",
+      "description": "The output should be: - researched; - grounded; - comparative; - strategic; - objective; - traceable by sources; - useful for product decisions; - useful for guiding specification; - useful for guiding UX; - useful for guiding positioning; - clear about uncertainties; - clear about hypotheses; - clear about risks; - clear about remaining gaps. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "The output should be:"
+      ]
+    },
+    {
+      "index": 49,
+      "level": 1,
+      "title": "Important Rules",
+      "objective": "Definir e orientar a parte 'Important Rules' do prompt.",
+      "description": "1. Do not ignore Stage 1. 2. Do not invent players, sources, or data. 3. Do not treat inferences as facts. 4. Do not use fictitious links. 5. Do not depend on external libraries in the HTML. 6. Do not deliver Markdown only. 7. Do not generate separate files. 8. Generate only one final HTML, inspect it for errors or failures, and fix them. 9. Save the file using `2.html`. 10. Respond only with the download link and a short confirmation sentence. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "1. Do not ignore Stage 1.",
+        "2. Do not invent players, sources, or data.",
+        "3. Do not treat inferences as facts.",
+        "4. Do not use fictitious links.",
+        "5. Do not depend on external libraries in the HTML.",
+        "6. Do not deliver Markdown only.",
+        "7. Do not generate separate files."
+      ]
+    },
+    {
+      "index": 50,
+      "level": 1,
+      "title": "Expected Output",
+      "objective": "Definir e orientar a parte 'Expected Output' do prompt.",
+      "description": "When receiving the Stage 2 input, the assistant must: 1. Read the idea, summary, or previous HTML, and when available, `0-estetica-inicial.md`. 2. Extract the product context. 3. Define the research scope. 4. Research similar systems and references online. 5. Analyze competitors, substitutes, benchmarks, features, UX, monetization, integrations, gaps, and opportunities. 6. Consolidate the learnings into documents. 7. Create the full HTML dashboard with UX/UI, themes, styles, layouts, and construction consistent with `0-estetica-inicial.md`. 8. Save the file using: 9. Respond only with the download link and a short confirmation sentence. Final response format:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ],
+      "rules": [
+        "When receiving the Stage 2 input, the assistant must:"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "Goal of Stage 2",
+      "objective": "Executar a instrução operacional 'Goal of Stage 2'.",
+      "description": "Turn the initial product understanding into a structured, comparable, and actionable market analysis. The stage should answer: - what similar systems already exist; - how they position themselves; - which audiences they serve; - which problems they solve; - which features they offer; - which flows and modules are common; - which differentiators they use; - which monetization models they practice; - which integrations appear often; - which trends and patterns exist; - which gaps may become opportunities; - which competitive risks must be considered; - which learnings should guide later stages. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Mandatory Tasks",
+      "objective": "Executar a instrução operacional 'Mandatory Tasks'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "1. Interpret the product context",
+      "objective": "Executar a instrução operacional '1. Interpret the product context'.",
+      "description": "Identify: - provisional product name; - system category; - market segment; - target audience; - main problem; - initial value proposition; - main pain points; - relevant hypotheses; - open questions that depend on research; - likely research scope. If any data is missing, infer it as a hypothesis. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "2. Research similar solutions online",
+      "objective": "Executar a instrução operacional '2. Research similar solutions online'.",
+      "description": "Search for systems, platforms, apps, SaaS products, ERPs, CRMs, marketplaces, internal tools, automations, or services related to the product. Include: - direct competitors; - indirect competitors; - substitutes; - horizontal tools used to solve the same problem; - open-source solutions, when relevant; - enterprise solutions, when relevant; - local and international solutions, when applicable; - common industry practices; - recent trends; - reports, studies, and reliable references. Use current and trustworthy sources. Whenever information may change over time, verify it online. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 5,
+      "title": "3. Classify the players found",
+      "objective": "Executar a instrução operacional '3. Classify the players found'.",
+      "description": "Classify each solution as: - direct competitor; - indirect competitor; - manual substitute; - complementary tool; - aspirational benchmark; - UX reference; - technical reference; - business model reference; - open-source solution; - enterprise solution. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 6,
+      "title": "4. Analyze each similar system",
+      "objective": "Executar a instrução operacional '4. Analyze each similar system'.",
+      "description": "For each relevant system, provide: ```md",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 7,
+      "title": "1. Header",
+      "objective": "Executar a instrução operacional '1. Header'.",
+      "description": "Display: - product name; - stage name: `Stage 2 — Market Research and Benchmarking`; - source file or input; - generated file; - generation date; - analyzed segment; - total number of analyzed players; - number of consulted sources; - main competitor categories. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 8,
+      "title": "2. Indicator Cards",
+      "objective": "Executar a instrução operacional '2. Indicator Cards'.",
+      "description": "Create cards for: - total direct competitors; - total indirect competitors; - total benchmarks; - total substitutes; - recurring features count; - identified gaps; - identified opportunities; - competitive risks; - average research confidence; - next recommended stage. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 9,
+      "title": "3. Competitor Map",
+      "objective": "Executar a instrução operacional '3. Competitor Map'.",
+      "description": "Create a grouped view: | Category | Players | Role in the analysis | Relevance level | |---|---|---|---| | Direct competitors | {names} | Compete for the same problem | High | | Indirect competitors | {names} | Solve part of the problem | Medium | | Substitutes | {names} | Current user alternatives | High | | Benchmarks | {names} | Aspirational references | Medium | ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 10,
+      "title": "4. Consolidated Player Table",
+      "objective": "Executar a instrução operacional '4. Consolidated Player Table'.",
+      "description": "Create a table with: | ID | System | Category | Target audience | Value proposition | Key features | Monetization model | Relevance | Confidence | |---|---|---|---|---|---|---|---|---| ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 11,
+      "title": "5. Feature Comparison Matrix",
+      "objective": "Executar a instrução operacional '5. Feature Comparison Matrix'.",
+      "description": "Create a comparison table with: | Feature | Proposed product | Competitor A | Competitor B | Competitor C | Opportunity | |---|---|---|---|---|---| Use simple markers: - `Yes` - `No` - `Partial` - `Not identified` - `Possible differentiator` ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 12,
+      "title": "6. Competitive Positioning Matrix",
+      "objective": "Executar a instrução operacional '6. Competitive Positioning Matrix'.",
+      "description": "Create a simple table or chart with conceptual axes such as: - simplicity vs. depth; - SMB vs. enterprise; - low automation vs. high automation; - horizontal vs. vertical; - self-service vs. consultative sales; - low cost vs. high value. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 13,
+      "title": "7. Detailed Analysis by System",
+      "objective": "Executar a instrução operacional '7. Detailed Analysis by System'.",
+      "description": "For each analyzed system, create an expandable section containing: - name; - category; - site; - audience; - value proposition; - features; - modules; - flows; - observed UX; - monetization; - integrations; - differentiators; - limitations; - learnings; - derived opportunities; - sources; - confidence level. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    },
+    {
+      "index": 14,
+      "title": "8. Sources and References",
+      "objective": "Executar a instrução operacional '8. Sources and References'.",
+      "description": "Create a final section with all consulted sources. Each source must include: | ID | Title | Organization/Site | URL | Related systems or themes | Source type | |---|---|---|---|---|---| Source types: - official site; - official documentation; - pricing page; - product page; - technical article; - market report; - industry study; - competitor; - benchmark; - legislation; - academic research; - news; - open-source repository; - product review. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json",
+        "1.2-output.json",
+        "0-estetica-inicial.md",
+        "2.html"
+      ],
+      "outputs": [
+        "2-output.json"
+      ]
+    }
+  ]
+}

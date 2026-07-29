@@ -1,0 +1,3419 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 10 - Segurança, Privacidade, Compliance e Governança",
+  "description": "Schema JSON que representa semanticamente o dashboard HTML da Etapa 10. A saída final deve consolidar as fontes extraídas do ZIP, o contexto do produto, a análise de segurança, privacidade, compliance e governança, os controles recomendados, as lacunas, as evidências e as diretrizes visuais aplicadas a partir de 0-estetica-inicial.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "cabecalho",
+    "fontes_extraidas_do_zip",
+    "inventario_arquivos",
+    "contexto_consolidado",
+    "resumo_executivo",
+    "ativos_criticos",
+    "classificacao_dados",
+    "finalidades_bases_retencao",
+    "direitos_titular",
+    "governanca",
+    "riscos_ameacas",
+    "ameacas_por_fluxo",
+    "autenticacao",
+    "autorizacao",
+    "multitenant",
+    "apis_e_contratos",
+    "frontend_seguranca",
+    "dados_e_storage",
+    "integracoes_e_webhooks",
+    "ia_e_automacoes",
+    "billing_planos_feature_flags",
+    "auditoria_rastreabilidade",
+    "monitoramento_alertas",
+    "resposta_a_incidentes",
+    "continuidade_backup_recuperacao",
+    "politicas_documentos",
+    "qa_seguranca",
+    "go_live_seguro",
+    "simulacao_uso_real",
+    "riscos_residuais",
+    "lacunas_pendencias",
+    "diretrizes_ux_ui",
+    "recomendacoes_finais",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 10.",
+      "type": "integer",
+      "const": 10
+    },
+    "arquivo_de_entrada": {
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 10.",
+      "type": "string",
+      "const": "10-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 10.html, conforme o prompt.",
+      "type": "string",
+      "const": "10.html"
+    },
+    "cabecalho": {
+      "title": "Cabeçalho do Dashboard",
+      "description": "Bloco de identificação no topo do dashboard com o nome do produto, a etapa, os arquivos principais e os indicadores de rastreabilidade.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Cabecalho"
+        }
+      ]
+    },
+    "fontes_extraidas_do_zip": {
+      "title": "Fontes Extraídas do ZIP",
+      "description": "Seção inicial que registra o ZIP de origem, os arquivos encontrados, os arquivos usados, os ignorados, as etapas identificadas e as limitações encontradas.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/FontesZip"
+        }
+      ]
+    },
+    "inventario_arquivos": {
+      "title": "Inventário dos Arquivos Extraídos",
+      "description": "Tabela consolidada dos arquivos úteis extraídos do ZIP, com classificação, etapa provável, tamanho e observações de uso.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/InventarioArquivo"
+      }
+    },
+    "contexto_consolidado": {
+      "title": "Contexto Consolidado do Produto",
+      "description": "Síntese do produto, do escopo, das etapas anteriores e dos elementos técnicos e operacionais relevantes para a análise de segurança e governança.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ContextoConsolidado"
+        }
+      ]
+    },
+    "resumo_executivo": {
+      "title": "Resumo Executivo de Segurança e Governança",
+      "description": "Síntese estratégica com o objetivo da etapa, os ativos críticos, os riscos principais, os controles recomendados, as decisões pendentes e a maturidade percebida.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ResumoExecutivo"
+        }
+      ]
+    },
+    "ativos_criticos": {
+      "title": "Ativos Críticos",
+      "description": "Lista dos ativos mais sensíveis ou relevantes para segurança, privacidade, compliance e operação segura da plataforma.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/AtivoCritico"
+      }
+    },
+    "classificacao_dados": {
+      "title": "Classificação de Dados Pessoais e Sensíveis",
+      "description": "Tabela que classifica dados por entidade, campo, finalidade, sensibilidade e proteção recomendada.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DadoClassificado"
+      }
+    },
+    "finalidades_bases_retencao": {
+      "title": "Finalidades, Bases Legais e Retenção",
+      "description": "Tabela que relaciona cada dado com sua finalidade, base legal sugerida, retenção, descarte e observações de validação jurídica.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DadoRetencao"
+      }
+    },
+    "direitos_titular": {
+      "title": "Direitos do Titular e Privacidade",
+      "description": "Tabela de atendimento aos direitos do titular, incluindo acesso, correção, exclusão, portabilidade, oposição e revisão de decisão automatizada.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DireitoTitular"
+      }
+    },
+    "governanca": {
+      "title": "Papéis e Responsabilidades de Governança",
+      "description": "Tabela que descreve responsabilidades, escopos, permissões críticas e riscos associados aos papéis de governança da plataforma.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PapelGovernanca"
+      }
+    },
+    "riscos_ameacas": {
+      "title": "Ameaças e Riscos de Segurança",
+      "description": "Inventário priorizado de riscos e ameaças com categoria, probabilidade, impacto, sinal de alerta, mitigação e prioridade.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RiscoAmeaca"
+      }
+    },
+    "ameacas_por_fluxo": {
+      "title": "Ameaças por Fluxo Crítico",
+      "description": "Modelagem de ameaças associada a fluxos críticos como login, convite, troca de tenant, exportação, IA, billing e auditoria.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/AmeacaFluxo"
+      }
+    },
+    "autenticacao": {
+      "title": "Controles de Autenticação",
+      "description": "Lista de controles de autenticação, incluindo senha segura, MFA, recuperação, sessões, brute force e detecção de login suspeito.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ControleAutenticacao"
+      }
+    },
+    "autorizacao": {
+      "title": "Controles de Autorização e Permissões",
+      "description": "Matriz de permissões e premissas de autorização, incluindo RBAC, ABAC, escopo hierárquico e ações críticas.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Autorizacao"
+        }
+      ]
+    },
+    "multitenant": {
+      "title": "Controles Multi-tenant, Multiempresa, Matriz e Filial",
+      "description": "Controles de isolamento, validação de contexto, prevenção de IDOR, segregação por escopo e testes recomendados.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Multitenant"
+        }
+      ]
+    },
+    "apis_e_contratos": {
+      "title": "Controles para APIs e Contratos",
+      "description": "Controles de segurança para APIs, contratos, webhooks e integrações, incluindo validação, rate limiting, idempotência e logs seguros.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ControleApi"
+      }
+    },
+    "frontend_seguranca": {
+      "title": "Controles para Frontend e UX Segura",
+      "description": "Controles de interface para mensagens de segurança, estados de sessão, dados mascarados, confirmações destrutivas e prevenção de erros operacionais.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ControleUx"
+      }
+    },
+    "dados_e_storage": {
+      "title": "Controles para Banco de Dados e Storage",
+      "description": "Controles para repouso, backup, restore, segregação lógica, mascaramento, exclusão lógica, retenção e URLs temporárias.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ControleStorage"
+      }
+    },
+    "integracoes_e_webhooks": {
+      "title": "Controles para Integrações e Webhooks",
+      "description": "Controles de autenticação, assinatura, retry, DLQ, timeout, escopo e reconciliação para integrações externas e webhooks.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ControleIntegracao"
+      }
+    },
+    "ia_e_automacoes": {
+      "title": "Controles para IA e Automações",
+      "description": "Seção condicional com aplicabilidade, justificativa e controles para IA, incluindo vazamento, prompt injection, revisão humana e auditoria.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/IAEAUTOMACOES"
+        }
+      ]
+    },
+    "billing_planos_feature_flags": {
+      "title": "Controles para Billing, Planos e Feature Flags",
+      "description": "Seção condicional com aplicabilidade e controles para cobrança, planos, trial, downgrade, limites de uso e feature flags.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Billing"
+        }
+      ]
+    },
+    "auditoria_rastreabilidade": {
+      "title": "Auditoria e Rastreabilidade",
+      "description": "Tabela de eventos auditáveis com quem, quando, dados registrados, retenção e criticidade.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EventoAuditavel"
+      }
+    },
+    "monitoramento_alertas": {
+      "title": "Monitoramento e Alertas",
+      "description": "Tabela de indicadores, alertas, limiares, ações e responsáveis para observabilidade operacional e de segurança.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EventoMonitoramento"
+      }
+    },
+    "resposta_a_incidentes": {
+      "title": "Resposta a Incidentes",
+      "description": "Tabela de cenários de incidente, detecção, resposta imediata, comunicação e observações de recuperação.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EventoIncidente"
+      }
+    },
+    "continuidade_backup_recuperacao": {
+      "title": "Continuidade, Backup e Recuperação",
+      "description": "Tabela de requisitos de continuidade com frequência, RPO, RTO e objetivo operacional.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RequisitoContinuidade"
+      }
+    },
+    "politicas_documentos": {
+      "title": "Políticas e Documentos Necessários",
+      "description": "Inventário dos documentos e políticas que suportam operação, privacidade, compliance e governança da plataforma.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DocumentoPolitica"
+      }
+    },
+    "qa_seguranca": {
+      "title": "Requisitos de QA de Segurança",
+      "description": "Tabela de testes de segurança, objetivo, tipo, criticidade e observações para validação antes de produção.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RequisitoQA"
+      }
+    },
+    "go_live_seguro": {
+      "title": "Checklist de Go-live Seguro",
+      "description": "Checklist operacional de liberação com checkpoints, responsáveis, status e observações.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CheckpointGoLive"
+      }
+    },
+    "simulacao_uso_real": {
+      "title": "Simulação de Uso Real",
+      "description": "Cenário de simulação orientado à operação real, com passos, resultado esperado, controles validados e observações de governança.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/SimulacaoUsoReal"
+        }
+      ]
+    },
+    "riscos_residuais": {
+      "title": "Riscos Residuais",
+      "description": "Lista dos riscos que permanecem após a aplicação dos controles propostos, com motivo, aceitação, monitoramento e responsável.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RiscoResidual"
+      }
+    },
+    "lacunas_pendencias": {
+      "title": "Lacunas e Pendências",
+      "description": "Lista das lacunas de informação, decisões pendentes e validações técnicas ou jurídicas necessárias.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Lacuna"
+      }
+    },
+    "diretrizes_ux_ui": {
+      "title": "Diretrizes de UX/UI",
+      "description": "Diretrizes visuais e comportamentais derivadas de 0-estetica-inicial.md, aplicadas ao dashboard HTML da Etapa 10.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DiretrizesUxUi"
+        }
+      ]
+    },
+    "recomendacoes_finais": {
+      "title": "Recomendações Finais",
+      "description": "Síntese das recomendações priorizadas, da decisão final sugerida e dos critérios de continuidade.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/RecomendacoesFinais"
+        }
+      ]
+    },
+    "fontes_e_referencias": {
+      "title": "Fontes, Evidências e Referências",
+      "description": "Lista rastreável das fontes utilizadas, evidências observadas e referências internas ou contextuais empregadas na análise.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Referencia"
+      }
+    },
+    "proximos_passos": {
+      "title": "Próximos Passos",
+      "description": "Lista de ações recomendadas para continuidade do produto, validação das lacunas e evolução das decisões de segurança e governança.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ProximoPasso"
+      }
+    },
+    "interatividade": {
+      "title": "Interatividade",
+      "description": "Recursos interativos do dashboard HTML, como filtros, busca, copiar, exportar, imprimir, expandir e recolher.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Interatividade"
+        }
+      ]
+    },
+    "progresso_visual": {
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da documentação produzida na Etapa 10.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/ProgressoVisual"
+        }
+      ]
+    },
+    "destaques": {
+      "title": "Destaques",
+      "description": "Bloco de pontos de atenção, decisões relevantes e mensagens-chave para leitura rápida do dashboard.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Destaques"
+        }
+      ]
+    },
+    "contadores": {
+      "title": "Contadores",
+      "description": "Resumo numérico dos principais elementos do dashboard, incluindo fontes, arquivos, ativos, riscos, controles e lacunas.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/Contadores"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "Cabecalho": {
+      "type": "object",
+      "title": "Cabeçalho",
+      "description": "Identificação principal do dashboard com o nome do produto, a etapa, os arquivos usados e os indicadores de rastreabilidade.",
+      "required": [
+        "nome_do_produto",
+        "nome_da_etapa",
+        "arquivo_de_origem",
+        "arquivo_gerado",
+        "data_de_geracao",
+        "escopo",
+        "total_de_arquivos_extraidos",
+        "total_de_arquivos_usados",
+        "indicadores_principais"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado nesta etapa.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rótulo textual da etapa, que deve identificar explicitamente a Etapa 10 - Segurança, Privacidade, Compliance e Governança.",
+          "minLength": 1
+        },
+        "arquivo_de_origem": {
+          "type": "string",
+          "title": "Arquivo de Origem",
+          "description": "Arquivo ou referência principal usada para produzir o dashboard.",
+          "minLength": 1
+        },
+        "arquivo_gerado": {
+          "type": "string",
+          "title": "Arquivo Gerado",
+          "description": "Nome do arquivo HTML final produzido pela etapa.",
+          "minLength": 1
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geração",
+          "description": "Data e hora em que o dashboard foi gerado, em formato legível e rastreável.",
+          "minLength": 1
+        },
+        "escopo": {
+          "type": "string",
+          "title": "Escopo",
+          "description": "Resumo do escopo coberto pela análise de segurança, privacidade, compliance e governança.",
+          "minLength": 1
+        },
+        "total_de_arquivos_extraidos": {
+          "type": "integer",
+          "title": "Total de Arquivos Extraídos",
+          "description": "Quantidade total de arquivos encontrados a partir da extração do ZIP.",
+          "minimum": 0
+        },
+        "total_de_arquivos_usados": {
+          "type": "integer",
+          "title": "Total de Arquivos Usados",
+          "description": "Quantidade total de arquivos efetivamente usados como entrada para a análise.",
+          "minimum": 0
+        },
+        "indicadores_principais": {
+          "type": "array",
+          "title": "Indicadores Principais",
+          "description": "Lista dos destaques numéricos ou qualitativos mais relevantes do cabeçalho.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Indicador",
+            "description": "Um indicador de resumo exibido no cabeçalho.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FontesZip": {
+      "type": "object",
+      "title": "Fontes Extraídas do ZIP",
+      "description": "Inventário inicial do ZIP, incluindo caminho, arquivos encontrados, arquivos usados, ignorados, etapas identificadas e limitações.",
+      "required": [
+        "caminho_do_zip",
+        "arquivo_estetica_oficial",
+        "lista_de_arquivos_extraidos",
+        "arquivos_usados",
+        "arquivos_ignorados",
+        "etapas_identificadas",
+        "arquivos_ausentes",
+        "limitacoes",
+        "tabela_status_arquivos"
+      ],
+      "properties": {
+        "caminho_do_zip": {
+          "type": "string",
+          "title": "Caminho do ZIP",
+          "description": "Caminho do arquivo ZIP recebido como entrada principal.",
+          "minLength": 1
+        },
+        "arquivo_estetica_oficial": {
+          "type": "string",
+          "title": "Arquivo de Estética Oficial",
+          "description": "Referência ao arquivo 0-estetica-inicial.md quando disponível, usado como base de decisão visual.",
+          "minLength": 1
+        },
+        "lista_de_arquivos_extraidos": {
+          "type": "array",
+          "title": "Lista de Arquivos Extraídos",
+          "description": "Lista completa dos arquivos úteis identificados após a extração do ZIP.",
+          "items": {
+            "type": "string",
+            "title": "Arquivo Extraído",
+            "description": "Nome ou caminho de um arquivo extraído.",
+            "minLength": 1
+          }
+        },
+        "arquivos_usados": {
+          "type": "array",
+          "title": "Arquivos Usados",
+          "description": "Lista dos arquivos efetivamente usados como entrada na análise.",
+          "items": {
+            "type": "string",
+            "title": "Arquivo Usado",
+            "description": "Nome ou caminho de um arquivo usado como fonte.",
+            "minLength": 1
+          }
+        },
+        "arquivos_ignorados": {
+          "type": "array",
+          "title": "Arquivos Ignorados",
+          "description": "Lista de arquivos descartados por irrelevância, duplicidade, cache ou outro motivo operacional.",
+          "items": {
+            "type": "string",
+            "title": "Arquivo Ignorado",
+            "description": "Nome ou caminho de um arquivo ignorado.",
+            "minLength": 1
+          }
+        },
+        "etapas_identificadas": {
+          "type": "array",
+          "title": "Etapas Identificadas",
+          "description": "Lista das etapas inferidas ou confirmadas a partir dos arquivos e do histórico.",
+          "items": {
+            "type": "string",
+            "title": "Etapa",
+            "description": "Identificador textual de uma etapa identificada.",
+            "minLength": 1
+          }
+        },
+        "arquivos_ausentes": {
+          "type": "array",
+          "title": "Arquivos Ausentes",
+          "description": "Lista dos arquivos esperados que não foram encontrados ou não puderam ser validados.",
+          "items": {
+            "type": "string",
+            "title": "Arquivo Ausente",
+            "description": "Nome ou caminho de um arquivo ausente.",
+            "minLength": 1
+          }
+        },
+        "limitacoes": {
+          "type": "array",
+          "title": "Limitações",
+          "description": "Lista das limitações observadas durante a extração e a consolidação das fontes.",
+          "items": {
+            "type": "string",
+            "title": "Limitação",
+            "description": "Uma limitação observada no processo de leitura das fontes.",
+            "minLength": 1
+          }
+        },
+        "tabela_status_arquivos": {
+          "type": "array",
+          "title": "Tabela de Status dos Arquivos",
+          "description": "Tabela exigida pelo prompt para registrar etapa, arquivo esperado, arquivo encontrado, status e observações.",
+          "items": {
+            "$ref": "#/$defs/StatusArquivoEtapa"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "StatusArquivoEtapa": {
+      "type": "object",
+      "title": "Status do Arquivo por Etapa",
+      "description": "Linha da tabela de inventário de etapas e arquivos esperados.",
+      "required": [
+        "etapa",
+        "arquivo_esperado",
+        "arquivo_encontrado",
+        "status",
+        "observacoes"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "string",
+          "title": "Etapa",
+          "description": "Identificador da etapa relacionada ao arquivo esperado.",
+          "minLength": 1
+        },
+        "arquivo_esperado": {
+          "type": "string",
+          "title": "Arquivo Esperado",
+          "description": "Nome do arquivo esperado pelo processo.",
+          "minLength": 1
+        },
+        "arquivo_encontrado": {
+          "type": "string",
+          "title": "Arquivo Encontrado",
+          "description": "Nome do arquivo efetivamente encontrado ou uma indicação de ausência.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Situação do arquivo na etapa, usando os estados previstos pelo prompt.",
+          "enum": [
+            "encontrado",
+            "ausente",
+            "duplicado",
+            "substituído por arquivo equivalente",
+            "ignorado",
+            "não identificado"
+          ]
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações específicas sobre o status do arquivo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "InventarioArquivo": {
+      "type": "object",
+      "title": "Arquivo do Inventário",
+      "description": "Linha do inventário dos arquivos úteis extraídos do ZIP.",
+      "required": [
+        "arquivo",
+        "classificacao",
+        "etapa_provavel",
+        "tamanho",
+        "usado_como_entrada",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Nome ou caminho do arquivo inventariado.",
+          "minLength": 1
+        },
+        "classificacao": {
+          "type": "string",
+          "title": "Classificação",
+          "description": "Classificação funcional do arquivo no inventário.",
+          "enum": [
+            "HTML de etapa",
+            "Markdown de estética",
+            "Markdown auxiliar",
+            "HTML auxiliar",
+            "documento não identificado",
+            "arquivo ignorado"
+          ]
+        },
+        "etapa_provavel": {
+          "type": "string",
+          "title": "Etapa Provável",
+          "description": "Etapa que o arquivo aparenta representar com base no nome ou no conteúdo.",
+          "minLength": 1
+        },
+        "tamanho": {
+          "type": "string",
+          "title": "Tamanho",
+          "description": "Tamanho do arquivo em formato legível, como bytes, KB ou MB.",
+          "minLength": 1
+        },
+        "usado_como_entrada": {
+          "type": "boolean",
+          "title": "Usado como Entrada",
+          "description": "Indica se o arquivo foi usado como fonte efetiva da análise.",
+          "default": false
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o papel do arquivo na análise.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContextoConsolidado": {
+      "type": "object",
+      "title": "Contexto Consolidado",
+      "description": "Consolidação do contexto do produto a partir dos arquivos anteriores, do histórico e das etapas já produzidas.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "tipo_de_sistema",
+        "segmento",
+        "publico_alvo",
+        "proposta_de_valor",
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "telas",
+        "regras_de_negocio",
+        "permissoes",
+        "configuracoes",
+        "entidades_e_relacionamentos",
+        "dados_sensiveis",
+        "status_e_ciclos_de_vida",
+        "eventos_de_dominio",
+        "integracoes",
+        "automacoes_e_ia",
+        "relatorios_e_dashboards",
+        "fluxos_e_jornadas",
+        "padroes_de_ui",
+        "componentes",
+        "backlog",
+        "releases",
+        "qa",
+        "arquitetura_tecnica",
+        "apis",
+        "infraestrutura",
+        "ambientes",
+        "ci_cd",
+        "observabilidade",
+        "riscos",
+        "dependencias",
+        "recomendacoes_etapa_9",
+        "direcao_estetica_oficial"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome consolidado do produto analisado.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Código do Projeto",
+          "description": "Código interno do projeto, quando existir.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria funcional da solução, como SaaS, plataforma multi-tenant, dashboard, ERP, CRM ou equivalente.",
+          "minLength": 1
+        },
+        "segmento": {
+          "type": "string",
+          "title": "Segmento",
+          "description": "Segmento ou nicho de mercado atendido pelo produto.",
+          "minLength": 1
+        },
+        "publico_alvo": {
+          "type": "array",
+          "title": "Público-alvo",
+          "description": "Perfis de usuários, papéis ou stakeholders impactados pela solução.",
+          "items": {
+            "type": "string",
+            "title": "Público-alvo",
+            "description": "Um perfil ou grupo de usuários impactado.",
+            "minLength": 1
+          }
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Resumo do valor percebido e do problema que a solução resolve.",
+          "minLength": 1
+        },
+        "dominios": {
+          "type": "array",
+          "title": "Domínios",
+          "description": "Domínios funcionais ou de negócio identificados no produto.",
+          "items": {
+            "type": "string",
+            "title": "Domínio",
+            "description": "Um domínio funcional identificado.",
+            "minLength": 1
+          }
+        },
+        "modulos": {
+          "type": "array",
+          "title": "Módulos",
+          "description": "Módulos principais da plataforma identificados nas etapas anteriores.",
+          "items": {
+            "type": "string",
+            "title": "Módulo",
+            "description": "Um módulo funcional do produto.",
+            "minLength": 1
+          }
+        },
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Funcionalidades mapeadas a partir das etapas anteriores.",
+          "items": {
+            "type": "string",
+            "title": "Funcionalidade",
+            "description": "Uma funcionalidade relevante do produto.",
+            "minLength": 1
+          }
+        },
+        "telas": {
+          "type": "array",
+          "title": "Telas",
+          "description": "Telas ou páginas identificadas na solução.",
+          "items": {
+            "type": "string",
+            "title": "Tela",
+            "description": "Uma tela ou página do sistema.",
+            "minLength": 1
+          }
+        },
+        "regras_de_negocio": {
+          "type": "array",
+          "title": "Regras de Negócio",
+          "description": "Regras centrais extraídas ou inferidas para orientar comportamento e segurança.",
+          "items": {
+            "type": "string",
+            "title": "Regra de Negócio",
+            "description": "Uma regra de negócio consolidada.",
+            "minLength": 1
+          }
+        },
+        "permissoes": {
+          "type": "array",
+          "title": "Permissões",
+          "description": "Permissões e capacidades identificadas no produto.",
+          "items": {
+            "type": "string",
+            "title": "Permissão",
+            "description": "Uma permissão ou capacidade de acesso.",
+            "minLength": 1
+          }
+        },
+        "configuracoes": {
+          "type": "array",
+          "title": "Configurações",
+          "description": "Parâmetros e configurações relevantes para operação, governança e segurança.",
+          "items": {
+            "type": "string",
+            "title": "Configuração",
+            "description": "Uma configuração relevante identificada.",
+            "minLength": 1
+          }
+        },
+        "entidades_e_relacionamentos": {
+          "type": "array",
+          "title": "Entidades e Relacionamentos",
+          "description": "Entidades de domínio e seus relacionamentos principais.",
+          "items": {
+            "type": "string",
+            "title": "Entidade ou Relacionamento",
+            "description": "Uma entidade ou um relacionamento relevante.",
+            "minLength": 1
+          }
+        },
+        "dados_sensiveis": {
+          "type": "array",
+          "title": "Dados Sensíveis",
+          "description": "Categorias de dados sensíveis, pessoais ou de alto impacto encontradas no contexto.",
+          "items": {
+            "type": "string",
+            "title": "Dado Sensível",
+            "description": "Uma categoria de dado sensível ou crítico.",
+            "minLength": 1
+          }
+        },
+        "status_e_ciclos_de_vida": {
+          "type": "array",
+          "title": "Status e Ciclos de Vida",
+          "description": "Estados, transições e ciclos de vida relevantes do domínio.",
+          "items": {
+            "type": "string",
+            "title": "Status ou Ciclo",
+            "description": "Um status ou ciclo de vida relevante.",
+            "minLength": 1
+          }
+        },
+        "eventos_de_dominio": {
+          "type": "array",
+          "title": "Eventos de Domínio",
+          "description": "Eventos de negócio ou domínio que devem ser considerados para auditoria e integração.",
+          "items": {
+            "type": "string",
+            "title": "Evento de Domínio",
+            "description": "Um evento de domínio identificado.",
+            "minLength": 1
+          }
+        },
+        "integracoes": {
+          "type": "array",
+          "title": "Integrações",
+          "description": "Integrações e dependências externas relevantes para o sistema.",
+          "items": {
+            "type": "string",
+            "title": "Integração",
+            "description": "Uma integração externa ou interna.",
+            "minLength": 1
+          }
+        },
+        "automacoes_e_ia": {
+          "type": "array",
+          "title": "Automações e IA",
+          "description": "Casos de automação, assistentes e componentes de IA que impactam segurança e governança.",
+          "items": {
+            "type": "string",
+            "title": "Automação ou IA",
+            "description": "Uma automação ou capacidade de IA identificada.",
+            "minLength": 1
+          }
+        },
+        "relatorios_e_dashboards": {
+          "type": "array",
+          "title": "Relatórios e Dashboards",
+          "description": "Relatórios e painéis já identificados ou necessários para a operação.",
+          "items": {
+            "type": "string",
+            "title": "Relatório ou Dashboard",
+            "description": "Um relatório ou dashboard do produto.",
+            "minLength": 1
+          }
+        },
+        "fluxos_e_jornadas": {
+          "type": "array",
+          "title": "Fluxos e Jornadas",
+          "description": "Fluxos críticos e jornadas operacionais inferidos nas etapas anteriores.",
+          "items": {
+            "type": "string",
+            "title": "Fluxo ou Jornada",
+            "description": "Um fluxo ou jornada relevante.",
+            "minLength": 1
+          }
+        },
+        "padroes_de_ui": {
+          "type": "array",
+          "title": "Padrões de UI",
+          "description": "Padrões visuais e comportamentais percebidos nas etapas anteriores.",
+          "items": {
+            "type": "string",
+            "title": "Padrão de UI",
+            "description": "Um padrão visual ou de interface.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Componentes de interface, dados ou domínio já identificados.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente relevante do produto.",
+            "minLength": 1
+          }
+        },
+        "backlog": {
+          "type": "array",
+          "title": "Backlog",
+          "description": "Itens de backlog, pendências ou tarefas já registradas nas etapas anteriores.",
+          "items": {
+            "type": "string",
+            "title": "Item de Backlog",
+            "description": "Um item de backlog ou pendência.",
+            "minLength": 1
+          }
+        },
+        "releases": {
+          "type": "array",
+          "title": "Releases",
+          "description": "Versões, entregas ou marcos de release já conhecidos.",
+          "items": {
+            "type": "string",
+            "title": "Release",
+            "description": "Uma release ou marco de entrega.",
+            "minLength": 1
+          }
+        },
+        "qa": {
+          "type": "array",
+          "title": "QA",
+          "description": "Elementos de qualidade, validação ou teste relevantes para o contexto.",
+          "items": {
+            "type": "string",
+            "title": "Item de QA",
+            "description": "Um item de qualidade, validação ou teste.",
+            "minLength": 1
+          }
+        },
+        "arquitetura_tecnica": {
+          "type": "array",
+          "title": "Arquitetura Técnica",
+          "description": "Decisões ou elementos de arquitetura técnica já consolidados.",
+          "items": {
+            "type": "string",
+            "title": "Elemento de Arquitetura",
+            "description": "Uma decisão ou elemento de arquitetura técnica.",
+            "minLength": 1
+          }
+        },
+        "apis": {
+          "type": "array",
+          "title": "APIs",
+          "description": "APIs ou contratos relevantes para o produto.",
+          "items": {
+            "type": "string",
+            "title": "API",
+            "description": "Uma API ou contrato técnico relevante.",
+            "minLength": 1
+          }
+        },
+        "infraestrutura": {
+          "type": "array",
+          "title": "Infraestrutura",
+          "description": "Recursos ou decisões de infraestrutura relevantes.",
+          "items": {
+            "type": "string",
+            "title": "Elemento de Infraestrutura",
+            "description": "Um elemento de infraestrutura relevante.",
+            "minLength": 1
+          }
+        },
+        "ambientes": {
+          "type": "array",
+          "title": "Ambientes",
+          "description": "Ambientes de execução ou implantação relevantes.",
+          "items": {
+            "type": "string",
+            "title": "Ambiente",
+            "description": "Um ambiente operacional ou de implantação.",
+            "minLength": 1
+          }
+        },
+        "ci_cd": {
+          "type": "array",
+          "title": "CI/CD",
+          "description": "Padrões de integração e entrega contínua relevantes ao produto.",
+          "items": {
+            "type": "string",
+            "title": "Elemento de CI/CD",
+            "description": "Um elemento de pipeline ou automação de entrega.",
+            "minLength": 1
+          }
+        },
+        "observabilidade": {
+          "type": "array",
+          "title": "Observabilidade",
+          "description": "Logs, métricas, tracing e alertas já considerados no contexto.",
+          "items": {
+            "type": "string",
+            "title": "Elemento de Observabilidade",
+            "description": "Um recurso de observabilidade relevante.",
+            "minLength": 1
+          }
+        },
+        "riscos": {
+          "type": "array",
+          "title": "Riscos",
+          "description": "Riscos preliminares ou já conhecidos do contexto do produto.",
+          "items": {
+            "type": "string",
+            "title": "Risco",
+            "description": "Um risco relevante já observado.",
+            "minLength": 1
+          }
+        },
+        "dependencias": {
+          "type": "array",
+          "title": "Dependências",
+          "description": "Dependências internas ou externas relevantes para continuidade da análise.",
+          "items": {
+            "type": "string",
+            "title": "Dependência",
+            "description": "Uma dependência relevante do produto.",
+            "minLength": 1
+          }
+        },
+        "recomendacoes_etapa_9": {
+          "type": "array",
+          "title": "Recomendações da Etapa 9",
+          "description": "Recomendações técnicas consolidadas na Etapa 9 e relevantes para segurança e governança.",
+          "items": {
+            "type": "string",
+            "title": "Recomendação",
+            "description": "Uma recomendação técnica consolidada.",
+            "minLength": 1
+          }
+        },
+        "direcao_estetica_oficial": {
+          "type": "string",
+          "title": "Direção Estética Oficial",
+          "description": "Resumo da direção visual oficial aplicada ao produto, derivada de 0-estetica-inicial.md.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResumoExecutivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Síntese executiva da análise, cobrindo escopo, ativos críticos, riscos, controles, compliance, governança e maturidade.",
+      "required": [
+        "objetivo_da_etapa",
+        "escopo_considerado",
+        "arquivos_usados",
+        "principais_ativos_criticos",
+        "principais_dados_protegidos",
+        "principais_riscos",
+        "principais_controles_recomendados",
+        "principais_requisitos_de_compliance",
+        "decisoes_pendentes",
+        "estrategia_de_governanca",
+        "estrategia_de_auditoria",
+        "estrategia_de_resposta_a_incidentes",
+        "limitacoes_da_documentacao",
+        "relacao_com_etapas_anteriores",
+        "relacao_com_implementacao_e_operacao",
+        "nivel_de_maturidade_de_seguranca"
+      ],
+      "properties": {
+        "objetivo_da_etapa": {
+          "type": "string",
+          "title": "Objetivo da Etapa",
+          "description": "Objetivo resumido da Etapa 10.",
+          "minLength": 1
+        },
+        "escopo_considerado": {
+          "type": "string",
+          "title": "Escopo Considerado",
+          "description": "Descrição do escopo de segurança, privacidade, compliance e governança considerado.",
+          "minLength": 1
+        },
+        "arquivos_usados": {
+          "type": "array",
+          "title": "Arquivos Usados",
+          "description": "Lista dos arquivos efetivamente usados na análise.",
+          "items": {
+            "type": "string",
+            "title": "Arquivo",
+            "description": "Um arquivo usado como entrada da análise.",
+            "minLength": 1
+          }
+        },
+        "principais_ativos_criticos": {
+          "type": "array",
+          "title": "Principais Ativos Críticos",
+          "description": "Lista dos ativos de maior criticidade e impacto.",
+          "items": {
+            "type": "string",
+            "title": "Ativo Crítico",
+            "description": "Um ativo considerado crítico na plataforma.",
+            "minLength": 1
+          }
+        },
+        "principais_dados_protegidos": {
+          "type": "array",
+          "title": "Principais Dados Protegidos",
+          "description": "Lista dos dados que exigem proteção reforçada.",
+          "items": {
+            "type": "string",
+            "title": "Dado Protegido",
+            "description": "Um dado protegido ou sensível.",
+            "minLength": 1
+          }
+        },
+        "principais_riscos": {
+          "type": "array",
+          "title": "Principais Riscos",
+          "description": "Lista dos riscos mais importantes identificados.",
+          "items": {
+            "type": "string",
+            "title": "Risco",
+            "description": "Um risco destacado no resumo executivo.",
+            "minLength": 1
+          }
+        },
+        "principais_controles_recomendados": {
+          "type": "array",
+          "title": "Principais Controles Recomendados",
+          "description": "Lista dos controles considerados prioritários.",
+          "items": {
+            "type": "string",
+            "title": "Controle",
+            "description": "Um controle recomendado no resumo executivo.",
+            "minLength": 1
+          }
+        },
+        "principais_requisitos_de_compliance": {
+          "type": "array",
+          "title": "Principais Requisitos de Compliance",
+          "description": "Lista dos requisitos de compliance e privacidade mais relevantes.",
+          "items": {
+            "type": "string",
+            "title": "Requisito",
+            "description": "Um requisito de compliance relevante.",
+            "minLength": 1
+          }
+        },
+        "decisoes_pendentes": {
+          "type": "array",
+          "title": "Decisões Pendentes",
+          "description": "Lista das decisões ainda dependentes de validação técnica, jurídica ou de produto.",
+          "items": {
+            "type": "string",
+            "title": "Decisão Pendente",
+            "description": "Uma decisão que ainda depende de confirmação.",
+            "minLength": 1
+          }
+        },
+        "estrategia_de_governanca": {
+          "type": "string",
+          "title": "Estratégia de Governança",
+          "description": "Síntese da estratégia de governança proposta para a plataforma.",
+          "minLength": 1
+        },
+        "estrategia_de_auditoria": {
+          "type": "string",
+          "title": "Estratégia de Auditoria",
+          "description": "Síntese da estratégia de auditoria, rastreabilidade e retenção.",
+          "minLength": 1
+        },
+        "estrategia_de_resposta_a_incidentes": {
+          "type": "string",
+          "title": "Estratégia de Resposta a Incidentes",
+          "description": "Síntese da estratégia de resposta a incidentes e comunicação.",
+          "minLength": 1
+        },
+        "limitacoes_da_documentacao": {
+          "type": "array",
+          "title": "Limitações da Documentação",
+          "description": "Lista das limitações, lacunas ou incertezas da documentação produzida.",
+          "items": {
+            "type": "string",
+            "title": "Limitação",
+            "description": "Uma limitação observada na documentação.",
+            "minLength": 1
+          }
+        },
+        "relacao_com_etapas_anteriores": {
+          "type": "string",
+          "title": "Relação com Etapas Anteriores",
+          "description": "Como a Etapa 10 se conecta às etapas anteriores e aos arquivos de origem.",
+          "minLength": 1
+        },
+        "relacao_com_implementacao_e_operacao": {
+          "type": "string",
+          "title": "Relação com Implementação e Operação",
+          "description": "Como os controles e recomendações se traduzem em implementação, QA e operação.",
+          "minLength": 1
+        },
+        "nivel_de_maturidade_de_seguranca": {
+          "type": "string",
+          "title": "Nível de Maturidade de Segurança",
+          "description": "Leitura sintética do estágio de maturidade de segurança percebido para o produto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "AtivoCritico": {
+      "type": "object",
+      "title": "Ativo Crítico",
+      "description": "Linha da tabela de ativos críticos.",
+      "required": [
+        "ativo",
+        "tipo",
+        "descricao",
+        "criticidade",
+        "ameacas_principais",
+        "controles_recomendados"
+      ],
+      "properties": {
+        "ativo": {
+          "type": "string",
+          "title": "Ativo",
+          "description": "Nome do ativo crítico.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do ativo, como dado, usuário, tenant, API, credencial, log ou billing.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição curta do ativo e do motivo de sua criticidade.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Nível de criticidade do ativo para segurança e operação.",
+          "minLength": 1
+        },
+        "ameacas_principais": {
+          "type": "array",
+          "title": "Ameaças Principais",
+          "description": "Lista das ameaças mais relevantes para o ativo.",
+          "items": {
+            "type": "string",
+            "title": "Ameaça",
+            "description": "Uma ameaça principal associada ao ativo.",
+            "minLength": 1
+          }
+        },
+        "controles_recomendados": {
+          "type": "array",
+          "title": "Controles Recomendados",
+          "description": "Lista dos controles recomendados para proteger o ativo.",
+          "items": {
+            "type": "string",
+            "title": "Controle",
+            "description": "Um controle recomendado para o ativo.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DadoClassificado": {
+      "type": "object",
+      "title": "Dado Classificado",
+      "description": "Linha da tabela de classificação de dados pessoais e sensíveis.",
+      "required": [
+        "entidade",
+        "campo_ou_dado",
+        "classificacao",
+        "finalidade",
+        "sensibilidade",
+        "protecao_recomendada",
+        "observacoes"
+      ],
+      "properties": {
+        "entidade": {
+          "type": "string",
+          "title": "Entidade",
+          "description": "Entidade de domínio à qual o dado pertence.",
+          "minLength": 1
+        },
+        "campo_ou_dado": {
+          "type": "string",
+          "title": "Campo ou Dado",
+          "description": "Nome do campo ou da informação classificada.",
+          "minLength": 1
+        },
+        "classificacao": {
+          "type": "string",
+          "title": "Classificação",
+          "description": "Classificação de sensibilidade do dado, conforme categorias do prompt.",
+          "enum": [
+            "público",
+            "interno",
+            "confidencial",
+            "restrito",
+            "pessoal",
+            "sensível",
+            "financeiro",
+            "credencial",
+            "operacional",
+            "auditoria",
+            "IA",
+            "integração"
+          ]
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Finalidade de tratamento ou uso do dado no produto.",
+          "minLength": 1
+        },
+        "sensibilidade": {
+          "type": "string",
+          "title": "Sensibilidade",
+          "description": "Leitura qualitativa da sensibilidade do dado.",
+          "minLength": 1
+        },
+        "protecao_recomendada": {
+          "type": "string",
+          "title": "Proteção Recomendada",
+          "description": "Proteção sugerida para o dado, como mascaramento, criptografia, controle de acesso ou retenção reduzida.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais, inclusive lacunas ou validações necessárias.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DadoRetencao": {
+      "type": "object",
+      "title": "Dado com Retenção",
+      "description": "Linha da tabela de finalidade, base legal e retenção.",
+      "required": [
+        "dado",
+        "finalidade",
+        "base_legal_sugerida",
+        "retencao",
+        "descarte",
+        "observacoes"
+      ],
+      "properties": {
+        "dado": {
+          "type": "string",
+          "title": "Dado",
+          "description": "Dado ou categoria de dado tratada.",
+          "minLength": 1
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Finalidade do tratamento.",
+          "minLength": 1
+        },
+        "base_legal_sugerida": {
+          "type": "string",
+          "title": "Base Legal Sugerida",
+          "description": "Base legal sugerida, com marcação de validação jurídica quando necessário.",
+          "minLength": 1
+        },
+        "retencao": {
+          "type": "string",
+          "title": "Retenção",
+          "description": "Período ou regra de retenção sugerida.",
+          "minLength": 1
+        },
+        "descarte": {
+          "type": "string",
+          "title": "Descarte",
+          "description": "Regra de descarte, anonimização ou exclusão após o prazo definido.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações sobre incertezas jurídicas ou técnicas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DireitoTitular": {
+      "type": "object",
+      "title": "Direito do Titular",
+      "description": "Linha da tabela de direitos do titular e privacidade.",
+      "required": [
+        "direito_ou_solicitacao",
+        "como_atender_no_produto",
+        "dados_envolvidos",
+        "responsavel",
+        "observacoes"
+      ],
+      "properties": {
+        "direito_ou_solicitacao": {
+          "type": "string",
+          "title": "Direito ou Solicitação",
+          "description": "Direito do titular ou solicitação de privacidade a ser atendida.",
+          "minLength": 1
+        },
+        "como_atender_no_produto": {
+          "type": "string",
+          "title": "Como Atender no Produto",
+          "description": "Descrição operacional de como o produto deve atender a solicitação.",
+          "minLength": 1
+        },
+        "dados_envolvidos": {
+          "type": "array",
+          "title": "Dados Envolvidos",
+          "description": "Lista dos dados impactados pelo direito solicitado.",
+          "items": {
+            "type": "string",
+            "title": "Dado",
+            "description": "Um dado envolvido no atendimento ao titular.",
+            "minLength": 1
+          }
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Papel ou área responsável por atender a solicitação.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações sobre prazos, canais ou validações adicionais.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PapelGovernanca": {
+      "type": "object",
+      "title": "Papel de Governança",
+      "description": "Linha da tabela de papéis e responsabilidades.",
+      "required": [
+        "papel",
+        "responsabilidade",
+        "escopo",
+        "permissoes_criticas",
+        "riscos",
+        "observacoes"
+      ],
+      "properties": {
+        "papel": {
+          "type": "string",
+          "title": "Papel",
+          "description": "Nome do papel ou stakeholder.",
+          "minLength": 1
+        },
+        "responsabilidade": {
+          "type": "string",
+          "title": "Responsabilidade",
+          "description": "Responsabilidade principal associada ao papel.",
+          "minLength": 1
+        },
+        "escopo": {
+          "type": "string",
+          "title": "Escopo",
+          "description": "Escopo de atuação do papel.",
+          "minLength": 1
+        },
+        "permissoes_criticas": {
+          "type": "array",
+          "title": "Permissões Críticas",
+          "description": "Permissões sensíveis ou críticas associadas ao papel.",
+          "items": {
+            "type": "string",
+            "title": "Permissão Crítica",
+            "description": "Uma permissão crítica do papel.",
+            "minLength": 1
+          }
+        },
+        "riscos": {
+          "type": "array",
+          "title": "Riscos",
+          "description": "Riscos associados ao papel.",
+          "items": {
+            "type": "string",
+            "title": "Risco",
+            "description": "Um risco associado ao papel.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre a governança do papel.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RiscoAmeaca": {
+      "type": "object",
+      "title": "Risco ou Ameaça",
+      "description": "Linha da tabela de ameaças e riscos.",
+      "required": [
+        "id",
+        "risco_ou_ameaca",
+        "categoria",
+        "probabilidade",
+        "impacto",
+        "sinal_de_alerta",
+        "mitigacao",
+        "prioridade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador único do risco.",
+          "minLength": 1
+        },
+        "risco_ou_ameaca": {
+          "type": "string",
+          "title": "Risco ou Ameaça",
+          "description": "Descrição objetiva do risco ou da ameaça.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do risco, como autenticação, autorização, API, dados, IA, billing ou privacidade.",
+          "minLength": 1
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Leitura qualitativa da probabilidade do risco.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Leitura qualitativa do impacto do risco.",
+          "minLength": 1
+        },
+        "sinal_de_alerta": {
+          "type": "string",
+          "title": "Sinal de Alerta",
+          "description": "Sinal observável que indica materialização ou avanço do risco.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigação",
+          "description": "Medida de mitigação recomendada.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade de tratamento do risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "AmeacaFluxo": {
+      "type": "object",
+      "title": "Ameaça por Fluxo",
+      "description": "Linha da tabela de modelagem de ameaças por fluxo crítico.",
+      "required": [
+        "fluxo_critico",
+        "ameaca",
+        "vetor",
+        "ativo_afetado",
+        "controle_preventivo",
+        "controle_detectivo",
+        "controle_corretivo"
+      ],
+      "properties": {
+        "fluxo_critico": {
+          "type": "string",
+          "title": "Fluxo Crítico",
+          "description": "Fluxo crítico analisado.",
+          "minLength": 1
+        },
+        "ameaca": {
+          "type": "string",
+          "title": "Ameaça",
+          "description": "Ameaça associada ao fluxo.",
+          "minLength": 1
+        },
+        "vetor": {
+          "type": "string",
+          "title": "Vetor",
+          "description": "Vetor de ataque ou falha.",
+          "minLength": 1
+        },
+        "ativo_afetado": {
+          "type": "string",
+          "title": "Ativo Afetado",
+          "description": "Ativo mais impactado pela ameaça.",
+          "minLength": 1
+        },
+        "controle_preventivo": {
+          "type": "string",
+          "title": "Controle Preventivo",
+          "description": "Controle preventivo recomendado.",
+          "minLength": 1
+        },
+        "controle_detectivo": {
+          "type": "string",
+          "title": "Controle Detectivo",
+          "description": "Controle detectivo recomendado.",
+          "minLength": 1
+        },
+        "controle_corretivo": {
+          "type": "string",
+          "title": "Controle Corretivo",
+          "description": "Controle corretivo recomendado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleAutenticacao": {
+      "type": "object",
+      "title": "Controle de Autenticação",
+      "description": "Linha da tabela de controles de autenticação.",
+      "required": [
+        "controle",
+        "descricao",
+        "quando_aplicar",
+        "risco_mitigado",
+        "observacoes"
+      ],
+      "properties": {
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Nome do controle de autenticação.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição operacional do controle.",
+          "minLength": 1
+        },
+        "quando_aplicar": {
+          "type": "string",
+          "title": "Quando Aplicar",
+          "description": "Condição ou contexto de aplicação do controle.",
+          "minLength": 1
+        },
+        "risco_mitigado": {
+          "type": "string",
+          "title": "Risco Mitigado",
+          "description": "Risco mitigado pelo controle.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre implementação ou operação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Autorizacao": {
+      "type": "object",
+      "title": "Autorização",
+      "description": "Modelo de autorização e matriz de permissões.",
+      "required": [
+        "modelo_de_autorizacao",
+        "premissas",
+        "matriz",
+        "observacoes"
+      ],
+      "properties": {
+        "modelo_de_autorizacao": {
+          "type": "string",
+          "title": "Modelo de Autorização",
+          "description": "Descrição do modelo de autorização adotado, como RBAC, ABAC ou híbrido.",
+          "minLength": 1
+        },
+        "premissas": {
+          "type": "array",
+          "title": "Premissas",
+          "description": "Premissas gerais que regem a autorização.",
+          "items": {
+            "type": "string",
+            "title": "Premissa",
+            "description": "Uma premissa relevante do modelo de autorização.",
+            "minLength": 1
+          }
+        },
+        "matriz": {
+          "type": "array",
+          "title": "Matriz de Permissões",
+          "description": "Matriz com perfis, escopos, recursos e ações permitidas.",
+          "items": {
+            "$ref": "#/$defs/MatrizAutorizacao"
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações adicionais sobre autorização e privilégios.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação adicional sobre autorização.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "MatrizAutorizacao": {
+      "type": "object",
+      "title": "Linha da Matriz de Autorização",
+      "description": "Linha da matriz com perfil, escopo, recurso e permissões booleanas.",
+      "required": [
+        "perfil",
+        "escopo",
+        "recurso",
+        "visualizar",
+        "criar",
+        "editar",
+        "excluir",
+        "aprovar",
+        "exportar",
+        "configurar",
+        "observacoes"
+      ],
+      "properties": {
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Perfil ou papel de acesso avaliado.",
+          "minLength": 1
+        },
+        "escopo": {
+          "type": "string",
+          "title": "Escopo",
+          "description": "Escopo ao qual a permissão se aplica.",
+          "minLength": 1
+        },
+        "recurso": {
+          "type": "string",
+          "title": "Recurso",
+          "description": "Recurso, módulo ou entidade protegida.",
+          "minLength": 1
+        },
+        "visualizar": {
+          "type": "boolean",
+          "title": "Visualizar",
+          "description": "Indica se o perfil pode visualizar o recurso."
+        },
+        "criar": {
+          "type": "boolean",
+          "title": "Criar",
+          "description": "Indica se o perfil pode criar registros no recurso."
+        },
+        "editar": {
+          "type": "boolean",
+          "title": "Editar",
+          "description": "Indica se o perfil pode editar registros do recurso."
+        },
+        "excluir": {
+          "type": "boolean",
+          "title": "Excluir",
+          "description": "Indica se o perfil pode excluir registros do recurso."
+        },
+        "aprovar": {
+          "type": "boolean",
+          "title": "Aprovar",
+          "description": "Indica se o perfil pode aprovar ações ou registros."
+        },
+        "exportar": {
+          "type": "boolean",
+          "title": "Exportar",
+          "description": "Indica se o perfil pode exportar dados."
+        },
+        "configurar": {
+          "type": "boolean",
+          "title": "Configurar",
+          "description": "Indica se o perfil pode alterar configurações do recurso."
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações sobre exceções, limitações ou regras adicionais.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Multitenant": {
+      "type": "object",
+      "title": "Controles Multi-tenant",
+      "description": "Seção de controles para isolamento e governança por tenant, empresa, matriz e filial.",
+      "required": [
+        "aplicavel",
+        "justificativa_nao_aplicavel",
+        "controles",
+        "observacoes"
+      ],
+      "properties": {
+        "aplicavel": {
+          "type": "boolean",
+          "title": "Aplicável",
+          "description": "Indica se os controles multi-tenant são aplicáveis ao produto."
+        },
+        "justificativa_nao_aplicavel": {
+          "type": "string",
+          "title": "Justificativa de Não Aplicabilidade",
+          "description": "Explicação necessária caso os controles multi-tenant não se apliquem.",
+          "minLength": 1
+        },
+        "controles": {
+          "type": "array",
+          "title": "Controles",
+          "description": "Lista dos controles de isolamento e governança por escopo.",
+          "items": {
+            "$ref": "#/$defs/ControleEscopo"
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações gerais sobre multi-tenancy e segregação.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação sobre multi-tenancy.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleEscopo": {
+      "type": "object",
+      "title": "Controle de Escopo",
+      "description": "Linha da tabela de controles multi-tenant, multiempresa, matriz e filial.",
+      "required": [
+        "controle",
+        "escopo",
+        "objetivo",
+        "risco_mitigado",
+        "teste_recomendado"
+      ],
+      "properties": {
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Nome do controle de escopo.",
+          "minLength": 1
+        },
+        "escopo": {
+          "type": "string",
+          "title": "Escopo",
+          "description": "Escopo afetado pelo controle.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo operacional ou de segurança do controle.",
+          "minLength": 1
+        },
+        "risco_mitigado": {
+          "type": "string",
+          "title": "Risco Mitigado",
+          "description": "Risco mitigado pela medida.",
+          "minLength": 1
+        },
+        "teste_recomendado": {
+          "type": "string",
+          "title": "Teste Recomendado",
+          "description": "Teste recomendado para validar o controle.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleApi": {
+      "type": "object",
+      "title": "Controle de API",
+      "description": "Linha da tabela de segurança de APIs e contratos.",
+      "required": [
+        "api_ou_contrato",
+        "risco",
+        "controle",
+        "autorizacao",
+        "auditoria",
+        "observacoes"
+      ],
+      "properties": {
+        "api_ou_contrato": {
+          "type": "string",
+          "title": "API ou Contrato",
+          "description": "Nome da API, webhook ou contrato analisado.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco principal relacionado à API ou ao contrato.",
+          "minLength": 1
+        },
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Controle de segurança recomendado.",
+          "minLength": 1
+        },
+        "autorizacao": {
+          "type": "string",
+          "title": "Autorização",
+          "description": "Forma de autorização ou escopo aplicado ao contrato.",
+          "minLength": 1
+        },
+        "auditoria": {
+          "type": "string",
+          "title": "Auditoria",
+          "description": "Forma de auditoria ou rastreabilidade aplicada.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre o contrato.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleUx": {
+      "type": "object",
+      "title": "Controle de UX Segura",
+      "description": "Linha da tabela de controles para frontend e UX segura.",
+      "required": [
+        "tela_ou_componente",
+        "risco",
+        "controle_ux_ui",
+        "mensagem_ou_estado",
+        "observacoes"
+      ],
+      "properties": {
+        "tela_ou_componente": {
+          "type": "string",
+          "title": "Tela ou Componente",
+          "description": "Tela ou componente de interface afetado.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco de UX, segurança ou privacidade relacionado ao componente.",
+          "minLength": 1
+        },
+        "controle_ux_ui": {
+          "type": "string",
+          "title": "Controle UX/UI",
+          "description": "Controle de interface recomendado.",
+          "minLength": 1
+        },
+        "mensagem_ou_estado": {
+          "type": "string",
+          "title": "Mensagem ou Estado",
+          "description": "Mensagem, estado visual ou feedback esperado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais de usabilidade ou segurança.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleStorage": {
+      "type": "object",
+      "title": "Controle de Banco de Dados e Storage",
+      "description": "Linha da tabela de controles para banco de dados e storage.",
+      "required": [
+        "area",
+        "risco",
+        "controle_recomendado",
+        "criticidade",
+        "observacoes"
+      ],
+      "properties": {
+        "area": {
+          "type": "string",
+          "title": "Área",
+          "description": "Área técnica afetada, como banco, storage ou backup.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco associado à área.",
+          "minLength": 1
+        },
+        "controle_recomendado": {
+          "type": "string",
+          "title": "Controle Recomendado",
+          "description": "Controle de proteção recomendado.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Criticidade da medida ou do risco.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre a área.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleIntegracao": {
+      "type": "object",
+      "title": "Controle de Integração",
+      "description": "Linha da tabela de controles para integrações e webhooks.",
+      "required": [
+        "integracao",
+        "risco",
+        "controle",
+        "falha_esperada",
+        "recuperacao",
+        "observacoes"
+      ],
+      "properties": {
+        "integracao": {
+          "type": "string",
+          "title": "Integração",
+          "description": "Nome da integração ou webhook.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco principal da integração.",
+          "minLength": 1
+        },
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Controle de segurança aplicado à integração.",
+          "minLength": 1
+        },
+        "falha_esperada": {
+          "type": "string",
+          "title": "Falha Esperada",
+          "description": "Falha prevista e tratável para o cenário.",
+          "minLength": 1
+        },
+        "recuperacao": {
+          "type": "string",
+          "title": "Recuperação",
+          "description": "Estratégia de recuperação, retry ou reconciliação.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre a integração.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "IAEAUTOMACOES": {
+      "type": "object",
+      "title": "IA e Automações",
+      "description": "Seção condicional para casos em que IA e automações estejam aplicáveis ao produto.",
+      "required": [
+        "aplicavel",
+        "justificativa_nao_aplicavel",
+        "controles",
+        "observacoes"
+      ],
+      "properties": {
+        "aplicavel": {
+          "type": "boolean",
+          "title": "Aplicável",
+          "description": "Indica se recursos de IA ou automação inteligente estão presentes."
+        },
+        "justificativa_nao_aplicavel": {
+          "type": "string",
+          "title": "Justificativa de Não Aplicabilidade",
+          "description": "Explica por que não há IA ou automações relevantes, quando for o caso.",
+          "minLength": 1
+        },
+        "controles": {
+          "type": "array",
+          "title": "Controles de IA",
+          "description": "Lista de controles para IA e automações.",
+          "items": {
+            "$ref": "#/$defs/ControleIA"
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações adicionais sobre uso de IA e automações.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação sobre IA ou automações.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleIA": {
+      "type": "object",
+      "title": "Controle de IA",
+      "description": "Linha da tabela de controles para IA e automações.",
+      "required": [
+        "recurso_de_ia",
+        "risco",
+        "controle",
+        "revisao_humana",
+        "auditoria",
+        "observacoes"
+      ],
+      "properties": {
+        "recurso_de_ia": {
+          "type": "string",
+          "title": "Recurso de IA",
+          "description": "Recurso, automação ou fluxo de IA analisado.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco principal do recurso de IA.",
+          "minLength": 1
+        },
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Controle recomendado para mitigar o risco.",
+          "minLength": 1
+        },
+        "revisao_humana": {
+          "type": "string",
+          "title": "Revisão Humana",
+          "description": "Como a revisão humana deve ser aplicada.",
+          "minLength": 1
+        },
+        "auditoria": {
+          "type": "string",
+          "title": "Auditoria",
+          "description": "Como registrar auditoria e rastreabilidade da IA.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre o uso de IA.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Billing": {
+      "type": "object",
+      "title": "Billing, Planos e Feature Flags",
+      "description": "Seção condicional para cenários em que cobrança, planos ou feature flags sejam aplicáveis.",
+      "required": [
+        "aplicavel",
+        "justificativa_nao_aplicavel",
+        "cenarios",
+        "observacoes"
+      ],
+      "properties": {
+        "aplicavel": {
+          "type": "boolean",
+          "title": "Aplicável",
+          "description": "Indica se billing, planos ou feature flags são relevantes."
+        },
+        "justificativa_nao_aplicavel": {
+          "type": "string",
+          "title": "Justificativa de Não Aplicabilidade",
+          "description": "Explica por que billing ou feature flags não se aplicam, quando for o caso.",
+          "minLength": 1
+        },
+        "cenarios": {
+          "type": "array",
+          "title": "Cenários",
+          "description": "Lista de cenários de billing, plano ou feature flag e seus controles.",
+          "items": {
+            "$ref": "#/$defs/ControleBilling"
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações adicionais sobre cobrança, planos e flags.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação sobre billing ou feature flags.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ControleBilling": {
+      "type": "object",
+      "title": "Cenário de Billing",
+      "description": "Linha da tabela de billing, planos e feature flags.",
+      "required": [
+        "cenario",
+        "risco",
+        "controle",
+        "auditoria",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario": {
+          "type": "string",
+          "title": "Cenário",
+          "description": "Cenário de cobrança, plano ou feature flag avaliado.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco principal do cenário.",
+          "minLength": 1
+        },
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Controle recomendado para o cenário.",
+          "minLength": 1
+        },
+        "auditoria": {
+          "type": "string",
+          "title": "Auditoria",
+          "description": "Como o cenário deve ser auditado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o cenário.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EventoAuditavel": {
+      "type": "object",
+      "title": "Evento Auditável",
+      "description": "Linha da tabela de auditoria e rastreabilidade.",
+      "required": [
+        "evento_auditavel",
+        "quem",
+        "quando",
+        "dados_registrados",
+        "retencao",
+        "criticidade",
+        "observacoes"
+      ],
+      "properties": {
+        "evento_auditavel": {
+          "type": "string",
+          "title": "Evento Auditável",
+          "description": "Nome do evento auditável.",
+          "minLength": 1
+        },
+        "quem": {
+          "type": "string",
+          "title": "Quem",
+          "description": "Perfil, usuário ou sistema que executou a ação.",
+          "minLength": 1
+        },
+        "quando": {
+          "type": "string",
+          "title": "Quando",
+          "description": "Momento em que o evento ocorreu.",
+          "minLength": 1
+        },
+        "dados_registrados": {
+          "type": "string",
+          "title": "Dados Registrados",
+          "description": "Dados que devem ser registrados no evento.",
+          "minLength": 1
+        },
+        "retencao": {
+          "type": "string",
+          "title": "Retenção",
+          "description": "Prazo ou política de retenção do evento.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Criticidade do evento para auditoria.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre o registro de auditoria.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EventoMonitoramento": {
+      "type": "object",
+      "title": "Evento de Monitoramento",
+      "description": "Linha da tabela de monitoramento e alertas.",
+      "required": [
+        "indicador_ou_alerta",
+        "fonte",
+        "limiar",
+        "acao",
+        "responsavel",
+        "observacoes"
+      ],
+      "properties": {
+        "indicador_ou_alerta": {
+          "type": "string",
+          "title": "Indicador ou Alerta",
+          "description": "Indicador, alerta ou métrica monitorada.",
+          "minLength": 1
+        },
+        "fonte": {
+          "type": "string",
+          "title": "Fonte",
+          "description": "Origem da métrica, log ou alarme.",
+          "minLength": 1
+        },
+        "limiar": {
+          "type": "string",
+          "title": "Limiar",
+          "description": "Limiar ou condição de disparo.",
+          "minLength": 1
+        },
+        "acao": {
+          "type": "string",
+          "title": "Ação",
+          "description": "Ação recomendada quando o indicador ultrapassa o limiar.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável por acompanhar ou tratar o alerta.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o monitoramento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EventoIncidente": {
+      "type": "object",
+      "title": "Evento de Incidente",
+      "description": "Linha da tabela de resposta a incidentes.",
+      "required": [
+        "cenario",
+        "detector",
+        "tempo_resposta",
+        "acao_imediata",
+        "comunicacao",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario": {
+          "type": "string",
+          "title": "Cenário",
+          "description": "Cenário de incidente.",
+          "minLength": 1
+        },
+        "detector": {
+          "type": "string",
+          "title": "Detector",
+          "description": "Como o incidente deve ser percebido ou detectado.",
+          "minLength": 1
+        },
+        "tempo_resposta": {
+          "type": "string",
+          "title": "Tempo de Resposta",
+          "description": "Tempo esperado para resposta inicial.",
+          "minLength": 1
+        },
+        "acao_imediata": {
+          "type": "string",
+          "title": "Ação Imediata",
+          "description": "Primeira medida a ser executada.",
+          "minLength": 1
+        },
+        "comunicacao": {
+          "type": "string",
+          "title": "Comunicação",
+          "description": "Fluxo de comunicação do incidente.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre resposta e recuperação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RequisitoContinuidade": {
+      "type": "object",
+      "title": "Requisito de Continuidade",
+      "description": "Linha da tabela de continuidade, backup e recuperação.",
+      "required": [
+        "item",
+        "objetivo",
+        "frequencia",
+        "rpo",
+        "rto",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Elemento de continuidade, backup ou recuperação.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo operacional do requisito.",
+          "minLength": 1
+        },
+        "frequencia": {
+          "type": "string",
+          "title": "Frequência",
+          "description": "Frequência de execução, quando aplicável.",
+          "minLength": 1
+        },
+        "rpo": {
+          "type": "string",
+          "title": "RPO",
+          "description": "Objetivo de ponto de recuperação.",
+          "minLength": 1
+        },
+        "rto": {
+          "type": "string",
+          "title": "RTO",
+          "description": "Objetivo de tempo de recuperação.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre continuidade.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DocumentoPolitica": {
+      "type": "object",
+      "title": "Documento ou Política",
+      "description": "Linha da tabela de políticas e documentos necessários.",
+      "required": [
+        "documento",
+        "objetivo",
+        "status",
+        "responsavel",
+        "observacoes"
+      ],
+      "properties": {
+        "documento": {
+          "type": "string",
+          "title": "Documento",
+          "description": "Nome do documento ou política.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do documento.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status do documento, como existente, pendente ou necessário.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável por produzir, revisar ou manter o documento.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o documento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RequisitoQA": {
+      "type": "object",
+      "title": "Requisito de QA",
+      "description": "Linha da tabela de requisitos de QA de segurança.",
+      "required": [
+        "teste",
+        "objetivo",
+        "tipo",
+        "criticidade",
+        "observacoes"
+      ],
+      "properties": {
+        "teste": {
+          "type": "string",
+          "title": "Teste",
+          "description": "Nome ou descrição curta do teste.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do teste de segurança.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do teste, como funcional, integração, permissão, antifraude ou observabilidade.",
+          "minLength": 1
+        },
+        "criticidade": {
+          "type": "string",
+          "title": "Criticidade",
+          "description": "Criticidade do teste.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o teste.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CheckpointGoLive": {
+      "type": "object",
+      "title": "Checkpoint de Go-live",
+      "description": "Linha do checklist de go-live seguro.",
+      "required": [
+        "checkpoint",
+        "objetivo",
+        "responsavel",
+        "status",
+        "observacoes"
+      ],
+      "properties": {
+        "checkpoint": {
+          "type": "string",
+          "title": "Checkpoint",
+          "description": "Checkpoint ou item de validação antes da entrada em produção.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo do checkpoint.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável pelo checkpoint.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status do checkpoint.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre a liberação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "SimulacaoUsoReal": {
+      "type": "object",
+      "title": "Simulação de Uso Real",
+      "description": "Cenário de uso real com governança, configurações e validações.",
+      "required": [
+        "cenario_principal",
+        "passos",
+        "resultado_esperado",
+        "controles_validados",
+        "observacoes"
+      ],
+      "properties": {
+        "cenario_principal": {
+          "type": "string",
+          "title": "Cenário Principal",
+          "description": "Cenário real que deve ser simulado.",
+          "minLength": 1
+        },
+        "passos": {
+          "type": "array",
+          "title": "Passos",
+          "description": "Passos do cenário simulado.",
+          "items": {
+            "type": "string",
+            "title": "Passo",
+            "description": "Um passo da simulação.",
+            "minLength": 1
+          }
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado da simulação.",
+          "minLength": 1
+        },
+        "controles_validados": {
+          "type": "array",
+          "title": "Controles Validados",
+          "description": "Controles que devem ser confirmados durante a simulação.",
+          "items": {
+            "type": "string",
+            "title": "Controle Validado",
+            "description": "Um controle validado na simulação.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre a simulação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RiscoResidual": {
+      "type": "object",
+      "title": "Risco Residual",
+      "description": "Linha da tabela de riscos residuais.",
+      "required": [
+        "risco",
+        "motivo",
+        "aceitacao",
+        "monitoramento",
+        "responsavel",
+        "observacoes"
+      ],
+      "properties": {
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco remanescente após controles.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Motivo pelo qual o risco permanece.",
+          "minLength": 1
+        },
+        "aceitacao": {
+          "type": "string",
+          "title": "Aceitação",
+          "description": "Condição de aceitação, mitigação parcial ou decisão pendente.",
+          "minLength": 1
+        },
+        "monitoramento": {
+          "type": "string",
+          "title": "Monitoramento",
+          "description": "Forma de acompanhar o risco ao longo do tempo.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável pela gestão do risco residual.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o risco residual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Lacuna": {
+      "type": "object",
+      "title": "Lacuna ou Pendência",
+      "description": "Linha da tabela de lacunas e pendências.",
+      "required": [
+        "lacuna",
+        "impacto",
+        "tipo",
+        "prioridade",
+        "responsavel",
+        "prazo_sugerido",
+        "observacoes"
+      ],
+      "properties": {
+        "lacuna": {
+          "type": "string",
+          "title": "Lacuna",
+          "description": "Informação em falta ou decisão pendente.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto de não resolver a lacuna.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da lacuna, como jurídica, técnica, produto ou operação.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade de resolução.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável por resolver ou validar a lacuna.",
+          "minLength": 1
+        },
+        "prazo_sugerido": {
+          "type": "string",
+          "title": "Prazo Sugerido",
+          "description": "Prazo sugerido para validação ou resolução.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações complementares sobre a lacuna.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiretrizesUxUi": {
+      "type": "object",
+      "title": "Diretrizes de UX/UI",
+      "description": "Diretrizes visuais e de interface derivadas da estética oficial.",
+      "required": [
+        "arquivo_referencia_estetica",
+        "principios_visuais",
+        "layout",
+        "tipografia",
+        "cores",
+        "componentes",
+        "microinteracoes",
+        "responsividade",
+        "acessibilidade",
+        "restricoes",
+        "notas_de_adaptacao"
+      ],
+      "properties": {
+        "arquivo_referencia_estetica": {
+          "type": "string",
+          "title": "Arquivo de Referência Estética",
+          "description": "Arquivo-base de estética usado como referência visual.",
+          "minLength": 1
+        },
+        "principios_visuais": {
+          "type": "array",
+          "title": "Princípios Visuais",
+          "description": "Princípios visuais centrais que devem orientar o dashboard.",
+          "items": {
+            "type": "string",
+            "title": "Princípio Visual",
+            "description": "Um princípio visual a ser seguido.",
+            "minLength": 1
+          }
+        },
+        "layout": {
+          "type": "string",
+          "title": "Layout",
+          "description": "Resumo da organização espacial e hierarquia do dashboard.",
+          "minLength": 1
+        },
+        "tipografia": {
+          "type": "string",
+          "title": "Tipografia",
+          "description": "Diretriz tipográfica para títulos, textos e tabelas.",
+          "minLength": 1
+        },
+        "cores": {
+          "type": "string",
+          "title": "Cores",
+          "description": "Diretriz de cores e contraste aplicada ao dashboard.",
+          "minLength": 1
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Componentes visuais e funcionais que devem aparecer no HTML.",
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente visual ou funcional.",
+            "minLength": 1
+          }
+        },
+        "microinteracoes": {
+          "type": "array",
+          "title": "Microinterações",
+          "description": "Interações pequenas e úteis, como filtros, copiar, exportar ou expandir.",
+          "items": {
+            "type": "string",
+            "title": "Microinteração",
+            "description": "Uma microinteração útil no dashboard.",
+            "minLength": 1
+          }
+        },
+        "responsividade": {
+          "type": "string",
+          "title": "Responsividade",
+          "description": "Diretriz para comportamento em desktop e mobile.",
+          "minLength": 1
+        },
+        "acessibilidade": {
+          "type": "string",
+          "title": "Acessibilidade",
+          "description": "Diretriz de acessibilidade visual e semântica.",
+          "minLength": 1
+        },
+        "restricoes": {
+          "type": "array",
+          "title": "Restrições",
+          "description": "Restrições visuais a serem respeitadas no HTML final.",
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição visual ou de composição.",
+            "minLength": 1
+          }
+        },
+        "notas_de_adaptacao": {
+          "type": "string",
+          "title": "Notas de Adaptação",
+          "description": "Notas sobre como adaptar a estética oficial ao conteúdo da Etapa 10.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacoesFinais": {
+      "type": "object",
+      "title": "Recomendações Finais",
+      "description": "Recomendações priorizadas e decisão final sugerida para a Etapa 10.",
+      "required": [
+        "decisao_final",
+        "prioridades",
+        "recomendacoes",
+        "observacoes"
+      ],
+      "properties": {
+        "decisao_final": {
+          "type": "string",
+          "title": "Decisão Final",
+          "description": "Síntese da decisão recomendada ao final da análise.",
+          "minLength": 1
+        },
+        "prioridades": {
+          "type": "array",
+          "title": "Prioridades",
+          "description": "Lista priorizada de focos imediatos.",
+          "items": {
+            "type": "string",
+            "title": "Prioridade",
+            "description": "Uma prioridade de ação.",
+            "minLength": 1
+          }
+        },
+        "recomendacoes": {
+          "type": "array",
+          "title": "Recomendações",
+          "description": "Lista de recomendações finais.",
+          "items": {
+            "$ref": "#/$defs/RecomendacaoFinalItem"
+          }
+        },
+        "observacoes": {
+          "type": "array",
+          "title": "Observações",
+          "description": "Observações complementares sobre as recomendações.",
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação sobre as recomendações finais.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacaoFinalItem": {
+      "type": "object",
+      "title": "Recomendação Final",
+      "description": "Item individual da lista de recomendações finais.",
+      "required": [
+        "recomendacao",
+        "motivo",
+        "impacto",
+        "prioridade"
+      ],
+      "properties": {
+        "recomendacao": {
+          "type": "string",
+          "title": "Recomendação",
+          "description": "Ação recomendada.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Motivo da recomendação.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado se a recomendação for adotada.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da recomendação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Referencia": {
+      "type": "object",
+      "title": "Referência",
+      "description": "Linha da lista de fontes, evidências e referências.",
+      "required": [
+        "fonte",
+        "tipo",
+        "evidencia",
+        "uso",
+        "observacoes"
+      ],
+      "properties": {
+        "fonte": {
+          "type": "string",
+          "title": "Fonte",
+          "description": "Nome do arquivo, item do histórico ou evidência consultada.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da fonte, como arquivo, histórico, evidência ou referência interna.",
+          "minLength": 1
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidência",
+          "description": "Resumo da evidência observada ou utilizada.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Como a fonte foi usada na análise.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre a fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProximoPasso": {
+      "type": "object",
+      "title": "Próximo Passo",
+      "description": "Item da lista de próximos passos.",
+      "required": [
+        "acao",
+        "objetivo",
+        "responsavel",
+        "prazo",
+        "dependencia",
+        "observacoes"
+      ],
+      "properties": {
+        "acao": {
+          "type": "string",
+          "title": "Ação",
+          "description": "Ação recomendada.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da ação.",
+          "minLength": 1
+        },
+        "responsavel": {
+          "type": "string",
+          "title": "Responsável",
+          "description": "Responsável pela ação.",
+          "minLength": 1
+        },
+        "prazo": {
+          "type": "string",
+          "title": "Prazo",
+          "description": "Prazo sugerido para a ação.",
+          "minLength": 1
+        },
+        "dependencia": {
+          "type": "string",
+          "title": "Dependência",
+          "description": "Dependência necessária para executar a ação.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o próximo passo.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamento do dashboard HTML.",
+      "required": [
+        "filtros",
+        "busca",
+        "acoes",
+        "comportamentos_js",
+        "estados_visuais"
+      ],
+      "properties": {
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Filtros ou controles de navegação disponíveis no dashboard.",
+          "items": {
+            "type": "string",
+            "title": "Filtro",
+            "description": "Um filtro ou controle interativo.",
+            "minLength": 1
+          }
+        },
+        "busca": {
+          "type": "string",
+          "title": "Busca",
+          "description": "Descrição do comportamento de busca textual no dashboard.",
+          "minLength": 1
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações disponíveis como copiar, exportar, imprimir, expandir e recolher.",
+          "items": {
+            "type": "string",
+            "title": "Ação",
+            "description": "Uma ação interativa do dashboard.",
+            "minLength": 1
+          }
+        },
+        "comportamentos_js": {
+          "type": "array",
+          "title": "Comportamentos JavaScript",
+          "description": "Comportamentos implementados no script embutido.",
+          "items": {
+            "type": "string",
+            "title": "Comportamento",
+            "description": "Um comportamento implementado em JavaScript.",
+            "minLength": 1
+          }
+        },
+        "estados_visuais": {
+          "type": "array",
+          "title": "Estados Visuais",
+          "description": "Estados visuais que o dashboard deve exibir.",
+          "items": {
+            "type": "string",
+            "title": "Estado Visual",
+            "description": "Um estado visual do dashboard.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProgressoVisual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Resumo visual de progresso e maturidade da documentação.",
+      "required": [
+        "percentual_conclusao",
+        "status",
+        "marcos",
+        "indicadores",
+        "observacoes"
+      ],
+      "properties": {
+        "percentual_conclusao": {
+          "type": "integer",
+          "title": "Percentual de Conclusão",
+          "description": "Percentual visual de completude da etapa.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status visual do progresso.",
+          "minLength": 1
+        },
+        "marcos": {
+          "type": "array",
+          "title": "Marcos",
+          "description": "Marcos importantes da análise ou produção do dashboard.",
+          "items": {
+            "type": "string",
+            "title": "Marco",
+            "description": "Um marco importante.",
+            "minLength": 1
+          }
+        },
+        "indicadores": {
+          "type": "array",
+          "title": "Indicadores",
+          "description": "Indicadores resumidos para leitura rápida do progresso.",
+          "items": {
+            "type": "string",
+            "title": "Indicador",
+            "description": "Um indicador de progresso.",
+            "minLength": 1
+          }
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observações",
+          "description": "Observações adicionais sobre o progresso visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Resumo dos pontos mais relevantes e dos alertas principais.",
+      "required": [
+        "insights",
+        "alertas",
+        "decisoes",
+        "pendencias"
+      ],
+      "properties": {
+        "insights": {
+          "type": "array",
+          "title": "Insights",
+          "description": "Principais insights extraídos da análise.",
+          "items": {
+            "type": "string",
+            "title": "Insight",
+            "description": "Um insight importante.",
+            "minLength": 1
+          }
+        },
+        "alertas": {
+          "type": "array",
+          "title": "Alertas",
+          "description": "Alertas ou pontos de atenção prioritários.",
+          "items": {
+            "type": "string",
+            "title": "Alerta",
+            "description": "Um alerta relevante.",
+            "minLength": 1
+          }
+        },
+        "decisoes": {
+          "type": "array",
+          "title": "Decisões",
+          "description": "Decisões tomadas ou recomendadas.",
+          "items": {
+            "type": "string",
+            "title": "Decisão",
+            "description": "Uma decisão relevante.",
+            "minLength": 1
+          }
+        },
+        "pendencias": {
+          "type": "array",
+          "title": "Pendências",
+          "description": "Pendências ainda abertas após a análise.",
+          "items": {
+            "type": "string",
+            "title": "Pendência",
+            "description": "Uma pendência relevante.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Indicadores numéricos resumidos do dashboard.",
+      "required": [
+        "arquivos_extraidos",
+        "arquivos_usados",
+        "ativos_criticos",
+        "dados_classificados",
+        "riscos",
+        "controles",
+        "lacunas",
+        "secoes",
+        "fontes"
+      ],
+      "properties": {
+        "arquivos_extraidos": {
+          "type": "integer",
+          "title": "Arquivos Extraídos",
+          "description": "Quantidade de arquivos extraídos do ZIP.",
+          "minimum": 0
+        },
+        "arquivos_usados": {
+          "type": "integer",
+          "title": "Arquivos Usados",
+          "description": "Quantidade de arquivos usados como entrada.",
+          "minimum": 0
+        },
+        "ativos_criticos": {
+          "type": "integer",
+          "title": "Ativos Críticos",
+          "description": "Quantidade de ativos críticos identificados.",
+          "minimum": 0
+        },
+        "dados_classificados": {
+          "type": "integer",
+          "title": "Dados Classificados",
+          "description": "Quantidade de entradas de dados classificados.",
+          "minimum": 0
+        },
+        "riscos": {
+          "type": "integer",
+          "title": "Riscos",
+          "description": "Quantidade de riscos ou ameaças listados.",
+          "minimum": 0
+        },
+        "controles": {
+          "type": "integer",
+          "title": "Controles",
+          "description": "Quantidade de controles consolidados.",
+          "minimum": 0
+        },
+        "lacunas": {
+          "type": "integer",
+          "title": "Lacunas",
+          "description": "Quantidade de lacunas ou pendências.",
+          "minimum": 0
+        },
+        "secoes": {
+          "type": "integer",
+          "title": "Seções",
+          "description": "Quantidade de seções do dashboard.",
+          "minimum": 0
+        },
+        "fontes": {
+          "type": "integer",
+          "title": "Fontes",
+          "description": "Quantidade de fontes ou referências utilizadas.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

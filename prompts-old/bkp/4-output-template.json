@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "string",
+  "title": "Estrutura Final da Saída da Etapa 4 (Dashboard HTML)",
+  "description": "Define que a saída da Etapa 4 é um documento HTML completo, autocontido, representando um dashboard interativo para a especificação funcional estruturada do sistema. Ele deve conter 26 seções obrigatórias, cobrindo tudo desde domínios e módulos até ações, eventos, regras de negócio, permissões, configurações e recomendações para a próxima etapa.",
+  "contentMediaType": "text/html",
+  "minLength": 1,
+  "required": ["html_content"],
+  "properties": {
+    "html_content": {
+      "type": "string",
+      "title": "Conteúdo HTML do Dashboard",
+      "description": "O código-fonte HTML completo, autocontido (CSS e JS embutidos), que implementa o dashboard de especificação funcional. Deve ser semanticamente correto, responsivo e funcional, incluindo navegação lateral, cards de resumo, tabelas detalhadas, seções expansíveis, filtros, busca e todos os elementos de interatividade especificados, como alternador de tema e botões de cópia/exportação.",
+      "pattern": "^<!DOCTYPE html>.*",
+      "examples": ["<!DOCTYPE html><html lang=\"pt-BR\">..."]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,1868 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 1.2 - Respostas Pesquisadas para Perguntas em Aberto",
+  "description": "Schema JSON que representa semanticamente o conteúdo do dashboard HTML da Etapa 1.2. A saída final deve consolidar o contexto do produto, a direção estética aplicada, as perguntas extraídas da Etapa 1, as respostas pesquisadas com evidências, as tabelas consolidadas, os aprendizados estratégicos, as implicações, as decisões sugeridas, os riscos, as oportunidades, as hipóteses, as lacunas de validação, as recomendações e as fontes consultadas.",
+  "type": "object",
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "arquivo_de_origem_etapa_1",
+    "produto_analisado",
+    "cabecalho",
+    "resumo_executivo",
+    "contexto_do_produto",
+    "direcao_estetica_aplicada",
+    "perguntas_extraidas",
+    "mapa_de_categorias",
+    "tabela_consolidada",
+    "analises_detalhadas",
+    "principais_aprendizados",
+    "implicacoes_para_o_produto",
+    "decisoes_sugeridas",
+    "riscos_atualizados",
+    "oportunidades_atualizadas",
+    "hipoteses",
+    "lacunas_de_validacao",
+    "recomendacoes_para_entrevistas",
+    "recomendacoes_para_benchmarking",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "number",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferida a partir do prompt de entrada. Para este schema, o valor deve ser 1.2, pois a saída corresponde à Etapa 1.2 - Análise das Perguntas em Aberto da Etapa 1.",
+      "const": 1.2
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 1.2.",
+      "const": "1.2-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 1.2.html, conforme o prompt.",
+      "const": "1.2.html"
+    },
+    "arquivo_de_origem_etapa_1": {
+      "type": "string",
+      "title": "Arquivo de Origem da Etapa 1",
+      "description": "Nome ou caminho do arquivo HTML analisado da Etapa 1. Deve indicar a origem principal das perguntas em aberto e do contexto do produto.",
+      "minLength": 1
+    },
+    "produto_analisado": {
+      "type": "object",
+      "title": "Produto Analisado",
+      "description": "Identificação sintética do produto que serve de base para a análise da Etapa 1.2. Deve refletir o contexto extraído do HTML da Etapa 1 e apoiar a leitura estratégica das perguntas pesquisadas.",
+      "required": [
+        "nome_provisorio",
+        "tipo_de_sistema",
+        "segmento_de_mercado",
+        "descricao_curta",
+        "posicionamento"
+      ],
+      "properties": {
+        "nome_provisorio": {
+          "type": "string",
+          "title": "Nome Provisório",
+          "description": "Nome de trabalho do produto analisado. Deve preservar o rótulo usado na Etapa 1 para manter rastreabilidade entre as etapas.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria funcional do produto, como SaaS, plataforma interna, ferramenta de automação, ERP, CRM, marketplace ou equivalente.",
+          "minLength": 1
+        },
+        "segmento_de_mercado": {
+          "type": "string",
+          "title": "Segmento de Mercado",
+          "description": "Segmento ou nicho de mercado atendido pela solução. Deve refletir o contexto funcional e os perfis impactados.",
+          "minLength": 1
+        },
+        "descricao_curta": {
+          "type": "string",
+          "title": "Descrição Curta",
+          "description": "Resumo breve e objetivo do produto. Deve explicar o que a solução parece ser sem aprofundar implementação.",
+          "minLength": 1
+        },
+        "posicionamento": {
+          "type": "string",
+          "title": "Posicionamento",
+          "description": "Frase sintética que resume o valor percebido e a função estratégica do produto no mercado ou na operação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "cabecalho": {
+      "type": "object",
+      "title": "Cabeçalho",
+      "description": "Bloco de identificação exibido no topo do dashboard. Deve reunir o nome do produto, a etapa, arquivos de origem e destino, data de geração, contadores principais e categorias dominantes.",
+      "required": [
+        "nome_do_produto",
+        "nome_da_etapa",
+        "arquivo_de_origem",
+        "arquivo_gerado",
+        "data_de_geracao",
+        "total_de_perguntas",
+        "total_de_fontes",
+        "categorias_principais"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome do produto apresentado no cabeçalho do dashboard.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rótulo textual da etapa, que deve identificar explicitamente a Etapa 1.2 - Respostas Pesquisadas para Perguntas em Aberto.",
+          "minLength": 1
+        },
+        "arquivo_de_origem": {
+          "type": "string",
+          "title": "Arquivo de Origem",
+          "description": "Nome do arquivo analisado como base contextual do produto.",
+          "minLength": 1
+        },
+        "arquivo_gerado": {
+          "type": "string",
+          "title": "Arquivo Gerado",
+          "description": "Nome do arquivo HTML final criado pela etapa.",
+          "minLength": 1
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geração",
+          "description": "Data e hora em que o dashboard foi gerado. Deve ser apresentada em formato legível e rastreável.",
+          "minLength": 1
+        },
+        "total_de_perguntas": {
+          "type": "integer",
+          "title": "Total de Perguntas",
+          "description": "Quantidade total de perguntas extraídas e analisadas nesta etapa.",
+          "minimum": 0
+        },
+        "total_de_fontes": {
+          "type": "integer",
+          "title": "Total de Fontes",
+          "description": "Quantidade total de fontes consultadas durante a pesquisa e a consolidação das respostas.",
+          "minimum": 0
+        },
+        "categorias_principais": {
+          "type": "array",
+          "title": "Categorias Principais",
+          "description": "Lista das categorias mais relevantes encontradas nas perguntas em aberto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Categoria",
+            "description": "Nome de uma categoria de pergunta, como negócio, usuários, mercado, operação, tecnologia, monetização, jurídico, segurança, governança, integrações, IA ou compliance.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "resumo_executivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Síntese analítica da Etapa 1.2. Deve condensar o principal aprendizado das respostas pesquisadas, o impacto sobre o produto e a direção recomendada para a continuidade do discovery.",
+      "required": [
+        "titulo",
+        "sintese",
+        "principais_conclusoes",
+        "impacto_no_produto",
+        "decisao_recomendada"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título do Resumo",
+          "description": "Título curto e representativo do resumo executivo.",
+          "minLength": 1
+        },
+        "sintese": {
+          "type": "string",
+          "title": "Síntese",
+          "description": "Parágrafo de síntese que resume o que foi aprendido com a pesquisa das perguntas em aberto.",
+          "minLength": 1
+        },
+        "principais_conclusoes": {
+          "type": "array",
+          "title": "Principais Conclusões",
+          "description": "Lista das conclusões estratégicas mais importantes derivadas das respostas pesquisadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Conclusão",
+            "description": "Uma conclusão objetiva produzida a partir da análise das perguntas.",
+            "minLength": 1
+          }
+        },
+        "impacto_no_produto": {
+          "type": "array",
+          "title": "Impacto no Produto",
+          "description": "Lista dos impactos práticos que as respostas têm sobre a proposta, o escopo e as decisões futuras do produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Impacto",
+            "description": "Efeito concreto da resposta pesquisada sobre o produto.",
+            "minLength": 1
+          }
+        },
+        "decisao_recomendada": {
+          "type": "string",
+          "title": "Decisão Recomendada",
+          "description": "Direção de produto recomendada com base no conjunto das respostas pesquisadas.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "contexto_do_produto": {
+      "type": "object",
+      "title": "Contexto do Produto",
+      "description": "Leitura consolidada do contexto do produto a partir do HTML da Etapa 1. Deve preservar o enquadramento estratégico, os elementos de escopo e os temas que ajudam a interpretar as perguntas em aberto.",
+      "required": [
+        "problema_principal",
+        "publico_principal",
+        "proposta_de_valor",
+        "hipoteses_relevantes",
+        "contexto_multitenant",
+        "restricoes",
+        "observacoes_de_leitura"
+      ],
+      "properties": {
+        "problema_principal": {
+          "type": "string",
+          "title": "Problema Principal",
+          "description": "Formulação resumida do problema principal identificado na Etapa 1.",
+          "minLength": 1
+        },
+        "publico_principal": {
+          "type": "array",
+          "title": "Público Principal",
+          "description": "Lista dos públicos ou perfis mais diretamente afetados pelo produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Público",
+            "description": "Perfil principal do produto.",
+            "minLength": 1
+          }
+        },
+        "proposta_de_valor": {
+          "type": "string",
+          "title": "Proposta de Valor",
+          "description": "Resumo da tese de valor do produto antes da validação aprofundada.",
+          "minLength": 1
+        },
+        "hipoteses_relevantes": {
+          "type": "array",
+          "title": "Hipóteses Relevantes",
+          "description": "Lista das hipóteses de produto mais relevantes para interpretar as respostas pesquisadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese",
+            "description": "Hipótese estratégica associada ao contexto do produto.",
+            "minLength": 1
+          }
+        },
+        "contexto_multitenant": {
+          "type": "string",
+          "title": "Contexto Multi-tenant",
+          "description": "Resumo do enquadramento relacionado a superadmin, escopo global, tenant, permissões, billing, auditoria e segregação de dados, quando aplicável ao produto.",
+          "minLength": 1
+        },
+        "restricoes": {
+          "type": "array",
+          "title": "Restrições",
+          "description": "Lista de restrições, premissas ou limites percebidos no contexto do produto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição relevante para a interpretação das perguntas.",
+            "minLength": 1
+          }
+        },
+        "observacoes_de_leitura": {
+          "type": "array",
+          "title": "Observações de Leitura",
+          "description": "Lista de observações sobre a leitura do contexto, incluindo inferências e pontos ainda não confirmados.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Observação",
+            "description": "Uma observação analítica sobre o contexto do produto.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "direcao_estetica_aplicada": {
+      "type": "object",
+      "title": "Direção Estética Aplicada",
+      "description": "Resumo de como o arquivo de estética inicial foi aplicado ao dashboard da Etapa 1.2. Deve explicar tema, hierarquia, composição, densidade, componentes, estados visuais e coerência de linguagem visual.",
+      "required": [
+        "arquivo_de_referencia",
+        "resumo_da_aplicacao",
+        "tema",
+        "tipografia",
+        "composicao",
+        "densidade_informacional",
+        "componentes_chave",
+        "estados_visuais",
+        "coerencia_com_a_etapa_1_1"
+      ],
+      "properties": {
+        "arquivo_de_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referência",
+          "description": "Nome do arquivo de estética que orientou a construção visual do dashboard.",
+          "minLength": 1
+        },
+        "resumo_da_aplicacao": {
+          "type": "string",
+          "title": "Resumo da Aplicação",
+          "description": "Explicação breve de como a estética foi traduzida para o dashboard final.",
+          "minLength": 1
+        },
+        "tema": {
+          "type": "string",
+          "title": "Tema",
+          "description": "Descrição do tema visual aplicado, incluindo a lógica de luz/escuro, contraste e atmosfera estética.",
+          "minLength": 1
+        },
+        "tipografia": {
+          "type": "string",
+          "title": "Tipografia",
+          "description": "Resumo do uso tipográfico adotado no dashboard, coerente com a direção estética base.",
+          "minLength": 1
+        },
+        "composicao": {
+          "type": "string",
+          "title": "Composição",
+          "description": "Descrição da lógica de composição do layout, incluindo navegação lateral, seções, cards e tabelas.",
+          "minLength": 1
+        },
+        "densidade_informacional": {
+          "type": "string",
+          "title": "Densidade Informacional",
+          "description": "Descrição do nível de densidade aplicado para sustentar leitura analítica sem comprometer a clareza.",
+          "minLength": 1
+        },
+        "componentes_chave": {
+          "type": "array",
+          "title": "Componentes-Chave",
+          "description": "Lista dos componentes visuais principais adotados no dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Componente ou padrão visual importante usado no dashboard.",
+            "minLength": 1
+          }
+        },
+        "estados_visuais": {
+          "type": "array",
+          "title": "Estados Visuais",
+          "description": "Lista dos estados de interface e de feedback visual implementados ou previstos na experiência.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Estado Visual",
+            "description": "Estado visual relevante para a experiência do dashboard.",
+            "minLength": 1
+          }
+        },
+        "coerencia_com_a_etapa_1_1": {
+          "type": "string",
+          "title": "Coerência com a Etapa 1.1",
+          "description": "Explicação de como a aplicação visual mantém continuidade com a direção estética definida na etapa anterior.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "perguntas_extraidas": {
+      "type": "array",
+      "title": "Perguntas Extraídas",
+      "description": "Lista completa das perguntas encontradas na seção de perguntas em aberto do HTML da Etapa 1. Cada item deve preservar a pergunta original e sua categoria contextual.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/pergunta_extraida_item"
+      }
+    },
+    "mapa_de_categorias": {
+      "type": "object",
+      "title": "Mapa de Categorias",
+      "description": "Visão consolidada que agrupa as perguntas extraídas por categoria, conforme exigido pelo dashboard final.",
+      "required": [
+        "resumo",
+        "categorias"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo do Mapa",
+          "description": "Síntese do agrupamento das perguntas por categoria e do padrão de incerteza observado.",
+          "minLength": 1
+        },
+        "categorias": {
+          "type": "array",
+          "title": "Categorias",
+          "description": "Lista das categorias de pergunta com suas quantidades, temas e nível médio de incerteza.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/categoria_pergunta_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tabela_consolidada": {
+      "type": "array",
+      "title": "Tabela Consolidada",
+      "description": "Tabela-resumo com uma linha por pergunta, contendo a resposta curta, a confiança, a necessidade de validação e a prioridade.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/linha_tabela_consolidada"
+      }
+    },
+    "analises_detalhadas": {
+      "type": "array",
+      "title": "Análises Detalhadas",
+      "description": "Coleção das análises completas por pergunta, com contexto, resposta pesquisada, implicações, riscos, oportunidades, fontes e recomendação de validação.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/analise_pergunta_item"
+      }
+    },
+    "principais_aprendizados": {
+      "type": "array",
+      "title": "Principais Aprendizados",
+      "description": "Lista dos aprendizados estratégicos mais relevantes identificados ao consolidar as respostas pesquisadas.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/aprendizado_item"
+      }
+    },
+    "implicacoes_para_o_produto": {
+      "type": "array",
+      "title": "Implicações para o Produto",
+      "description": "Lista de implicações práticas da pesquisa sobre escopo, proposta de valor, priorização e continuidade do discovery.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/implicacao_item"
+      }
+    },
+    "decisoes_sugeridas": {
+      "type": "array",
+      "title": "Decisões Sugeridas",
+      "description": "Lista de decisões de produto sugeridas a partir da análise das perguntas e das fontes consultadas.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/decisao_sugerida_item"
+      }
+    },
+    "riscos_atualizados": {
+      "type": "array",
+      "title": "Riscos Atualizados",
+      "description": "Lista dos riscos revisados ou emergentes após a pesquisa das perguntas em aberto.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/risco_item"
+      }
+    },
+    "oportunidades_atualizadas": {
+      "type": "array",
+      "title": "Oportunidades Atualizadas",
+      "description": "Lista das oportunidades identificadas ou refinadas a partir da pesquisa e da leitura estratégica das respostas.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/oportunidade_item"
+      }
+    },
+    "hipoteses": {
+      "type": "object",
+      "title": "Hipóteses",
+      "description": "Conjunto de hipóteses confirmadas parcialmente, reduzidas pela pesquisa e novas hipóteses identificadas durante a análise.",
+      "required": [
+        "reduzidas_ou_confirmadas_parcialmente",
+        "novas_hipoteses"
+      ],
+      "properties": {
+        "reduzidas_ou_confirmadas_parcialmente": {
+          "type": "array",
+          "title": "Hipóteses Reduzidas ou Confirmadas Parcialmente",
+          "description": "Lista das hipóteses da Etapa 1 que tiveram incerteza reduzida ou confirmação parcial após a pesquisa.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/hipotese_item"
+          }
+        },
+        "novas_hipoteses": {
+          "type": "array",
+          "title": "Novas Hipóteses",
+          "description": "Lista de hipóteses novas geradas a partir dos achados da Etapa 1.2.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/hipotese_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "lacunas_de_validacao": {
+      "type": "array",
+      "title": "Lacunas de Validação",
+      "description": "Lista dos pontos que continuam sem validação suficiente e que precisam ser tratados em entrevistas, benchmarking ou análises posteriores.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/lacuna_validacao_item"
+      }
+    },
+    "recomendacoes_para_entrevistas": {
+      "type": "object",
+      "title": "Recomendações para Entrevistas",
+      "description": "Diretrizes e focos recomendados para entrevistas com usuários e stakeholders, com base nas lacunas e respostas pesquisadas.",
+      "required": [
+        "objetivo",
+        "publicos_sugeridos",
+        "temas_prioritarios",
+        "perguntas_sugeridas",
+        "criterios_de_sucesso"
+      ],
+      "properties": {
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal das entrevistas recomendadas.",
+          "minLength": 1
+        },
+        "publicos_sugeridos": {
+          "type": "array",
+          "title": "Públicos Sugeridos",
+          "description": "Lista dos perfis ou papéis que devem ser entrevistados para validar as hipóteses.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Público",
+            "description": "Perfil indicado para entrevista.",
+            "minLength": 1
+          }
+        },
+        "temas_prioritarios": {
+          "type": "array",
+          "title": "Temas Prioritários",
+          "description": "Lista dos temas que devem orientar a pauta das entrevistas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Tema",
+            "description": "Tema de validação recomendado para a entrevista.",
+            "minLength": 1
+          }
+        },
+        "perguntas_sugeridas": {
+          "type": "array",
+          "title": "Perguntas Sugeridas",
+          "description": "Lista de perguntas que podem ser usadas nas entrevistas para aprofundar ou validar os achados.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Pergunta",
+            "description": "Pergunta de entrevista sugerida.",
+            "minLength": 1
+          }
+        },
+        "criterios_de_sucesso": {
+          "type": "array",
+          "title": "Critérios de Sucesso",
+          "description": "Lista dos sinais que indicam que as entrevistas conseguiram reduzir a incerteza relevante.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Critério de sucesso para as entrevistas.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "recomendacoes_para_benchmarking": {
+      "type": "object",
+      "title": "Recomendações para Benchmarking",
+      "description": "Orientações para a Etapa 2, indicando o que deve ser comparado, com quais tipos de concorrentes e quais critérios devem ser observados.",
+      "required": [
+        "objetivo",
+        "tipos_de_referencia",
+        "competidores_ou_benchmarks_sugeridos",
+        "criterios_de_comparacao",
+        "hipoteses_a_testar"
+      ],
+      "properties": {
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal do benchmarking sugerido para a próxima etapa.",
+          "minLength": 1
+        },
+        "tipos_de_referencia": {
+          "type": "array",
+          "title": "Tipos de Referência",
+          "description": "Lista dos tipos de referência mais úteis para a comparação, como concorrentes, benchmarks setoriais, documentação oficial ou estudos de caso.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Tipo de Referência",
+            "description": "Tipo de benchmark recomendado.",
+            "minLength": 1
+          }
+        },
+        "competidores_ou_benchmarks_sugeridos": {
+          "type": "array",
+          "title": "Competidores ou Benchmarks Sugeridos",
+          "description": "Lista de produtos, empresas ou padrões de mercado que devem ser comparados na Etapa 2.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Benchmark",
+            "description": "Concorrente, produto ou referência de mercado sugerida para comparação.",
+            "minLength": 1
+          }
+        },
+        "criterios_de_comparacao": {
+          "type": "array",
+          "title": "Critérios de Comparação",
+          "description": "Lista dos critérios que devem ser comparados entre as referências selecionadas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Critério usado na análise comparativa.",
+            "minLength": 1
+          }
+        },
+        "hipoteses_a_testar": {
+          "type": "array",
+          "title": "Hipóteses a Testar",
+          "description": "Lista das hipóteses que a Etapa 2 deve confrontar com o mercado e com os concorrentes.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese",
+            "description": "Hipótese que deve ser validada no benchmarking.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fontes_e_referencias": {
+      "type": "object",
+      "title": "Fontes e Referências",
+      "description": "Inventário das fontes consultadas durante a pesquisa. Deve preservar rastreabilidade entre cada fonte e as perguntas relacionadas.",
+      "required": [
+        "resumo",
+        "itens"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo das Fontes",
+          "description": "Resumo breve do conjunto de fontes consultadas e da qualidade geral da cobertura.",
+          "minLength": 1
+        },
+        "itens": {
+          "type": "array",
+          "title": "Itens de Fonte",
+          "description": "Lista detalhada das fontes usadas na resposta, com URL e relacionamento com as perguntas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/fonte_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "proximos_passos": {
+      "type": "object",
+      "title": "Próximos Passos",
+      "description": "Orientação final para a continuidade do discovery. Deve apontar explicitamente a Etapa 2 e priorizar as validações mais importantes.",
+      "required": [
+        "proxima_etapa_recomendada",
+        "motivacao",
+        "atividades_prioritarias",
+        "hipoteses_prioritarias",
+        "validações_prioritarias"
+      ],
+      "properties": {
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Próxima Etapa Recomendada",
+          "description": "Nome da próxima etapa sugerida pelo prompt.",
+          "minLength": 1
+        },
+        "motivacao": {
+          "type": "string",
+          "title": "Motivação",
+          "description": "Motivo estratégico para avançar para a próxima etapa.",
+          "minLength": 1
+        },
+        "atividades_prioritarias": {
+          "type": "array",
+          "title": "Atividades Prioritárias",
+          "description": "Lista das atividades mais importantes para a próxima etapa.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Atividade",
+            "description": "Uma atividade sugerida para dar continuidade ao processo.",
+            "minLength": 1
+          }
+        },
+        "hipoteses_prioritarias": {
+          "type": "array",
+          "title": "Hipóteses Prioritárias",
+          "description": "Lista das hipóteses que devem receber prioridade na Etapa 2.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Hipótese",
+            "description": "Hipótese priorizada para validação.",
+            "minLength": 1
+          }
+        },
+        "validações_prioritarias": {
+          "type": "array",
+          "title": "Validações Prioritárias",
+          "description": "Lista das validações recomendadas para reduzir incerteza antes de avançar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Validação",
+            "description": "Validação sugerida para a próxima etapa.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Resumo das capacidades interativas exigidas no dashboard HTML. Deve refletir alternância de tema, expansão de seções, filtros, busca, cópia, exportação e impressão.",
+      "required": [
+        "alternancia_de_tema",
+        "expansao_de_secoes",
+        "filtros",
+        "acoes_de_exportacao",
+        "acoes_de_copia",
+        "busca_textual",
+        "feedback_visual"
+      ],
+      "properties": {
+        "alternancia_de_tema": {
+          "type": "string",
+          "title": "Alternância de Tema",
+          "description": "Descrição do comportamento do botão de tema claro/escuro.",
+          "minLength": 1
+        },
+        "expansao_de_secoes": {
+          "type": "string",
+          "title": "Expansão de Seções",
+          "description": "Descrição de como as seções e análises podem ser expandida e recolhidas.",
+          "minLength": 1
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Lista dos filtros disponíveis no dashboard e seus propósitos.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/filtro_item"
+          }
+        },
+        "acoes_de_exportacao": {
+          "type": "array",
+          "title": "Ações de Exportação",
+          "description": "Lista das ações que permitem salvar, imprimir ou exportar o conteúdo do dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Ação",
+            "description": "Uma ação de exportação disponível na interface.",
+            "minLength": 1
+          }
+        },
+        "acoes_de_copia": {
+          "type": "array",
+          "title": "Ações de Cópia",
+          "description": "Lista das ações de cópia disponibilizadas ao usuário, como copiar resumo executivo ou resposta específica.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Ação",
+            "description": "Uma ação de cópia disponível na interface.",
+            "minLength": 1
+          }
+        },
+        "busca_textual": {
+          "type": "string",
+          "title": "Busca Textual",
+          "description": "Descrição da capacidade de busca livre por perguntas, respostas e fontes.",
+          "minLength": 1
+        },
+        "feedback_visual": {
+          "type": "string",
+          "title": "Feedback Visual",
+          "description": "Descrição de como o dashboard sinaliza progresso, prioridade, confiança e criticidade visualmente.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "progresso_visual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Representação do progresso visual da Etapa 1.2 dentro do dashboard. Deve comunicar o estado de conclusão, a quantidade de blocos cobertos e a leitura de avanço da análise.",
+      "required": [
+        "percentual",
+        "texto_de_status",
+        "secoes_cobertas",
+        "secoes_totais"
+      ],
+      "properties": {
+        "percentual": {
+          "type": "number",
+          "title": "Percentual",
+          "description": "Percentual de progresso visual da etapa. Deve variar de 0 a 100.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "texto_de_status": {
+          "type": "string",
+          "title": "Texto de Status",
+          "description": "Mensagem curta que resume o progresso ou o estado atual da etapa.",
+          "minLength": 1
+        },
+        "secoes_cobertas": {
+          "type": "integer",
+          "title": "Seções Cobertas",
+          "description": "Quantidade de seções do dashboard que já foram preenchidas ou contempladas.",
+          "minimum": 0
+        },
+        "secoes_totais": {
+          "type": "integer",
+          "title": "Seções Totais",
+          "description": "Quantidade total de seções previstas para o dashboard da Etapa 1.2.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard, como perguntas de baixa confiança, perguntas críticas para validação, riscos críticos e oportunidades prioritárias.",
+      "required": [
+        "perguntas_de_baixa_confianca",
+        "perguntas_criticas_para_validacao",
+        "riscos_criticos",
+        "oportunidades_prioritarias"
+      ],
+      "properties": {
+        "perguntas_de_baixa_confianca": {
+          "type": "array",
+          "title": "Perguntas de Baixa Confiança",
+          "description": "Lista das perguntas cuja resposta possui menor confiança ou maior incerteza.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/destaque_item"
+          }
+        },
+        "perguntas_criticas_para_validacao": {
+          "type": "array",
+          "title": "Perguntas Críticas para Validação",
+          "description": "Lista das perguntas que precisam de validação prioritária por influenciarem diretamente o produto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/destaque_item"
+          }
+        },
+        "riscos_criticos": {
+          "type": "array",
+          "title": "Riscos Críticos",
+          "description": "Lista dos riscos com maior prioridade visual e estratégica.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/destaque_item"
+          }
+        },
+        "oportunidades_prioritarias": {
+          "type": "array",
+          "title": "Oportunidades Prioritárias",
+          "description": "Lista das oportunidades mais relevantes para serem destacadas no dashboard.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/destaque_item"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Métricas-resumo exibidas no dashboard para apoiar leitura rápida do volume de perguntas, fontes, riscos, oportunidades e lacunas.",
+      "required": [
+        "total_de_perguntas",
+        "perguntas_respondidas",
+        "perguntas_por_categoria",
+        "nivel_medio_de_confianca",
+        "decisoes_sugeridas",
+        "riscos_atualizados",
+        "oportunidades_identificadas",
+        "lacunas_restantes",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "total_de_perguntas": {
+          "type": "integer",
+          "title": "Total de Perguntas",
+          "description": "Quantidade total de perguntas analisadas nesta etapa.",
+          "minimum": 0
+        },
+        "perguntas_respondidas": {
+          "type": "integer",
+          "title": "Perguntas Respondidas",
+          "description": "Quantidade de perguntas que receberam uma resposta pesquisada e analisada.",
+          "minimum": 0
+        },
+        "perguntas_por_categoria": {
+          "type": "array",
+          "title": "Perguntas por Categoria",
+          "description": "Lista de contagens por categoria para facilitar a leitura do mapa de temas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/contador_categoria_item"
+          }
+        },
+        "nivel_medio_de_confianca": {
+          "type": "string",
+          "title": "Nível Médio de Confiança",
+          "description": "Avaliação sintética da confiança média das respostas obtidas.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "decisoes_sugeridas": {
+          "type": "integer",
+          "title": "Decisões Sugeridas",
+          "description": "Quantidade total de decisões sugeridas a partir da análise das perguntas.",
+          "minimum": 0
+        },
+        "riscos_atualizados": {
+          "type": "integer",
+          "title": "Riscos Atualizados",
+          "description": "Quantidade total de riscos revisados ou adicionados nesta etapa.",
+          "minimum": 0
+        },
+        "oportunidades_identificadas": {
+          "type": "integer",
+          "title": "Oportunidades Identificadas",
+          "description": "Quantidade total de oportunidades identificadas ou refinadas.",
+          "minimum": 0
+        },
+        "lacunas_restantes": {
+          "type": "integer",
+          "title": "Lacunas Restantes",
+          "description": "Quantidade de lacunas de validação que ainda permanecem em aberto.",
+          "minimum": 0
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Próxima Etapa Recomendada",
+          "description": "Nome da próxima etapa recomendada após a conclusão desta análise.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "pergunta_extraida_item": {
+      "type": "object",
+      "title": "Pergunta Extraída",
+      "description": "Representa uma pergunta localizada na seção de perguntas em aberto da Etapa 1, preservando seu texto original e sua categoria contextual.",
+      "required": [
+        "id",
+        "categoria",
+        "pergunta_original",
+        "ordem",
+        "relevancia"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estável da pergunta dentro do dashboard.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da pergunta, como negócio, usuários, mercado, operação, tecnologia, monetização, jurídico, segurança, governança, integrações, IA ou compliance.",
+          "minLength": 1
+        },
+        "pergunta_original": {
+          "type": "string",
+          "title": "Pergunta Original",
+          "description": "Texto integral da pergunta extraída do HTML da Etapa 1.",
+          "minLength": 1
+        },
+        "ordem": {
+          "type": "integer",
+          "title": "Ordem",
+          "description": "Posição da pergunta na lista original da seção em aberto.",
+          "minimum": 1
+        },
+        "relevancia": {
+          "type": "string",
+          "title": "Relevância",
+          "description": "Relevância inicial da pergunta para o produto e para a tomada de decisão.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "categoria_pergunta_item": {
+      "type": "object",
+      "title": "Resumo de Categoria",
+      "description": "Agrupamento semântico de perguntas por categoria, com quantidade, temas principais e nível médio de incerteza.",
+      "required": [
+        "categoria",
+        "quantidade_de_perguntas",
+        "principais_temas",
+        "nivel_medio_de_incerteza"
+      ],
+      "properties": {
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Nome da categoria analisada.",
+          "minLength": 1
+        },
+        "quantidade_de_perguntas": {
+          "type": "integer",
+          "title": "Quantidade de Perguntas",
+          "description": "Quantidade de perguntas extraídas nesta categoria.",
+          "minimum": 0
+        },
+        "principais_temas": {
+          "type": "array",
+          "title": "Principais Temas",
+          "description": "Lista dos temas mais recorrentes dentro desta categoria.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Tema",
+            "description": "Tema principal da categoria.",
+            "minLength": 1
+          }
+        },
+        "nivel_medio_de_incerteza": {
+          "type": "string",
+          "title": "Nível Médio de Incerteza",
+          "description": "Avaliação geral da incerteza associada às perguntas desta categoria.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "linha_tabela_consolidada": {
+      "type": "object",
+      "title": "Linha da Tabela Consolidada",
+      "description": "Linha resumida da tabela consolidada de perguntas e respostas, adequada à leitura rápida do dashboard.",
+      "required": [
+        "id",
+        "categoria",
+        "pergunta",
+        "resposta_curta",
+        "confianca",
+        "necessita_validacao",
+        "prioridade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador da linha, associado à pergunta original.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da pergunta na tabela consolidada.",
+          "minLength": 1
+        },
+        "pergunta": {
+          "type": "string",
+          "title": "Pergunta",
+          "description": "Texto resumido da pergunta apresentada na tabela.",
+          "minLength": 1
+        },
+        "resposta_curta": {
+          "type": "string",
+          "title": "Resposta Curta",
+          "description": "Resposta objetiva e curta extraída da análise pesquisada.",
+          "minLength": 1
+        },
+        "confianca": {
+          "type": "string",
+          "title": "Confiança",
+          "description": "Nível de confiança da resposta consolidada.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "necessita_validacao": {
+          "type": "boolean",
+          "title": "Necessita Validação",
+          "description": "Indica se a pergunta ainda depende de validação com usuários, mercado ou operação."
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da pergunta para tomada de decisão e continuidade do discovery.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "analise_pergunta_item": {
+      "type": "object",
+      "title": "Análise de Pergunta",
+      "description": "Análise detalhada de uma pergunta em aberto, incluindo contexto, resposta pesquisada, implicações, riscos, oportunidades e validação recomendada.",
+      "required": [
+        "id",
+        "pergunta_original",
+        "categoria",
+        "contexto_no_produto",
+        "resposta_pesquisada",
+        "evidencias_e_referencias",
+        "analise_estrategica",
+        "implicacoes_para_o_produto",
+        "decisoes_sugeridas",
+        "riscos_associados",
+        "oportunidades_identificadas",
+        "nivel_de_confianca",
+        "necessita_validacao",
+        "como_validar",
+        "fonte_ids"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estável da análise.",
+          "minLength": 1
+        },
+        "pergunta_original": {
+          "type": "string",
+          "title": "Pergunta Original",
+          "description": "Texto integral da pergunta analisada.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria temática da pergunta.",
+          "minLength": 1
+        },
+        "contexto_no_produto": {
+          "type": "string",
+          "title": "Contexto no Produto",
+          "description": "Explicação de como a pergunta se relaciona com o produto analisado.",
+          "minLength": 1
+        },
+        "resposta_pesquisada": {
+          "type": "string",
+          "title": "Resposta Pesquisada",
+          "description": "Resposta objetiva baseada na pesquisa na web e na análise estratégica.",
+          "minLength": 1
+        },
+        "evidencias_e_referencias": {
+          "type": "array",
+          "title": "Evidências e Referências",
+          "description": "Lista de evidências, referências e fontes que sustentam a resposta pesquisada.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidencia_referencia_item"
+          }
+        },
+        "analise_estrategica": {
+          "type": "string",
+          "title": "Análise Estratégica",
+          "description": "Interpretação do que a resposta pesquisada significa para o produto e para as próximas decisões.",
+          "minLength": 1
+        },
+        "implicacoes_para_o_produto": {
+          "type": "array",
+          "title": "Implicações para o Produto",
+          "description": "Lista das implicações práticas da resposta sobre o produto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/implicacao_item"
+          }
+        },
+        "decisoes_sugeridas": {
+          "type": "array",
+          "title": "Decisões Sugeridas",
+          "description": "Lista de decisões sugeridas a partir da resposta pesquisada.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/decisao_sugerida_item"
+          }
+        },
+        "riscos_associados": {
+          "type": "array",
+          "title": "Riscos Associados",
+          "description": "Lista dos riscos relacionados à resposta ou à ausência de validação.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/risco_item"
+          }
+        },
+        "oportunidades_identificadas": {
+          "type": "array",
+          "title": "Oportunidades Identificadas",
+          "description": "Lista das oportunidades geradas ou reforçadas pela resposta pesquisada.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/oportunidade_item"
+          }
+        },
+        "nivel_de_confianca": {
+          "type": "string",
+          "title": "Nível de Confiança",
+          "description": "Nível de confiança atribuído à resposta pesquisada.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta"
+          ]
+        },
+        "necessita_validacao": {
+          "type": "boolean",
+          "title": "Necessita Validação",
+          "description": "Indica se a pergunta ainda deve ser validada com usuários, mercado ou operação."
+        },
+        "como_validar": {
+          "type": "string",
+          "title": "Como Validar",
+          "description": "Forma prática sugerida para validar a resposta ou a hipótese relacionada.",
+          "minLength": 1
+        },
+        "fonte_ids": {
+          "type": "array",
+          "title": "IDs das Fontes",
+          "description": "Lista dos identificadores das fontes que sustentam esta análise.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "ID da Fonte",
+            "description": "Identificador da fonte consultada.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "aprendizado_item": {
+      "type": "object",
+      "title": "Aprendizado",
+      "description": "Item de aprendizado estratégico consolidado a partir das respostas pesquisadas.",
+      "required": [
+        "aprendizado",
+        "evidencia_base",
+        "impacto_no_produto",
+        "acao_recomendada"
+      ],
+      "properties": {
+        "aprendizado": {
+          "type": "string",
+          "title": "Aprendizado",
+          "description": "Mensagem principal do aprendizado.",
+          "minLength": 1
+        },
+        "evidencia_base": {
+          "type": "string",
+          "title": "Evidência Base",
+          "description": "Resumo da evidência ou conjunto de fontes que sustentam o aprendizado.",
+          "minLength": 1
+        },
+        "impacto_no_produto": {
+          "type": "string",
+          "title": "Impacto no Produto",
+          "description": "Efeito prático do aprendizado sobre o produto ou sobre a próxima etapa.",
+          "minLength": 1
+        },
+        "acao_recomendada": {
+          "type": "string",
+          "title": "Ação Recomendada",
+          "description": "Ação prática sugerida a partir do aprendizado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "implicacao_item": {
+      "type": "object",
+      "title": "Implicação",
+      "description": "Implicação prática da pesquisa sobre o produto, a operação ou o discovery.",
+      "required": [
+        "implicacao",
+        "origem",
+        "prioridade"
+      ],
+      "properties": {
+        "implicacao": {
+          "type": "string",
+          "title": "Implicação",
+          "description": "Descrição objetiva da implicação.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Pergunta, hipótese ou achado que originou a implicação.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da implicação para o produto.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "decisao_sugerida_item": {
+      "type": "object",
+      "title": "Decisão Sugerida",
+      "description": "Decisão recomendada com base em uma ou mais perguntas analisadas.",
+      "required": [
+        "decisao",
+        "justificativa",
+        "impacto",
+        "prioridade"
+      ],
+      "properties": {
+        "decisao": {
+          "type": "string",
+          "title": "Decisão",
+          "description": "Formulação objetiva da decisão sugerida.",
+          "minLength": 1
+        },
+        "justificativa": {
+          "type": "string",
+          "title": "Justificativa",
+          "description": "Motivo pelo qual a decisão é recomendada.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado da decisão no produto, no roadmap ou na validação.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Nível de prioridade da decisão sugerida.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "risco_item": {
+      "type": "object",
+      "title": "Risco",
+      "description": "Risco atualizado ou emergente identificado na análise das perguntas em aberto.",
+      "required": [
+        "risco",
+        "categoria",
+        "impacto",
+        "prioridade",
+        "mitigacao_inicial"
+      ],
+      "properties": {
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Descrição do risco.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do risco, como produto, mercado, técnico, financeiro, jurídico, segurança, operação, adoção, governança, auditoria, isolamento de dados, permissões, escalabilidade, conformidade, IA, integrações ou monetização.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto potencial do risco caso ele se concretize.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade atribuída ao risco com base na análise.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        },
+        "mitigacao_inicial": {
+          "type": "string",
+          "title": "Mitigação Inicial",
+          "description": "Ação inicial sugerida para reduzir ou endereçar o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "oportunidade_item": {
+      "type": "object",
+      "title": "Oportunidade",
+      "description": "Oportunidade atualizada ou refinada a partir da análise e da pesquisa das perguntas.",
+      "required": [
+        "oportunidade",
+        "categoria",
+        "valor_esperado",
+        "esforco_estimado",
+        "prioridade"
+      ],
+      "properties": {
+        "oportunidade": {
+          "type": "string",
+          "title": "Oportunidade",
+          "description": "Descrição da oportunidade identificada.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria da oportunidade, como automação, produtividade, experiência do usuário, receita, operação, dados, IA ou diferenciação.",
+          "minLength": 1
+        },
+        "valor_esperado": {
+          "type": "string",
+          "title": "Valor Esperado",
+          "description": "Valor potencial que a oportunidade pode gerar para o produto.",
+          "minLength": 1
+        },
+        "esforco_estimado": {
+          "type": "string",
+          "title": "Esforço Estimado",
+          "description": "Esforço estimado para explorar a oportunidade.",
+          "enum": [
+            "Baixo",
+            "Médio",
+            "Alto"
+          ]
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade estratégica atribuída à oportunidade.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "hipotese_item": {
+      "type": "object",
+      "title": "Hipótese",
+      "description": "Hipótese reduzida, confirmada parcialmente ou recém-identificada com base nas evidências pesquisadas.",
+      "required": [
+        "hipotese",
+        "tipo",
+        "status",
+        "evidencia",
+        "impacto",
+        "proxima_validacao"
+      ],
+      "properties": {
+        "hipotese": {
+          "type": "string",
+          "title": "Hipótese",
+          "description": "Enunciado da hipótese.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Classificação da hipótese, como problema, público, valor, monetização, adoção, operação, tecnologia ou diferenciação.",
+          "enum": [
+            "problema",
+            "publico",
+            "valor",
+            "monetizacao",
+            "adocao",
+            "operacao",
+            "tecnologia",
+            "diferenciacao",
+            "governanca",
+            "seguranca",
+            "compliance",
+            "integracoes",
+            "ia"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Situação atual da hipótese após a pesquisa.",
+          "enum": [
+            "reduzida",
+            "confirmada_parcialmente",
+            "nova"
+          ]
+        },
+        "evidencia": {
+          "type": "string",
+          "title": "Evidência",
+          "description": "Resumo da evidência ou do conjunto de sinais que sustentam a hipótese.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da hipótese sobre o produto ou sobre a próxima etapa.",
+          "minLength": 1
+        },
+        "proxima_validacao": {
+          "type": "string",
+          "title": "Próxima Validação",
+          "description": "Validação sugerida para confirmar, refinar ou descartar a hipótese.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "lacuna_validacao_item": {
+      "type": "object",
+      "title": "Lacuna de Validação",
+      "description": "Ponto ainda não validado que permanece como lacuna para as próximas etapas.",
+      "required": [
+        "lacuna",
+        "categoria",
+        "por_que_importa",
+        "forma_de_validacao",
+        "prioridade"
+      ],
+      "properties": {
+        "lacuna": {
+          "type": "string",
+          "title": "Lacuna",
+          "description": "Descrição da lacuna de validação.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria temática da lacuna.",
+          "minLength": 1
+        },
+        "por_que_importa": {
+          "type": "string",
+          "title": "Por que Importa",
+          "description": "Razão estratégica pela qual a lacuna precisa ser tratada.",
+          "minLength": 1
+        },
+        "forma_de_validacao": {
+          "type": "string",
+          "title": "Forma de Validação",
+          "description": "Método recomendado para reduzir essa lacuna, como entrevistas, benchmark, protótipo ou análise de dados.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da validação desta lacuna.",
+          "enum": [
+            "Baixa",
+            "Média",
+            "Alta",
+            "Crítica"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "fonte_item": {
+      "type": "object",
+      "title": "Fonte",
+      "description": "Fonte consultada durante a pesquisa. Deve conter título, organização, URL, perguntas relacionadas e tipo de fonte para garantir rastreabilidade.",
+      "required": [
+        "id",
+        "titulo",
+        "organizacao_ou_site",
+        "url",
+        "perguntas_relacionadas",
+        "tipo_de_fonte"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estável da fonte no dashboard.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da fonte, documento ou página consultada.",
+          "minLength": 1
+        },
+        "organizacao_ou_site": {
+          "type": "string",
+          "title": "Organização ou Site",
+          "description": "Nome da organização, empresa ou site responsável pela fonte.",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "title": "URL",
+          "description": "Endereço da fonte consultada.",
+          "format": "uri",
+          "minLength": 1
+        },
+        "perguntas_relacionadas": {
+          "type": "array",
+          "title": "Perguntas Relacionadas",
+          "description": "Lista dos IDs das perguntas que esta fonte ajuda a responder.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "ID da Pergunta",
+            "description": "Identificador de uma pergunta relacionada à fonte.",
+            "minLength": 1
+          }
+        },
+        "tipo_de_fonte": {
+          "type": "string",
+          "title": "Tipo de Fonte",
+          "description": "Classificação da fonte, como documentação oficial, artigo técnico, relatório de mercado, concorrente, benchmark, legislação, pesquisa acadêmica, estudo de caso, notícia ou referência setorial.",
+          "enum": [
+            "documentacao_oficial",
+            "artigo_tecnico",
+            "relatorio_de_mercado",
+            "concorrente",
+            "benchmark",
+            "legislacao",
+            "pesquisa_academica",
+            "estudo_de_caso",
+            "noticia",
+            "referencia_setorial"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "filtro_item": {
+      "type": "object",
+      "title": "Filtro",
+      "description": "Filtro interativo disponível no dashboard para refinar a visualização por categoria, confiança, validação, risco ou oportunidade.",
+      "required": [
+        "nome",
+        "descricao",
+        "opcoes"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome do filtro exibido para o usuário.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do que o filtro controla e por que ele existe.",
+          "minLength": 1
+        },
+        "opcoes": {
+          "type": "array",
+          "title": "Opções",
+          "description": "Lista das opções disponíveis no filtro.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Opção",
+            "description": "Uma opção do filtro.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "destaque_item": {
+      "type": "object",
+      "title": "Item em Destaque",
+      "description": "Representa um item que deve receber destaque visual no dashboard por relevância estratégica.",
+      "required": [
+        "referencia",
+        "motivo",
+        "nivel_visual"
+      ],
+      "properties": {
+        "referencia": {
+          "type": "string",
+          "title": "Referência",
+          "description": "Nome, ID ou resumo do item destacado.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Motivo pelo qual o item deve receber destaque.",
+          "minLength": 1
+        },
+        "nivel_visual": {
+          "type": "string",
+          "title": "Nível Visual",
+          "description": "Intensidade do destaque visual a ser aplicada.",
+          "enum": [
+            "Moderado",
+            "Alto",
+            "Crítico"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidencia_referencia_item": {
+      "type": "object",
+      "title": "Evidência ou Referência",
+      "description": "Item que relaciona a resposta pesquisada com a fonte, a evidência ou a referência utilizada na análise.",
+      "required": [
+        "descricao",
+        "fonte_id",
+        "tipo"
+      ],
+      "properties": {
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Resumo da evidência ou da referência encontrada.",
+          "minLength": 1
+        },
+        "fonte_id": {
+          "type": "string",
+          "title": "ID da Fonte",
+          "description": "Identificador da fonte relacionada a esta evidência.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da evidência, como fato, benchmark, documentação, inferência ou referência de mercado.",
+          "enum": [
+            "fato",
+            "benchmark",
+            "documentacao",
+            "inferência",
+            "referencia_de_mercado"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "contador_categoria_item": {
+      "type": "object",
+      "title": "Contagem por Categoria",
+      "description": "Item de contagem usado para mostrar a distribuição de perguntas por categoria.",
+      "required": [
+        "categoria",
+        "quantidade"
+      ],
+      "properties": {
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Nome da categoria contada.",
+          "minLength": 1
+        },
+        "quantidade": {
+          "type": "integer",
+          "title": "Quantidade",
+          "description": "Número de perguntas atribuídas à categoria.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

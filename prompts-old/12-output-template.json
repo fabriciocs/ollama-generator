@@ -1,0 +1,2548 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 12 - Dashboard Operacional de Superadministrador",
+  "description": "Schema JSON que representa semanticamente o conteúdo do arquivo 12.html. A saída final deve ser um dashboard HTML único, autocontido, com header, sidebar, área principal, cards, tabelas, gráficos, navegação explícita entre login, seleção de contexto, dashboard global, tenants, planos, features, perfis, auditoria, templates, IA, configurações, billing e validation engine, além de diretrizes de responsividade, acessibilidade e interatividade.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "contexto_do_dashboard",
+    "referencia_estetica",
+    "documento_html",
+    "navegacao",
+    "shell",
+    "secao_login",
+    "selecao_de_contexto",
+    "dashboard_global",
+    "tenants",
+    "planos",
+    "features",
+    "perfis",
+    "auditoria",
+    "templates",
+    "ia",
+    "configuracoes",
+    "billing",
+    "validation_engine",
+    "tabelas",
+    "graficos",
+    "interatividade",
+    "responsividade",
+    "acessibilidade",
+    "estados_de_interface",
+    "scripts",
+    "metricas_visuais"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 12, pois a saída corresponde à Etapa 12.",
+      "const": 12
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 12.",
+      "const": "12-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 12.html, conforme o prompt.",
+      "const": "12.html"
+    },
+    "contexto_do_dashboard": {
+      "type": "object",
+      "title": "Contexto do Dashboard",
+      "description": "Resumo semântico do papel do dashboard na plataforma. Deve consolidar que a página representa a visão operacional de uma plataforma SaaS de superadministrador e orientar a densidade, a navegação e os blocos de conteúdo.",
+      "required": [
+        "nome_do_produto",
+        "tipo_de_sistema",
+        "publico_principal",
+        "objetivo_operacional",
+        "escopo_da_pagina",
+        "tom_da_interface",
+        "restricoes_chave"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto ou plataforma representada no dashboard.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria do sistema, que neste caso deve refletir uma plataforma SaaS corporativa com operação de superadministrador.",
+          "minLength": 1
+        },
+        "publico_principal": {
+          "type": "string",
+          "title": "Público Principal",
+          "description": "Perfil principal que consome o dashboard, como superadmin, operador, gestor de plataforma ou equipe interna.",
+          "minLength": 1
+        },
+        "objetivo_operacional": {
+          "type": "string",
+          "title": "Objetivo Operacional",
+          "description": "Finalidade prática da página, incluindo acompanhamento global, controle de tenants, governança de recursos e validação operacional.",
+          "minLength": 1
+        },
+        "escopo_da_pagina": {
+          "type": "array",
+          "title": "Escopo da Página",
+          "description": "Lista das áreas funcionais que devem aparecer na página final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Área",
+            "description": "Uma área funcional do dashboard operacional.",
+            "minLength": 1
+          }
+        },
+        "tom_da_interface": {
+          "type": "string",
+          "title": "Tom da Interface",
+          "description": "Direção visual e editorial da página, que deve transmitir controle, clareza, robustez e leitura executiva.",
+          "minLength": 1
+        },
+        "restricoes_chave": {
+          "type": "array",
+          "title": "Restrições-Chave",
+          "description": "Lista das restrições estruturais e visuais que precisam ser respeitadas ao gerar o HTML final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição operacional ou visual relevante para o dashboard.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "referencia_estetica": {
+      "type": "object",
+      "title": "Referência Estética",
+      "description": "Registro semântico da diretriz visual usada como fonte única de verdade para a implementação do HTML. Deve refletir a necessidade de seguir 0-estetica-inicial.md como base de design.",
+      "required": [
+        "arquivo_referencia",
+        "papel_no_projeto",
+        "diretrizes_obrigatorias",
+        "restricoes_visuais",
+        "elementos_esperados"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referência",
+          "description": "Nome do arquivo de estética que deve orientar toda a implementação visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "papel_no_projeto": {
+          "type": "string",
+          "title": "Papel no Projeto",
+          "description": "Descrição do papel da referência estética como base única para tipografia, cores, composição, espaçamento e comportamento visual.",
+          "minLength": 1
+        },
+        "diretrizes_obrigatorias": {
+          "type": "array",
+          "title": "Diretrizes Obrigatórias",
+          "description": "Lista de diretrizes que precisam ser aplicadas sem exceção no HTML final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Diretriz",
+            "description": "Uma regra estética ou funcional derivada da referência visual.",
+            "minLength": 1
+          }
+        },
+        "restricoes_visuais": {
+          "type": "array",
+          "title": "Restrições Visuais",
+          "description": "Lista de aspectos visuais que devem ser evitados para preservar consistência e evitar interfaces genéricas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição Visual",
+            "description": "Um padrão visual a evitar.",
+            "minLength": 1
+          }
+        },
+        "elementos_esperados": {
+          "type": "array",
+          "title": "Elementos Esperados",
+          "description": "Lista dos elementos visuais e estruturais que devem estar presentes no dashboard final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Elemento Esperado",
+            "description": "Um elemento visual ou de layout esperado na saída.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "documento_html": {
+      "type": "object",
+      "title": "Documento HTML",
+      "description": "Estrutura semântica do único arquivo HTML final. Deve representar a composição geral da página, o conteúdo principal, as seções operacionais e os blocos que sustentam a visualização e interação do superadministrador.",
+      "required": [
+        "estrutura_geral",
+        "conteudo_semantico"
+      ],
+      "properties": {
+        "estrutura_geral": {
+          "$ref": "#/$defs/estrutura_geral"
+        },
+        "conteudo_semantico": {
+          "$ref": "#/$defs/conteudo_semantico"
+        }
+      },
+      "additionalProperties": false
+    },
+    "navegacao": {
+      "type": "object",
+      "title": "Navegação",
+      "description": "Mapa da navegação do dashboard, incluindo os destinos explícitos informados no prompt e o destaque da página atual.",
+      "required": [
+        "itens_principais",
+        "pagina_atual",
+        "comportamento_responsivo",
+        "comportamentos_de_icone",
+        "acessos_rapidos"
+      ],
+      "properties": {
+        "itens_principais": {
+          "type": "array",
+          "title": "Itens Principais",
+          "description": "Lista dos itens de navegação que devem aparecer no menu lateral ou equivalente.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/item_navegacao"
+          }
+        },
+        "pagina_atual": {
+          "type": "string",
+          "title": "Página Atual",
+          "description": "Nome ou rótulo da página que deve aparecer destacada como ativa.",
+          "minLength": 1
+        },
+        "comportamento_responsivo": {
+          "type": "string",
+          "title": "Comportamento Responsivo",
+          "description": "Descrição de como a navegação deve se adaptar em telas menores, incluindo colapso, drawer ou menu compacto.",
+          "minLength": 1
+        },
+        "comportamentos_de_icone": {
+          "type": "array",
+          "title": "Comportamentos de Ícone",
+          "description": "Lista das regras para uso de ícones coerentes e consistentes na navegação.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra de Ícone",
+            "description": "Uma regra de aplicação de ícones na navegação.",
+            "minLength": 1
+          }
+        },
+        "acessos_rapidos": {
+          "type": "array",
+          "title": "Acessos Rápidos",
+          "description": "Lista dos atalhos de navegação ou ações prioritárias que devem estar visíveis para o usuário.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "shell": {
+      "type": "object",
+      "title": "Shell da Aplicação",
+      "description": "Estrutura visual-base da interface com header, sidebar, área principal e footer ou regiões equivalentes.",
+      "required": [
+        "header",
+        "sidebar",
+        "area_principal",
+        "rodape",
+        "grid_base"
+      ],
+      "properties": {
+        "header": {
+          "$ref": "#/$defs/header_shell"
+        },
+        "sidebar": {
+          "$ref": "#/$defs/sidebar_shell"
+        },
+        "area_principal": {
+          "$ref": "#/$defs/area_principal_shell"
+        },
+        "rodape": {
+          "$ref": "#/$defs/rodape_shell"
+        },
+        "grid_base": {
+          "type": "string",
+          "title": "Grid Base",
+          "description": "Descrição da lógica de grid e alinhamento usada para organizar os blocos do dashboard.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "secao_login": {
+      "type": "object",
+      "title": "Seção de Login",
+      "description": "Bloco que modela a navegação para login e o estado de autenticação ou acesso inicial da plataforma.",
+      "required": [
+        "titulo",
+        "descricao",
+        "campos",
+        "acoes",
+        "estados"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da seção de login.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição curta do que a área de login representa e por que ela é exibida no fluxo operacional.",
+          "minLength": 1
+        },
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Campos do formulário de autenticação ou acesso inicial.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações disponíveis na seção de login, como entrar, lembrar sessão, recuperar acesso ou trocar contexto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        },
+        "estados": {
+          "type": "array",
+          "title": "Estados",
+          "description": "Estados visuais e de feedback esperados para a área de login.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/estado_interface"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "selecao_de_contexto": {
+      "type": "object",
+      "title": "Seleção de Contexto",
+      "description": "Bloco dedicado à troca de contexto operacional, como tenant, ambiente, perfil ou visão administrativa.",
+      "required": [
+        "titulo",
+        "descricao",
+        "seletores",
+        "estado_ativo",
+        "resultado_esperado"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do bloco de seleção de contexto.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição da finalidade do bloco de seleção de contexto.",
+          "minLength": 1
+        },
+        "seletores": {
+          "type": "array",
+          "title": "Seletores",
+          "description": "Controles ou campos usados para alternar contexto no dashboard.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        },
+        "estado_ativo": {
+          "type": "string",
+          "title": "Estado Ativo",
+          "description": "Descrição do contexto selecionado no momento.",
+          "minLength": 1
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Efeito visual e funcional esperado após a troca de contexto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "dashboard_global": {
+      "type": "object",
+      "title": "Dashboard Global",
+      "description": "Visão consolidada de alto nível da operação da plataforma, com KPIs, alertas, tendências e blocos de ação rápida.",
+      "required": [
+        "resumo",
+        "kpis",
+        "alertas",
+        "tendencias",
+        "acoes_rapidas",
+        "graficos"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo executivo do estado da operação global.",
+          "minLength": 1
+        },
+        "kpis": {
+          "type": "array",
+          "title": "KPIs",
+          "description": "Cartões de indicadores que resumem os números mais importantes do dashboard.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "alertas": {
+          "type": "array",
+          "title": "Alertas",
+          "description": "Alertas ou incidentes relevantes que exigem atenção no nível global.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/alert_item"
+          }
+        },
+        "tendencias": {
+          "type": "array",
+          "title": "Tendências",
+          "description": "Tendências operacionais relevantes que devem ser mostradas no dashboard global.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/tendencia_item"
+          }
+        },
+        "acoes_rapidas": {
+          "type": "array",
+          "title": "Ações Rápidas",
+          "description": "Ações prioritárias para operação, investigação ou navegação a partir da visão global.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        },
+        "graficos": {
+          "type": "array",
+          "title": "Gráficos",
+          "description": "Gráficos recomendados para resumir a operação global.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/grafico"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tenants": {
+      "type": "object",
+      "title": "Tenants",
+      "description": "Visão de administração de tenants, com listagem, status, métricas e ações de governança.",
+      "required": [
+        "resumo",
+        "cards",
+        "tabela",
+        "filtros",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da saúde ou distribuição dos tenants na plataforma.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Tenants",
+          "description": "Cartões de resumo para os principais indicadores de tenants.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "tabela": {
+          "$ref": "#/$defs/tabela_dinamica"
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Filtros aplicáveis à visão de tenants.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações operacionais e administrativas relacionadas aos tenants.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "planos": {
+      "type": "object",
+      "title": "Planos",
+      "description": "Visão dos planos, tiers, limites, upgrades e regras comerciais da plataforma.",
+      "required": [
+        "resumo",
+        "cards",
+        "tabela",
+        "limites",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo executivo da estrutura comercial dos planos.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Planos",
+          "description": "Cartões de destaque para os planos ou tiers existentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "tabela": {
+          "$ref": "#/$defs/tabela_dinamica"
+        },
+        "limites": {
+          "type": "array",
+          "title": "Limites",
+          "description": "Lista dos limites por plano ou por funcionalidade.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Limite",
+            "description": "Um limite comercial ou técnico do plano.",
+            "minLength": 1
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações de navegação ou gestão relacionadas aos planos.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "features": {
+      "type": "object",
+      "title": "Features",
+      "description": "Catálogo de recursos, flags e capacidades disponíveis na plataforma.",
+      "required": [
+        "resumo",
+        "cards",
+        "tabela",
+        "flags",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da cobertura de funcionalidades e features.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Features",
+          "description": "Cartões de destaque para conjuntos de features ou módulos.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "tabela": {
+          "$ref": "#/$defs/tabela_dinamica"
+        },
+        "flags": {
+          "type": "array",
+          "title": "Flags",
+          "description": "Lista de feature flags com status e impacto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/feature_flag"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações operacionais ou de navegação relacionadas ao catálogo de features.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "perfis": {
+      "type": "object",
+      "title": "Perfis",
+      "description": "Visão de perfis, papéis, permissões e acessos da plataforma.",
+      "required": [
+        "resumo",
+        "cards",
+        "matriz",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da composição de perfis e seus níveis de acesso.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Perfis",
+          "description": "Cartões de resumo para perfis ou grupos de acesso.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "matriz": {
+          "$ref": "#/$defs/tabela_dinamica"
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações disponíveis para gerir perfis e permissões.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "auditoria": {
+      "type": "object",
+      "title": "Auditoria",
+      "description": "Visão de rastreabilidade, eventos, filtros e investigação operacional.",
+      "required": [
+        "resumo",
+        "cards",
+        "timeline",
+        "tabela",
+        "filtros"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da atividade auditável e da cobertura de logs.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Auditoria",
+          "description": "Indicadores rápidos para a visão de auditoria.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "title": "Timeline",
+          "description": "Linha do tempo de eventos auditáveis ou acontecimentos recentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evento_auditoria"
+          }
+        },
+        "tabela": {
+          "$ref": "#/$defs/tabela_dinamica"
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Filtros aplicáveis para investigar eventos de auditoria.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "templates": {
+      "type": "object",
+      "title": "Templates",
+      "description": "Biblioteca de templates, modelos e estruturas reutilizáveis para a operação e configuração da plataforma.",
+      "required": [
+        "resumo",
+        "cards",
+        "galeria",
+        "versoes",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da biblioteca de templates e sua função na operação.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Templates",
+          "description": "Cartões de destaque para tipos de templates ou modelos.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "galeria": {
+          "type": "array",
+          "title": "Galeria",
+          "description": "Lista de cards ou blocos que representam templates disponíveis.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/template_card"
+          }
+        },
+        "versoes": {
+          "type": "array",
+          "title": "Versões",
+          "description": "Lista das versões, revisões ou estados dos templates.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/template_version"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações para visualizar, duplicar, editar ou aplicar templates.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ia": {
+      "type": "object",
+      "title": "IA",
+      "description": "Visão de capacidades de inteligência artificial, automações, governança e suporte a contexto assistido.",
+      "required": [
+        "resumo",
+        "cards",
+        "casos_de_uso",
+        "guardrails",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da estratégia de IA no contexto da plataforma.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de IA",
+          "description": "Indicadores rápidos sobre uso, estado e impacto das capacidades de IA.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "casos_de_uso": {
+          "type": "array",
+          "title": "Casos de Uso",
+          "description": "Lista de casos de uso de IA e automação que devem aparecer na interface.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ia_case"
+          }
+        },
+        "guardrails": {
+          "type": "array",
+          "title": "Guardrails",
+          "description": "Controles e limites necessários para uso seguro e governado de IA.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/guardrail_ia"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações relacionadas à configuração, validação ou revisão de recursos de IA.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "configuracoes": {
+      "type": "object",
+      "title": "Configurações",
+      "description": "Bloco de configuração geral da plataforma, incluindo preferências, integrações, segurança, identidade e comportamento de interface.",
+      "required": [
+        "resumo",
+        "grupos",
+        "secoes",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo das configurações disponíveis e do papel desse bloco na administração.",
+          "minLength": 1
+        },
+        "grupos": {
+          "type": "array",
+          "title": "Grupos de Configuração",
+          "description": "Lista dos grupos de configuração exibidos na tela.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/grupo_configuracao"
+          }
+        },
+        "secoes": {
+          "type": "array",
+          "title": "Seções de Configuração",
+          "description": "Lista das subseções ou painéis internos de configuração.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/secao_configuracao"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações administrativas ou de navegação relacionadas às configurações.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "billing": {
+      "type": "object",
+      "title": "Billing",
+      "description": "Bloco de cobrança, faturamento, consumo, invoices, métodos de pagamento e acompanhamento financeiro.",
+      "required": [
+        "resumo",
+        "cards",
+        "faturas",
+        "consumo",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo do estado financeiro e do uso da plataforma.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards de Billing",
+          "description": "Indicadores rápidos de receita, consumo, inadimplência ou outros dados financeiros.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "faturas": {
+          "type": "array",
+          "title": "Faturas",
+          "description": "Lista das faturas ou lançamentos financeiros exibidos na interface.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/fatura_item"
+          }
+        },
+        "consumo": {
+          "type": "array",
+          "title": "Consumo",
+          "description": "Visão de consumo por plano, tenant ou feature.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/consumo_item"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações disponíveis para revisão de cobrança, reprocesso ou navegação.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_engine": {
+      "type": "object",
+      "title": "Validation Engine",
+      "description": "Bloco de regras, validações, resultados e estados de saúde da engine de validação operacional.",
+      "required": [
+        "resumo",
+        "cards",
+        "regras",
+        "resultados",
+        "acoes"
+      ],
+      "properties": {
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da engine de validação e do papel dela na governança da plataforma.",
+          "minLength": 1
+        },
+        "cards": {
+          "type": "array",
+          "title": "Cards da Engine",
+          "description": "Indicadores rápidos de saúde, cobertura e falhas da engine.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/kpi_card"
+          }
+        },
+        "regras": {
+          "type": "array",
+          "title": "Regras",
+          "description": "Lista das regras, condições ou checks que compõem a engine de validação.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/validation_rule"
+          }
+        },
+        "resultados": {
+          "type": "array",
+          "title": "Resultados",
+          "description": "Lista dos resultados, falhas ou sucessos observados nas validações.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/validation_result"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações para executar, revisar ou reprocessar validações.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tabelas": {
+      "type": "array",
+      "title": "Tabelas",
+      "description": "Inventário das tabelas presentes no dashboard, incluindo suas finalidades, colunas e linhas de dados de exemplo.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/tabela_dinamica"
+      }
+    },
+    "graficos": {
+      "type": "array",
+      "title": "Gráficos",
+      "description": "Inventário dos gráficos ou visualizações analíticas presentes no dashboard.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/grafico"
+      }
+    },
+    "interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos esperados no HTML final, como busca, filtros, troca de contexto, estados de hover, expansão, seleção e ações rápidas.",
+      "required": [
+        "busca_global",
+        "filtros",
+        "acoes",
+        "comportamentos_js",
+        "estados_interativos"
+      ],
+      "properties": {
+        "busca_global": {
+          "type": "string",
+          "title": "Busca Global",
+          "description": "Descrição do comportamento de busca textual em toda a interface.",
+          "minLength": 1
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Lista dos filtros que podem ser aplicados nas principais seções do dashboard.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações de interface que o usuário deve poder disparar.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        },
+        "comportamentos_js": {
+          "type": "array",
+          "title": "Comportamentos JavaScript",
+          "description": "Comportamentos implementados via JavaScript no HTML autocontido.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Comportamento",
+            "description": "Uma interação ou comportamento scriptado esperado.",
+            "minLength": 1
+          }
+        },
+        "estados_interativos": {
+          "type": "array",
+          "title": "Estados Interativos",
+          "description": "Estados visuais e funcionais que devem ser respondidos pela interface.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/estado_interface"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "responsividade": {
+      "type": "object",
+      "title": "Responsividade",
+      "description": "Regras de adaptação do layout para desktop, tablet e mobile, incluindo comportamento de sidebar, tabelas, cards e navegação.",
+      "required": [
+        "breakpoints",
+        "comportamento_do_menu",
+        "adaptação_de_tabelas",
+        "adaptação_de_cards",
+        "prioridades_mobile"
+      ],
+      "properties": {
+        "breakpoints": {
+          "type": "array",
+          "title": "Breakpoints",
+          "description": "Lista dos pontos de quebra principais usados na interface.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/breakpoint_item"
+          }
+        },
+        "comportamento_do_menu": {
+          "type": "string",
+          "title": "Comportamento do Menu",
+          "description": "Descrição de como o menu lateral se adapta entre desktop e mobile.",
+          "minLength": 1
+        },
+        "adaptação_de_tabelas": {
+          "type": "string",
+          "title": "Adaptação de Tabelas",
+          "description": "Comportamento esperado das tabelas em telas menores, como scroll horizontal, stack ou cards.",
+          "minLength": 1
+        },
+        "adaptação_de_cards": {
+          "type": "string",
+          "title": "Adaptação de Cards",
+          "description": "Forma como os cards e métricas se reorganizam em breakpoints menores.",
+          "minLength": 1
+        },
+        "prioridades_mobile": {
+          "type": "array",
+          "title": "Prioridades Mobile",
+          "description": "Lista dos elementos que devem permanecer mais visíveis ou acessíveis em telas pequenas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Prioridade Mobile",
+            "description": "Um elemento prioritário para exibição em mobile.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "acessibilidade": {
+      "type": "object",
+      "title": "Acessibilidade",
+      "description": "Requisitos semânticos, visuais e interativos para garantir uso acessível da interface em teclado, leitores de tela e cenários de contraste.",
+      "required": [
+        "landmarks_semanticos",
+        "navegacao_por_teclado",
+        "contraste",
+        "foco_visivel",
+        "aria_e_labels",
+        "reducao_de_movimento"
+      ],
+      "properties": {
+        "landmarks_semanticos": {
+          "type": "array",
+          "title": "Landmarks Semânticos",
+          "description": "Lista dos marcos semânticos que devem aparecer na estrutura HTML.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Landmark",
+            "description": "Um landmark semântico, como header, nav, main ou footer.",
+            "minLength": 1
+          }
+        },
+        "navegacao_por_teclado": {
+          "type": "string",
+          "title": "Navegação por Teclado",
+          "description": "Descrição de como a navegação por teclado deve funcionar em toda a página.",
+          "minLength": 1
+        },
+        "contraste": {
+          "type": "string",
+          "title": "Contraste",
+          "description": "Diretriz de contraste para textos, superfícies e estados de interface.",
+          "minLength": 1
+        },
+        "foco_visivel": {
+          "type": "string",
+          "title": "Foco Visível",
+          "description": "Regra sobre destaque de foco para elementos interativos.",
+          "minLength": 1
+        },
+        "aria_e_labels": {
+          "type": "array",
+          "title": "ARIA e Labels",
+          "description": "Lista de elementos que precisam de rótulos acessíveis ou atributos ARIA.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Regra ARIA",
+            "description": "Uma orientação de acessibilidade semântica.",
+            "minLength": 1
+          }
+        },
+        "reducao_de_movimento": {
+          "type": "string",
+          "title": "Redução de Movimento",
+          "description": "Descrição de como a interface deve respeitar preferências de redução de movimento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "estados_de_interface": {
+      "type": "array",
+      "title": "Estados de Interface",
+      "description": "Estados funcionais e visuais que o dashboard precisa representar, como vazio, carregando, erro, sucesso, filtrado ou sem permissão.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/estado_interface"
+      }
+    },
+    "scripts": {
+      "type": "object",
+      "title": "Scripts",
+      "description": "Descrição dos comportamentos implementados em JavaScript no HTML autocontido.",
+      "required": [
+        "funcionalidades",
+        "eventos",
+        "dados_simulados",
+        "restricoes_de_execucao"
+      ],
+      "properties": {
+        "funcionalidades": {
+          "type": "array",
+          "title": "Funcionalidades",
+          "description": "Lista das funcionalidades implementadas por script.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Funcionalidade",
+            "description": "Uma funcionalidade implementada em JavaScript.",
+            "minLength": 1
+          }
+        },
+        "eventos": {
+          "type": "array",
+          "title": "Eventos",
+          "description": "Lista dos eventos de interface que os scripts devem tratar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Evento",
+            "description": "Um evento tratado pelo script.",
+            "minLength": 1
+          }
+        },
+        "dados_simulados": {
+          "type": "string",
+          "title": "Dados Simulados",
+          "description": "Descrição de como os dados de exemplo devem ser embutidos ou gerados no HTML.",
+          "minLength": 1
+        },
+        "restricoes_de_execucao": {
+          "type": "array",
+          "title": "Restrições de Execução",
+          "description": "Regras para impedir dependências externas, console errors ou comportamentos não determinísticos.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição para o script ou runtime da página.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "metricas_visuais": {
+      "type": "object",
+      "title": "Métricas Visuais",
+      "description": "Indicadores de composição e progresso percebido da interface final.",
+      "required": [
+        "densidade",
+        "hierarquia",
+        "ritmo_visual",
+        "prontidao",
+        "destaques"
+      ],
+      "properties": {
+        "densidade": {
+          "type": "string",
+          "title": "Densidade",
+          "description": "Leitura da densidade informacional pretendida para o dashboard.",
+          "minLength": 1
+        },
+        "hierarquia": {
+          "type": "string",
+          "title": "Hierarquia",
+          "description": "Descrição do nível de hierarquia visual esperado na composição.",
+          "minLength": 1
+        },
+        "ritmo_visual": {
+          "type": "string",
+          "title": "Ritmo Visual",
+          "description": "Descrição do ritmo visual e da cadência entre blocos, painéis e listas.",
+          "minLength": 1
+        },
+        "prontidao": {
+          "type": "string",
+          "title": "Prontidão",
+          "description": "Leitura do quão pronta a interface está para uso operacional.",
+          "minLength": 1
+        },
+        "destaques": {
+          "type": "array",
+          "title": "Destaques",
+          "description": "Lista dos pontos que devem chamar atenção visual imediatamente.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Destaque",
+            "description": "Um destaque visual ou operacional.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "item_navegacao": {
+      "type": "object",
+      "title": "Item de Navegação",
+      "description": "Item individual do menu ou barra de navegação lateral.",
+      "required": [
+        "rotulo",
+        "alvo",
+        "icone",
+        "descricao",
+        "ativo"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto visível do item de navegação.",
+          "minLength": 1
+        },
+        "alvo": {
+          "type": "string",
+          "title": "Alvo",
+          "description": "Seção, rota ou âncora de destino do item.",
+          "minLength": 1
+        },
+        "icone": {
+          "type": "string",
+          "title": "Ícone",
+          "description": "Nome ou descrição do ícone associado ao item.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Explicação curta do propósito do item de navegação.",
+          "minLength": 1
+        },
+        "ativo": {
+          "type": "boolean",
+          "title": "Ativo",
+          "description": "Indica se o item está destacado como página atual.",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "acao_rapida": {
+      "type": "object",
+      "title": "Ação Rápida",
+      "description": "Ação de interface que pode ser disparada por botão, link, atalho ou menu contextual.",
+      "required": [
+        "rotulo",
+        "acao",
+        "icone",
+        "variante",
+        "descricao"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto curto da ação.",
+          "minLength": 1
+        },
+        "acao": {
+          "type": "string",
+          "title": "Ação",
+          "description": "Descrição do comportamento disparado pela ação.",
+          "minLength": 1
+        },
+        "icone": {
+          "type": "string",
+          "title": "Ícone",
+          "description": "Nome do ícone associado à ação.",
+          "minLength": 1
+        },
+        "variante": {
+          "type": "string",
+          "title": "Variante",
+          "description": "Variante visual da ação, como primária, secundária, ghost ou destrutiva.",
+          "enum": [
+            "primaria",
+            "secundaria",
+            "ghost",
+            "destrutiva"
+          ]
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Explicação curta do objetivo da ação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "header_shell": {
+      "type": "object",
+      "title": "Header",
+      "description": "Região superior da página com identidade, contexto, busca e ações rápidas.",
+      "required": [
+        "titulo",
+        "subtitulo",
+        "identidade",
+        "busca",
+        "acoes"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título principal exibido no header.",
+          "minLength": 1
+        },
+        "subtitulo": {
+          "type": "string",
+          "title": "Subtítulo",
+          "description": "Subtítulo ou contexto resumido da página.",
+          "minLength": 1
+        },
+        "identidade": {
+          "type": "string",
+          "title": "Identidade",
+          "description": "Descrição da marca ou logotipo exibido no cabeçalho.",
+          "minLength": 1
+        },
+        "busca": {
+          "type": "string",
+          "title": "Busca",
+          "description": "Descrição do campo de busca global do header.",
+          "minLength": 1
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações rápidas disponíveis no header.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sidebar_shell": {
+      "type": "object",
+      "title": "Sidebar",
+      "description": "Região lateral de navegação com itens de seção, estado ativo e comportamento responsivo.",
+      "required": [
+        "itens",
+        "estado",
+        "comportamento",
+        "atalhos"
+      ],
+      "properties": {
+        "itens": {
+          "type": "array",
+          "title": "Itens",
+          "description": "Itens visíveis na navegação lateral.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/item_navegacao"
+          }
+        },
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Estado atual da sidebar, como aberta, recolhida ou drawer.",
+          "minLength": 1
+        },
+        "comportamento": {
+          "type": "string",
+          "title": "Comportamento",
+          "description": "Descrição de como a sidebar deve reagir à interação e ao tamanho da tela.",
+          "minLength": 1
+        },
+        "atalhos": {
+          "type": "array",
+          "title": "Atalhos",
+          "description": "Atalhos visíveis na sidebar para ações frequentes.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/acao_rapida"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "area_principal_shell": {
+      "type": "object",
+      "title": "Área Principal",
+      "description": "Região central da página destinada ao conteúdo operacional.",
+      "required": [
+        "estrutura",
+        "hierarquia",
+        "blocos_principais"
+      ],
+      "properties": {
+        "estrutura": {
+          "type": "string",
+          "title": "Estrutura",
+          "description": "Descrição da composição da área principal.",
+          "minLength": 1
+        },
+        "hierarquia": {
+          "type": "string",
+          "title": "Hierarquia",
+          "description": "Descrição da hierarquia entre blocos e painéis.",
+          "minLength": 1
+        },
+        "blocos_principais": {
+          "type": "array",
+          "title": "Blocos Principais",
+          "description": "Lista dos blocos prioritários da área principal.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Bloco",
+            "description": "Um bloco principal da área de conteúdo.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "rodape_shell": {
+      "type": "object",
+      "title": "Rodapé",
+      "description": "Região inferior opcional para metadados, versão, status ou links auxiliares.",
+      "required": [
+        "conteudo",
+        "uso"
+      ],
+      "properties": {
+        "conteudo": {
+          "type": "string",
+          "title": "Conteúdo",
+          "description": "Texto ou metadado exibido no rodapé.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Finalidade do rodapé na estrutura da página.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "campo_formulario": {
+      "type": "object",
+      "title": "Campo de Formulário",
+      "description": "Representação semântica de um controle de formulário ou filtro.",
+      "required": [
+        "nome",
+        "tipo",
+        "label",
+        "placeholder",
+        "obrigatorio"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome interno do campo.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do controle, como text, select, checkbox, radio, date ou search.",
+          "enum": [
+            "text",
+            "search",
+            "select",
+            "checkbox",
+            "radio",
+            "date",
+            "number",
+            "textarea",
+            "toggle"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "title": "Label",
+          "description": "Rótulo visível do campo.",
+          "minLength": 1
+        },
+        "placeholder": {
+          "type": "string",
+          "title": "Placeholder",
+          "description": "Texto de placeholder ou ajuda inicial do campo.",
+          "minLength": 1
+        },
+        "obrigatorio": {
+          "type": "boolean",
+          "title": "Obrigatório",
+          "description": "Indica se o campo é obrigatório para uso ou submissão.",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "kpi_card": {
+      "type": "object",
+      "title": "Card de KPI",
+      "description": "Cartão de indicador resumido usado para métricas, contadores e visões de status.",
+      "required": [
+        "titulo",
+        "valor",
+        "subtexto",
+        "tendencia",
+        "estado"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título curto do indicador.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor principal mostrado no cartão.",
+          "minLength": 1
+        },
+        "subtexto": {
+          "type": "string",
+          "title": "Subtexto",
+          "description": "Texto secundário com contexto ou detalhe adicional.",
+          "minLength": 1
+        },
+        "tendencia": {
+          "type": "string",
+          "title": "Tendência",
+          "description": "Direção da variação do indicador.",
+          "enum": [
+            "alta",
+            "baixa",
+            "estavel",
+            "neutra"
+          ]
+        },
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Estado visual do cartão, como normal, atenção, sucesso ou crítico.",
+          "enum": [
+            "normal",
+            "atencao",
+            "sucesso",
+            "critico"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "alert_item": {
+      "type": "object",
+      "title": "Alerta",
+      "description": "Registro de alerta ou incidente resumido para exibição rápida.",
+      "required": [
+        "titulo",
+        "mensagem",
+        "severidade",
+        "acao_sugerida"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do alerta.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem resumida do alerta.",
+          "minLength": 1
+        },
+        "severidade": {
+          "type": "string",
+          "title": "Severidade",
+          "description": "Grau de criticidade do alerta.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "acao_sugerida": {
+          "type": "string",
+          "title": "Ação Sugerida",
+          "description": "Próxima ação recomendada para resolver ou investigar o alerta.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "tendencia_item": {
+      "type": "object",
+      "title": "Tendência",
+      "description": "Registro de tendência operacional, comercial ou de uso.",
+      "required": [
+        "titulo",
+        "descricao",
+        "direcao",
+        "impacto"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da tendência.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição resumida da tendência observada.",
+          "minLength": 1
+        },
+        "direcao": {
+          "type": "string",
+          "title": "Direção",
+          "description": "Direção da tendência, indicando aumento, queda ou estabilidade.",
+          "enum": [
+            "crescimento",
+            "queda",
+            "estavel"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto operacional ou estratégico dessa tendência.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "grafico": {
+      "type": "object",
+      "title": "Gráfico",
+      "description": "Especificação semântica de uma visualização gráfica presente no dashboard.",
+      "required": [
+        "titulo",
+        "tipo",
+        "finalidade",
+        "series"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do gráfico.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo de gráfico ou visualização, como barras, linhas, pizza, radar, gauge ou heatmap.",
+          "enum": [
+            "barras",
+            "linhas",
+            "pizza",
+            "radar",
+            "gauge",
+            "heatmap",
+            "area",
+            "donut"
+          ]
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Razão de existir do gráfico na interface.",
+          "minLength": 1
+        },
+        "series": {
+          "type": "array",
+          "title": "Séries",
+          "description": "Séries ou conjuntos de dados que alimentam o gráfico.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/serie_grafico"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "serie_grafico": {
+      "type": "object",
+      "title": "Série de Gráfico",
+      "description": "Série individual usada em uma visualização.",
+      "required": [
+        "rotulo",
+        "dados"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Nome da série.",
+          "minLength": 1
+        },
+        "dados": {
+          "type": "array",
+          "title": "Dados",
+          "description": "Pontos de dados da série.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ponto_grafico"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "ponto_grafico": {
+      "type": "object",
+      "title": "Ponto de Gráfico",
+      "description": "Ponto individual de uma série gráfica.",
+      "required": [
+        "rotulo",
+        "valor"
+      ],
+      "properties": {
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Rótulo do ponto no eixo ou categoria.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "number",
+          "title": "Valor",
+          "description": "Valor numérico associado ao ponto.",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "tabela_dinamica": {
+      "type": "object",
+      "title": "Tabela",
+      "description": "Tabela semântica que representa os dados listados no dashboard sem depender de marcação HTML literal.",
+      "required": [
+        "titulo",
+        "finalidade",
+        "colunas",
+        "linhas"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da tabela.",
+          "minLength": 1
+        },
+        "finalidade": {
+          "type": "string",
+          "title": "Finalidade",
+          "description": "Objetivo da tabela dentro do dashboard.",
+          "minLength": 1
+        },
+        "colunas": {
+          "type": "array",
+          "title": "Colunas",
+          "description": "Lista das colunas exibidas pela tabela.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/coluna_tabela"
+          }
+        },
+        "linhas": {
+          "type": "array",
+          "title": "Linhas",
+          "description": "Lista das linhas ou registros exibidos na tabela.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/linha_tabela"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "coluna_tabela": {
+      "type": "object",
+      "title": "Coluna de Tabela",
+      "description": "Definição de uma coluna exibida em uma tabela do dashboard.",
+      "required": [
+        "chave",
+        "rotulo",
+        "tipo",
+        "ordenavel"
+      ],
+      "properties": {
+        "chave": {
+          "type": "string",
+          "title": "Chave",
+          "description": "Identificador da coluna.",
+          "minLength": 1
+        },
+        "rotulo": {
+          "type": "string",
+          "title": "Rótulo",
+          "description": "Texto exibido como cabeçalho da coluna.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo semântico da coluna, como texto, número, status, data ou ação.",
+          "enum": [
+            "texto",
+            "numero",
+            "status",
+            "data",
+            "acao",
+            "tag",
+            "moeda",
+            "percentual"
+          ]
+        },
+        "ordenavel": {
+          "type": "boolean",
+          "title": "Ordenável",
+          "description": "Indica se a coluna pode ser ordenada.",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "linha_tabela": {
+      "type": "object",
+      "title": "Linha de Tabela",
+      "description": "Registro individual exibido em uma tabela do dashboard.",
+      "required": [
+        "campos"
+      ],
+      "properties": {
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Lista dos valores da linha associados a colunas semânticas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_linha_tabela"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "campo_linha_tabela": {
+      "type": "object",
+      "title": "Campo da Linha",
+      "description": "Par coluna-valor usado para representar uma célula dentro de uma linha de tabela.",
+      "required": [
+        "coluna",
+        "valor"
+      ],
+      "properties": {
+        "coluna": {
+          "type": "string",
+          "title": "Coluna",
+          "description": "Chave ou nome da coluna a que o valor pertence.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Conteúdo textual ou serializado da célula.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "feature_flag": {
+      "type": "object",
+      "title": "Feature Flag",
+      "description": "Registro de uma flag de recurso exibida na área de features.",
+      "required": [
+        "nome",
+        "status",
+        "impacto",
+        "descricao"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome da feature flag.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Estado atual da flag.",
+          "enum": [
+            "ativa",
+            "inativa",
+            "piloto",
+            "restrita"
+          ]
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado ao ativar ou desativar a flag.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição curta da funcionalidade controlada.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "evento_auditoria": {
+      "type": "object",
+      "title": "Evento de Auditoria",
+      "description": "Evento rastreável exibido em formato de timeline ou tabela.",
+      "required": [
+        "momento",
+        "ator",
+        "evento",
+        "resultado",
+        "nivel"
+      ],
+      "properties": {
+        "momento": {
+          "type": "string",
+          "title": "Momento",
+          "description": "Momento ou timestamp legível do evento.",
+          "minLength": 1
+        },
+        "ator": {
+          "type": "string",
+          "title": "Ator",
+          "description": "Quem executou a ação auditada.",
+          "minLength": 1
+        },
+        "evento": {
+          "type": "string",
+          "title": "Evento",
+          "description": "Descrição do evento auditável.",
+          "minLength": 1
+        },
+        "resultado": {
+          "type": "string",
+          "title": "Resultado",
+          "description": "Resultado ou consequência do evento.",
+          "minLength": 1
+        },
+        "nivel": {
+          "type": "string",
+          "title": "Nível",
+          "description": "Nível de criticidade ou importância do evento.",
+          "enum": [
+            "informativo",
+            "aviso",
+            "critico"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "template_card": {
+      "type": "object",
+      "title": "Card de Template",
+      "description": "Card visual representando um template, modelo ou padrão reutilizável.",
+      "required": [
+        "titulo",
+        "descricao",
+        "categoria",
+        "status"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do template.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do template e do uso esperado.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do template, como onboarding, billing, auditoria, IA ou configuração.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Estado de disponibilidade do template.",
+          "enum": [
+            "disponivel",
+            "rascunho",
+            "experimental",
+            "obsoleto"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "template_version": {
+      "type": "object",
+      "title": "Versão de Template",
+      "description": "Versão, revisão ou variação de um template.",
+      "required": [
+        "versao",
+        "descricao",
+        "ativo"
+      ],
+      "properties": {
+        "versao": {
+          "type": "string",
+          "title": "Versão",
+          "description": "Identificador da versão do template.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição das mudanças ou do propósito da versão.",
+          "minLength": 1
+        },
+        "ativo": {
+          "type": "boolean",
+          "title": "Ativo",
+          "description": "Indica se a versão está em uso atualmente.",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "ia_case": {
+      "type": "object",
+      "title": "Caso de Uso de IA",
+      "description": "Caso de uso ou aplicação de IA representado no dashboard.",
+      "required": [
+        "titulo",
+        "objetivo",
+        "valor",
+        "nivel_de_risco"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do caso de uso de IA.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo prático do caso de uso.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor esperado para operação ou usuário.",
+          "minLength": 1
+        },
+        "nivel_de_risco": {
+          "type": "string",
+          "title": "Nível de Risco",
+          "description": "Risco operacional ou de governança associado.",
+          "enum": [
+            "baixo",
+            "medio",
+            "alto"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "guardrail_ia": {
+      "type": "object",
+      "title": "Guardrail de IA",
+      "description": "Controle de segurança, revisão ou limite para o uso de IA.",
+      "required": [
+        "controle",
+        "motivo",
+        "estado"
+      ],
+      "properties": {
+        "controle": {
+          "type": "string",
+          "title": "Controle",
+          "description": "Nome ou descrição do controle.",
+          "minLength": 1
+        },
+        "motivo": {
+          "type": "string",
+          "title": "Motivo",
+          "description": "Justificativa para a existência do guardrail.",
+          "minLength": 1
+        },
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Estado de aplicação do guardrail.",
+          "enum": [
+            "obrigatorio",
+            "recomendado",
+            "opcional"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "grupo_configuracao": {
+      "type": "object",
+      "title": "Grupo de Configuração",
+      "description": "Agrupamento de configurações por domínio funcional.",
+      "required": [
+        "titulo",
+        "descricao",
+        "itens"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título do grupo de configuração.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do escopo do grupo.",
+          "minLength": 1
+        },
+        "itens": {
+          "type": "array",
+          "title": "Itens",
+          "description": "Itens contidos no grupo de configuração.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/secao_configuracao"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "secao_configuracao": {
+      "type": "object",
+      "title": "Seção de Configuração",
+      "description": "Seção individual dentro da área de configurações.",
+      "required": [
+        "titulo",
+        "descricao",
+        "campos"
+      ],
+      "properties": {
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Título da subseção de configuração.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição da finalidade da subseção.",
+          "minLength": 1
+        },
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Campos ou controles visíveis na subseção.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/campo_formulario"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fatura_item": {
+      "type": "object",
+      "title": "Fatura",
+      "description": "Linha de fatura ou documento financeiro exibido na visão de billing.",
+      "required": [
+        "identificador",
+        "periodo",
+        "valor",
+        "status"
+      ],
+      "properties": {
+        "identificador": {
+          "type": "string",
+          "title": "Identificador",
+          "description": "ID ou referência da fatura.",
+          "minLength": 1
+        },
+        "periodo": {
+          "type": "string",
+          "title": "Período",
+          "description": "Período de cobrança ou referência temporal.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor monetário da fatura.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status financeiro da fatura.",
+          "enum": [
+            "paga",
+            "aberta",
+            "vencida",
+            "cancelada"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "consumo_item": {
+      "type": "object",
+      "title": "Consumo",
+      "description": "Indicador de consumo por tenant, plano ou recurso.",
+      "required": [
+        "recurso",
+        "uso",
+        "limite",
+        "status"
+      ],
+      "properties": {
+        "recurso": {
+          "type": "string",
+          "title": "Recurso",
+          "description": "Recurso medido no consumo.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Quantidade usada ou percentagem consumida.",
+          "minLength": 1
+        },
+        "limite": {
+          "type": "string",
+          "title": "Limite",
+          "description": "Limite contratado ou configurado.",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status do consumo frente ao limite.",
+          "enum": [
+            "normal",
+            "alerta",
+            "excedido"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_rule": {
+      "type": "object",
+      "title": "Regra de Validação",
+      "description": "Regra individual da validation engine.",
+      "required": [
+        "nome",
+        "descricao",
+        "severidade",
+        "estado"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome da regra de validação.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição do que a regra verifica.",
+          "minLength": 1
+        },
+        "severidade": {
+          "type": "string",
+          "title": "Severidade",
+          "description": "Severidade da regra quando falha.",
+          "enum": [
+            "baixa",
+            "media",
+            "alta",
+            "critica"
+          ]
+        },
+        "estado": {
+          "type": "string",
+          "title": "Estado",
+          "description": "Estado atual da regra.",
+          "enum": [
+            "ativa",
+            "pausada",
+            "em_erro",
+            "ok"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "validation_result": {
+      "type": "object",
+      "title": "Resultado de Validação",
+      "description": "Resultado produzido pela engine de validação.",
+      "required": [
+        "regra",
+        "resultado",
+        "detalhe",
+        "acao_recomendada"
+      ],
+      "properties": {
+        "regra": {
+          "type": "string",
+          "title": "Regra",
+          "description": "Nome da regra validada.",
+          "minLength": 1
+        },
+        "resultado": {
+          "type": "string",
+          "title": "Resultado",
+          "description": "Resultado da validação.",
+          "enum": [
+            "aprovado",
+            "reprovado",
+            "atencao",
+            "pendente"
+          ]
+        },
+        "detalhe": {
+          "type": "string",
+          "title": "Detalhe",
+          "description": "Detalhe resumido do resultado.",
+          "minLength": 1
+        },
+        "acao_recomendada": {
+          "type": "string",
+          "title": "Ação Recomendada",
+          "description": "Próxima ação recomendada com base no resultado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "estado_interface": {
+      "type": "object",
+      "title": "Estado de Interface",
+      "description": "Estado visual ou funcional da interface, como vazio, carregando, erro, sucesso ou bloqueado.",
+      "required": [
+        "nome",
+        "objetivo",
+        "mensagem",
+        "acao_principal",
+        "representacao_visual"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome do estado de interface.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "O que esse estado precisa comunicar.",
+          "minLength": 1
+        },
+        "mensagem": {
+          "type": "string",
+          "title": "Mensagem",
+          "description": "Mensagem exibida ao usuário no estado.",
+          "minLength": 1
+        },
+        "acao_principal": {
+          "type": "string",
+          "title": "Ação Principal",
+          "description": "Ação primária sugerida para sair ou avançar do estado.",
+          "minLength": 1
+        },
+        "representacao_visual": {
+          "type": "string",
+          "title": "Representação Visual",
+          "description": "Descrição da aparência visual do estado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "breakpoint_item": {
+      "type": "object",
+      "title": "Breakpoint",
+      "description": "Ponto de quebra responsivo usado no dashboard.",
+      "required": [
+        "nome",
+        "valor",
+        "uso"
+      ],
+      "properties": {
+        "nome": {
+          "type": "string",
+          "title": "Nome",
+          "description": "Nome simbólico do breakpoint.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor CSS ou medida do breakpoint.",
+          "minLength": 1
+        },
+        "uso": {
+          "type": "string",
+          "title": "Uso",
+          "description": "Contexto de aplicação do breakpoint.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

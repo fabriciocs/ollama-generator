@@ -1,0 +1,330 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Estrutura Final da Saída da Etapa 0.1",
+  "description": "Define a estrutura JSON que representa a criação bem-sucedida de todos os assets de identidade visual do produto, incluindo logos, favicons, ícones para plataformas (Android, iOS, PWA), imagens para redes sociais, splash screens e a documentação da marca. Esta estrutura é uma representação do sistema de arquivos gerado.",
+  "required": ["status", "assets_directory"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "title": "Status da Operação",
+      "description": "Indica o sucesso ou falha do processo de geração dos assets de identidade visual.",
+      "enum": ["success", "failed"],
+      "examples": ["success"]
+    },
+    "message": {
+      "type": "string",
+      "title": "Mensagem de Status",
+      "description": "Mensagem descritiva adicional sobre o processo de geração, como em casos de erro ou sucesso parcial.",
+      "examples": ["Todos os assets da marca foram gerados com sucesso."]
+    },
+    "assets_directory": {
+      "type": "string",
+      "title": "Diretório de Assets",
+      "description": "Caminho do diretório raiz onde todos os assets de identidade visual (logos, ícones, etc.) foram salvos.",
+      "pattern": "^IMG/$",
+      "examples": ["IMG/"]
+    },
+    "brand_guidelines_file": {
+      "type": "string",
+      "title": "Arquivo de Diretrizes da Marca",
+      "description": "Caminho e nome do arquivo de documentação das diretrizes da marca, gerado a partir do conteúdo do prompt.",
+      "pattern": "^IMG/brand-guidelines\\.md$",
+      "examples": ["IMG/brand-guidelines.md"]
+    },
+    "logos": {
+      "type": "object",
+      "title": "Logos Vetoriais (SVG)",
+      "description": "Agrupa todas as variações da logo principal em formato vetorial (SVG).",
+      "required": ["logo_principal", "logo_horizontal", "logo_vertical", "logo_simbolo", "logo_monocromatica", "logo_negativa"],
+      "properties": {
+        "logo_principal": {
+          "type": "string",
+          "title": "Logo Principal",
+          "description": "Caminho do arquivo da logo principal, combinando símbolo e nome.",
+          "pattern": "^IMG/logo\\.svg$",
+          "examples": ["IMG/logo.svg"]
+        },
+        "logo_horizontal": {
+          "type": "string",
+          "title": "Logo Horizontal",
+          "description": "Caminho do arquivo da logo horizontal, com símbolo à esquerda e texto à direita.",
+          "pattern": "^IMG/logo-horizontal\\.svg$",
+          "examples": ["IMG/logo-horizontal.svg"]
+        },
+        "logo_vertical": {
+          "type": "string",
+          "title": "Logo Vertical",
+          "description": "Caminho do arquivo da logo vertical, com símbolo acima e texto abaixo.",
+          "pattern": "^IMG/logo-vertical\\.svg$",
+          "examples": ["IMG/logo-vertical.svg"]
+        },
+        "logo_simbolo": {
+          "type": "string",
+          "title": "Símbolo da Marca (Logo Simplificada)",
+          "description": "Caminho do arquivo contendo apenas o símbolo (ícone) da marca, sem o texto.",
+          "pattern": "^IMG/logo-symbol\\.svg$",
+          "examples": ["IMG/logo-symbol.svg"]
+        },
+        "logo_monocromatica": {
+          "type": "string",
+          "title": "Logo Monocromática",
+          "description": "Caminho do arquivo da logo em versão monocromática (preto).",
+          "pattern": "^IMG/logo-monochrome\\.svg$",
+          "examples": ["IMG/logo-monochrome.svg"]
+        },
+        "logo_negativa": {
+          "type": "string",
+          "title": "Logo Negativa",
+          "description": "Caminho do arquivo da logo em versão negativa (branco).",
+          "pattern": "^IMG/logo-negative\\.svg$",
+          "examples": ["IMG/logo-negative.svg"]
+        }
+      }
+    },
+    "favicons": {
+      "type": "object",
+      "title": "Favicons",
+      "description": "Agrupa os favicons em diferentes formatos e resoluções para uso geral no navegador.",
+      "required": ["favicon_ico", "favicon_svg", "favicon_pngs"],
+      "properties": {
+        "favicon_ico": {
+          "type": "string",
+          "title": "Favicon .ICO",
+          "description": "Caminho do arquivo de favicon no formato .ico.",
+          "pattern": "^IMG/favicon\\.ico$",
+          "examples": ["IMG/favicon.ico"]
+        },
+        "favicon_svg": {
+          "type": "string",
+          "title": "Favicon .SVG",
+          "description": "Caminho do arquivo de favicon no formato .svg.",
+          "pattern": "^IMG/favicon\\.svg$",
+          "examples": ["IMG/favicon.svg"]
+        },
+        "favicon_pngs": {
+          "type": "object",
+          "title": "Favicons PNG por Tamanho",
+          "description": "Mapeia tamanhos de favicon PNG para seus respectivos caminhos de arquivo.",
+          "patternProperties": {
+            "^\\d+$": {
+              "type": "string",
+              "title": "Favicon PNG de {tamanho}px",
+              "description": "Caminho do arquivo de favicon PNG com resolução de {tamanho}x{tamanho} pixels.",
+              "pattern": "^IMG/favicon-\\d+\\.png$"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false,
+          "examples": [
+            {
+              "16": "IMG/favicon-16.png",
+              "32": "IMG/favicon-32.png",
+              "48": "IMG/favicon-48.png",
+              "64": "IMG/favicon-64.png"
+            }
+          ]
+        }
+      }
+    },
+    "android_assets": {
+      "type": "object",
+      "title": "Assets para Android",
+      "description": "Agrupa ícones e assets específicos para a plataforma Android.",
+      "required": ["icons", "adaptive"],
+      "properties": {
+        "icons": {
+          "type": "object",
+          "title": "Ícones Android (PNG)",
+          "description": "Mapeia os tamanhos de ícones Android para seus respectivos caminhos.",
+          "patternProperties": {
+            "^\\d+$": {
+              "type": "string",
+              "title": "Ícone Android de {tamanho}px",
+              "description": "Caminho do arquivo de ícone para Android com resolução de {tamanho}x{tamanho} pixels.",
+              "pattern": "^IMG/android/android-icon-\\d+\\.png$"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false,
+          "examples": [
+            {
+              "36": "IMG/android/android-icon-36.png",
+              "48": "IMG/android/android-icon-48.png",
+              "72": "IMG/android/android-icon-72.png",
+              "96": "IMG/android/android-icon-96.png",
+              "144": "IMG/android/android-icon-144.png",
+              "192": "IMG/android/android-icon-192.png",
+              "512": "IMG/android/android-icon-512.png"
+            }
+          ]
+        },
+        "adaptive": {
+          "type": "object",
+          "title": "Ícones Adaptáveis Android",
+          "description": "Agrupa os componentes (foreground, background, monochrome) para o ícone adaptável do Android.",
+          "required": ["foreground", "background", "monochrome"],
+          "properties": {
+            "foreground": {
+              "type": "string",
+              "title": "Foreground do Ícone Adaptável",
+              "description": "Caminho do arquivo PNG contendo o foreground do ícone adaptável.",
+              "pattern": "^IMG/adaptive/adaptive-foreground\\.png$",
+              "examples": ["IMG/adaptive/adaptive-foreground.png"]
+            },
+            "background": {
+              "type": "string",
+              "title": "Background do Ícone Adaptável",
+              "description": "Caminho do arquivo PNG contendo o background do ícone adaptável.",
+              "pattern": "^IMG/adaptive/adaptive-background\\.png$",
+              "examples": ["IMG/adaptive/adaptive-background.png"]
+            },
+            "monochrome": {
+              "type": "string",
+              "title": "Monocromático do Ícone Adaptável",
+              "description": "Caminho do arquivo PNG contendo a versão monocromática do ícone adaptável.",
+              "pattern": "^IMG/adaptive/adaptive-monochrome\\.png$",
+              "examples": ["IMG/adaptive/adaptive-monochrome.png"]
+            }
+          }
+        }
+      }
+    },
+    "ios_assets": {
+      "type": "object",
+      "title": "Assets para iOS",
+      "description": "Mapeia os tamanhos de ícones para a plataforma iOS para seus respectivos caminhos.",
+      "patternProperties": {
+        "^\\d+$": {
+          "type": "string",
+          "title": "Ícone iOS de {tamanho}px",
+          "description": "Caminho do arquivo de ícone para iOS com resolução de {tamanho}x{tamanho} pixels.",
+          "pattern": "^IMG/ios/ios-icon-\\d+\\.png$"
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false,
+      "examples": [
+        {
+          "20": "IMG/ios/ios-icon-20.png",
+          "29": "IMG/ios/ios-icon-29.png",
+          "40": "IMG/ios/ios-icon-40.png",
+          "58": "IMG/ios/ios-icon-58.png",
+          "60": "IMG/ios/ios-icon-60.png",
+          "76": "IMG/ios/ios-icon-76.png",
+          "80": "IMG/ios/ios-icon-80.png",
+          "120": "IMG/ios/ios-icon-120.png",
+          "152": "IMG/ios/ios-icon-152.png",
+          "167": "IMG/ios/ios-icon-167.png",
+          "180": "IMG/ios/ios-icon-180.png",
+          "1024": "IMG/ios/ios-icon-1024.png"
+        }
+      ]
+    },
+    "pwa_assets": {
+      "type": "object",
+      "title": "Assets para PWA (Progressive Web App)",
+      "description": "Agrupa os ícones específicos para uma aplicação PWA.",
+      "required": ["pwa_192", "pwa_512", "maskable_icon"],
+      "properties": {
+        "pwa_192": {
+          "type": "string",
+          "title": "Ícone PWA 192x192",
+          "description": "Caminho do arquivo PNG do ícone PWA com resolução 192x192.",
+          "pattern": "^IMG/pwa/pwa-192\\.png$",
+          "examples": ["IMG/pwa/pwa-192.png"]
+        },
+        "pwa_512": {
+          "type": "string",
+          "title": "Ícone PWA 512x512",
+          "description": "Caminho do arquivo PNG do ícone PWA com resolução 512x512.",
+          "pattern": "^IMG/pwa/pwa-512\\.png$",
+          "examples": ["IMG/pwa/pwa-512.png"]
+        },
+        "maskable_icon": {
+          "type": "string",
+          "title": "Ícone Maskable",
+          "description": "Caminho do arquivo PNG do ícone maskable para PWA.",
+          "pattern": "^IMG/pwa/maskable-icon\\.png$",
+          "examples": ["IMG/pwa/maskable-icon.png"]
+        }
+      }
+    },
+    "social_assets": {
+      "type": "object",
+      "title": "Assets para Mídias Sociais",
+      "description": "Agrupa imagens para compartilhamento e branding em redes sociais.",
+      "required": ["og_image", "twitter_card", "linkedin_banner"],
+      "properties": {
+        "og_image": {
+          "type": "string",
+          "title": "OpenGraph Image",
+          "description": "Caminho do arquivo de imagem usado para compartilhamento em plataformas Open Graph (Facebook, etc.).",
+          "pattern": "^IMG/social/og-image\\.png$",
+          "examples": ["IMG/social/og-image.png"]
+        },
+        "twitter_card": {
+          "type": "string",
+          "title": "Twitter Card Image",
+          "description": "Caminho do arquivo de imagem usado para compartilhamento no Twitter.",
+          "pattern": "^IMG/social/twitter-card\\.png$",
+          "examples": ["IMG/social/twitter-card.png"]
+        },
+        "linkedin_banner": {
+          "type": "string",
+          "title": "LinkedIn Banner",
+          "description": "Caminho do arquivo de imagem do banner para a página da empresa no LinkedIn.",
+          "pattern": "^IMG/social/linkedin-banner\\.png$",
+          "examples": ["IMG/social/linkedin-banner.png"]
+        }
+      }
+    },
+    "splash_screens": {
+      "type": "object",
+      "title": "Telas de Splash",
+      "description": "Agrupa as imagens de splash screen para os diferentes temas.",
+      "required": ["splash_light", "splash_dark"],
+      "properties": {
+        "splash_light": {
+          "type": "string",
+          "title": "Splash Screen (Tema Claro)",
+          "description": "Caminho do arquivo de imagem da splash screen para o tema claro.",
+          "pattern": "^IMG/splash/splash-light\\.png$",
+          "examples": ["IMG/splash/splash-light.png"]
+        },
+        "splash_dark": {
+          "type": "string",
+          "title": "Splash Screen (Tema Escuro)",
+          "description": "Caminho do arquivo de imagem da splash screen para o tema escuro.",
+          "pattern": "^IMG/splash/splash-dark\\.png$",
+          "examples": ["IMG/splash/splash-dark.png"]
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "title": "Erros de Geração",
+      "description": "Lista de erros ou avisos que ocorreram durante o processo de geração dos assets, caso o status seja 'failed'.",
+      "items": {
+        "type": "object",
+        "required": ["asset_type", "error_message"],
+        "properties": {
+          "asset_type": {
+            "type": "string",
+            "title": "Tipo de Asset",
+            "description": "Identifica o tipo de asset que falhou (ex: 'logo_principal', 'android_icons').",
+            "examples": ["favicon_ico", "ios_icons", "og_image"]
+          },
+          "error_message": {
+            "type": "string",
+            "title": "Mensagem de Erro",
+            "description": "Descrição detalhada do erro que ocorreu durante a geração do asset.",
+            "examples": ["Falha ao gerar arquivo favicon.ico: formato inválido."]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

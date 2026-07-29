@@ -1,50 +1,52 @@
-Você é um especialista em:
+You are a specialist in:
 
-* Engenharia de Requisitos
-* Arquitetura de Software
-* Análise Documental
+* Requirements Engineering
+* Software Architecture
+* Document Analysis
 * Product Design
 * UX/UI
-* Modelagem JSON
-* Sistemas SaaS
-* Dashboards HTML
-* Estruturação Semântica
-* Arquitetura da Informação
+* JSON Modeling
+* SaaS Systems
+* HTML Dashboards
+* Semantic Structure
+* Information Architecture
 
-Sua missão é analisar todos os arquivos `.html` e `.md` disponíveis e gerar o artefato final da etapa:
+Your mission is to analyze all available `.html` and `.md` files and generate the final artifact for this stage:
 
 ```text
 13.json
 ```
 
----
-
-# Objetivo
-
-Consolidar toda a documentação produzida nas etapas anteriores em uma única estrutura JSON navegável, completa e hierárquica.
-
-O arquivo `13.json` será a representação canônica do sistema e servirá como fonte para:
-
-* geração automática de dashboards;
-* geração automática de menus;
-* geração automática de rotas;
-* geração automática de documentação;
-* geração automática de frontend React;
-* geração automática de navegação;
-* geração automática de busca semântica;
-* geração automática de RAG e IA.
+Mandatory product context: the canonical tree must represent a super-admin platform with, at minimum, the domains Dashboard, Tenant Context/Selection, Tenants, Plans, Billing, Feature Management, Roles and Permissions, Audit, Templates, AI, Global Settings, and Validation Engine, including login, active scope, and administration navigation.
 
 ---
 
-# Arquivos de Entrada
+# Goal
 
-Analisar integralmente:
+Consolidate all documentation produced in the previous stages into a single navigable, complete, hierarchical JSON structure.
+
+The file `13.json` will be the canonical representation of the system and will serve as the source for:
+
+* automatic dashboard generation;
+* automatic menu generation;
+* automatic route generation;
+* automatic documentation generation;
+* automatic React frontend generation;
+* automatic navigation generation;
+* automatic semantic search generation;
+* automatic RAG and AI generation;
+
+---
+
+# Input Files
+
+Analyze in full:
 
 ```text
 0-estetica-inicial.md
 
 1.html
-1.1.html (se existir)
+1.1.html (if it exists)
 1.2.html
 
 2.html
@@ -71,101 +73,101 @@ Analisar integralmente:
 12.html
 ```
 
-Além de:
+In addition to:
 
 ```text
-Histórico da conversa
+Conversation history
 
-Arquivos anexados
+Attached files
 
-Documentações complementares
+Complementary documentation
 
-Respostas anteriores
+Previous responses
 ```
 
 ---
 
-# Processo Obrigatório
+# Mandatory Process
 
-## 1. Identificação da Estrutura
+## 1. Identify the Structure
 
-Identificar e catalogar:
+Identify and catalog:
 
 ```text
 Dashboard
 
-Domínio
+Domain
 
-Módulo
+Module
 
-Funcionalidade
+Feature
 
-Tela
+Screen
 
-Seção
+Section
 
-Subseção
+Subsection
 
-Componente
+Component
 
-Tabela
+Table
 
-Fluxo
+Flow
 
-Regra de Negócio
+Business Rule
 
-Permissão
+Permission
 
-Evento
+Event
 
-Ação
+Action
 
 Endpoint
 
-Integração
+Integration
 
-Entidade
+Entity
 
-Relatório
+Report
 
-Dashboard Analítico
+Analytical Dashboard
 ```
 
 ---
 
-## 2. Extração Completa
+## 2. Full Extraction
 
-Extrair integralmente:
+Extract in full:
 
-* títulos;
-* descrições;
-* objetivos;
-* conteúdo;
-* regras;
-* observações;
-* especificações;
-* definições;
-* relacionamentos.
+* titles;
+* descriptions;
+* objectives;
+* content;
+* rules;
+* notes;
+* specifications;
+* definitions;
+* relationships.
 
-Não resumir.
+Do not summarize.
 
-Não simplificar.
+Do not simplify.
 
-Não omitir.
-
----
-
-## 3. Reconstrução Hierárquica
-
-Reconstruir toda a árvore do sistema.
-
-A estrutura deve respeitar exatamente a hierarquia encontrada na documentação.
+Do not omit.
 
 ---
 
-# Regras Obrigatórias
+## 3. Hierarchical Reconstruction
 
-Cada item encontrado deve possuir:
+Rebuild the entire system tree.
+
+The structure must exactly respect the hierarchy found in the documentation.
+
+---
+
+# Mandatory Rules
+
+Each found item must have:
 
 ```json
 {
@@ -180,9 +182,9 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Estrutura Obrigatória do Arquivo
+# Required File Structure
 
-## Raiz
+## Root
 
 ```json
 {
@@ -204,7 +206,7 @@ Cada item encontrado deve possuir:
   "metadata": {
     "arquivo": "13.json",
     "versao": "1.0",
-    "origem": "Analise dos arquivos HTML e Markdown",
+    "origem": "Analysis of HTML and Markdown files",
     "geradoEm": "",
     "totalDominios": 0,
     "totalModulos": 0,
@@ -231,7 +233,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Domínio
+# Domain
 
 ```json
 {
@@ -247,7 +249,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Módulo
+# Module
 
 ```json
 {
@@ -263,7 +265,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Funcionalidade
+# Feature
 
 ```json
 {
@@ -279,7 +281,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Tela
+# Screen
 
 ```json
 {
@@ -296,7 +298,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Seção
+# Section
 
 ```json
 {
@@ -312,7 +314,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Subseção
+# Subsection
 
 ```json
 {
@@ -327,7 +329,7 @@ Cada item encontrado deve possuir:
 
 ---
 
-# Componentes
+# Components
 
 ```json
 {
@@ -344,7 +346,7 @@ Cada item encontrado deve possuir:
 
 # Menus
 
-Gerar automaticamente a árvore de navegação completa.
+Automatically generate the complete navigation tree.
 
 ```json
 {
@@ -362,9 +364,9 @@ Gerar automaticamente a árvore de navegação completa.
 
 ---
 
-# Rotas
+# Routes
 
-Gerar automaticamente todas as rotas identificadas.
+Automatically generate every identified route.
 
 ```json
 {
@@ -381,9 +383,9 @@ Gerar automaticamente todas as rotas identificadas.
 
 ---
 
-# Catálogo Global
+# Global Catalog
 
-Gerar catálogo consolidado.
+Generate a consolidated catalog.
 
 ```json
 {
@@ -403,9 +405,9 @@ Gerar catálogo consolidado.
 
 ---
 
-# Conteúdo
+# Content
 
-Para cada elemento encontrado armazenar:
+For each found element, store:
 
 ```json
 {
@@ -415,54 +417,54 @@ Para cada elemento encontrado armazenar:
 }
 ```
 
-O campo `conteudo` deve conter o texto completo extraído da documentação.
+The `conteudo` field must contain the full text extracted from the documentation.
 
 ---
 
-# Preservação de Informação
+# Information Preservation
 
-Nenhuma informação pode ser descartada.
+No information may be discarded.
 
-Nenhuma seção pode ser removida.
+No section may be removed.
 
-Nenhuma regra de negócio pode ser resumida.
+No business rule may be summarized.
 
-Nenhuma funcionalidade pode ser omitida.
+No feature may be omitted.
 
-Todo conteúdo encontrado deve existir dentro do `13.json`.
+Every found item must exist inside `13.json`.
 
 ---
 
-# Resultado Final
+# Final Result
 
-Gerar exclusivamente:
+Generate only:
 
 ```text
 13.json
 ```
 
-contendo:
+containing:
 
-* dashboard completo;
-* estrutura hierárquica completa;
+* complete dashboard;
+* complete hierarchical structure;
 * menus;
 * submenus;
-* domínios;
-* módulos;
-* funcionalidades;
-* telas;
-* seções;
-* subseções;
-* componentes;
-* regras;
-* entidades;
-* eventos;
-* ações;
+* domains;
+* modules;
+* features;
+* screens;
+* sections;
+* subsections;
+* components;
+* rules;
+* entities;
+* events;
+* actions;
 * endpoints;
-* integrações;
-* relatórios;
-* objetivos;
-* conteúdo integral;
-* catálogo global.
+* integrations;
+* reports;
+* objectives;
+* full content;
+* global catalog.
 
-O arquivo `13.json` deve representar 100% da estrutura funcional e documental encontrada nos arquivos analisados.
+The file `13.json` must represent 100% of the functional and documentary structure found in the analyzed files.

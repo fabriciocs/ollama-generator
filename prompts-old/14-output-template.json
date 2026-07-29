@@ -1,0 +1,1722 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saída da Etapa 14 - Workflow Stitch do Superadministrador",
+  "description": "Schema JSON que representa semanticamente a saída final esperada pela Etapa 14. O artefato deve descrever o workflow completo de construção, expansão e manutenção do projeto Stitch, incluindo contexto do produto, regras gerais, fases operacionais e os principais arquivos gerados ao longo do processo.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "contexto_do_produto",
+    "regras_gerais",
+    "processo_execucao",
+    "artefatos_gerados",
+    "criterios_de_conclusao",
+    "exportacao_final"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Número da Etapa",
+      "description": "Identificador numérico da etapa inferido automaticamente a partir do prompt de entrada. Para este schema, o valor deve ser 14.",
+      "const": 14
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como referência oficial para esta etapa.",
+      "const": "14-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saída",
+      "description": "Nome do arquivo JSON final produzido por esta etapa.",
+      "const": "14-output-template.json"
+    },
+    "contexto_do_produto": {
+      "$ref": "#/$defs/contexto_do_produto"
+    },
+    "regras_gerais": {
+      "type": "array",
+      "title": "Regras Gerais",
+      "description": "Conjunto de regras universais que orientam todo o workflow de geração no Stitch.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/regra_item"
+      }
+    },
+    "processo_execucao": {
+      "$ref": "#/$defs/processo_execucao"
+    },
+    "artefatos_gerados": {
+      "$ref": "#/$defs/artefatos_gerados"
+    },
+    "criterios_de_conclusao": {
+      "type": "array",
+      "title": "Critérios de Conclusão",
+      "description": "Conjunto de condições que determinam quando o workflow pode ser considerado concluído.",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "title": "Critério",
+        "description": "Uma condição de conclusão do workflow.",
+        "minLength": 1
+      }
+    },
+    "exportacao_final": {
+      "$ref": "#/$defs/exportacao_final"
+    }
+  },
+  "$defs": {
+    "arquivo_item": {
+      "type": "object",
+      "title": "Arquivo",
+      "description": "Referência para um arquivo de entrada, saída ou entrega gerada pelo workflow.",
+      "required": [
+        "caminho",
+        "papel",
+        "descricao"
+      ],
+      "properties": {
+        "caminho": {
+          "type": "string",
+          "title": "Caminho",
+          "description": "Caminho relativo ou absoluto do arquivo referido.",
+          "minLength": 1
+        },
+        "papel": {
+          "type": "string",
+          "title": "Papel",
+          "description": "Função do arquivo dentro do workflow, como entrada, saída, entrega ou referência.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Descrição semântica do que o arquivo representa ou armazena.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "regra_item": {
+      "type": "object",
+      "title": "Regra",
+      "description": "Regra operacional ou de produto que deve ser respeitada durante a execução do workflow.",
+      "required": [
+        "numero",
+        "titulo",
+        "descricao"
+      ],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "title": "Número",
+          "description": "Posição ordinal da regra dentro da lista de regras gerais.",
+          "minimum": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Nome curto da regra.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descrição",
+          "description": "Texto completo da regra, explicando o que deve ser preservado ou evitado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "contexto_do_produto": {
+      "type": "object",
+      "title": "Contexto do Produto",
+      "description": "Resumo do produto e do escopo obrigatório que orienta o workflow do Stitch.",
+      "required": [
+        "plataforma",
+        "publico_alvo",
+        "escopo_obrigatorio",
+        "caracteristicas_chave",
+        "restricoes_de_consistencia"
+      ],
+      "properties": {
+        "plataforma": {
+          "type": "string",
+          "title": "Plataforma",
+          "description": "Descrição da plataforma que está sendo construída no Stitch.",
+          "const": "SaaS de superadministrador"
+        },
+        "publico_alvo": {
+          "type": "string",
+          "title": "Público-Alvo",
+          "description": "Público principal que consome a experiência do produto.",
+          "minLength": 1
+        },
+        "escopo_obrigatorio": {
+          "type": "array",
+          "title": "Escopo Obrigatório",
+          "description": "Lista dos domínios e capacidades que precisam estar presentes no projeto.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de Escopo",
+            "description": "Um domínio, módulo, capacidade ou área funcional obrigatória.",
+            "minLength": 1
+          }
+        },
+        "caracteristicas_chave": {
+          "type": "array",
+          "title": "Características-Chave",
+          "description": "Características de produto e UX que precisam orientar todas as decisões do workflow.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Característica",
+            "description": "Uma característica obrigatória do produto.",
+            "minLength": 1
+          }
+        },
+        "restricoes_de_consistencia": {
+          "type": "array",
+          "title": "Restrições de Consistência",
+          "description": "Restrições globais que evitam inconsistências visuais, de navegação e de nomenclatura.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Restrição",
+            "description": "Uma restrição que deve ser seguida durante a geração do projeto.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "processo_execucao": {
+      "type": "object",
+      "title": "Processo de Execução",
+      "description": "Sequência estruturada de fases que descrevem como o projeto Stitch deve ser construído, expandido e mantido.",
+      "required": [
+        "fase_1",
+        "fase_2",
+        "fase_3",
+        "fase_4",
+        "fase_5",
+        "fase_6",
+        "fase_7",
+        "fase_8",
+        "fase_9",
+        "fase_10",
+        "fase_11"
+      ],
+      "properties": {
+        "fase_1": {
+          "$ref": "#/$defs/fase_1_item"
+        },
+        "fase_2": {
+          "$ref": "#/$defs/fase_2_item"
+        },
+        "fase_3": {
+          "$ref": "#/$defs/fase_3_item"
+        },
+        "fase_4": {
+          "$ref": "#/$defs/fase_4_item"
+        },
+        "fase_5": {
+          "$ref": "#/$defs/fase_5_item"
+        },
+        "fase_6": {
+          "$ref": "#/$defs/fase_6_item"
+        },
+        "fase_7": {
+          "$ref": "#/$defs/fase_7_item"
+        },
+        "fase_8": {
+          "$ref": "#/$defs/fase_8_item"
+        },
+        "fase_9": {
+          "$ref": "#/$defs/fase_9_item"
+        },
+        "fase_10": {
+          "$ref": "#/$defs/fase_10_item"
+        },
+        "fase_11": {
+          "$ref": "#/$defs/fase_11_item"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fase_base": {
+      "type": "object",
+      "title": "Fase",
+      "description": "Estrutura base para representar uma fase do workflow do Stitch.",
+      "required": [
+        "numero",
+        "titulo",
+        "objetivo",
+        "arquivos_de_entrada",
+        "instrucoes",
+        "entregas",
+        "criterios_de_conclusao"
+      ],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "title": "Número da Fase",
+          "description": "Identificador ordinal da fase dentro do workflow.",
+          "minimum": 1,
+          "maximum": 11
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Título",
+          "description": "Nome curto da fase.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal da fase.",
+          "minLength": 1
+        },
+        "arquivos_de_entrada": {
+          "type": "array",
+          "title": "Arquivos de Entrada",
+          "description": "Arquivos que alimentam a fase.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/arquivo_item"
+          }
+        },
+        "instrucoes": {
+          "type": "array",
+          "title": "Instruções",
+          "description": "Instruções operacionais que guiam a execução da fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Instrução",
+            "description": "Uma instrução específica da fase.",
+            "minLength": 1
+          }
+        },
+        "entregas": {
+          "type": "array",
+          "title": "Entregas",
+          "description": "Arquivos ou artefatos esperados ao final da fase.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/arquivo_item"
+          }
+        },
+        "criterios_de_conclusao": {
+          "type": "array",
+          "title": "Critérios de Conclusão",
+          "description": "Condições específicas que determinam o encerramento correto da fase.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Um critério específico de conclusão.",
+            "minLength": 1
+          }
+        },
+        "detalhes": {
+          "type": "object",
+          "title": "Detalhes",
+          "description": "Informações adicionais específicas da fase, usadas para representar regras, lotes, estados ou mapeamentos relevantes.",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fase_1_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 1
+            },
+            "titulo": {
+              "const": "Descoberta Visual e Criação do Projeto"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 1",
+              "description": "Detalhes específicos da fase de descoberta visual e criação do projeto.",
+              "required": [
+                "objetivos_de_analise",
+                "artefatos_criados"
+              ],
+              "properties": {
+                "objetivos_de_analise": {
+                  "type": "array",
+                  "title": "Objetivos de Análise",
+                  "description": "Dimensões que precisam ser analisadas para estabelecer a direção visual e funcional do projeto.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Objetivo de Análise",
+                    "description": "Uma dimensão analítica da descoberta visual.",
+                    "minLength": 1
+                  }
+                },
+                "artefatos_criados": {
+                  "type": "array",
+                  "title": "Artefatos Criados",
+                  "description": "Arquivos obrigatórios produzidos ao final da fase.",
+                  "minItems": 2,
+                  "items": {
+                    "$ref": "#/$defs/arquivo_item"
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_2_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 2
+            },
+            "titulo": {
+              "const": "Extração de Funcionalidades"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 2",
+              "description": "Detalhes específicos da fase de extração e modelagem de funcionalidades.",
+              "required": [
+                "itens_de_extracao",
+                "modelagem_de_funcionalidade",
+                "telas_obrigatorias",
+                "padrao_de_arquivo"
+              ],
+              "properties": {
+                "itens_de_extracao": {
+                  "type": "array",
+                  "title": "Itens de Extração",
+                  "description": "Entidades e dimensões que devem ser extraídas dos arquivos de entrada.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Item de Extração",
+                    "description": "Uma entidade, fluxo, menu ou tela extraída.",
+                    "minLength": 1
+                  }
+                },
+                "modelagem_de_funcionalidade": {
+                  "type": "object",
+                  "title": "Modelagem de Funcionalidade",
+                  "description": "Estrutura usada para descrever cada funcionalidade identificada.",
+                  "required": [
+                    "objetivo",
+                    "entidades",
+                    "fluxos",
+                    "regras_de_negocio",
+                    "permissoes",
+                    "navegacao"
+                  ],
+                  "properties": {
+                    "objetivo": {
+                      "type": "string",
+                      "title": "Objetivo",
+                      "description": "Objetivo da funcionalidade.",
+                      "minLength": 1
+                    },
+                    "entidades": {
+                      "type": "array",
+                      "title": "Entidades",
+                      "description": "Entidades envolvidas na funcionalidade.",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "title": "Entidade",
+                        "description": "Uma entidade do domínio da funcionalidade.",
+                        "minLength": 1
+                      }
+                    },
+                    "fluxos": {
+                      "type": "array",
+                      "title": "Fluxos",
+                      "description": "Fluxos de uso da funcionalidade.",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "title": "Fluxo",
+                        "description": "Um fluxo funcional.",
+                        "minLength": 1
+                      }
+                    },
+                    "regras_de_negocio": {
+                      "type": "array",
+                      "title": "Regras de Negócio",
+                      "description": "Regras de negócio associadas à funcionalidade.",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "title": "Regra de Negócio",
+                        "description": "Uma regra de negócio.",
+                        "minLength": 1
+                      }
+                    },
+                    "permissoes": {
+                      "type": "array",
+                      "title": "Permissões",
+                      "description": "Permissões necessárias para acessar ou operar a funcionalidade.",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "title": "Permissão",
+                        "description": "Uma permissão funcional.",
+                        "minLength": 1
+                      }
+                    },
+                    "navegacao": {
+                      "type": "array",
+                      "title": "Navegação",
+                      "description": "Passos de navegação necessários para alcançar a funcionalidade.",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string",
+                        "title": "Item de Navegação",
+                        "description": "Uma etapa da navegação.",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "telas_obrigatorias": {
+                  "type": "object",
+                  "title": "Telas Obrigatórias",
+                  "description": "Tipos de telas que devem ser modelados quando a funcionalidade exigir interface específica.",
+                  "properties": {
+                    "listagem": {
+                      "$ref": "#/$defs/requisito_tela_item"
+                    },
+                    "inclusao": {
+                      "$ref": "#/$defs/requisito_tela_item"
+                    },
+                    "edicao": {
+                      "$ref": "#/$defs/requisito_tela_item"
+                    },
+                    "detalhes": {
+                      "$ref": "#/$defs/requisito_tela_item"
+                    },
+                    "exclusao": {
+                      "$ref": "#/$defs/requisito_tela_item"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "padrao_de_arquivo": {
+                  "type": "string",
+                  "title": "Padrão de Arquivo",
+                  "description": "Padrão de nomeação dos arquivos de funcionalidade gerados nesta fase.",
+                  "const": "./stitch/{numero-da-funcionalidade}-stitch.md"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "requisito_tela_item": {
+      "type": "object",
+      "title": "Requisito de Tela",
+      "description": "Conjunto de requisitos semânticos usados para descrever uma listagem, inclusão, edição, detalhes ou exclusão.",
+      "properties": {
+        "campos": {
+          "type": "array",
+          "title": "Campos",
+          "description": "Campos que precisam existir na tela.",
+          "items": {
+            "type": "string",
+            "title": "Campo",
+            "description": "Um campo da interface.",
+            "minLength": 1
+          }
+        },
+        "labels": {
+          "type": "array",
+          "title": "Labels",
+          "description": "Rótulos que precisam aparecer na tela.",
+          "items": {
+            "type": "string",
+            "title": "Label",
+            "description": "Um rótulo visual.",
+            "minLength": 1
+          }
+        },
+        "filtros": {
+          "type": "array",
+          "title": "Filtros",
+          "description": "Filtros que precisam existir na tela.",
+          "items": {
+            "type": "string",
+            "title": "Filtro",
+            "description": "Um filtro da interface.",
+            "minLength": 1
+          }
+        },
+        "ordenacoes": {
+          "type": "array",
+          "title": "Ordenações",
+          "description": "Ordenações suportadas pela tela.",
+          "items": {
+            "type": "string",
+            "title": "Ordenação",
+            "description": "Uma ordenação de dados.",
+            "minLength": 1
+          }
+        },
+        "acoes": {
+          "type": "array",
+          "title": "Ações",
+          "description": "Ações disponíveis na tela.",
+          "items": {
+            "type": "string",
+            "title": "Ação",
+            "description": "Uma ação de interface.",
+            "minLength": 1
+          }
+        },
+        "validacoes": {
+          "type": "array",
+          "title": "Validações",
+          "description": "Validações exigidas para os campos ou para o fluxo da tela.",
+          "items": {
+            "type": "string",
+            "title": "Validação",
+            "description": "Uma validação da interface.",
+            "minLength": 1
+          }
+        },
+        "impactos": {
+          "type": "array",
+          "title": "Impactos",
+          "description": "Impactos funcionais ou operacionais associados à tela.",
+          "items": {
+            "type": "string",
+            "title": "Impacto",
+            "description": "Um impacto da operação da tela.",
+            "minLength": 1
+          }
+        },
+        "dependencias": {
+          "type": "array",
+          "title": "Dependências",
+          "description": "Dependências que precisam existir para a tela funcionar corretamente.",
+          "items": {
+            "type": "string",
+            "title": "Dependência",
+            "description": "Uma dependência da tela.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fase_3_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 3
+            },
+            "titulo": {
+              "const": "Geração Incremental das Telas"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 3",
+              "description": "Detalhes específicos da fase de geração incremental das telas.",
+              "required": [
+                "escopo_de_execucao",
+                "telas_descobertas"
+              ],
+              "properties": {
+                "escopo_de_execucao": {
+                  "type": "array",
+                  "title": "Escopo de Execução",
+                  "description": "Regras que limitam a execução a apenas um arquivo por vez e ao contexto atual.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Regra",
+                    "description": "Uma regra de execução da fase.",
+                    "minLength": 1
+                  }
+                },
+                "telas_descobertas": {
+                  "type": "object",
+                  "title": "Telas Descobertas",
+                  "description": "Categorias de telas que devem ser identificadas antes da geração.",
+                  "properties": {
+                    "principais": {
+                      "type": "array",
+                      "title": "Telas Principais",
+                      "description": "Telas centrais da funcionalidade.",
+                      "items": {
+                        "type": "string",
+                        "title": "Tela Principal",
+                        "description": "Uma tela principal.",
+                        "minLength": 1
+                      }
+                    },
+                    "auxiliares": {
+                      "type": "array",
+                      "title": "Telas Auxiliares",
+                      "description": "Telas de apoio e configuração.",
+                      "items": {
+                        "type": "string",
+                        "title": "Tela Auxiliar",
+                        "description": "Uma tela auxiliar.",
+                        "minLength": 1
+                      }
+                    },
+                    "modais": {
+                      "type": "array",
+                      "title": "Modais",
+                      "description": "Modais necessários para a funcionalidade.",
+                      "items": {
+                        "type": "string",
+                        "title": "Modal",
+                        "description": "Um modal.",
+                        "minLength": 1
+                      }
+                    },
+                    "estados": {
+                      "type": "array",
+                      "title": "Estados",
+                      "description": "Estados visuais e operacionais da tela.",
+                      "items": {
+                        "type": "string",
+                        "title": "Estado",
+                        "description": "Um estado da interface.",
+                        "minLength": 1
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_4_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 4
+            },
+            "titulo": {
+              "const": "Processamento Sequencial"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 4",
+              "description": "Detalhes específicos da fase de processamento sequencial dos arquivos.",
+              "required": [
+                "gatilho",
+                "passos"
+              ],
+              "properties": {
+                "gatilho": {
+                  "type": "string",
+                  "title": "Gatilho",
+                  "description": "Texto que aciona a busca pelo próximo arquivo a ser processado.",
+                  "const": "Próximo arquivo"
+                },
+                "passos": {
+                  "type": "array",
+                  "title": "Passos",
+                  "description": "Sequência de passos obrigatórios para a execução sequencial.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Passo",
+                    "description": "Um passo da execução sequencial.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_5_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 5
+            },
+            "titulo": {
+              "const": "Recuperação de Timeout"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 5",
+              "description": "Detalhes específicos da fase de recuperação em caso de timeout.",
+              "required": [
+                "lotes",
+                "objetivos"
+              ],
+              "properties": {
+                "lotes": {
+                  "type": "array",
+                  "title": "Lotes",
+                  "description": "Lotes menores usados para dividir a funcionalidade quando houver timeout.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Lote",
+                    "description": "Um lote de execução.",
+                    "minLength": 1
+                  }
+                },
+                "objetivos": {
+                  "type": "array",
+                  "title": "Objetivos",
+                  "description": "Objetivos operacionais da divisão em lotes.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Objetivo",
+                    "description": "Um objetivo de recuperação de timeout.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_6_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 6
+            },
+            "titulo": {
+              "const": "Governança de Nomenclatura"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 6",
+              "description": "Detalhes específicos da fase de padronização de nomes de telas e arquivos.",
+              "required": [
+                "padrao",
+                "exemplos"
+              ],
+              "properties": {
+                "padrao": {
+                  "type": "string",
+                  "title": "Padrão",
+                  "description": "Padrão de nomeação obrigatório para as telas.",
+                  "minLength": 1
+                },
+                "exemplos": {
+                  "type": "array",
+                  "title": "Exemplos",
+                  "description": "Exemplos concretos do padrão de nomeação.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Exemplo",
+                    "description": "Um exemplo de nomeação.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_7_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 7
+            },
+            "titulo": {
+              "const": "Limpeza e Consolidação"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 7",
+              "description": "Detalhes específicos da fase de limpeza e consolidação do inventário.",
+              "required": [
+                "inventario",
+                "acoes_de_limpeza"
+              ],
+              "properties": {
+                "inventario": {
+                  "type": "array",
+                  "title": "Inventário",
+                  "description": "Categorias que devem ser inventariadas durante a fase.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Categoria",
+                    "description": "Uma categoria do inventário.",
+                    "minLength": 1
+                  }
+                },
+                "acoes_de_limpeza": {
+                  "type": "array",
+                  "title": "Ações de Limpeza",
+                  "description": "Ações a executar para remover duplicidades, obsolescências e rascunhos.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Ação",
+                    "description": "Uma ação de limpeza.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_8_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 8
+            },
+            "titulo": {
+              "const": "Inventário de Navegação"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 8",
+              "description": "Detalhes específicos do inventário de navegação da solução.",
+              "required": [
+                "mapeamentos",
+                "arquivo_final"
+              ],
+              "properties": {
+                "mapeamentos": {
+                  "type": "array",
+                  "title": "Mapeamentos",
+                  "description": "Mapeamentos entre menu, tela, ação e destino.",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/mapeamento_navegacao_item"
+                  }
+                },
+                "arquivo_final": {
+                  "type": "string",
+                  "title": "Arquivo Final",
+                  "description": "Arquivo de inventário de navegação esperado ao final da fase.",
+                  "const": "./stitch/NAVIGATION-INVENTORY.md"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_9_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 9
+            },
+            "titulo": {
+              "const": "Responsividade Global"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 9",
+              "description": "Detalhes específicos da fase de responsividade global.",
+              "required": [
+                "breakpoints",
+                "menu_global"
+              ],
+              "properties": {
+                "breakpoints": {
+                  "type": "array",
+                  "title": "Breakpoints",
+                  "description": "Tamanhos e comportamentos esperados para as principais faixas de dispositivo.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Breakpoint",
+                    "description": "Uma faixa de dispositivo ou comportamento responsivo.",
+                    "minLength": 1
+                  }
+                },
+                "menu_global": {
+                  "type": "array",
+                  "title": "Menu Global",
+                  "description": "Regras globais de navegação compartilhadas por todas as telas.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Regra de Menu",
+                    "description": "Uma regra de menu global.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_10_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 10
+            },
+            "titulo": {
+              "const": "Auditoria de Qualidade"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 10",
+              "description": "Detalhes específicos da fase de auditoria de qualidade.",
+              "required": [
+                "categorias_de_validacao",
+                "crivos_de_qualidade"
+              ],
+              "properties": {
+                "categorias_de_validacao": {
+                  "type": "array",
+                  "title": "Categorias de Validação",
+                  "description": "Categorias que devem ser verificadas na auditoria.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Categoria",
+                    "description": "Uma categoria de validação.",
+                    "minLength": 1
+                  }
+                },
+                "crivos_de_qualidade": {
+                  "type": "array",
+                  "title": "Crivos de Qualidade",
+                  "description": "Crivos específicos para consistência visual, técnica e funcional.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Crivo",
+                    "description": "Um critério de qualidade.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "fase_11_item": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fase_base"
+        },
+        {
+          "properties": {
+            "numero": {
+              "const": 11
+            },
+            "titulo": {
+              "const": "Relatório Final"
+            },
+            "detalhes": {
+              "type": "object",
+              "title": "Detalhes da Fase 11",
+              "description": "Detalhes específicos do relatório final consolidado do projeto.",
+              "required": [
+                "secoes_do_relatorio"
+              ],
+              "properties": {
+                "secoes_do_relatorio": {
+                  "type": "array",
+                  "title": "Seções do Relatório",
+                  "description": "Seções que devem compor o relatório final.",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string",
+                    "title": "Seção",
+                    "description": "Uma seção do relatório final.",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "mapeamento_navegacao_item": {
+      "type": "object",
+      "title": "Mapeamento de Navegação",
+      "description": "Relacionamento semântico entre menu, tela, ação e destino.",
+      "required": [
+        "menu",
+        "tela",
+        "acao",
+        "destino"
+      ],
+      "properties": {
+        "menu": {
+          "type": "string",
+          "title": "Menu",
+          "description": "Item de menu ou submenu relacionado.",
+          "minLength": 1
+        },
+        "tela": {
+          "type": "string",
+          "title": "Tela",
+          "description": "Tela associada ao item de navegação.",
+          "minLength": 1
+        },
+        "acao": {
+          "type": "string",
+          "title": "Ação",
+          "description": "Ação que dispara a navegação.",
+          "minLength": 1
+        },
+        "destino": {
+          "type": "string",
+          "title": "Destino",
+          "description": "Destino resultante da ação.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "artefatos_gerados": {
+      "type": "object",
+      "title": "Artefatos Gerados",
+      "description": "Principais documentos e estruturas que o workflow precisa produzir ou manter.",
+      "required": [
+        "projeto_stitch",
+        "design_md",
+        "funcionalidades_stitch",
+        "navigation_inventory",
+        "project_audit"
+      ],
+      "properties": {
+        "projeto_stitch": {
+          "$ref": "#/$defs/projeto_stitch"
+        },
+        "design_md": {
+          "$ref": "#/$defs/design_md"
+        },
+        "funcionalidades_stitch": {
+          "type": "array",
+          "title": "Funcionalidades Stitch",
+          "description": "Lista de arquivos de funcionalidade gerados para o projeto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/funcionalidade_stitch_item"
+          }
+        },
+        "navigation_inventory": {
+          "$ref": "#/$defs/navigation_inventory"
+        },
+        "project_audit": {
+          "$ref": "#/$defs/project_audit"
+        }
+      },
+      "additionalProperties": false
+    },
+    "projeto_stitch": {
+      "type": "object",
+      "title": "Projeto Stitch",
+      "description": "Resumo inicial do projeto criado no Stitch na fase de descoberta visual.",
+      "required": [
+        "nome_do_projeto",
+        "project_id",
+        "link_do_projeto",
+        "data",
+        "resumo"
+      ],
+      "properties": {
+        "nome_do_projeto": {
+          "type": "string",
+          "title": "Nome do Projeto",
+          "description": "Nome atribuído ao projeto Stitch.",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "title": "Project ID",
+          "description": "Identificador interno do projeto no Stitch.",
+          "minLength": 1
+        },
+        "link_do_projeto": {
+          "type": "string",
+          "title": "Link do Projeto",
+          "description": "URL ou referência de acesso ao projeto criado.",
+          "minLength": 1
+        },
+        "data": {
+          "type": "string",
+          "title": "Data",
+          "description": "Data de criação ou consolidação do projeto.",
+          "minLength": 1
+        },
+        "resumo": {
+          "type": "string",
+          "title": "Resumo",
+          "description": "Resumo da estrutura, escopo e propósito do projeto.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "design_md": {
+      "type": "object",
+      "title": "DESIGN.md",
+      "description": "Resumo estruturado do documento oficial de design do projeto Stitch.",
+      "required": [
+        "product_context",
+        "ux_context",
+        "visual_context",
+        "design_tokens",
+        "component_library",
+        "navigation_rules",
+        "responsiveness_rules",
+        "naming_rules",
+        "accessibility_rules",
+        "prompting_rules"
+      ],
+      "properties": {
+        "product_context": {
+          "type": "string",
+          "title": "Product Context",
+          "description": "Contexto de produto consolidado para orientar futuras gerações.",
+          "minLength": 1
+        },
+        "ux_context": {
+          "type": "string",
+          "title": "UX Context",
+          "description": "Contexto de experiência do usuário consolidado no design.",
+          "minLength": 1
+        },
+        "visual_context": {
+          "type": "string",
+          "title": "Visual Context",
+          "description": "Contexto visual, linguagem e direção estética do projeto.",
+          "minLength": 1
+        },
+        "design_tokens": {
+          "type": "string",
+          "title": "Design Tokens",
+          "description": "Resumo dos tokens visuais e espaciais aplicáveis ao projeto.",
+          "minLength": 1
+        },
+        "component_library": {
+          "type": "string",
+          "title": "Component Library",
+          "description": "Resumo da biblioteca de componentes reutilizáveis do Stitch.",
+          "minLength": 1
+        },
+        "navigation_rules": {
+          "type": "string",
+          "title": "Navigation Rules",
+          "description": "Regras de navegação que o projeto deve seguir.",
+          "minLength": 1
+        },
+        "responsiveness_rules": {
+          "type": "string",
+          "title": "Responsiveness Rules",
+          "description": "Regras de responsividade aplicáveis a desktop, tablet e mobile.",
+          "minLength": 1
+        },
+        "naming_rules": {
+          "type": "string",
+          "title": "Naming Rules",
+          "description": "Regras de nomenclatura para telas, arquivos e componentes.",
+          "minLength": 1
+        },
+        "accessibility_rules": {
+          "type": "string",
+          "title": "Accessibility Rules",
+          "description": "Regras de acessibilidade que precisam ser respeitadas.",
+          "minLength": 1
+        },
+        "prompting_rules": {
+          "type": "string",
+          "title": "Prompting Rules",
+          "description": "Orientações de prompting que mantêm a consistência das próximas gerações no Stitch.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "funcionalidade_stitch_item": {
+      "type": "object",
+      "title": "Arquivo de Funcionalidade Stitch",
+      "description": "Especificação semântica de um arquivo de funcionalidade gerado na fase 2.",
+      "required": [
+        "arquivo",
+        "contexto_do_produto",
+        "contexto_do_modulo",
+        "objetivo_da_funcionalidade",
+        "jornada_do_usuario",
+        "fluxos",
+        "navegacao",
+        "componentes",
+        "design_system_aplicavel",
+        "responsividade",
+        "estados",
+        "dados_de_exemplo",
+        "criterios_de_qualidade",
+        "prompt_final_para_stitch"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Caminho do arquivo de funcionalidade, seguindo o padrão da pasta stitch.",
+          "minLength": 1
+        },
+        "contexto_do_produto": {
+          "type": "string",
+          "title": "Contexto do Produto",
+          "description": "Contexto macro do produto que a funcionalidade precisa respeitar.",
+          "minLength": 1
+        },
+        "contexto_do_modulo": {
+          "type": "string",
+          "title": "Contexto do Módulo",
+          "description": "Contexto específico do módulo ao qual a funcionalidade pertence.",
+          "minLength": 1
+        },
+        "objetivo_da_funcionalidade": {
+          "type": "string",
+          "title": "Objetivo da Funcionalidade",
+          "description": "Objetivo prático e direto da funcionalidade.",
+          "minLength": 1
+        },
+        "jornada_do_usuario": {
+          "type": "string",
+          "title": "Jornada do Usuário",
+          "description": "Narrativa da jornada de uso esperada para a funcionalidade.",
+          "minLength": 1
+        },
+        "fluxos": {
+          "type": "array",
+          "title": "Fluxos",
+          "description": "Fluxos de navegação e interação que a funcionalidade precisa suportar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Fluxo",
+            "description": "Um fluxo da funcionalidade.",
+            "minLength": 1
+          }
+        },
+        "navegacao": {
+          "type": "array",
+          "title": "Navegação",
+          "description": "Regras de navegação relacionadas à funcionalidade.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item de Navegação",
+            "description": "Um item de navegação relacionado à funcionalidade.",
+            "minLength": 1
+          }
+        },
+        "componentes": {
+          "type": "array",
+          "title": "Componentes",
+          "description": "Componentes esperados na funcionalidade.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Componente",
+            "description": "Um componente da funcionalidade.",
+            "minLength": 1
+          }
+        },
+        "design_system_aplicavel": {
+          "type": "string",
+          "title": "Design System Aplicável",
+          "description": "Resumo do design system ou dos tokens aplicáveis à funcionalidade.",
+          "minLength": 1
+        },
+        "responsividade": {
+          "type": "string",
+          "title": "Responsividade",
+          "description": "Resumo das regras de responsividade aplicáveis à funcionalidade.",
+          "minLength": 1
+        },
+        "estados": {
+          "type": "array",
+          "title": "Estados",
+          "description": "Estados que a funcionalidade deve contemplar.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Estado",
+            "description": "Um estado da funcionalidade.",
+            "minLength": 1
+          }
+        },
+        "dados_de_exemplo": {
+          "type": "array",
+          "title": "Dados de Exemplo",
+          "description": "Exemplos de dados usados para orientar a geração das telas.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Dado de Exemplo",
+            "description": "Um exemplo de dado.",
+            "minLength": 1
+          }
+        },
+        "criterios_de_qualidade": {
+          "type": "array",
+          "title": "Critérios de Qualidade",
+          "description": "Critérios que a funcionalidade precisa cumprir para ser considerada consistente.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério de Qualidade",
+            "description": "Um critério de qualidade da funcionalidade.",
+            "minLength": 1
+          }
+        },
+        "prompt_final_para_stitch": {
+          "type": "string",
+          "title": "Prompt Final para Stitch",
+          "description": "Prompt consolidado que deve ser suficiente para gerar a funcionalidade sem depender de outros arquivos.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "navigation_inventory": {
+      "type": "object",
+      "title": "NAVIGATION-INVENTORY.md",
+      "description": "Inventário de navegação consolidado para mapear menu, tela, ação, destino e fluxos.",
+      "required": [
+        "arquivo",
+        "menu_para_tela",
+        "tela_para_acoes",
+        "acao_para_destino",
+        "fluxos"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Arquivo final esperado para o inventário de navegação.",
+          "const": "./stitch/NAVIGATION-INVENTORY.md"
+        },
+        "menu_para_tela": {
+          "type": "array",
+          "title": "Menu para Tela",
+          "description": "Mapeamentos de menu ou submenu para a tela correspondente.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/mapeamento_navegacao_item"
+          }
+        },
+        "tela_para_acoes": {
+          "type": "array",
+          "title": "Tela para Ações",
+          "description": "Mapeamentos de tela para as ações disponíveis nela.",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "Tela para Ações",
+            "description": "Mapeamento de uma tela para sua lista de ações.",
+            "required": [
+              "tela",
+              "acoes"
+            ],
+            "properties": {
+              "tela": {
+                "type": "string",
+                "title": "Tela",
+                "description": "Nome da tela.",
+                "minLength": 1
+              },
+              "acoes": {
+                "type": "array",
+                "title": "Ações",
+                "description": "Ações disponíveis na tela.",
+                "minItems": 1,
+                "items": {
+                  "type": "string",
+                  "title": "Ação",
+                  "description": "Uma ação da tela.",
+                  "minLength": 1
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "acao_para_destino": {
+          "type": "array",
+          "title": "Ação para Destino",
+          "description": "Mapeamentos de ações para destinos de navegação ou resultado.",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "title": "Ação para Destino",
+            "description": "Mapeamento semântico de uma ação para seu destino.",
+            "required": [
+              "acao",
+              "destino"
+            ],
+            "properties": {
+              "acao": {
+                "type": "string",
+                "title": "Ação",
+                "description": "Ação executada pelo usuário.",
+                "minLength": 1
+              },
+              "destino": {
+                "type": "string",
+                "title": "Destino",
+                "description": "Destino de navegação ou resultado da ação.",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "fluxos": {
+          "type": "array",
+          "title": "Fluxos",
+          "description": "Fluxos de navegação mapeados no inventário.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Fluxo",
+            "description": "Um fluxo de navegação.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "project_audit": {
+      "type": "object",
+      "title": "PROJECT-AUDIT.md",
+      "description": "Relatório consolidado de auditoria, limpeza e consolidação do projeto Stitch.",
+      "required": [
+        "arquivo",
+        "estatisticas",
+        "problemas_encontrados",
+        "problemas_corrigidos",
+        "pendencias",
+        "melhorias_recomendadas",
+        "proximos_passos"
+      ],
+      "properties": {
+        "arquivo": {
+          "type": "string",
+          "title": "Arquivo",
+          "description": "Arquivo final esperado para o relatório de auditoria.",
+          "const": "./stitch/PROJECT-AUDIT.md"
+        },
+        "estatisticas": {
+          "type": "object",
+          "title": "Estatísticas",
+          "description": "Resumo quantitativo do estado do projeto.",
+          "required": [
+            "total_de_funcionalidades",
+            "total_de_telas",
+            "total_de_fluxos"
+          ],
+          "properties": {
+            "total_de_funcionalidades": {
+              "type": "integer",
+              "title": "Total de Funcionalidades",
+              "description": "Quantidade total de funcionalidades do projeto.",
+              "minimum": 0
+            },
+            "total_de_telas": {
+              "type": "integer",
+              "title": "Total de Telas",
+              "description": "Quantidade total de telas do projeto.",
+              "minimum": 0
+            },
+            "total_de_fluxos": {
+              "type": "integer",
+              "title": "Total de Fluxos",
+              "description": "Quantidade total de fluxos do projeto.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "problemas_encontrados": {
+          "type": "array",
+          "title": "Problemas Encontrados",
+          "description": "Lista de problemas identificados na análise do projeto.",
+          "items": {
+            "type": "string",
+            "title": "Problema",
+            "description": "Um problema identificado.",
+            "minLength": 1
+          }
+        },
+        "problemas_corrigidos": {
+          "type": "array",
+          "title": "Problemas Corrigidos",
+          "description": "Lista de problemas corrigidos durante a consolidação.",
+          "items": {
+            "type": "string",
+            "title": "Problema Corrigido",
+            "description": "Um problema corrigido.",
+            "minLength": 1
+          }
+        },
+        "pendencias": {
+          "type": "array",
+          "title": "Pendências",
+          "description": "Itens que permanecem em aberto após a auditoria.",
+          "items": {
+            "type": "string",
+            "title": "Pendência",
+            "description": "Uma pendência do projeto.",
+            "minLength": 1
+          }
+        },
+        "melhorias_recomendadas": {
+          "type": "array",
+          "title": "Melhorias Recomendadas",
+          "description": "Melhorias sugeridas para a evolução do projeto.",
+          "items": {
+            "type": "string",
+            "title": "Melhoria",
+            "description": "Uma melhoria recomendada.",
+            "minLength": 1
+          }
+        },
+        "proximos_passos": {
+          "type": "array",
+          "title": "Próximos Passos",
+          "description": "Ações de continuidade que devem ser tomadas após o relatório final.",
+          "items": {
+            "type": "string",
+            "title": "Próximo Passo",
+            "description": "Um próximo passo recomendado.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "exportacao_final": {
+      "type": "object",
+      "title": "Exportação Final",
+      "description": "Destino e estrutura esperada para o pacote exportado do projeto Stitch ao término do workflow.",
+      "required": [
+        "diretorio",
+        "estrutura_esperada",
+        "criterios"
+      ],
+      "properties": {
+        "diretorio": {
+          "type": "string",
+          "title": "Diretório",
+          "description": "Diretório final para salvar o projeto exportado.",
+          "const": "./stitch/screens/"
+        },
+        "estrutura_esperada": {
+          "type": "array",
+          "title": "Estrutura Esperada",
+          "description": "Pastas ou blocos esperados dentro da exportação final.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Item da Estrutura",
+            "description": "Uma pasta ou bloco da exportação.",
+            "minLength": 1
+          }
+        },
+        "criterios": {
+          "type": "array",
+          "title": "Critérios",
+          "description": "Critérios que a exportação final precisa cumprir para ser considerada concluída.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Critério",
+            "description": "Um critério da exportação final.",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

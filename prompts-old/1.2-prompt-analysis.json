@@ -1,0 +1,3658 @@
+{
+  "prompt": {
+    "id": "1.2",
+    "file": "1.2-prompt.md",
+    "title": "Stage 1.2 — Analysis of Open Questions from Stage 1",
+    "objective": "Analisar e modelar este prompt como uma etapa de pipeline com contratos explícitos de entrada e saída.",
+    "description": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to the aesthetic direction defined in `0-estetica-inicial-{product-name}.md`. Your task is to execute **Stage 1.2 — Analysis of Open Questions from Stage 1**. You must analyze the **chat history** and use as official input every `.md` and `.html` file that was generated, sent, or made available in previous messages. Find an `.html` file produced in **Stage 1 — Initial Idea and Problem Framing**. Inside that file, locate the section: For each question in that section, you must: 1. interpret the question; 2. analyze the product context described in the HTML; 3. research the best possible answer on the web; 4. compare market information, best practices, and similar systems; 5. generate a strategic, grounded, and useful answer; 6. indicate implications for the p...",
+    "role": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to the aesthetic direction defined in `0-estetica-inicial-{product-name}.md`.",
+    "summary": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to the aesthetic direction defined in `0-estetica-inicial-{product-name}.md`. Your task is to execute **Stage 1.2 — Analysis of Open Questions from Stage 1**. You must analyze the **chat history** and use as official input every `.md` and `.html` file that was generated, sent, or made available in previous messages. Find an `.html` file produced in **Stage 1 — Initial Idea and Problem Framing**. Inside that file, locate the section: For each question in that secti...",
+    "type": "pipeline_stage_prompt",
+    "category": "requirements_product_design_documentation_orchestration",
+    "hash": "b632bd424b8246dacaad578fa7632c16b62ff5a459a560fe3c56cbda233d193b"
+  },
+  "inputContract": {
+    "primaryInput": {
+      "file": "alpha.json",
+      "description": "Arquivo inicial do processo, tratado como origem obrigatória do pipeline conforme a regra informada pelo usuário."
+    },
+    "requiredFiles": [
+      {
+        "file": "alpha.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "0.1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      },
+      {
+        "file": "1-output.json",
+        "description": "Arquivo obrigatório ou dependência direta inferida para execução da etapa."
+      }
+    ],
+    "optionalFiles": [],
+    "dependencies": [
+      {
+        "file": "alpha.json",
+        "type": "source_input",
+        "required": true
+      },
+      {
+        "file": "0-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "0.1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      },
+      {
+        "file": "1-output.json",
+        "type": "previous_stage_output",
+        "required": true
+      }
+    ]
+  },
+  "rules": [
+    {
+      "index": 1,
+      "rule": "You are a specialist in Product Discovery, market research, competitive benchmarking, product analysis, SaaS strategy, UX research, initial requirements engineering, and interactive HTML dashboard creation, with mandatory adherence to the aesthetic direction defined in `0-estetica-inicial-{product-name}.md`.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 2,
+      "rule": "You must analyze the **chat history** and use as official input every `.md` and `.html` file that was generated, sent, or made available in previous messages. Find an `.html` file produced in **Stage 1 — Initial Idea and Problem Framing**.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 3,
+      "rule": "Questions that should guide interviews, research, and benchmarking.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 4,
+      "rule": "For each question in that section, you must:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 5,
+      "rule": "The final file must follow this pattern:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 6,
+      "rule": "In addition to the Stage 1 HTML, you must use the file:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 7,
+      "rule": "This file contains the official aesthetic definition of the product and must guide all decisions related to UX/UI, theme, visual identity, color palette, typography, composition, layout, density, components, microinteractions, visual tone, and the construction of the HTML dashboard.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 8,
+      "rule": "The result should help guide:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 9,
+      "rule": "# Mandatory Tasks",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 10,
+      "rule": "Do not invent a new visual identity.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 11,
+      "rule": "The research should look for:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 12,
+      "rule": "# Required Documents Inside the Dashboard",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 13,
+      "rule": "The final HTML dashboard must contain:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 14,
+      "rule": "The section **Applied Aesthetic Direction from Stage 1.1** must summarize how `0-estetica-inicial-{product-name}.md` was applied to the dashboard, including decisions on theme, hierarchy, composition, density, components, and visual states.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 15,
+      "rule": "# Required Output Format",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 16,
+      "rule": "You must generate a full HTML file, ready to open in the browser.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 17,
+      "rule": "The file must be named:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 18,
+      "rule": "The final response must contain a download link for the generated file.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 19,
+      "rule": "The HTML must be self-contained and contain:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 20,
+      "rule": "# Required Visual Structure",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 21,
+      "rule": "The header must follow the composition, hierarchy, tone, and identity defined in `0-estetica-inicial-{product-name}.md`.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 22,
+      "rule": "Each source must include:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 23,
+      "rule": "# Mandatory Interactivity",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 24,
+      "rule": "The dashboard must allow:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 25,
+      "rule": "The visual construction, UX/UI, theme, styles, layouts, and all interface patterns of the dashboard must strictly follow:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 26,
+      "rule": "## Mandatory aesthetic application rules",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 27,
+      "rule": "3. The light and dark themes must be derived from the product aesthetic, not from a generic palette.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 28,
+      "rule": "4. The sidebar, header, cards, tables, expandable sections, filters, buttons, and indicators must feel like part of the same visual system defined in Stage 1.1.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 29,
+      "rule": "5. The dashboard must preserve the main function of this stage: analytical reading, question comparison, evidence traceability, risk prioritization, and product decision support.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 30,
+      "rule": "6. The visual should reflect the product segment, audience, maturity, usage context, and personality described in the aesthetic file.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 31,
+      "rule": "The dashboard should contain, in a way compatible with `0-estetica-inicial-{product-name}.md`:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 32,
+      "rule": "## Avoid conflicts with the aesthetic definition",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 33,
+      "rule": "Avoid any visual choice that contradicts `0-estetica-inicial-{product-name}.md`, especially:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 34,
+      "rule": "generic palettes that do not appear in the aesthetic definition;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 35,
+      "rule": "The final appearance must show that the dashboard was built from Stage 1.1’s aesthetic definition, not from a generic style.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 36,
+      "rule": "7. Do not use only one source for complex answers.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 37,
+      "rule": "8. Do not invent data.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 38,
+      "rule": "9. Do not claim user validation if it has not happened.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 39,
+      "rule": "whether it should become a future requirement;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 40,
+      "rule": "whether it should be treated as an assumption;",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 41,
+      "rule": "whether it should guide benchmarking.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 42,
+      "rule": "The HTML must:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 43,
+      "rule": "The output must be:",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 44,
+      "rule": "1. Do not rewrite Stage 1 in full.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 45,
+      "rule": "2. Do not ignore open questions.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 46,
+      "rule": "3. Do not answer questions without research.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 47,
+      "rule": "4. Do not mix opinion with researched fact.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 48,
+      "rule": "5. Do not treat inferences as certainty.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 49,
+      "rule": "6. Do not invent sources.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 50,
+      "rule": "7. Do not use fictitious links.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 51,
+      "rule": "8. Do not use external libraries in the HTML.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 52,
+      "rule": "9. Do not deliver Markdown only.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 53,
+      "rule": "10. Do not generate separate files.",
+      "category": "mandatory_or_restrictive_instruction"
+    },
+    {
+      "index": 54,
+      "rule": "When receiving the Stage 1 HTML, the assistant must:",
+      "category": "mandatory_or_restrictive_instruction"
+    }
+  ],
+  "ux": {
+    "navigation": [
+      "treatment of cards, tables, filters, navigation, headers, and sections.",
+      "sidebar navigation aligned with the visual and structural pattern of the aesthetic definition;",
+      "navigation;",
+      "a clear and coherent sidebar navigation;",
+      "unreadable tables on small screens;"
+    ],
+    "flows": [
+      "Next Steps",
+      "a clear visual hierarchy between executive summary, critical questions, evidence, suggested decisions, risks, opportunities, and next steps;"
+    ],
+    "experience": [
+      "user interviews;",
+      "visual personality;",
+      "visual states;",
+      "users;",
+      "UX;",
+      "Recommendations for User Interviews",
+      "expandable sections designed according to the components and visual states defined in the aesthetics file;",
+      "visual personality;",
+      "states;",
+      "The visual should reflect the product segment, audience, maturity, usage context, and personality described in the aesthetic file.",
+      "understandable visual states for filters, search, expansion, focus, and selection;",
+      "Do not claim user validation if it has not happened.",
+      "whether it requires user validation;"
+    ],
+    "ui": [
+      "consolidate everything into a new interactive HTML dashboard.",
+      "interface patterns;",
+      "visual components;",
+      "treatment of cards, tables, filters, navigation, headers, and sections.",
+      "common requirements in similar systems.",
+      "Consolidated Question-and-Answer Table",
+      "summary cards styled according to the component, density, spacing, border, color, and hierarchy rules defined in `0-estetica-inicial-{product-name}.md`;",
+      "readable and responsive tables aligned with the information density and reading rules from the aesthetics file;",
+      "expandable sections designed according to the components and visual states defined in the aesthetics file;",
+      "a button to print or save as PDF;",
+      "a button to export Markdown;",
+      "a button to copy the executive summary;",
+      "a button to copy the researched answers;",
+      "Before creating the HTML, extract the relevant guidance from `0-estetica-inicial-{product-name}.md` for:",
+      "tables;",
+      "Translate these guidelines into embedded CSS in the HTML itself, creating variables such as:",
+      "The sidebar, header, cards, tables, expandable sections, filters, buttons, and indicators must feel like part of the same visual system defined in Stage 1.1.",
+      "The dashboard must preserve the main function of this stage: analytical reading, question comparison, evidence traceability, risk prioritization, and product decision support.",
+      "When the aesthetic file defines specific guidance on color, typography, shape, texture, tone, density, or motion, apply those guidelines explicitly in the HTML.",
+      "useful, non-decorative visual components;",
+      "readable tables on desktop and mobile;",
+      "basic accessibility with adequate contrast, visible focus, comfortable click targets, and semantic structure;",
+      "real responsiveness for desktop, tablet, and mobile;",
+      "simple, useful, and testable interactions.",
+      "unreadable tables on small screens;",
+      "components added only to fill space;",
+      "Clearly distinguish:",
+      "Include the consulted URLs in the dashboard.",
+      "whether it requires user validation;",
+      "whether it should become a future requirement;"
+    ],
+    "layout": [
+      "visual personality;",
+      "visual identity;",
+      "visual rhythm;",
+      "visual components;",
+      "visual states;",
+      "responsiveness;",
+      "visual accessibility;",
+      "responsive layout consistent with the composition, density, and hierarchy defined in `0-estetica-inicial-{product-name}.md`;",
+      "sidebar navigation aligned with the visual and structural pattern of the aesthetic definition;",
+      "summary cards styled according to the component, density, spacing, border, color, and hierarchy rules defined in `0-estetica-inicial-{product-name}.md`;",
+      "readable and responsive tables aligned with the information density and reading rules from the aesthetics file;",
+      "expandable sections designed according to the components and visual states defined in the aesthetics file;",
+      "filters with behavior and appearance aligned with the product’s visual system;",
+      "visual indicators using meaning, color, contrast, and priority according to the aesthetic definition;",
+      "simple charts using pure HTML/CSS/JavaScript, visually compatible with the product’s visual language;",
+      "Show visual progress for Stage 1.2.",
+      "visual personality;",
+      "initial visual identity;",
+      "visual hierarchy;",
+      "grid;",
+      "visual rhythm;",
+      "responsiveness;",
+      "The sidebar, header, cards, tables, expandable sections, filters, buttons, and indicators must feel like part of the same visual system defined in Stage 1.1.",
+      "The visual should reflect the product segment, audience, maturity, usage context, and personality described in the aesthetic file.",
+      "When the aesthetic file does not specify a detail, make a complementary decision that remains consistent with the established visual direction, without creating a parallel aesthetic.",
+      "a clear visual hierarchy between executive summary, critical questions, evidence, suggested decisions, risks, opportunities, and next steps;",
+      "useful, non-decorative visual components;",
+      "readable tables on desktop and mobile;",
+      "cards with substantive content and justifiable visual differentiation;",
+      "understandable visual states for filters, search, expansion, focus, and selection;"
+    ],
+    "communication": [
+      "aesthetic language;",
+      "microcopy tone;",
+      "simple charts using pure HTML/CSS/JavaScript, visually compatible with the product’s visual language;",
+      "a button to copy the executive summary;",
+      "a button to copy the researched answers;",
+      "Copy the executive summary.",
+      "Copy a specific question’s answer.",
+      "aesthetic language;",
+      "microcopy tone.",
+      "When the aesthetic file defines specific guidance on color, typography, shape, texture, tone, density, or motion, apply those guidelines explicitly in the HTML.",
+      "objective, contextual microcopy aligned with the defined tone;",
+      "arbitrary changes to theme, tone, or identity."
+    ]
+  },
+  "boundaries": {
+    "scope": [
+      "objective, contextual microcopy aligned with the defined tone;",
+      "objective;"
+    ],
+    "restrictions": [
+      "Do not invent a new visual identity.",
+      "## Avoid conflicts with the aesthetic definition",
+      "Avoid any visual choice that contradicts `0-estetica-inicial-{product-name}.md`, especially:",
+      "generic palettes that do not appear in the aesthetic definition;",
+      "7. Do not use only one source for complex answers.",
+      "8. Do not invent data.",
+      "9. Do not claim user validation if it has not happened.",
+      "1. Do not rewrite Stage 1 in full.",
+      "2. Do not ignore open questions.",
+      "3. Do not answer questions without research.",
+      "4. Do not mix opinion with researched fact.",
+      "5. Do not treat inferences as certainty.",
+      "6. Do not invent sources.",
+      "7. Do not use fictitious links.",
+      "8. Do not use external libraries in the HTML.",
+      "9. Do not deliver Markdown only.",
+      "10. Do not generate separate files."
+    ],
+    "responsibilities": [
+      "The light and dark themes must be derived from the product aesthetic, not from a generic palette.",
+      "The sidebar, header, cards, tables, expandable sections, filters, buttons, and indicators must feel like part of the same visual system defined in Stage 1.1.",
+      "The dashboard must preserve the main function of this stage: analytical reading, question comparison, evidence traceability, risk prioritization, and product decision support.",
+      "The visual should reflect the product segment, audience, maturity, usage context, and personality described in the aesthetic file.",
+      "whether it should become a future requirement;",
+      "whether it should be treated as an assumption;",
+      "whether it should guide benchmarking."
+    ],
+    "limitations": []
+  },
+  "documents": [
+    {
+      "file": "1.2-open-questions-analysis-agentops.html",
+      "role": "input_or_output_reference",
+      "description": "Arquivo citado explicitamente no prompt e considerado no contrato documental da etapa."
+    }
+  ],
+  "outputTemplate": {
+    "file": "1.2-output-template.json",
+    "title": "Estrutura da Saída da Etapa 1.2 - Respostas Pesquisadas para Perguntas em Aberto",
+    "objective": "Definir a estrutura obrigatória, tipos, objetos, listas e validações do arquivo de saída da etapa.",
+    "description": "Schema JSON que representa semanticamente o conteúdo do dashboard HTML da Etapa 1.2. A saída final deve consolidar o contexto do produto, a direção estética aplicada, as perguntas extraídas da Etapa 1, as respostas pesquisadas com evidências, as tabelas consolidadas, os aprendizados estratégicos, as implicações, as decisões sugeridas, os riscos, as oportunidades, as hipóteses, as lacunas de validação, as recomendações e as fontes consultadas.",
+    "schemaSource": "provided",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Estrutura da Saída da Etapa 1.2 - Respostas Pesquisadas para Perguntas em Aberto",
+      "description": "Schema JSON que representa semanticamente o conteúdo do dashboard HTML da Etapa 1.2. A saída final deve consolidar o contexto do produto, a direção estética aplicada, as perguntas extraídas da Etapa 1, as respostas pesquisadas com evidências, as tabelas consolidadas, os aprendizados estratégicos, as implicações, as decisões sugeridas, os riscos, as oportunidades, as hipóteses, as lacunas de validação, as recomendações e as fontes consultadas.",
+      "type": "object",
+      "required": [
+        "etapa",
+        "arquivo_de_entrada",
+        "arquivo_de_saida",
+        "arquivo_de_origem_etapa_1",
+        "produto_analisado",
+        "cabecalho",
+        "resumo_executivo",
+        "contexto_do_produto",
+        "direcao_estetica_aplicada",
+        "perguntas_extraidas",
+        "mapa_de_categorias",
+        "tabela_consolidada",
+        "analises_detalhadas",
+        "principais_aprendizados",
+        "implicacoes_para_o_produto",
+        "decisoes_sugeridas",
+        "riscos_atualizados",
+        "oportunidades_atualizadas",
+        "hipoteses",
+        "lacunas_de_validacao",
+        "recomendacoes_para_entrevistas",
+        "recomendacoes_para_benchmarking",
+        "fontes_e_referencias",
+        "proximos_passos",
+        "interatividade",
+        "progresso_visual",
+        "destaques",
+        "contadores"
+      ],
+      "properties": {
+        "etapa": {
+          "type": "number",
+          "title": "Número da Etapa",
+          "description": "Identificador numérico da etapa inferida a partir do prompt de entrada. Para este schema, o valor deve ser 1.2, pois a saída corresponde à Etapa 1.2 - Análise das Perguntas em Aberto da Etapa 1.",
+          "const": 1.2
+        },
+        "arquivo_de_entrada": {
+          "type": "string",
+          "title": "Arquivo de Entrada",
+          "description": "Nome do arquivo de prompt usado como entrada oficial para a geração do dashboard. Deve apontar para o texto-base da Etapa 1.2.",
+          "const": "1.2-prompt.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saída",
+          "description": "Nome do arquivo HTML final gerado pela etapa. Deve permanecer fixo em 1.2.html, conforme o prompt.",
+          "const": "1.2.html"
+        },
+        "arquivo_de_origem_etapa_1": {
+          "type": "string",
+          "title": "Arquivo de Origem da Etapa 1",
+          "description": "Nome ou caminho do arquivo HTML analisado da Etapa 1. Deve indicar a origem principal das perguntas em aberto e do contexto do produto.",
+          "minLength": 1
+        },
+        "produto_analisado": {
+          "type": "object",
+          "title": "Produto Analisado",
+          "description": "Identificação sintética do produto que serve de base para a análise da Etapa 1.2. Deve refletir o contexto extraído do HTML da Etapa 1 e apoiar a leitura estratégica das perguntas pesquisadas.",
+          "required": [
+            "nome_provisorio",
+            "tipo_de_sistema",
+            "segmento_de_mercado",
+            "descricao_curta",
+            "posicionamento"
+          ],
+          "properties": {
+            "nome_provisorio": {
+              "type": "string",
+              "title": "Nome Provisório",
+              "description": "Nome de trabalho do produto analisado. Deve preservar o rótulo usado na Etapa 1 para manter rastreabilidade entre as etapas.",
+              "minLength": 1
+            },
+            "tipo_de_sistema": {
+              "type": "string",
+              "title": "Tipo de Sistema",
+              "description": "Categoria funcional do produto, como SaaS, plataforma interna, ferramenta de automação, ERP, CRM, marketplace ou equivalente.",
+              "minLength": 1
+            },
+            "segmento_de_mercado": {
+              "type": "string",
+              "title": "Segmento de Mercado",
+              "description": "Segmento ou nicho de mercado atendido pela solução. Deve refletir o contexto funcional e os perfis impactados.",
+              "minLength": 1
+            },
+            "descricao_curta": {
+              "type": "string",
+              "title": "Descrição Curta",
+              "description": "Resumo breve e objetivo do produto. Deve explicar o que a solução parece ser sem aprofundar implementação.",
+              "minLength": 1
+            },
+            "posicionamento": {
+              "type": "string",
+              "title": "Posicionamento",
+              "description": "Frase sintética que resume o valor percebido e a função estratégica do produto no mercado ou na operação.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "cabecalho": {
+          "type": "object",
+          "title": "Cabeçalho",
+          "description": "Bloco de identificação exibido no topo do dashboard. Deve reunir o nome do produto, a etapa, arquivos de origem e destino, data de geração, contadores principais e categorias dominantes.",
+          "required": [
+            "nome_do_produto",
+            "nome_da_etapa",
+            "arquivo_de_origem",
+            "arquivo_gerado",
+            "data_de_geracao",
+            "total_de_perguntas",
+            "total_de_fontes",
+            "categorias_principais"
+          ],
+          "properties": {
+            "nome_do_produto": {
+              "type": "string",
+              "title": "Nome do Produto",
+              "description": "Nome do produto apresentado no cabeçalho do dashboard.",
+              "minLength": 1
+            },
+            "nome_da_etapa": {
+              "type": "string",
+              "title": "Nome da Etapa",
+              "description": "Rótulo textual da etapa, que deve identificar explicitamente a Etapa 1.2 - Respostas Pesquisadas para Perguntas em Aberto.",
+              "minLength": 1
+            },
+            "arquivo_de_origem": {
+              "type": "string",
+              "title": "Arquivo de Origem",
+              "description": "Nome do arquivo analisado como base contextual do produto.",
+              "minLength": 1
+            },
+            "arquivo_gerado": {
+              "type": "string",
+              "title": "Arquivo Gerado",
+              "description": "Nome do arquivo HTML final criado pela etapa.",
+              "minLength": 1
+            },
+            "data_de_geracao": {
+              "type": "string",
+              "title": "Data de Geração",
+              "description": "Data e hora em que o dashboard foi gerado. Deve ser apresentada em formato legível e rastreável.",
+              "minLength": 1
+            },
+            "total_de_perguntas": {
+              "type": "integer",
+              "title": "Total de Perguntas",
+              "description": "Quantidade total de perguntas extraídas e analisadas nesta etapa.",
+              "minimum": 0
+            },
+            "total_de_fontes": {
+              "type": "integer",
+              "title": "Total de Fontes",
+              "description": "Quantidade total de fontes consultadas durante a pesquisa e a consolidação das respostas.",
+              "minimum": 0
+            },
+            "categorias_principais": {
+              "type": "array",
+              "title": "Categorias Principais",
+              "description": "Lista das categorias mais relevantes encontradas nas perguntas em aberto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Categoria",
+                "description": "Nome de uma categoria de pergunta, como negócio, usuários, mercado, operação, tecnologia, monetização, jurídico, segurança, governança, integrações, IA ou compliance.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "resumo_executivo": {
+          "type": "object",
+          "title": "Resumo Executivo",
+          "description": "Síntese analítica da Etapa 1.2. Deve condensar o principal aprendizado das respostas pesquisadas, o impacto sobre o produto e a direção recomendada para a continuidade do discovery.",
+          "required": [
+            "titulo",
+            "sintese",
+            "principais_conclusoes",
+            "impacto_no_produto",
+            "decisao_recomendada"
+          ],
+          "properties": {
+            "titulo": {
+              "type": "string",
+              "title": "Título do Resumo",
+              "description": "Título curto e representativo do resumo executivo.",
+              "minLength": 1
+            },
+            "sintese": {
+              "type": "string",
+              "title": "Síntese",
+              "description": "Parágrafo de síntese que resume o que foi aprendido com a pesquisa das perguntas em aberto.",
+              "minLength": 1
+            },
+            "principais_conclusoes": {
+              "type": "array",
+              "title": "Principais Conclusões",
+              "description": "Lista das conclusões estratégicas mais importantes derivadas das respostas pesquisadas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Conclusão",
+                "description": "Uma conclusão objetiva produzida a partir da análise das perguntas.",
+                "minLength": 1
+              }
+            },
+            "impacto_no_produto": {
+              "type": "array",
+              "title": "Impacto no Produto",
+              "description": "Lista dos impactos práticos que as respostas têm sobre a proposta, o escopo e as decisões futuras do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Impacto",
+                "description": "Efeito concreto da resposta pesquisada sobre o produto.",
+                "minLength": 1
+              }
+            },
+            "decisao_recomendada": {
+              "type": "string",
+              "title": "Decisão Recomendada",
+              "description": "Direção de produto recomendada com base no conjunto das respostas pesquisadas.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "contexto_do_produto": {
+          "type": "object",
+          "title": "Contexto do Produto",
+          "description": "Leitura consolidada do contexto do produto a partir do HTML da Etapa 1. Deve preservar o enquadramento estratégico, os elementos de escopo e os temas que ajudam a interpretar as perguntas em aberto.",
+          "required": [
+            "problema_principal",
+            "publico_principal",
+            "proposta_de_valor",
+            "hipoteses_relevantes",
+            "contexto_multitenant",
+            "restricoes",
+            "observacoes_de_leitura"
+          ],
+          "properties": {
+            "problema_principal": {
+              "type": "string",
+              "title": "Problema Principal",
+              "description": "Formulação resumida do problema principal identificado na Etapa 1.",
+              "minLength": 1
+            },
+            "publico_principal": {
+              "type": "array",
+              "title": "Público Principal",
+              "description": "Lista dos públicos ou perfis mais diretamente afetados pelo produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Público",
+                "description": "Perfil principal do produto.",
+                "minLength": 1
+              }
+            },
+            "proposta_de_valor": {
+              "type": "string",
+              "title": "Proposta de Valor",
+              "description": "Resumo da tese de valor do produto antes da validação aprofundada.",
+              "minLength": 1
+            },
+            "hipoteses_relevantes": {
+              "type": "array",
+              "title": "Hipóteses Relevantes",
+              "description": "Lista das hipóteses de produto mais relevantes para interpretar as respostas pesquisadas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Hipótese",
+                "description": "Hipótese estratégica associada ao contexto do produto.",
+                "minLength": 1
+              }
+            },
+            "contexto_multitenant": {
+              "type": "string",
+              "title": "Contexto Multi-tenant",
+              "description": "Resumo do enquadramento relacionado a superadmin, escopo global, tenant, permissões, billing, auditoria e segregação de dados, quando aplicável ao produto.",
+              "minLength": 1
+            },
+            "restricoes": {
+              "type": "array",
+              "title": "Restrições",
+              "description": "Lista de restrições, premissas ou limites percebidos no contexto do produto.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Restrição",
+                "description": "Uma restrição relevante para a interpretação das perguntas.",
+                "minLength": 1
+              }
+            },
+            "observacoes_de_leitura": {
+              "type": "array",
+              "title": "Observações de Leitura",
+              "description": "Lista de observações sobre a leitura do contexto, incluindo inferências e pontos ainda não confirmados.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Observação",
+                "description": "Uma observação analítica sobre o contexto do produto.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "direcao_estetica_aplicada": {
+          "type": "object",
+          "title": "Direção Estética Aplicada",
+          "description": "Resumo de como o arquivo de estética inicial foi aplicado ao dashboard da Etapa 1.2. Deve explicar tema, hierarquia, composição, densidade, componentes, estados visuais e coerência de linguagem visual.",
+          "required": [
+            "arquivo_de_referencia",
+            "resumo_da_aplicacao",
+            "tema",
+            "tipografia",
+            "composicao",
+            "densidade_informacional",
+            "componentes_chave",
+            "estados_visuais",
+            "coerencia_com_a_etapa_1_1"
+          ],
+          "properties": {
+            "arquivo_de_referencia": {
+              "type": "string",
+              "title": "Arquivo de Referência",
+              "description": "Nome do arquivo de estética que orientou a construção visual do dashboard.",
+              "minLength": 1
+            },
+            "resumo_da_aplicacao": {
+              "type": "string",
+              "title": "Resumo da Aplicação",
+              "description": "Explicação breve de como a estética foi traduzida para o dashboard final.",
+              "minLength": 1
+            },
+            "tema": {
+              "type": "string",
+              "title": "Tema",
+              "description": "Descrição do tema visual aplicado, incluindo a lógica de luz/escuro, contraste e atmosfera estética.",
+              "minLength": 1
+            },
+            "tipografia": {
+              "type": "string",
+              "title": "Tipografia",
+              "description": "Resumo do uso tipográfico adotado no dashboard, coerente com a direção estética base.",
+              "minLength": 1
+            },
+            "composicao": {
+              "type": "string",
+              "title": "Composição",
+              "description": "Descrição da lógica de composição do layout, incluindo navegação lateral, seções, cards e tabelas.",
+              "minLength": 1
+            },
+            "densidade_informacional": {
+              "type": "string",
+              "title": "Densidade Informacional",
+              "description": "Descrição do nível de densidade aplicado para sustentar leitura analítica sem comprometer a clareza.",
+              "minLength": 1
+            },
+            "componentes_chave": {
+              "type": "array",
+              "title": "Componentes-Chave",
+              "description": "Lista dos componentes visuais principais adotados no dashboard.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Componente",
+                "description": "Componente ou padrão visual importante usado no dashboard.",
+                "minLength": 1
+              }
+            },
+            "estados_visuais": {
+              "type": "array",
+              "title": "Estados Visuais",
+              "description": "Lista dos estados de interface e de feedback visual implementados ou previstos na experiência.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Estado Visual",
+                "description": "Estado visual relevante para a experiência do dashboard.",
+                "minLength": 1
+              }
+            },
+            "coerencia_com_a_etapa_1_1": {
+              "type": "string",
+              "title": "Coerência com a Etapa 1.1",
+              "description": "Explicação de como a aplicação visual mantém continuidade com a direção estética definida na etapa anterior.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "perguntas_extraidas": {
+          "type": "array",
+          "title": "Perguntas Extraídas",
+          "description": "Lista completa das perguntas encontradas na seção de perguntas em aberto do HTML da Etapa 1. Cada item deve preservar a pergunta original e sua categoria contextual.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/pergunta_extraida_item"
+          }
+        },
+        "mapa_de_categorias": {
+          "type": "object",
+          "title": "Mapa de Categorias",
+          "description": "Visão consolidada que agrupa as perguntas extraídas por categoria, conforme exigido pelo dashboard final.",
+          "required": [
+            "resumo",
+            "categorias"
+          ],
+          "properties": {
+            "resumo": {
+              "type": "string",
+              "title": "Resumo do Mapa",
+              "description": "Síntese do agrupamento das perguntas por categoria e do padrão de incerteza observado.",
+              "minLength": 1
+            },
+            "categorias": {
+              "type": "array",
+              "title": "Categorias",
+              "description": "Lista das categorias de pergunta com suas quantidades, temas e nível médio de incerteza.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/categoria_pergunta_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "tabela_consolidada": {
+          "type": "array",
+          "title": "Tabela Consolidada",
+          "description": "Tabela-resumo com uma linha por pergunta, contendo a resposta curta, a confiança, a necessidade de validação e a prioridade.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/linha_tabela_consolidada"
+          }
+        },
+        "analises_detalhadas": {
+          "type": "array",
+          "title": "Análises Detalhadas",
+          "description": "Coleção das análises completas por pergunta, com contexto, resposta pesquisada, implicações, riscos, oportunidades, fontes e recomendação de validação.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/analise_pergunta_item"
+          }
+        },
+        "principais_aprendizados": {
+          "type": "array",
+          "title": "Principais Aprendizados",
+          "description": "Lista dos aprendizados estratégicos mais relevantes identificados ao consolidar as respostas pesquisadas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/aprendizado_item"
+          }
+        },
+        "implicacoes_para_o_produto": {
+          "type": "array",
+          "title": "Implicações para o Produto",
+          "description": "Lista de implicações práticas da pesquisa sobre escopo, proposta de valor, priorização e continuidade do discovery.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/implicacao_item"
+          }
+        },
+        "decisoes_sugeridas": {
+          "type": "array",
+          "title": "Decisões Sugeridas",
+          "description": "Lista de decisões de produto sugeridas a partir da análise das perguntas e das fontes consultadas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/decisao_sugerida_item"
+          }
+        },
+        "riscos_atualizados": {
+          "type": "array",
+          "title": "Riscos Atualizados",
+          "description": "Lista dos riscos revisados ou emergentes após a pesquisa das perguntas em aberto.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/risco_item"
+          }
+        },
+        "oportunidades_atualizadas": {
+          "type": "array",
+          "title": "Oportunidades Atualizadas",
+          "description": "Lista das oportunidades identificadas ou refinadas a partir da pesquisa e da leitura estratégica das respostas.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/oportunidade_item"
+          }
+        },
+        "hipoteses": {
+          "type": "object",
+          "title": "Hipóteses",
+          "description": "Conjunto de hipóteses confirmadas parcialmente, reduzidas pela pesquisa e novas hipóteses identificadas durante a análise.",
+          "required": [
+            "reduzidas_ou_confirmadas_parcialmente",
+            "novas_hipoteses"
+          ],
+          "properties": {
+            "reduzidas_ou_confirmadas_parcialmente": {
+              "type": "array",
+              "title": "Hipóteses Reduzidas ou Confirmadas Parcialmente",
+              "description": "Lista das hipóteses da Etapa 1 que tiveram incerteza reduzida ou confirmação parcial após a pesquisa.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/hipotese_item"
+              }
+            },
+            "novas_hipoteses": {
+              "type": "array",
+              "title": "Novas Hipóteses",
+              "description": "Lista de hipóteses novas geradas a partir dos achados da Etapa 1.2.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/hipotese_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "lacunas_de_validacao": {
+          "type": "array",
+          "title": "Lacunas de Validação",
+          "description": "Lista dos pontos que continuam sem validação suficiente e que precisam ser tratados em entrevistas, benchmarking ou análises posteriores.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/lacuna_validacao_item"
+          }
+        },
+        "recomendacoes_para_entrevistas": {
+          "type": "object",
+          "title": "Recomendações para Entrevistas",
+          "description": "Diretrizes e focos recomendados para entrevistas com usuários e stakeholders, com base nas lacunas e respostas pesquisadas.",
+          "required": [
+            "objetivo",
+            "publicos_sugeridos",
+            "temas_prioritarios",
+            "perguntas_sugeridas",
+            "criterios_de_sucesso"
+          ],
+          "properties": {
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo principal das entrevistas recomendadas.",
+              "minLength": 1
+            },
+            "publicos_sugeridos": {
+              "type": "array",
+              "title": "Públicos Sugeridos",
+              "description": "Lista dos perfis ou papéis que devem ser entrevistados para validar as hipóteses.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Público",
+                "description": "Perfil indicado para entrevista.",
+                "minLength": 1
+              }
+            },
+            "temas_prioritarios": {
+              "type": "array",
+              "title": "Temas Prioritários",
+              "description": "Lista dos temas que devem orientar a pauta das entrevistas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Tema",
+                "description": "Tema de validação recomendado para a entrevista.",
+                "minLength": 1
+              }
+            },
+            "perguntas_sugeridas": {
+              "type": "array",
+              "title": "Perguntas Sugeridas",
+              "description": "Lista de perguntas que podem ser usadas nas entrevistas para aprofundar ou validar os achados.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Pergunta",
+                "description": "Pergunta de entrevista sugerida.",
+                "minLength": 1
+              }
+            },
+            "criterios_de_sucesso": {
+              "type": "array",
+              "title": "Critérios de Sucesso",
+              "description": "Lista dos sinais que indicam que as entrevistas conseguiram reduzir a incerteza relevante.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Critério",
+                "description": "Critério de sucesso para as entrevistas.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "recomendacoes_para_benchmarking": {
+          "type": "object",
+          "title": "Recomendações para Benchmarking",
+          "description": "Orientações para a Etapa 2, indicando o que deve ser comparado, com quais tipos de concorrentes e quais critérios devem ser observados.",
+          "required": [
+            "objetivo",
+            "tipos_de_referencia",
+            "competidores_ou_benchmarks_sugeridos",
+            "criterios_de_comparacao",
+            "hipoteses_a_testar"
+          ],
+          "properties": {
+            "objetivo": {
+              "type": "string",
+              "title": "Objetivo",
+              "description": "Objetivo principal do benchmarking sugerido para a próxima etapa.",
+              "minLength": 1
+            },
+            "tipos_de_referencia": {
+              "type": "array",
+              "title": "Tipos de Referência",
+              "description": "Lista dos tipos de referência mais úteis para a comparação, como concorrentes, benchmarks setoriais, documentação oficial ou estudos de caso.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Tipo de Referência",
+                "description": "Tipo de benchmark recomendado.",
+                "minLength": 1
+              }
+            },
+            "competidores_ou_benchmarks_sugeridos": {
+              "type": "array",
+              "title": "Competidores ou Benchmarks Sugeridos",
+              "description": "Lista de produtos, empresas ou padrões de mercado que devem ser comparados na Etapa 2.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Benchmark",
+                "description": "Concorrente, produto ou referência de mercado sugerida para comparação.",
+                "minLength": 1
+              }
+            },
+            "criterios_de_comparacao": {
+              "type": "array",
+              "title": "Critérios de Comparação",
+              "description": "Lista dos critérios que devem ser comparados entre as referências selecionadas.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Critério",
+                "description": "Critério usado na análise comparativa.",
+                "minLength": 1
+              }
+            },
+            "hipoteses_a_testar": {
+              "type": "array",
+              "title": "Hipóteses a Testar",
+              "description": "Lista das hipóteses que a Etapa 2 deve confrontar com o mercado e com os concorrentes.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Hipótese",
+                "description": "Hipótese que deve ser validada no benchmarking.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "fontes_e_referencias": {
+          "type": "object",
+          "title": "Fontes e Referências",
+          "description": "Inventário das fontes consultadas durante a pesquisa. Deve preservar rastreabilidade entre cada fonte e as perguntas relacionadas.",
+          "required": [
+            "resumo",
+            "itens"
+          ],
+          "properties": {
+            "resumo": {
+              "type": "string",
+              "title": "Resumo das Fontes",
+              "description": "Resumo breve do conjunto de fontes consultadas e da qualidade geral da cobertura.",
+              "minLength": 1
+            },
+            "itens": {
+              "type": "array",
+              "title": "Itens de Fonte",
+              "description": "Lista detalhada das fontes usadas na resposta, com URL e relacionamento com as perguntas.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/fonte_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "proximos_passos": {
+          "type": "object",
+          "title": "Próximos Passos",
+          "description": "Orientação final para a continuidade do discovery. Deve apontar explicitamente a Etapa 2 e priorizar as validações mais importantes.",
+          "required": [
+            "proxima_etapa_recomendada",
+            "motivacao",
+            "atividades_prioritarias",
+            "hipoteses_prioritarias",
+            "validações_prioritarias"
+          ],
+          "properties": {
+            "proxima_etapa_recomendada": {
+              "type": "string",
+              "title": "Próxima Etapa Recomendada",
+              "description": "Nome da próxima etapa sugerida pelo prompt.",
+              "minLength": 1
+            },
+            "motivacao": {
+              "type": "string",
+              "title": "Motivação",
+              "description": "Motivo estratégico para avançar para a próxima etapa.",
+              "minLength": 1
+            },
+            "atividades_prioritarias": {
+              "type": "array",
+              "title": "Atividades Prioritárias",
+              "description": "Lista das atividades mais importantes para a próxima etapa.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Atividade",
+                "description": "Uma atividade sugerida para dar continuidade ao processo.",
+                "minLength": 1
+              }
+            },
+            "hipoteses_prioritarias": {
+              "type": "array",
+              "title": "Hipóteses Prioritárias",
+              "description": "Lista das hipóteses que devem receber prioridade na Etapa 2.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Hipótese",
+                "description": "Hipótese priorizada para validação.",
+                "minLength": 1
+              }
+            },
+            "validações_prioritarias": {
+              "type": "array",
+              "title": "Validações Prioritárias",
+              "description": "Lista das validações recomendadas para reduzir incerteza antes de avançar.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Validação",
+                "description": "Validação sugerida para a próxima etapa.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "interatividade": {
+          "type": "object",
+          "title": "Interatividade",
+          "description": "Resumo das capacidades interativas exigidas no dashboard HTML. Deve refletir alternância de tema, expansão de seções, filtros, busca, cópia, exportação e impressão.",
+          "required": [
+            "alternancia_de_tema",
+            "expansao_de_secoes",
+            "filtros",
+            "acoes_de_exportacao",
+            "acoes_de_copia",
+            "busca_textual",
+            "feedback_visual"
+          ],
+          "properties": {
+            "alternancia_de_tema": {
+              "type": "string",
+              "title": "Alternância de Tema",
+              "description": "Descrição do comportamento do botão de tema claro/escuro.",
+              "minLength": 1
+            },
+            "expansao_de_secoes": {
+              "type": "string",
+              "title": "Expansão de Seções",
+              "description": "Descrição de como as seções e análises podem ser expandida e recolhidas.",
+              "minLength": 1
+            },
+            "filtros": {
+              "type": "array",
+              "title": "Filtros",
+              "description": "Lista dos filtros disponíveis no dashboard e seus propósitos.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/filtro_item"
+              }
+            },
+            "acoes_de_exportacao": {
+              "type": "array",
+              "title": "Ações de Exportação",
+              "description": "Lista das ações que permitem salvar, imprimir ou exportar o conteúdo do dashboard.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Ação",
+                "description": "Uma ação de exportação disponível na interface.",
+                "minLength": 1
+              }
+            },
+            "acoes_de_copia": {
+              "type": "array",
+              "title": "Ações de Cópia",
+              "description": "Lista das ações de cópia disponibilizadas ao usuário, como copiar resumo executivo ou resposta específica.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Ação",
+                "description": "Uma ação de cópia disponível na interface.",
+                "minLength": 1
+              }
+            },
+            "busca_textual": {
+              "type": "string",
+              "title": "Busca Textual",
+              "description": "Descrição da capacidade de busca livre por perguntas, respostas e fontes.",
+              "minLength": 1
+            },
+            "feedback_visual": {
+              "type": "string",
+              "title": "Feedback Visual",
+              "description": "Descrição de como o dashboard sinaliza progresso, prioridade, confiança e criticidade visualmente.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "progresso_visual": {
+          "type": "object",
+          "title": "Progresso Visual",
+          "description": "Representação do progresso visual da Etapa 1.2 dentro do dashboard. Deve comunicar o estado de conclusão, a quantidade de blocos cobertos e a leitura de avanço da análise.",
+          "required": [
+            "percentual",
+            "texto_de_status",
+            "secoes_cobertas",
+            "secoes_totais"
+          ],
+          "properties": {
+            "percentual": {
+              "type": "number",
+              "title": "Percentual",
+              "description": "Percentual de progresso visual da etapa. Deve variar de 0 a 100.",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "texto_de_status": {
+              "type": "string",
+              "title": "Texto de Status",
+              "description": "Mensagem curta que resume o progresso ou o estado atual da etapa.",
+              "minLength": 1
+            },
+            "secoes_cobertas": {
+              "type": "integer",
+              "title": "Seções Cobertas",
+              "description": "Quantidade de seções do dashboard que já foram preenchidas ou contempladas.",
+              "minimum": 0
+            },
+            "secoes_totais": {
+              "type": "integer",
+              "title": "Seções Totais",
+              "description": "Quantidade total de seções previstas para o dashboard da Etapa 1.2.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "destaques": {
+          "type": "object",
+          "title": "Destaques",
+          "description": "Itens que devem receber destaque visual no dashboard, como perguntas de baixa confiança, perguntas críticas para validação, riscos críticos e oportunidades prioritárias.",
+          "required": [
+            "perguntas_de_baixa_confianca",
+            "perguntas_criticas_para_validacao",
+            "riscos_criticos",
+            "oportunidades_prioritarias"
+          ],
+          "properties": {
+            "perguntas_de_baixa_confianca": {
+              "type": "array",
+              "title": "Perguntas de Baixa Confiança",
+              "description": "Lista das perguntas cuja resposta possui menor confiança ou maior incerteza.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/destaque_item"
+              }
+            },
+            "perguntas_criticas_para_validacao": {
+              "type": "array",
+              "title": "Perguntas Críticas para Validação",
+              "description": "Lista das perguntas que precisam de validação prioritária por influenciarem diretamente o produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/destaque_item"
+              }
+            },
+            "riscos_criticos": {
+              "type": "array",
+              "title": "Riscos Críticos",
+              "description": "Lista dos riscos com maior prioridade visual e estratégica.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/destaque_item"
+              }
+            },
+            "oportunidades_prioritarias": {
+              "type": "array",
+              "title": "Oportunidades Prioritárias",
+              "description": "Lista das oportunidades mais relevantes para serem destacadas no dashboard.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/destaque_item"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "contadores": {
+          "type": "object",
+          "title": "Contadores",
+          "description": "Métricas-resumo exibidas no dashboard para apoiar leitura rápida do volume de perguntas, fontes, riscos, oportunidades e lacunas.",
+          "required": [
+            "total_de_perguntas",
+            "perguntas_respondidas",
+            "perguntas_por_categoria",
+            "nivel_medio_de_confianca",
+            "decisoes_sugeridas",
+            "riscos_atualizados",
+            "oportunidades_identificadas",
+            "lacunas_restantes",
+            "proxima_etapa_recomendada"
+          ],
+          "properties": {
+            "total_de_perguntas": {
+              "type": "integer",
+              "title": "Total de Perguntas",
+              "description": "Quantidade total de perguntas analisadas nesta etapa.",
+              "minimum": 0
+            },
+            "perguntas_respondidas": {
+              "type": "integer",
+              "title": "Perguntas Respondidas",
+              "description": "Quantidade de perguntas que receberam uma resposta pesquisada e analisada.",
+              "minimum": 0
+            },
+            "perguntas_por_categoria": {
+              "type": "array",
+              "title": "Perguntas por Categoria",
+              "description": "Lista de contagens por categoria para facilitar a leitura do mapa de temas.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/contador_categoria_item"
+              }
+            },
+            "nivel_medio_de_confianca": {
+              "type": "string",
+              "title": "Nível Médio de Confiança",
+              "description": "Avaliação sintética da confiança média das respostas obtidas.",
+              "enum": [
+                "Baixo",
+                "Médio",
+                "Alto"
+              ]
+            },
+            "decisoes_sugeridas": {
+              "type": "integer",
+              "title": "Decisões Sugeridas",
+              "description": "Quantidade total de decisões sugeridas a partir da análise das perguntas.",
+              "minimum": 0
+            },
+            "riscos_atualizados": {
+              "type": "integer",
+              "title": "Riscos Atualizados",
+              "description": "Quantidade total de riscos revisados ou adicionados nesta etapa.",
+              "minimum": 0
+            },
+            "oportunidades_identificadas": {
+              "type": "integer",
+              "title": "Oportunidades Identificadas",
+              "description": "Quantidade total de oportunidades identificadas ou refinadas.",
+              "minimum": 0
+            },
+            "lacunas_restantes": {
+              "type": "integer",
+              "title": "Lacunas Restantes",
+              "description": "Quantidade de lacunas de validação que ainda permanecem em aberto.",
+              "minimum": 0
+            },
+            "proxima_etapa_recomendada": {
+              "type": "string",
+              "title": "Próxima Etapa Recomendada",
+              "description": "Nome da próxima etapa recomendada após a conclusão desta análise.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "$defs": {
+        "pergunta_extraida_item": {
+          "type": "object",
+          "title": "Pergunta Extraída",
+          "description": "Representa uma pergunta localizada na seção de perguntas em aberto da Etapa 1, preservando seu texto original e sua categoria contextual.",
+          "required": [
+            "id",
+            "categoria",
+            "pergunta_original",
+            "ordem",
+            "relevancia"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável da pergunta dentro do dashboard.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria da pergunta, como negócio, usuários, mercado, operação, tecnologia, monetização, jurídico, segurança, governança, integrações, IA ou compliance.",
+              "minLength": 1
+            },
+            "pergunta_original": {
+              "type": "string",
+              "title": "Pergunta Original",
+              "description": "Texto integral da pergunta extraída do HTML da Etapa 1.",
+              "minLength": 1
+            },
+            "ordem": {
+              "type": "integer",
+              "title": "Ordem",
+              "description": "Posição da pergunta na lista original da seção em aberto.",
+              "minimum": 1
+            },
+            "relevancia": {
+              "type": "string",
+              "title": "Relevância",
+              "description": "Relevância inicial da pergunta para o produto e para a tomada de decisão.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "categoria_pergunta_item": {
+          "type": "object",
+          "title": "Resumo de Categoria",
+          "description": "Agrupamento semântico de perguntas por categoria, com quantidade, temas principais e nível médio de incerteza.",
+          "required": [
+            "categoria",
+            "quantidade_de_perguntas",
+            "principais_temas",
+            "nivel_medio_de_incerteza"
+          ],
+          "properties": {
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Nome da categoria analisada.",
+              "minLength": 1
+            },
+            "quantidade_de_perguntas": {
+              "type": "integer",
+              "title": "Quantidade de Perguntas",
+              "description": "Quantidade de perguntas extraídas nesta categoria.",
+              "minimum": 0
+            },
+            "principais_temas": {
+              "type": "array",
+              "title": "Principais Temas",
+              "description": "Lista dos temas mais recorrentes dentro desta categoria.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Tema",
+                "description": "Tema principal da categoria.",
+                "minLength": 1
+              }
+            },
+            "nivel_medio_de_incerteza": {
+              "type": "string",
+              "title": "Nível Médio de Incerteza",
+              "description": "Avaliação geral da incerteza associada às perguntas desta categoria.",
+              "enum": [
+                "Baixo",
+                "Médio",
+                "Alto"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "linha_tabela_consolidada": {
+          "type": "object",
+          "title": "Linha da Tabela Consolidada",
+          "description": "Linha resumida da tabela consolidada de perguntas e respostas, adequada à leitura rápida do dashboard.",
+          "required": [
+            "id",
+            "categoria",
+            "pergunta",
+            "resposta_curta",
+            "confianca",
+            "necessita_validacao",
+            "prioridade"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador da linha, associado à pergunta original.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria da pergunta na tabela consolidada.",
+              "minLength": 1
+            },
+            "pergunta": {
+              "type": "string",
+              "title": "Pergunta",
+              "description": "Texto resumido da pergunta apresentada na tabela.",
+              "minLength": 1
+            },
+            "resposta_curta": {
+              "type": "string",
+              "title": "Resposta Curta",
+              "description": "Resposta objetiva e curta extraída da análise pesquisada.",
+              "minLength": 1
+            },
+            "confianca": {
+              "type": "string",
+              "title": "Confiança",
+              "description": "Nível de confiança da resposta consolidada.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta"
+              ]
+            },
+            "necessita_validacao": {
+              "type": "boolean",
+              "title": "Necessita Validação",
+              "description": "Indica se a pergunta ainda depende de validação com usuários, mercado ou operação."
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade da pergunta para tomada de decisão e continuidade do discovery.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "analise_pergunta_item": {
+          "type": "object",
+          "title": "Análise de Pergunta",
+          "description": "Análise detalhada de uma pergunta em aberto, incluindo contexto, resposta pesquisada, implicações, riscos, oportunidades e validação recomendada.",
+          "required": [
+            "id",
+            "pergunta_original",
+            "categoria",
+            "contexto_no_produto",
+            "resposta_pesquisada",
+            "evidencias_e_referencias",
+            "analise_estrategica",
+            "implicacoes_para_o_produto",
+            "decisoes_sugeridas",
+            "riscos_associados",
+            "oportunidades_identificadas",
+            "nivel_de_confianca",
+            "necessita_validacao",
+            "como_validar",
+            "fonte_ids"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável da análise.",
+              "minLength": 1
+            },
+            "pergunta_original": {
+              "type": "string",
+              "title": "Pergunta Original",
+              "description": "Texto integral da pergunta analisada.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria temática da pergunta.",
+              "minLength": 1
+            },
+            "contexto_no_produto": {
+              "type": "string",
+              "title": "Contexto no Produto",
+              "description": "Explicação de como a pergunta se relaciona com o produto analisado.",
+              "minLength": 1
+            },
+            "resposta_pesquisada": {
+              "type": "string",
+              "title": "Resposta Pesquisada",
+              "description": "Resposta objetiva baseada na pesquisa na web e na análise estratégica.",
+              "minLength": 1
+            },
+            "evidencias_e_referencias": {
+              "type": "array",
+              "title": "Evidências e Referências",
+              "description": "Lista de evidências, referências e fontes que sustentam a resposta pesquisada.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/evidencia_referencia_item"
+              }
+            },
+            "analise_estrategica": {
+              "type": "string",
+              "title": "Análise Estratégica",
+              "description": "Interpretação do que a resposta pesquisada significa para o produto e para as próximas decisões.",
+              "minLength": 1
+            },
+            "implicacoes_para_o_produto": {
+              "type": "array",
+              "title": "Implicações para o Produto",
+              "description": "Lista das implicações práticas da resposta sobre o produto.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/implicacao_item"
+              }
+            },
+            "decisoes_sugeridas": {
+              "type": "array",
+              "title": "Decisões Sugeridas",
+              "description": "Lista de decisões sugeridas a partir da resposta pesquisada.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/decisao_sugerida_item"
+              }
+            },
+            "riscos_associados": {
+              "type": "array",
+              "title": "Riscos Associados",
+              "description": "Lista dos riscos relacionados à resposta ou à ausência de validação.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/risco_item"
+              }
+            },
+            "oportunidades_identificadas": {
+              "type": "array",
+              "title": "Oportunidades Identificadas",
+              "description": "Lista das oportunidades geradas ou reforçadas pela resposta pesquisada.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/oportunidade_item"
+              }
+            },
+            "nivel_de_confianca": {
+              "type": "string",
+              "title": "Nível de Confiança",
+              "description": "Nível de confiança atribuído à resposta pesquisada.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta"
+              ]
+            },
+            "necessita_validacao": {
+              "type": "boolean",
+              "title": "Necessita Validação",
+              "description": "Indica se a pergunta ainda deve ser validada com usuários, mercado ou operação."
+            },
+            "como_validar": {
+              "type": "string",
+              "title": "Como Validar",
+              "description": "Forma prática sugerida para validar a resposta ou a hipótese relacionada.",
+              "minLength": 1
+            },
+            "fonte_ids": {
+              "type": "array",
+              "title": "IDs das Fontes",
+              "description": "Lista dos identificadores das fontes que sustentam esta análise.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "ID da Fonte",
+                "description": "Identificador da fonte consultada.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "aprendizado_item": {
+          "type": "object",
+          "title": "Aprendizado",
+          "description": "Item de aprendizado estratégico consolidado a partir das respostas pesquisadas.",
+          "required": [
+            "aprendizado",
+            "evidencia_base",
+            "impacto_no_produto",
+            "acao_recomendada"
+          ],
+          "properties": {
+            "aprendizado": {
+              "type": "string",
+              "title": "Aprendizado",
+              "description": "Mensagem principal do aprendizado.",
+              "minLength": 1
+            },
+            "evidencia_base": {
+              "type": "string",
+              "title": "Evidência Base",
+              "description": "Resumo da evidência ou conjunto de fontes que sustentam o aprendizado.",
+              "minLength": 1
+            },
+            "impacto_no_produto": {
+              "type": "string",
+              "title": "Impacto no Produto",
+              "description": "Efeito prático do aprendizado sobre o produto ou sobre a próxima etapa.",
+              "minLength": 1
+            },
+            "acao_recomendada": {
+              "type": "string",
+              "title": "Ação Recomendada",
+              "description": "Ação prática sugerida a partir do aprendizado.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "implicacao_item": {
+          "type": "object",
+          "title": "Implicação",
+          "description": "Implicação prática da pesquisa sobre o produto, a operação ou o discovery.",
+          "required": [
+            "implicacao",
+            "origem",
+            "prioridade"
+          ],
+          "properties": {
+            "implicacao": {
+              "type": "string",
+              "title": "Implicação",
+              "description": "Descrição objetiva da implicação.",
+              "minLength": 1
+            },
+            "origem": {
+              "type": "string",
+              "title": "Origem",
+              "description": "Pergunta, hipótese ou achado que originou a implicação.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade da implicação para o produto.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "decisao_sugerida_item": {
+          "type": "object",
+          "title": "Decisão Sugerida",
+          "description": "Decisão recomendada com base em uma ou mais perguntas analisadas.",
+          "required": [
+            "decisao",
+            "justificativa",
+            "impacto",
+            "prioridade"
+          ],
+          "properties": {
+            "decisao": {
+              "type": "string",
+              "title": "Decisão",
+              "description": "Formulação objetiva da decisão sugerida.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Motivo pelo qual a decisão é recomendada.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto esperado da decisão no produto, no roadmap ou na validação.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Nível de prioridade da decisão sugerida.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "risco_item": {
+          "type": "object",
+          "title": "Risco",
+          "description": "Risco atualizado ou emergente identificado na análise das perguntas em aberto.",
+          "required": [
+            "risco",
+            "categoria",
+            "impacto",
+            "prioridade",
+            "mitigacao_inicial"
+          ],
+          "properties": {
+            "risco": {
+              "type": "string",
+              "title": "Risco",
+              "description": "Descrição do risco.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria do risco, como produto, mercado, técnico, financeiro, jurídico, segurança, operação, adoção, governança, auditoria, isolamento de dados, permissões, escalabilidade, conformidade, IA, integrações ou monetização.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto potencial do risco caso ele se concretize.",
+              "enum": [
+                "Baixo",
+                "Médio",
+                "Alto"
+              ]
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade atribuída ao risco com base na análise.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            },
+            "mitigacao_inicial": {
+              "type": "string",
+              "title": "Mitigação Inicial",
+              "description": "Ação inicial sugerida para reduzir ou endereçar o risco.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "oportunidade_item": {
+          "type": "object",
+          "title": "Oportunidade",
+          "description": "Oportunidade atualizada ou refinada a partir da análise e da pesquisa das perguntas.",
+          "required": [
+            "oportunidade",
+            "categoria",
+            "valor_esperado",
+            "esforco_estimado",
+            "prioridade"
+          ],
+          "properties": {
+            "oportunidade": {
+              "type": "string",
+              "title": "Oportunidade",
+              "description": "Descrição da oportunidade identificada.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria da oportunidade, como automação, produtividade, experiência do usuário, receita, operação, dados, IA ou diferenciação.",
+              "minLength": 1
+            },
+            "valor_esperado": {
+              "type": "string",
+              "title": "Valor Esperado",
+              "description": "Valor potencial que a oportunidade pode gerar para o produto.",
+              "minLength": 1
+            },
+            "esforco_estimado": {
+              "type": "string",
+              "title": "Esforço Estimado",
+              "description": "Esforço estimado para explorar a oportunidade.",
+              "enum": [
+                "Baixo",
+                "Médio",
+                "Alto"
+              ]
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade estratégica atribuída à oportunidade.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "hipotese_item": {
+          "type": "object",
+          "title": "Hipótese",
+          "description": "Hipótese reduzida, confirmada parcialmente ou recém-identificada com base nas evidências pesquisadas.",
+          "required": [
+            "hipotese",
+            "tipo",
+            "status",
+            "evidencia",
+            "impacto",
+            "proxima_validacao"
+          ],
+          "properties": {
+            "hipotese": {
+              "type": "string",
+              "title": "Hipótese",
+              "description": "Enunciado da hipótese.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Classificação da hipótese, como problema, público, valor, monetização, adoção, operação, tecnologia ou diferenciação.",
+              "enum": [
+                "problema",
+                "publico",
+                "valor",
+                "monetizacao",
+                "adocao",
+                "operacao",
+                "tecnologia",
+                "diferenciacao",
+                "governanca",
+                "seguranca",
+                "compliance",
+                "integracoes",
+                "ia"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "title": "Status",
+              "description": "Situação atual da hipótese após a pesquisa.",
+              "enum": [
+                "reduzida",
+                "confirmada_parcialmente",
+                "nova"
+              ]
+            },
+            "evidencia": {
+              "type": "string",
+              "title": "Evidência",
+              "description": "Resumo da evidência ou do conjunto de sinais que sustentam a hipótese.",
+              "minLength": 1
+            },
+            "impacto": {
+              "type": "string",
+              "title": "Impacto",
+              "description": "Impacto da hipótese sobre o produto ou sobre a próxima etapa.",
+              "minLength": 1
+            },
+            "proxima_validacao": {
+              "type": "string",
+              "title": "Próxima Validação",
+              "description": "Validação sugerida para confirmar, refinar ou descartar a hipótese.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "lacuna_validacao_item": {
+          "type": "object",
+          "title": "Lacuna de Validação",
+          "description": "Ponto ainda não validado que permanece como lacuna para as próximas etapas.",
+          "required": [
+            "lacuna",
+            "categoria",
+            "por_que_importa",
+            "forma_de_validacao",
+            "prioridade"
+          ],
+          "properties": {
+            "lacuna": {
+              "type": "string",
+              "title": "Lacuna",
+              "description": "Descrição da lacuna de validação.",
+              "minLength": 1
+            },
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Categoria temática da lacuna.",
+              "minLength": 1
+            },
+            "por_que_importa": {
+              "type": "string",
+              "title": "Por que Importa",
+              "description": "Razão estratégica pela qual a lacuna precisa ser tratada.",
+              "minLength": 1
+            },
+            "forma_de_validacao": {
+              "type": "string",
+              "title": "Forma de Validação",
+              "description": "Método recomendado para reduzir essa lacuna, como entrevistas, benchmark, protótipo ou análise de dados.",
+              "minLength": 1
+            },
+            "prioridade": {
+              "type": "string",
+              "title": "Prioridade",
+              "description": "Prioridade da validação desta lacuna.",
+              "enum": [
+                "Baixa",
+                "Média",
+                "Alta",
+                "Crítica"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "fonte_item": {
+          "type": "object",
+          "title": "Fonte",
+          "description": "Fonte consultada durante a pesquisa. Deve conter título, organização, URL, perguntas relacionadas e tipo de fonte para garantir rastreabilidade.",
+          "required": [
+            "id",
+            "titulo",
+            "organizacao_ou_site",
+            "url",
+            "perguntas_relacionadas",
+            "tipo_de_fonte"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "title": "ID",
+              "description": "Identificador estável da fonte no dashboard.",
+              "minLength": 1
+            },
+            "titulo": {
+              "type": "string",
+              "title": "Título",
+              "description": "Título da fonte, documento ou página consultada.",
+              "minLength": 1
+            },
+            "organizacao_ou_site": {
+              "type": "string",
+              "title": "Organização ou Site",
+              "description": "Nome da organização, empresa ou site responsável pela fonte.",
+              "minLength": 1
+            },
+            "url": {
+              "type": "string",
+              "title": "URL",
+              "description": "Endereço da fonte consultada.",
+              "format": "uri",
+              "minLength": 1
+            },
+            "perguntas_relacionadas": {
+              "type": "array",
+              "title": "Perguntas Relacionadas",
+              "description": "Lista dos IDs das perguntas que esta fonte ajuda a responder.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "ID da Pergunta",
+                "description": "Identificador de uma pergunta relacionada à fonte.",
+                "minLength": 1
+              }
+            },
+            "tipo_de_fonte": {
+              "type": "string",
+              "title": "Tipo de Fonte",
+              "description": "Classificação da fonte, como documentação oficial, artigo técnico, relatório de mercado, concorrente, benchmark, legislação, pesquisa acadêmica, estudo de caso, notícia ou referência setorial.",
+              "enum": [
+                "documentacao_oficial",
+                "artigo_tecnico",
+                "relatorio_de_mercado",
+                "concorrente",
+                "benchmark",
+                "legislacao",
+                "pesquisa_academica",
+                "estudo_de_caso",
+                "noticia",
+                "referencia_setorial"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "filtro_item": {
+          "type": "object",
+          "title": "Filtro",
+          "description": "Filtro interativo disponível no dashboard para refinar a visualização por categoria, confiança, validação, risco ou oportunidade.",
+          "required": [
+            "nome",
+            "descricao",
+            "opcoes"
+          ],
+          "properties": {
+            "nome": {
+              "type": "string",
+              "title": "Nome",
+              "description": "Nome do filtro exibido para o usuário.",
+              "minLength": 1
+            },
+            "descricao": {
+              "type": "string",
+              "title": "Descrição",
+              "description": "Descrição do que o filtro controla e por que ele existe.",
+              "minLength": 1
+            },
+            "opcoes": {
+              "type": "array",
+              "title": "Opções",
+              "description": "Lista das opções disponíveis no filtro.",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "title": "Opção",
+                "description": "Uma opção do filtro.",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "destaque_item": {
+          "type": "object",
+          "title": "Item em Destaque",
+          "description": "Representa um item que deve receber destaque visual no dashboard por relevância estratégica.",
+          "required": [
+            "referencia",
+            "motivo",
+            "nivel_visual"
+          ],
+          "properties": {
+            "referencia": {
+              "type": "string",
+              "title": "Referência",
+              "description": "Nome, ID ou resumo do item destacado.",
+              "minLength": 1
+            },
+            "motivo": {
+              "type": "string",
+              "title": "Motivo",
+              "description": "Motivo pelo qual o item deve receber destaque.",
+              "minLength": 1
+            },
+            "nivel_visual": {
+              "type": "string",
+              "title": "Nível Visual",
+              "description": "Intensidade do destaque visual a ser aplicada.",
+              "enum": [
+                "Moderado",
+                "Alto",
+                "Crítico"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "evidencia_referencia_item": {
+          "type": "object",
+          "title": "Evidência ou Referência",
+          "description": "Item que relaciona a resposta pesquisada com a fonte, a evidência ou a referência utilizada na análise.",
+          "required": [
+            "descricao",
+            "fonte_id",
+            "tipo"
+          ],
+          "properties": {
+            "descricao": {
+              "type": "string",
+              "title": "Descrição",
+              "description": "Resumo da evidência ou da referência encontrada.",
+              "minLength": 1
+            },
+            "fonte_id": {
+              "type": "string",
+              "title": "ID da Fonte",
+              "description": "Identificador da fonte relacionada a esta evidência.",
+              "minLength": 1
+            },
+            "tipo": {
+              "type": "string",
+              "title": "Tipo",
+              "description": "Tipo da evidência, como fato, benchmark, documentação, inferência ou referência de mercado.",
+              "enum": [
+                "fato",
+                "benchmark",
+                "documentacao",
+                "inferência",
+                "referencia_de_mercado"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "contador_categoria_item": {
+          "type": "object",
+          "title": "Contagem por Categoria",
+          "description": "Item de contagem usado para mostrar a distribuição de perguntas por categoria.",
+          "required": [
+            "categoria",
+            "quantidade"
+          ],
+          "properties": {
+            "categoria": {
+              "type": "string",
+              "title": "Categoria",
+              "description": "Nome da categoria contada.",
+              "minLength": 1
+            },
+            "quantidade": {
+              "type": "integer",
+              "title": "Quantidade",
+              "description": "Número de perguntas atribuídas à categoria.",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "outputExample": {
+    "file": "1.2-output.json",
+    "title": "Stage 1.2 — Analysis of Open Questions from Stage 1",
+    "objective": "Instância de exemplo estruturalmente compatível com o template de saída da etapa.",
+    "description": "Exemplo mínimo gerado para demonstrar a compatibilidade estrutural entre output.json e output-template.json.",
+    "content": {
+      "etapa": 1.2,
+      "arquivo_de_entrada": "1.2-prompt.md",
+      "arquivo_de_saida": "1.2.html",
+      "arquivo_de_origem_etapa_1": "string",
+      "produto_analisado": {
+        "nome_provisorio": "string",
+        "tipo_de_sistema": "string",
+        "segmento_de_mercado": "string",
+        "descricao_curta": "string",
+        "posicionamento": "string"
+      },
+      "cabecalho": {
+        "nome_do_produto": "string",
+        "nome_da_etapa": "string",
+        "arquivo_de_origem": "string",
+        "arquivo_gerado": "string",
+        "data_de_geracao": "string",
+        "total_de_perguntas": 0,
+        "total_de_fontes": 0,
+        "categorias_principais": [
+          "string"
+        ]
+      },
+      "resumo_executivo": {
+        "titulo": "string",
+        "sintese": "string",
+        "principais_conclusoes": [
+          "string"
+        ],
+        "impacto_no_produto": [
+          "string"
+        ],
+        "decisao_recomendada": "string"
+      },
+      "contexto_do_produto": {
+        "problema_principal": "string",
+        "publico_principal": [
+          "string"
+        ],
+        "proposta_de_valor": "string",
+        "hipoteses_relevantes": [
+          "string"
+        ],
+        "contexto_multitenant": "string",
+        "restricoes": [
+          "string"
+        ],
+        "observacoes_de_leitura": [
+          "string"
+        ]
+      },
+      "direcao_estetica_aplicada": {
+        "arquivo_de_referencia": "string",
+        "resumo_da_aplicacao": "string",
+        "tema": "string",
+        "tipografia": "string",
+        "composicao": "string",
+        "densidade_informacional": "string",
+        "componentes_chave": [
+          "string"
+        ],
+        "estados_visuais": [
+          "string"
+        ],
+        "coerencia_com_a_etapa_1_1": "string"
+      },
+      "perguntas_extraidas": [
+        "string"
+      ],
+      "mapa_de_categorias": {
+        "resumo": "string",
+        "categorias": [
+          "string"
+        ]
+      },
+      "tabela_consolidada": [
+        "string"
+      ],
+      "analises_detalhadas": [
+        "string"
+      ],
+      "principais_aprendizados": [
+        "string"
+      ],
+      "implicacoes_para_o_produto": [
+        "string"
+      ],
+      "decisoes_sugeridas": [
+        "string"
+      ],
+      "riscos_atualizados": [
+        "string"
+      ],
+      "oportunidades_atualizadas": [
+        "string"
+      ],
+      "hipoteses": {
+        "reduzidas_ou_confirmadas_parcialmente": [
+          "string"
+        ],
+        "novas_hipoteses": [
+          "string"
+        ]
+      },
+      "lacunas_de_validacao": [
+        "string"
+      ],
+      "recomendacoes_para_entrevistas": {
+        "objetivo": "string",
+        "publicos_sugeridos": [
+          "string"
+        ],
+        "temas_prioritarios": [
+          "string"
+        ],
+        "perguntas_sugeridas": [
+          "string"
+        ],
+        "criterios_de_sucesso": [
+          "string"
+        ]
+      },
+      "recomendacoes_para_benchmarking": {
+        "objetivo": "string",
+        "tipos_de_referencia": [
+          "string"
+        ],
+        "competidores_ou_benchmarks_sugeridos": [
+          "string"
+        ],
+        "criterios_de_comparacao": [
+          "string"
+        ],
+        "hipoteses_a_testar": [
+          "string"
+        ]
+      },
+      "fontes_e_referencias": {
+        "resumo": "string",
+        "itens": [
+          "string"
+        ]
+      },
+      "proximos_passos": {
+        "proxima_etapa_recomendada": "string",
+        "motivacao": "string",
+        "atividades_prioritarias": [
+          "string"
+        ],
+        "hipoteses_prioritarias": [
+          "string"
+        ],
+        "validações_prioritarias": [
+          "string"
+        ]
+      },
+      "interatividade": {
+        "alternancia_de_tema": "string",
+        "expansao_de_secoes": "string",
+        "filtros": [
+          "string"
+        ],
+        "acoes_de_exportacao": [
+          "string"
+        ],
+        "acoes_de_copia": [
+          "string"
+        ],
+        "busca_textual": "string",
+        "feedback_visual": "string"
+      },
+      "progresso_visual": {
+        "percentual": 0,
+        "texto_de_status": "string",
+        "secoes_cobertas": 0,
+        "secoes_totais": 0
+      },
+      "destaques": {
+        "perguntas_de_baixa_confianca": [
+          "string"
+        ],
+        "perguntas_criticas_para_validacao": [
+          "string"
+        ],
+        "riscos_criticos": [
+          "string"
+        ],
+        "oportunidades_prioritarias": [
+          "string"
+        ]
+      },
+      "contadores": {
+        "total_de_perguntas": 0,
+        "perguntas_respondidas": 0,
+        "perguntas_por_categoria": [
+          "string"
+        ],
+        "nivel_medio_de_confianca": "Baixo",
+        "decisoes_sugeridas": 0,
+        "riscos_atualizados": 0,
+        "oportunidades_identificadas": 0,
+        "lacunas_restantes": 0,
+        "proxima_etapa_recomendada": "string"
+      }
+    }
+  },
+  "sections": [
+    {
+      "index": 1,
+      "level": 1,
+      "title": "User Input",
+      "objective": "Definir e orientar a parte 'User Input' do prompt.",
+      "description": "The user will send or point to a Stage 1 HTML file. In addition to the Stage 1 HTML, you must use the file: This file contains the official aesthetic definition of the product and must guide all decisions related to UX/UI, theme, visual identity, color palette, typography, composition, layout, density, components, microinteractions, visual tone, and the construction of the HTML dashboard. The Stage 1 file may contain initial documentation such as: - initial idea; - problem; - target audience; - value proposition; - hypotheses; - pain points; - opportunities; - risks; - assumptions; - open questions. The main section to analyze is: ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "In addition to the Stage 1 HTML, you must use the file:",
+        "This file contains the official aesthetic definition of the product and must guide all decisions related to UX/UI, theme, visual identity, color palette, typography, composition, layout, density, components, microinteractions, visual tone, and the construction of the HTML dashboard.",
+        "Questions that should guide interviews, research, and benchmarking."
+      ]
+    },
+    {
+      "index": 2,
+      "level": 1,
+      "title": "Goal of Stage 1.2",
+      "objective": "Definir e orientar a parte 'Goal of Stage 1.2' do prompt.",
+      "description": "Turn Stage 1 open questions into a set of **researched, analyzed, and actionable answers**, reducing the product’s initial uncertainty. The result should help guide: - user interviews; - market research; - benchmarking; - hypothesis validation; - risk prioritization; - the next stage definition; - value proposition refinement; - opportunity identification; - initial product decisions. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The result should help guide:"
+      ]
+    },
+    {
+      "index": 3,
+      "level": 1,
+      "title": "Mandatory Tasks",
+      "objective": "Definir e orientar a parte 'Mandatory Tasks' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 4,
+      "level": 2,
+      "title": "1. Read and interpret the Stage 1 HTML",
+      "objective": "Definir e orientar a parte '1. Read and interpret the Stage 1 HTML' do prompt.",
+      "description": "Analyze the full content of the HTML file, especially: - provisional product name; - system type; - market segment; - target audience; - main problem; - value proposition; - hypotheses; - pain points; - opportunities; - risks; - assumptions; - open questions. Use this context to answer each question correctly. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 5,
+      "level": 2,
+      "title": "2. Read and apply the aesthetic definition file",
+      "objective": "Definir e orientar a parte '2. Read and apply the aesthetic definition file' do prompt.",
+      "description": "Before designing or implementing any visual decision in the dashboard, read and apply: Use it as the main source for: - visual personality; - aesthetic language; - creative direction; - visual identity; - color palette; - typography; - composition; - visual rhythm; - information density; - interface patterns; - visual components; - light/dark theme; - microinteractions; - visual states; - responsiveness; - visual accessibility; - microcopy tone; - treatment of cards, tables, filters, navigation, headers, and sections. When there is a conflict between the generic instructions in this prompt and the aesthetic definition file, the aesthetic file takes precedence. Do not invent a new visual iden...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "Do not invent a new visual identity."
+      ]
+    },
+    {
+      "index": 6,
+      "level": 2,
+      "title": "3. Locate section “13. Open Questions”",
+      "objective": "Definir e orientar a parte '3. Locate section “13. Open Questions”' do prompt.",
+      "description": "Find the section with a title equal or similar to: Extract all questions found there. The questions may be organized by categories such as: - business; - users; - market; - operations; - technology; - monetization; - legal; - security; - product; - UX; - AI; - integrations; - data; - support; - scale. Preserve the original category whenever possible. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "Questions that should guide interviews, research, and benchmarking."
+      ]
+    },
+    {
+      "index": 7,
+      "level": 2,
+      "title": "4. Research each question on the web",
+      "objective": "Definir e orientar a parte '4. Research each question on the web' do prompt.",
+      "description": "For each question, perform a focused web search. The research should look for: - best practices; - benchmarks; - market examples; - competitors; - current data; - reliable references; - official documentation; - industry reports; - expert articles; - product patterns; - relevant trends; - known risks; - common requirements in similar systems. Use current and reliable sources. Whenever information may change over time, verify it on the web. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The research should look for:"
+      ]
+    },
+    {
+      "index": 8,
+      "level": 2,
+      "title": "5. Answer each question with product analysis",
+      "objective": "Definir e orientar a parte '5. Answer each question with product analysis' do prompt.",
+      "description": "For each extracted question, generate an analysis using this structure: ```md",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 9,
+      "level": 2,
+      "title": "Question {n}",
+      "objective": "Definir e orientar a parte 'Question {n}' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 10,
+      "level": 3,
+      "title": "Original question",
+      "objective": "Definir e orientar a parte 'Original question' do prompt.",
+      "description": "{Question text}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 11,
+      "level": 3,
+      "title": "Category",
+      "objective": "Definir e orientar a parte 'Category' do prompt.",
+      "description": "{Question category}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 12,
+      "level": 3,
+      "title": "Product context",
+      "objective": "Definir e orientar a parte 'Product context' do prompt.",
+      "description": "{How this question relates to the analyzed product}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 13,
+      "level": 3,
+      "title": "Researched answer",
+      "objective": "Definir e orientar a parte 'Researched answer' do prompt.",
+      "description": "{Objective answer based on research}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 14,
+      "level": 3,
+      "title": "Evidence and references",
+      "objective": "Definir e orientar a parte 'Evidence and references' do prompt.",
+      "description": "{Summary of the sources consulted and links}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 15,
+      "level": 3,
+      "title": "Strategic analysis",
+      "objective": "Definir e orientar a parte 'Strategic analysis' do prompt.",
+      "description": "{What this answer means for the product}",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 16,
+      "level": 3,
+      "title": "Product implications",
+      "objective": "Definir e orientar a parte 'Product implications' do prompt.",
+      "description": "- Implication 1 - Implication 2 - Implication 3",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 17,
+      "level": 3,
+      "title": "Suggested decisions",
+      "objective": "Definir e orientar a parte 'Suggested decisions' do prompt.",
+      "description": "- Decision 1 - Decision 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 18,
+      "level": 3,
+      "title": "Associated risks",
+      "objective": "Definir e orientar a parte 'Associated risks' do prompt.",
+      "description": "- Risk 1 - Risk 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 19,
+      "level": 3,
+      "title": "Identified opportunities",
+      "objective": "Definir e orientar a parte 'Identified opportunities' do prompt.",
+      "description": "- Opportunity 1 - Opportunity 2",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 20,
+      "level": 3,
+      "title": "Confidence level",
+      "objective": "Definir e orientar a parte 'Confidence level' do prompt.",
+      "description": "High / Medium / Low",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 21,
+      "level": 3,
+      "title": "Needs user validation?",
+      "objective": "Definir e orientar a parte 'Needs user validation?' do prompt.",
+      "description": "Yes / No",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 22,
+      "level": 3,
+      "title": "How to validate in practice",
+      "objective": "Definir e orientar a parte 'How to validate in practice' do prompt.",
+      "description": "{Interview, test, prototype, data analysis, landing page, benchmarking, etc.} ``` ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 23,
+      "level": 1,
+      "title": "Required Documents Inside the Dashboard",
+      "objective": "Definir e orientar a parte 'Required Documents Inside the Dashboard' do prompt.",
+      "description": "The final HTML dashboard must contain: 1. Stage 1.2 Executive Summary 2. Context of the Analyzed Product 3. Applied Aesthetic Direction from Stage 1.1 4. Questions Extracted from Stage 1 5. Question Category Map 6. Research-Based Answers by Question 7. Consolidated Question-and-Answer Table 8. Main Learnings 9. Product Implications 10. Suggested Decisions 11. Updated Risks 12. Updated Opportunities 13. Reduced or Partially Confirmed Hypotheses 14. New Hypotheses 15. Remaining Validation Gaps 16. Recommendations for User Interviews 17. Recommendations for Stage 2 Benchmarking 18. Sources and References 19. Next Steps The section **Applied Aesthetic Direction from Stage 1.1** must summarize ho...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The final HTML dashboard must contain:",
+        "The section **Applied Aesthetic Direction from Stage 1.1** must summarize how `0-estetica-inicial-{product-name}.md` was applied to the dashboard, including decisions on theme, hierarchy, composition, density, components, and visual states."
+      ]
+    },
+    {
+      "index": 24,
+      "level": 1,
+      "title": "Required Output Format",
+      "objective": "Definir e orientar a parte 'Required Output Format' do prompt.",
+      "description": "You must generate a full HTML file, ready to open in the browser. The file must be named: The final response must contain a download link for the generated file. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "You must generate a full HTML file, ready to open in the browser.",
+        "The file must be named:",
+        "The final response must contain a download link for the generated file."
+      ]
+    },
+    {
+      "index": 25,
+      "level": 1,
+      "title": "HTML Dashboard Requirements",
+      "objective": "Definir e orientar a parte 'HTML Dashboard Requirements' do prompt.",
+      "description": "The HTML must be self-contained and contain: - `<!DOCTYPE html>`; - semantic HTML; - embedded CSS; - embedded JavaScript; - responsive layout consistent with the composition, density, and hierarchy defined in `0-estetica-inicial-{product-name}.md`; - sidebar navigation aligned with the visual and structural pattern of the aesthetic definition; - summary cards styled according to the component, density, spacing, border, color, and hierarchy rules defined in `0-estetica-inicial-{product-name}.md`; - readable and responsive tables aligned with the information density and reading rules from the aesthetics file; - expandable sections designed according to the components and visual states defined ...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The HTML must be self-contained and contain:"
+      ]
+    },
+    {
+      "index": 26,
+      "level": 1,
+      "title": "Required Visual Structure",
+      "objective": "Definir e orientar a parte 'Required Visual Structure' do prompt.",
+      "description": "",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 27,
+      "level": 2,
+      "title": "1. Header",
+      "objective": "Definir e orientar a parte '1. Header' do prompt.",
+      "description": "The header must follow the composition, hierarchy, tone, and identity defined in `0-estetica-inicial-{product-name}.md`. Display: - analyzed product name; - stage name: `Stage 1.2 — Researched Answers for Open Questions`; - source file analyzed; - generated file; - generation date; - total number of analyzed questions; - number of consulted sources; - main categories found. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The header must follow the composition, hierarchy, tone, and identity defined in `0-estetica-inicial-{product-name}.md`."
+      ]
+    },
+    {
+      "index": 28,
+      "level": 2,
+      "title": "2. Indicator Cards",
+      "objective": "Definir e orientar a parte '2. Indicator Cards' do prompt.",
+      "description": "Create cards matching the component style, density, spacing, borders, colors, and hierarchy defined in `0-estetica-inicial-{product-name}.md`, containing: - total extracted questions; - answered questions; - questions by category; - average confidence level; - number of suggested decisions; - number of updated risks; - number of identified opportunities; - number of remaining gaps; - next recommended stage. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 29,
+      "level": 2,
+      "title": "3. Category Map",
+      "objective": "Definir e orientar a parte '3. Category Map' do prompt.",
+      "description": "Show grouped questions by category, with a table and visual indicators consistent with Stage 1.1 aesthetics: | Category | Number of questions | Main themes | Average uncertainty level | |---|---:|---|---| ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 30,
+      "level": 2,
+      "title": "4. Consolidated Table",
+      "objective": "Definir e orientar a parte '4. Consolidated Table' do prompt.",
+      "description": "Create a readable, responsive table aligned with the density and reading rules of the aesthetic definition, with: | ID | Category | Question | Short answer | Confidence | Needs validation | Priority | |---|---|---|---|---|---|---| ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 31,
+      "level": 2,
+      "title": "5. Detailed Analysis by Question",
+      "objective": "Definir e orientar a parte '5. Detailed Analysis by Question' do prompt.",
+      "description": "For each question, create a card or expandable section according to the visual patterns defined in `0-estetica-inicial-{product-name}.md`, containing: - original question; - category; - researched answer; - strategic analysis; - product implications; - suggested decisions; - risks; - opportunities; - sources; - confidence level; - recommended validation. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 32,
+      "level": 2,
+      "title": "6. Sources and References",
+      "objective": "Definir e orientar a parte '6. Sources and References' do prompt.",
+      "description": "Create a final section with all consulted sources. Each source must include: | ID | Title | Organization/Site | URL | Related questions | Source type | |---|---|---|---|---|---| Source types: - official documentation; - technical article; - market report; - competitor; - benchmark; - legislation; - academic research; - case study; - news; - industry reference. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "Each source must include:"
+      ]
+    },
+    {
+      "index": 33,
+      "level": 1,
+      "title": "Mandatory Interactivity",
+      "objective": "Definir e orientar a parte 'Mandatory Interactivity' do prompt.",
+      "description": "The dashboard must allow: 1. Toggle light/dark theme. 2. Expand and collapse question analyses. 3. Filter questions by category. 4. Filter questions by confidence level. 5. Filter questions that still need validation. 6. Filter risks by category. 7. Filter opportunities by priority. 8. Free-text search across questions and answers. 9. Copy the executive summary. 10. Copy a specific question’s answer. 11. Export all content to Markdown. 12. Print or save as PDF. 13. Show visual progress for Stage 1.2. 14. Highlight low-confidence questions. 15. Highlight validation-critical questions. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The dashboard must allow:"
+      ]
+    },
+    {
+      "index": 34,
+      "level": 1,
+      "title": "Visual Style",
+      "objective": "Definir e orientar a parte 'Visual Style' do prompt.",
+      "description": "The visual construction, UX/UI, theme, styles, layouts, and all interface patterns of the dashboard must strictly follow: Treat that file as the main visual briefing, conceptual design system, and aesthetic source of truth for the stage.",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The visual construction, UX/UI, theme, styles, layouts, and all interface patterns of the dashboard must strictly follow:"
+      ]
+    },
+    {
+      "index": 35,
+      "level": 2,
+      "title": "Mandatory aesthetic application rules",
+      "objective": "Definir e orientar a parte 'Mandatory aesthetic application rules' do prompt.",
+      "description": "1. Before creating the HTML, extract the relevant guidance from `0-estetica-inicial-{product-name}.md` for: - visual personality; - creative direction; - aesthetic language; - initial visual identity; - color palette; - typography; - visual hierarchy; - composition; - grid; - spacing; - information density; - visual rhythm; - cards; - tables; - filters; - navigation; - headers; - states; - microinteractions; - responsiveness; - accessibility; - microcopy tone. 2. Translate these guidelines into embedded CSS in the HTML itself, creating variables such as: - `--color-bg`; - `--color-surface`; - `--color-text`; - `--color-muted`; - `--color-primary`; - `--color-secondary`; - `--color-risk`; - `...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "3. The light and dark themes must be derived from the product aesthetic, not from a generic palette.",
+        "4. The sidebar, header, cards, tables, expandable sections, filters, buttons, and indicators must feel like part of the same visual system defined in Stage 1.1.",
+        "5. The dashboard must preserve the main function of this stage: analytical reading, question comparison, evidence traceability, risk prioritization, and product decision support.",
+        "6. The visual should reflect the product segment, audience, maturity, usage context, and personality described in the aesthetic file."
+      ]
+    },
+    {
+      "index": 36,
+      "level": 2,
+      "title": "Adapting the dashboard to the product aesthetic",
+      "objective": "Definir e orientar a parte 'Adapting the dashboard to the product aesthetic' do prompt.",
+      "description": "The dashboard should contain, in a way compatible with `0-estetica-inicial-{product-name}.md`: - a clear visual hierarchy between executive summary, critical questions, evidence, suggested decisions, risks, opportunities, and next steps; - a composition appropriate to the product type and decision-maker audience; - balanced information density; - useful, non-decorative visual components; - functional colors for risk, confidence, pending validation, decision, and opportunity; - a clear and coherent sidebar navigation; - readable tables on desktop and mobile; - cards with substantive content and justifiable visual differentiation; - understandable visual states for filters, search, expansion, ...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The dashboard should contain, in a way compatible with `0-estetica-inicial-{product-name}.md`:"
+      ]
+    },
+    {
+      "index": 37,
+      "level": 2,
+      "title": "Avoid conflicts with the aesthetic definition",
+      "objective": "Definir e orientar a parte 'Avoid conflicts with the aesthetic definition' do prompt.",
+      "description": "Avoid any visual choice that contradicts `0-estetica-inicial-{product-name}.md`, especially: - generic palettes that do not appear in the aesthetic definition; - gradients, shadows, glow, or effects that are not specified or are incompatible with the visual direction; - repetitive cards without analytical function; - decorative icons without purpose; - vague and generic phrases; - layouts that look like templates; - unreadable tables on small screens; - animations that interfere with reading; - visual aesthetics unrelated to the product; - components added only to fill space; - arbitrary changes to theme, tone, or identity. The final appearance must show that the dashboard was built from Sta...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "Avoid any visual choice that contradicts `0-estetica-inicial-{product-name}.md`, especially:",
+        "generic palettes that do not appear in the aesthetic definition;",
+        "The final appearance must show that the dashboard was built from Stage 1.1’s aesthetic definition, not from a generic style."
+      ]
+    },
+    {
+      "index": 38,
+      "level": 1,
+      "title": "Research Rules",
+      "objective": "Definir e orientar a parte 'Research Rules' do prompt.",
+      "description": "Follow these rules: 1. Research each extracted question on the web. 2. Use reliable and current sources. 3. Prefer primary sources whenever possible. 4. For technology, prioritize official documentation. 5. For market, prioritize reports, competitor sites, and recognized sources. 6. For legal, regulatory, or security topics, use official or specialized sources. 7. Do not use only one source for complex answers. 8. Do not invent data. 9. Do not claim user validation if it has not happened. 10. Clearly distinguish: - researched fact; - strategic inference; - hypothesis; - recommendation. 11. When the answer depends on the segment, make that explicit. 12. When there is no conclusive answer, ind...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "7. Do not use only one source for complex answers.",
+        "8. Do not invent data.",
+        "9. Do not claim user validation if it has not happened."
+      ]
+    },
+    {
+      "index": 39,
+      "level": 1,
+      "title": "Product Analysis Rules",
+      "objective": "Definir e orientar a parte 'Product Analysis Rules' do prompt.",
+      "description": "For each question, evaluate: - how the answer affects the value proposition; - whether it changes the target audience; - whether it confirms or weakens hypotheses; - whether it creates new risks; - whether it reveals opportunities; - whether it requires user validation; - whether it impacts Stage 2; - whether it should become a future requirement; - whether it should be treated as an assumption; - whether it should guide benchmarking. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "whether it should become a future requirement;",
+        "whether it should be treated as an assumption;",
+        "whether it should guide benchmarking."
+      ]
+    },
+    {
+      "index": 40,
+      "level": 1,
+      "title": "Technical Rules for the HTML File",
+      "objective": "Definir e orientar a parte 'Technical Rules for the HTML File' do prompt.",
+      "description": "The HTML must: - work offline once generated; - be a single file; - not depend on the internet to open; - not use external libraries; - not use frameworks; - not use external images; - contain CSS in `<style>`; - contain JS in `<script>`; - be readable and organized; - use semantic elements; - contain useful internal comments in the code; - be compatible with modern browsers; - apply the visual rules from `0-estetica-inicial-{product-name}.md` in CSS and layout; - be self-reviewed before delivery, inspecting the HTML for errors, failures, inconsistencies, empty sections, broken links, non-functional filters, non-working buttons, unreadable tables, responsiveness issues, and incoherent text; ...",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The HTML must:"
+      ]
+    },
+    {
+      "index": 41,
+      "level": 1,
+      "title": "Expected HTML Structure",
+      "objective": "Definir e orientar a parte 'Expected HTML Structure' do prompt.",
+      "description": "---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": []
+    },
+    {
+      "index": 42,
+      "level": 1,
+      "title": "Quality Criteria",
+      "objective": "Definir e orientar a parte 'Quality Criteria' do prompt.",
+      "description": "The output must be: - researched; - grounded; - strategic; - objective; - traceable to sources; - useful for product decisions; - useful for guiding interviews; - useful for guiding benchmarking; - clear about uncertainties; - clear about hypotheses; - clear about risks; - clear about remaining gaps. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "The output must be:"
+      ]
+    },
+    {
+      "index": 43,
+      "level": 1,
+      "title": "Important Rules",
+      "objective": "Definir e orientar a parte 'Important Rules' do prompt.",
+      "description": "1. Do not rewrite Stage 1 in full. 2. Do not ignore open questions. 3. Do not answer questions without research. 4. Do not mix opinion with researched fact. 5. Do not treat inferences as certainty. 6. Do not invent sources. 7. Do not use fictitious links. 8. Do not use external libraries in the HTML. 9. Do not deliver Markdown only. 10. Do not generate separate files. 11. Generate only one final HTML, inspect it for errors or failures, and fix them. 12. Save the file as `1.2-{product-name}.html`. ---",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "1. Do not rewrite Stage 1 in full.",
+        "2. Do not ignore open questions.",
+        "3. Do not answer questions without research.",
+        "4. Do not mix opinion with researched fact.",
+        "5. Do not treat inferences as certainty.",
+        "6. Do not invent sources.",
+        "7. Do not use fictitious links.",
+        "8. Do not use external libraries in the HTML.",
+        "9. Do not deliver Markdown only.",
+        "10. Do not generate separate files."
+      ]
+    },
+    {
+      "index": 44,
+      "level": 1,
+      "title": "Expected Output",
+      "objective": "Definir e orientar a parte 'Expected Output' do prompt.",
+      "description": "When receiving the Stage 1 HTML, the assistant must: 1. Read the file. 2. Extract the product context. 3. Locate section `13. Open Questions`. 4. Extract all questions. 5. Research each question on the web. 6. Generate analyzed and grounded answers. 7. Create the full HTML dashboard, inspect it for errors or failures, and fix them. 8. Save the file using: 9. Respond only with the download link and a short confirmation sentence. Final response format:",
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ],
+      "rules": [
+        "When receiving the Stage 1 HTML, the assistant must:"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "title": "Goal of Stage 1.2",
+      "objective": "Executar a instrução operacional 'Goal of Stage 1.2'.",
+      "description": "Turn Stage 1 open questions into a set of **researched, analyzed, and actionable answers**, reducing the product’s initial uncertainty. The result should help guide: - user interviews; - market research; - benchmarking; - hypothesis validation; - risk prioritization; - the next stage definition; - value proposition refinement; - opportunity identification; - initial product decisions. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Mandatory Tasks",
+      "objective": "Executar a instrução operacional 'Mandatory Tasks'.",
+      "description": "",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 3,
+      "title": "1. Read and interpret the Stage 1 HTML",
+      "objective": "Executar a instrução operacional '1. Read and interpret the Stage 1 HTML'.",
+      "description": "Analyze the full content of the HTML file, especially: - provisional product name; - system type; - market segment; - target audience; - main problem; - value proposition; - hypotheses; - pain points; - opportunities; - risks; - assumptions; - open questions. Use this context to answer each question correctly. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 4,
+      "title": "2. Read and apply the aesthetic definition file",
+      "objective": "Executar a instrução operacional '2. Read and apply the aesthetic definition file'.",
+      "description": "Before designing or implementing any visual decision in the dashboard, read and apply: Use it as the main source for: - visual personality; - aesthetic language; - creative direction; - visual identity; - color palette; - typography; - composition; - visual rhythm; - information density; - interface patterns; - visual components; - light/dark theme; - microinteractions; - visual states; - responsiveness; - visual accessibility; - microcopy tone; - treatment of cards, tables, filters, navigation, headers, and sections. When there is a conflict between the generic instructions in this prompt and the aesthetic definition file, the aesthetic file...",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 5,
+      "title": "3. Locate section “13. Open Questions”",
+      "objective": "Executar a instrução operacional '3. Locate section “13. Open Questions”'.",
+      "description": "Find the section with a title equal or similar to: Extract all questions found there. The questions may be organized by categories such as: - business; - users; - market; - operations; - technology; - monetization; - legal; - security; - product; - UX; - AI; - integrations; - data; - support; - scale. Preserve the original category whenever possible. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 6,
+      "title": "4. Research each question on the web",
+      "objective": "Executar a instrução operacional '4. Research each question on the web'.",
+      "description": "For each question, perform a focused web search. The research should look for: - best practices; - benchmarks; - market examples; - competitors; - current data; - reliable references; - official documentation; - industry reports; - expert articles; - product patterns; - relevant trends; - known risks; - common requirements in similar systems. Use current and reliable sources. Whenever information may change over time, verify it on the web. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 7,
+      "title": "5. Answer each question with product analysis",
+      "objective": "Executar a instrução operacional '5. Answer each question with product analysis'.",
+      "description": "For each extracted question, generate an analysis using this structure: ```md",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 8,
+      "title": "1. Header",
+      "objective": "Executar a instrução operacional '1. Header'.",
+      "description": "The header must follow the composition, hierarchy, tone, and identity defined in `0-estetica-inicial-{product-name}.md`. Display: - analyzed product name; - stage name: `Stage 1.2 — Researched Answers for Open Questions`; - source file analyzed; - generated file; - generation date; - total number of analyzed questions; - number of consulted sources; - main categories found. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 9,
+      "title": "2. Indicator Cards",
+      "objective": "Executar a instrução operacional '2. Indicator Cards'.",
+      "description": "Create cards matching the component style, density, spacing, borders, colors, and hierarchy defined in `0-estetica-inicial-{product-name}.md`, containing: - total extracted questions; - answered questions; - questions by category; - average confidence level; - number of suggested decisions; - number of updated risks; - number of identified opportunities; - number of remaining gaps; - next recommended stage. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 10,
+      "title": "3. Category Map",
+      "objective": "Executar a instrução operacional '3. Category Map'.",
+      "description": "Show grouped questions by category, with a table and visual indicators consistent with Stage 1.1 aesthetics: | Category | Number of questions | Main themes | Average uncertainty level | |---|---:|---|---| ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 11,
+      "title": "4. Consolidated Table",
+      "objective": "Executar a instrução operacional '4. Consolidated Table'.",
+      "description": "Create a readable, responsive table aligned with the density and reading rules of the aesthetic definition, with: | ID | Category | Question | Short answer | Confidence | Needs validation | Priority | |---|---|---|---|---|---|---| ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 12,
+      "title": "5. Detailed Analysis by Question",
+      "objective": "Executar a instrução operacional '5. Detailed Analysis by Question'.",
+      "description": "For each question, create a card or expandable section according to the visual patterns defined in `0-estetica-inicial-{product-name}.md`, containing: - original question; - category; - researched answer; - strategic analysis; - product implications; - suggested decisions; - risks; - opportunities; - sources; - confidence level; - recommended validation. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    },
+    {
+      "index": 13,
+      "title": "6. Sources and References",
+      "objective": "Executar a instrução operacional '6. Sources and References'.",
+      "description": "Create a final section with all consulted sources. Each source must include: | ID | Title | Organization/Site | URL | Related questions | Source type | |---|---|---|---|---|---| Source types: - official documentation; - technical article; - market report; - competitor; - benchmark; - legislation; - academic research; - case study; - news; - industry reference. ---",
+      "dependencies": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "inputs": [
+        "alpha.json",
+        "0-output.json",
+        "0.1-output.json",
+        "1-output.json"
+      ],
+      "outputs": [
+        "1.2-output.json"
+      ]
+    }
+  ]
+}

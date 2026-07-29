@@ -1,0 +1,2613 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Estrutura da Saida da Etapa 8 - Backlog, Plano de Implementacao e QA",
+  "description": "Schema JSON que representa semanticamente a saida final esperada pela Etapa 8. O artefato deve descrever o conteudo integral do dashboard HTML 8.html, incluindo cabecalho, resumo executivo, contexto consolidado do produto, fontes de entrada, escopo por release, roadmap de implementacao, epicos, features, historias de usuario, criterios de aceite, backlog detalhado, priorizacao, dependencias, requisitos tecnicos candidatos, plano de sprint, Definition of Ready, Definition of Done, plano de QA, casos de teste, testes de permissao, testes de UX/UI, testes de integracao, testes de dados e auditoria, riscos de implementacao, metricas de entrega e qualidade, handoff para desenvolvimento, lacunas, diretrizes de UX/UI, recomendacoes, referencias, proximos passos, interatividade, progresso visual, destaques e contadores.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "etapa",
+    "arquivo_de_entrada",
+    "arquivo_de_saida",
+    "cabecalho",
+    "referencia_estetica",
+    "resumo_executivo",
+    "contexto_consolidado_do_produto",
+    "fontes_e_documentos_de_entrada",
+    "escopo_por_release",
+    "roadmap_de_implementacao",
+    "epicos",
+    "features",
+    "historias_de_usuario",
+    "criterios_de_aceite",
+    "backlog_detalhado",
+    "priorizacao",
+    "dependencias",
+    "requisitos_tecnicos_candidatos",
+    "plano_de_implementacao_por_sprint",
+    "definition_of_ready",
+    "definition_of_done",
+    "plano_de_qa",
+    "casos_de_teste",
+    "testes_de_permissao",
+    "testes_de_ux_ui",
+    "testes_de_integracao",
+    "testes_de_dados_e_auditoria",
+    "riscos_de_implementacao",
+    "metricas_de_entrega_e_qualidade",
+    "handoff_para_desenvolvimento",
+    "lacunas_e_pendencias",
+    "diretrizes_ux_ui",
+    "recomendacoes_para_etapa_9",
+    "fontes_e_referencias",
+    "proximos_passos",
+    "interatividade",
+    "progresso_visual",
+    "destaques",
+    "contadores"
+  ],
+  "properties": {
+    "etapa": {
+      "type": "integer",
+      "title": "Numero da Etapa",
+      "description": "Identificador numerico da etapa inferido a partir do prompt de entrada. Para este schema, o valor deve ser 8.",
+      "const": 8
+    },
+    "arquivo_de_entrada": {
+      "type": "string",
+      "title": "Arquivo de Entrada",
+      "description": "Nome do arquivo de prompt usado como referencia oficial para a geracao desta saida.",
+      "const": "8-prompt.md"
+    },
+    "arquivo_de_saida": {
+      "type": "string",
+      "title": "Arquivo de Saida",
+      "description": "Nome do arquivo final produzido pela etapa.",
+      "const": "8.html"
+    },
+    "cabecalho": {
+      "title": "Cabecalho do Dashboard",
+      "description": "Bloco de identificacao principal do dashboard com nome do produto, etapa, arquivos, data, contexto e contagens chave.",
+      "$ref": "#/$defs/Cabecalho"
+    },
+    "referencia_estetica": {
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo o status do arquivo 0-estetica-inicial.md e as restricoes aplicadas quando a referencia nao estiver disponivel.",
+      "$ref": "#/$defs/ReferenciaEstetica"
+    },
+    "resumo_executivo": {
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 8 com leitura consolidada do objetivo do backlog, do plano de implementacao, do escopo considerado, dos riscos e das limitacoes da documentacao.",
+      "$ref": "#/$defs/ResumoExecutivo"
+    },
+    "contexto_consolidado_do_produto": {
+      "title": "Contexto Consolidado do Produto",
+      "description": "Conjunto consolidado de informacoes sobre nome, tipo de sistema, segmento, publico, proposta de valor, perfis, fluxos, regras, permissões, configuracoes, dados, integracoes, IA, billing e contexto de uso herdados das etapas anteriores.",
+      "$ref": "#/$defs/ContextoConsolidado"
+    },
+    "fontes_e_documentos_de_entrada": {
+      "type": "array",
+      "title": "Fontes e Documentos de Entrada",
+      "description": "Lista rastreavel dos documentos e materiais usados como entrada oficial para a documentacao da Etapa 8.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FonteDocumento"
+      }
+    },
+    "escopo_por_release": {
+      "type": "array",
+      "title": "Escopo por Release",
+      "description": "Tabela das releases sugeridas com objetivo, escopo funcional, escopo tecnico, criterio de sucesso e observacoes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ReleaseItem"
+      }
+    },
+    "roadmap_de_implementacao": {
+      "type": "array",
+      "title": "Roadmap de Implementacao",
+      "description": "Tabela das fases de entrega do produto com objetivos, entregaveis, dependencias, riscos e resultado esperado.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RoadmapItem"
+      }
+    },
+    "epicos": {
+      "type": "array",
+      "title": "Epicos",
+      "description": "Tabela dos epicos funcionais, tecnicos, de dados, de UX/UI, de seguranca, de integracao, de billing, de IA, de auditoria, de operacao e de QA.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/EpicoItem"
+      }
+    },
+    "features": {
+      "type": "array",
+      "title": "Features",
+      "description": "Tabela das features derivadas dos epicos, com valor para o usuario, prioridade, release e observacoes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FeatureItem"
+      }
+    },
+    "historias_de_usuario": {
+      "type": "array",
+      "title": "Historias de Usuario",
+      "description": "Tabela das historias de usuario formuladas a partir das features e dos perfis envolvidos.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/HistoriaUsuario"
+      }
+    },
+    "criterios_de_aceite": {
+      "type": "array",
+      "title": "Criterios de Aceite",
+      "description": "Tabela dos criterios de aceite por historia, cobrindo funcionalidade, permissao, validacao, UX, UI, acessibilidade, seguranca, dados, integracao, IA, billing, auditoria, performance e responsividade.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CriterioAceite"
+      }
+    },
+    "backlog_detalhado": {
+      "type": "array",
+      "title": "Backlog Detalhado",
+      "description": "Tabela detalhada dos itens de backlog, incluindo historias, tarefas tecnicas, bugs conhecidos, melhorias, spikes, pesquisa, prototipos, testes, infraestrutura, documentacao, seguranca, integracao, IA, dados e UX/UI.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/BacklogItem"
+      }
+    },
+    "priorizacao": {
+      "type": "array",
+      "title": "Priorizacao",
+      "description": "Tabela de priorizacao com valor, urgencia, risco, esforco, prioridade final e justificativa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/PriorizacaoItem"
+      }
+    },
+    "dependencias": {
+      "type": "array",
+      "title": "Dependencias",
+      "description": "Tabela de dependencias funcionais, tecnicas, de dados, UX, integracao, permissao, billing, IA, seguranca, negocio e decisao externa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/DependenciaItem"
+      }
+    },
+    "requisitos_tecnicos_candidatos": {
+      "type": "array",
+      "title": "Requisitos Tecnicos Candidatos",
+      "description": "Tabela dos requisitos tecnicos candidatos, classificados por categoria e origem.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RequisitoTecnico"
+      }
+    },
+    "plano_de_implementacao_por_sprint": {
+      "type": "array",
+      "title": "Plano de Implementacao por Sprint",
+      "description": "Tabela das sprints propostas com objetivo, itens previstos, dependencias, criterio de sucesso e observacoes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/SprintItem"
+      }
+    },
+    "definition_of_ready": {
+      "type": "array",
+      "title": "Definition of Ready",
+      "description": "Lista ou tabela dos criterios de pronto para entrada de itens no desenvolvimento.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CriterioPronto"
+      }
+    },
+    "definition_of_done": {
+      "type": "array",
+      "title": "Definition of Done",
+      "description": "Lista ou tabela dos criterios de conclusao para itens desenvolvidos e aprovados.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CriterioPronto"
+      }
+    },
+    "plano_de_qa": {
+      "type": "array",
+      "title": "Plano de QA",
+      "description": "Tabela por area de qualidade com estrategia, tipos de teste, ferramentas sugeridas e observacoes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/QAItem"
+      }
+    },
+    "casos_de_teste": {
+      "type": "array",
+      "title": "Casos de Teste",
+      "description": "Tabela dos casos de teste cobrindo fluxo feliz, validacoes, erros, estados vazios, sem permissao, dados sensiveis, multi tenant, troca de contexto, integracao falha, limite de plano, IA indisponivel, revisao humana, auditoria e responsividade.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/CasoTeste"
+      }
+    },
+    "testes_de_permissao": {
+      "type": "array",
+      "title": "Testes de Permissao",
+      "description": "Tabela dos testes de permissao por perfil, tela ou funcionalidade, com acesso esperado e bloqueios.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TestePermissao"
+      }
+    },
+    "testes_de_ux_ui": {
+      "type": "array",
+      "title": "Testes de UX/UI",
+      "description": "Tabela dos testes de experiencia e interface, com criterios visuais, modo de teste e resultado esperado.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TesteUXUI"
+      }
+    },
+    "testes_de_integracao": {
+      "type": "array",
+      "title": "Testes de Integracao",
+      "description": "Tabela dos testes de integracao com cenarios, entradas, falhas esperadas e recuperacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TesteIntegracao"
+      }
+    },
+    "testes_de_dados_e_auditoria": {
+      "type": "array",
+      "title": "Testes de Dados e Auditoria",
+      "description": "Tabela dos testes de dados e auditoria por entidade ou evento, incluindo validacao e trilha esperada.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/TesteDadosAuditoria"
+      }
+    },
+    "riscos_de_implementacao": {
+      "type": "array",
+      "title": "Riscos de Implementacao",
+      "description": "Inventario dos riscos de produto, UX, tecnico, dados, seguranca, integracao, IA, billing, performance, operacao, prazo, equipe, escopo e compliance.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RiscoItem"
+      }
+    },
+    "metricas_de_entrega_e_qualidade": {
+      "type": "array",
+      "title": "Metricas de Entrega e Qualidade",
+      "description": "Tabela das metricas de entrega, qualidade e operacao acompanhadas durante a implementacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/MetricaItem"
+      }
+    },
+    "handoff_para_desenvolvimento": {
+      "type": "array",
+      "title": "Checklist de Handoff para Desenvolvimento",
+      "description": "Tabela dos itens de handoff que precisam estar prontos para o desenvolvimento, QA e homologacao.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/HandoffItem"
+      }
+    },
+    "lacunas_e_pendencias": {
+      "type": "array",
+      "title": "Lacunas e Pendencias",
+      "description": "Tabela das lacunas, pendencias e pontos que ainda precisam de validacao, decisao ou evidencia adicional.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/LacunaPendencia"
+      }
+    },
+    "diretrizes_ux_ui": {
+      "title": "Diretrizes de UX/UI",
+      "description": "Registro das diretrizes visuais e de experiencia aplicadas ao dashboard com base no arquivo estetico oficial ou, se ausente, em uma diretriz provisoria.",
+      "$ref": "#/$defs/DiretrizesUXUI"
+    },
+    "recomendacoes_para_etapa_9": {
+      "type": "array",
+      "title": "Recomendacoes para a Etapa 9",
+      "description": "Lista de recomendacoes para a proxima etapa do fluxo de produto, com foco, impacto, prioridade e observacoes.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RecomendacaoEtapa9"
+      }
+    },
+    "fontes_e_referencias": {
+      "type": "array",
+      "title": "Fontes e Referencias",
+      "description": "Lista rastreavel das fontes, evidencias e referencias usadas na consolidacao da etapa.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/FonteReferencia"
+      }
+    },
+    "proximos_passos": {
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "$ref": "#/$defs/ProximosPassos"
+    },
+    "interatividade": {
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "$ref": "#/$defs/Interatividade"
+    },
+    "progresso_visual": {
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "$ref": "#/$defs/ProgressoVisual"
+    },
+    "destaques": {
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard, incluindo itens essenciais, riscos altos, dependencias criticas, itens bloqueados e itens transversais.",
+      "$ref": "#/$defs/Destaques"
+    },
+    "contadores": {
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "$ref": "#/$defs/Contadores"
+    }
+  },
+  "$defs": {
+    "ListaTexto": {
+      "type": "array",
+      "title": "Lista de Texto",
+      "description": "Lista semanticamente simples de textos relacionados ao item pai.",
+      "items": {
+        "type": "string",
+        "title": "Item de Texto",
+        "description": "Texto individual da lista.",
+        "minLength": 1
+      }
+    },
+    "Cabecalho": {
+      "type": "object",
+      "title": "Cabecalho",
+      "description": "Identificacao principal do dashboard com nome do produto, etapa, arquivos, data, contexto e contagens chave.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "nome_da_etapa",
+        "arquivos_de_entrada",
+        "arquivo_estetico_usado",
+        "arquivo_de_saida",
+        "data_de_geracao",
+        "tipo_de_sistema",
+        "segmento_analisado",
+        "quantidade_releases",
+        "quantidade_epicos",
+        "quantidade_features",
+        "quantidade_historias",
+        "quantidade_backlog_itens",
+        "quantidade_casos_de_teste",
+        "quantidade_riscos",
+        "proxima_etapa_recomendada"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho do produto analisado nesta etapa.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando existir.",
+          "minLength": 1
+        },
+        "nome_da_etapa": {
+          "type": "string",
+          "title": "Nome da Etapa",
+          "description": "Rotulo textual da etapa representada no dashboard.",
+          "const": "Etapa 8 - Backlog, Plano de Implementacao e QA"
+        },
+        "arquivos_de_entrada": {
+          "type": "array",
+          "title": "Arquivos de Entrada",
+          "description": "Lista dos arquivos e materiais usados como entrada oficial no dashboard.",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "title": "Arquivo de Entrada",
+            "description": "Nome ou caminho de um arquivo de entrada.",
+            "minLength": 1
+          }
+        },
+        "arquivo_estetico_usado": {
+          "type": "string",
+          "title": "Arquivo Estetico Usado",
+          "description": "Arquivo de estetica usado para orientar a construcao visual do dashboard.",
+          "const": "0-estetica-inicial.md"
+        },
+        "arquivo_de_saida": {
+          "type": "string",
+          "title": "Arquivo de Saida",
+          "description": "Nome do arquivo final produzido pela etapa.",
+          "const": "8.html"
+        },
+        "data_de_geracao": {
+          "type": "string",
+          "title": "Data de Geracao",
+          "description": "Data e hora de geracao do dashboard em formato legivel e rastreavel.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Tipo de sistema consolidado a partir das etapas anteriores.",
+          "minLength": 1
+        },
+        "segmento_analisado": {
+          "type": "string",
+          "title": "Segmento Analisado",
+          "description": "Segmento, nicho ou contexto de mercado consolidado na etapa.",
+          "minLength": 1
+        },
+        "quantidade_releases": {
+          "type": "integer",
+          "title": "Quantidade de Releases",
+          "description": "Quantidade total de releases consideradas no plano.",
+          "minimum": 0
+        },
+        "quantidade_epicos": {
+          "type": "integer",
+          "title": "Quantidade de Epicos",
+          "description": "Quantidade total de epicos consolidados.",
+          "minimum": 0
+        },
+        "quantidade_features": {
+          "type": "integer",
+          "title": "Quantidade de Features",
+          "description": "Quantidade total de features consolidadas.",
+          "minimum": 0
+        },
+        "quantidade_historias": {
+          "type": "integer",
+          "title": "Quantidade de Historias",
+          "description": "Quantidade total de historias de usuario consolidadas.",
+          "minimum": 0
+        },
+        "quantidade_backlog_itens": {
+          "type": "integer",
+          "title": "Quantidade de Itens de Backlog",
+          "description": "Quantidade total de itens de backlog detalhados.",
+          "minimum": 0
+        },
+        "quantidade_casos_de_teste": {
+          "type": "integer",
+          "title": "Quantidade de Casos de Teste",
+          "description": "Quantidade total de casos de teste consolidados.",
+          "minimum": 0
+        },
+        "quantidade_riscos": {
+          "type": "integer",
+          "title": "Quantidade de Riscos",
+          "description": "Quantidade total de riscos de implementacao identificados.",
+          "minimum": 0
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa sugerida a partir da consolidacao desta saida.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReferenciaEstetica": {
+      "type": "object",
+      "title": "Referencia Estetica",
+      "description": "Registro semantico da base visual usada no dashboard, incluindo disponibilidade, decisao visual e restricoes derivadas de 0-estetica-inicial.md.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "direcao_visual_sintetica",
+        "diretrizes_aplicadas",
+        "restricoes_visuais",
+        "observacao"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo de estetica que deve orientar a implementacao visual.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Indica se a referencia estetica estava disponivel, ausente ou usada apenas como base provisoria.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "direcao_visual_sintetica": {
+          "type": "string",
+          "title": "Direcao Visual Sintetica",
+          "description": "Resumo da direcao visual aplicada ao dashboard, descrevendo tema, densidade, ritmo e linguagem geral.",
+          "minLength": 1
+        },
+        "diretrizes_aplicadas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "restricoes_visuais": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a disponibilidade da referencia estetica e seus impactos.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ResumoExecutivo": {
+      "type": "object",
+      "title": "Resumo Executivo",
+      "description": "Sintese executiva da Etapa 8.",
+      "required": [
+        "objetivo_do_backlog_e_plano",
+        "escopo_considerado",
+        "releases_sugeridas",
+        "epicos_principais",
+        "riscos_principais",
+        "dependencias_principais",
+        "estrategia_qa",
+        "criterios_gerais_de_pronto",
+        "limitacoes_da_documentacao",
+        "relacao_com_etapas_anteriores",
+        "relacao_com_proximas_etapas",
+        "nivel_de_maturidade"
+      ],
+      "properties": {
+        "objetivo_do_backlog_e_plano": {
+          "type": "string",
+          "title": "Objetivo do Backlog e Plano",
+          "description": "Descricao central do que esta etapa organiza e por que isso existe.",
+          "minLength": 1
+        },
+        "escopo_considerado": {
+          "type": "string",
+          "title": "Escopo Considerado",
+          "description": "Resumo do escopo funcional e tecnico que foi considerado na consolidacao.",
+          "minLength": 1
+        },
+        "releases_sugeridas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "epicos_principais": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "riscos_principais": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "dependencias_principais": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "estrategia_qa": {
+          "type": "string",
+          "title": "Estrategia de QA",
+          "description": "Sintese da estrategia de qualidade e validacao da etapa.",
+          "minLength": 1
+        },
+        "criterios_gerais_de_pronto": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "limitacoes_da_documentacao": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "relacao_com_etapas_anteriores": {
+          "type": "string",
+          "title": "Relacao com Etapas Anteriores",
+          "description": "Como a consolidacao desta etapa depende e reaproveita as etapas anteriores.",
+          "minLength": 1
+        },
+        "relacao_com_proximas_etapas": {
+          "type": "string",
+          "title": "Relacao com Proximas Etapas",
+          "description": "Como esta saida prepara o trabalho de arquitetura, implementacao ou validacao das etapas seguintes.",
+          "minLength": 1
+        },
+        "nivel_de_maturidade": {
+          "type": "string",
+          "title": "Nivel de Maturidade",
+          "description": "Leitura sintetica do nivel de maturidade para desenvolvimento e validacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContextoConsolidado": {
+      "type": "object",
+      "title": "Contexto Consolidado do Produto",
+      "description": "Consolidacao da informacao de negocio, produto, usuario, permissao, dados e integracao herdada das etapas anteriores.",
+      "required": [
+        "nome_do_produto",
+        "codigo_do_projeto",
+        "tipo_de_sistema",
+        "segmento",
+        "publico_alvo",
+        "proposta_de_valor",
+        "stakeholders",
+        "personas_e_perfis",
+        "dominios",
+        "modulos",
+        "funcionalidades",
+        "telas",
+        "acoes_e_eventos",
+        "regras_de_negocio",
+        "permissoes",
+        "configuracoes",
+        "entidades_e_relacionamentos",
+        "integracoes",
+        "automacoes_e_ia",
+        "jornadas_e_fluxos",
+        "arquitetura_de_navegacao",
+        "componentes_e_padroes_ux_ui",
+        "criterios_de_aceite_existentes",
+        "riscos",
+        "lacunas",
+        "recomendacoes_das_etapas_anteriores",
+        "direcao_estetica_oficial"
+      ],
+      "properties": {
+        "nome_do_produto": {
+          "type": "string",
+          "title": "Nome do Produto",
+          "description": "Nome de trabalho consolidado para o produto.",
+          "minLength": 1
+        },
+        "codigo_do_projeto": {
+          "type": "string",
+          "title": "Codigo do Projeto",
+          "description": "Codigo interno ou identificador do projeto, quando existir.",
+          "minLength": 1
+        },
+        "tipo_de_sistema": {
+          "type": "string",
+          "title": "Tipo de Sistema",
+          "description": "Categoria do sistema, plataforma ou produto analisado.",
+          "minLength": 1
+        },
+        "segmento": {
+          "type": "string",
+          "title": "Segmento",
+          "description": "Segmento de mercado ou contexto do produto.",
+          "minLength": 1
+        },
+        "publico_alvo": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "proposta_de_valor": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "stakeholders": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "personas_e_perfis": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "dominios": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "modulos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "funcionalidades": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "telas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "acoes_e_eventos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "regras_de_negocio": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "permissoes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "configuracoes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "entidades_e_relacionamentos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "integracoes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "automacoes_e_ia": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "jornadas_e_fluxos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "arquitetura_de_navegacao": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "componentes_e_padroes_ux_ui": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "criterios_de_aceite_existentes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "riscos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "lacunas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "recomendacoes_das_etapas_anteriores": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "direcao_estetica_oficial": {
+          "type": "string",
+          "title": "Direcao Estetica Oficial",
+          "description": "Resumo da direcao estetica que deve orientar a construcao visual do dashboard.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FonteDocumento": {
+      "type": "object",
+      "title": "Fonte ou Documento de Entrada",
+      "description": "Registro semantico de um documento, arquivo ou material usado como entrada oficial da etapa.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "documento_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da entrada, como md, html, historico, zip, pesquisa ou referencia.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo legivel do documento ou material de entrada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou local de onde a entrada foi obtida.",
+          "minLength": 1
+        },
+        "documento_ou_url": {
+          "type": "string",
+          "title": "Documento ou URL",
+          "description": "Caminho, URL ou referencia documental do item.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a confianca, cobertura ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReleaseItem": {
+      "type": "object",
+      "title": "Release",
+      "description": "Registro semantico de uma release do plano de entrega.",
+      "required": [
+        "release",
+        "objetivo",
+        "escopo_funcional",
+        "escopo_tecnico",
+        "criterio_de_sucesso",
+        "observacoes"
+      ],
+      "properties": {
+        "release": {
+          "type": "string",
+          "title": "Release",
+          "description": "Nome ou identificador da release.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal da release.",
+          "minLength": 1
+        },
+        "escopo_funcional": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "escopo_tecnico": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "criterio_de_sucesso": {
+          "type": "string",
+          "title": "Criterio de Sucesso",
+          "description": "Criterio que indica se a release foi bem sucedida.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a release.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RoadmapItem": {
+      "type": "object",
+      "title": "Roadmap de Implementacao",
+      "description": "Registro de fase no roadmap de implementacao.",
+      "required": [
+        "fase",
+        "objetivo",
+        "entregaveis",
+        "dependencias",
+        "riscos",
+        "resultado_esperado"
+      ],
+      "properties": {
+        "fase": {
+          "type": "string",
+          "title": "Fase",
+          "description": "Nome da fase do roadmap.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da fase.",
+          "minLength": 1
+        },
+        "entregaveis": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "dependencias": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "riscos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado ao concluir a fase.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "EpicoItem": {
+      "type": "object",
+      "title": "Epico",
+      "description": "Registro de um epico funcional ou tecnico do plano.",
+      "required": [
+        "id",
+        "epico",
+        "descricao",
+        "dominio",
+        "objetivo",
+        "prioridade",
+        "release_sugerida",
+        "dependencias",
+        "observacoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do epico.",
+          "minLength": 1
+        },
+        "epico": {
+          "type": "string",
+          "title": "Epico",
+          "description": "Nome do epico.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada do epico.",
+          "minLength": 1
+        },
+        "dominio": {
+          "type": "string",
+          "title": "Dominio",
+          "description": "Dominio do produto ao qual o epico pertence.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo a ser atingido pelo epico.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade atribuida ao epico.",
+          "minLength": 1
+        },
+        "release_sugerida": {
+          "type": "string",
+          "title": "Release Sugerida",
+          "description": "Release em que o epico deve ser tratado preferencialmente.",
+          "minLength": 1
+        },
+        "dependencias": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o epico.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FeatureItem": {
+      "type": "object",
+      "title": "Feature",
+      "description": "Registro de uma feature derivada de um epico.",
+      "required": [
+        "id",
+        "epico",
+        "feature",
+        "descricao",
+        "valor_para_o_usuario",
+        "prioridade",
+        "release",
+        "observacoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da feature.",
+          "minLength": 1
+        },
+        "epico": {
+          "type": "string",
+          "title": "Epico",
+          "description": "Epico ao qual a feature pertence.",
+          "minLength": 1
+        },
+        "feature": {
+          "type": "string",
+          "title": "Feature",
+          "description": "Nome da feature.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao da feature.",
+          "minLength": 1
+        },
+        "valor_para_o_usuario": {
+          "type": "string",
+          "title": "Valor para o Usuario",
+          "description": "Valor direto percebido pelo usuario ou pelo negocio.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da feature.",
+          "minLength": 1
+        },
+        "release": {
+          "type": "string",
+          "title": "Release",
+          "description": "Release sugerida para a feature.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a feature.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "HistoriaUsuario": {
+      "type": "object",
+      "title": "Historia de Usuario",
+      "description": "Registro de uma historia de usuario para o backlog.",
+      "required": [
+        "id",
+        "epico",
+        "feature",
+        "historia_de_usuario",
+        "perfil",
+        "valor_esperado",
+        "prioridade",
+        "release",
+        "observacoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da historia.",
+          "minLength": 1
+        },
+        "epico": {
+          "type": "string",
+          "title": "Epico",
+          "description": "Epico ao qual a historia pertence.",
+          "minLength": 1
+        },
+        "feature": {
+          "type": "string",
+          "title": "Feature",
+          "description": "Feature a que a historia esta relacionada.",
+          "minLength": 1
+        },
+        "historia_de_usuario": {
+          "type": "string",
+          "title": "Historia de Usuario",
+          "description": "Frase no formato Como, quero, para.",
+          "minLength": 1
+        },
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Perfil de usuario ou ator envolvido.",
+          "minLength": 1
+        },
+        "valor_esperado": {
+          "type": "string",
+          "title": "Valor Esperado",
+          "description": "Valor esperado para o perfil ou negocio.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade da historia.",
+          "minLength": 1
+        },
+        "release": {
+          "type": "string",
+          "title": "Release",
+          "description": "Release sugerida para a historia.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a historia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CriterioAceite": {
+      "type": "object",
+      "title": "Criterio de Aceite",
+      "description": "Registro de um criterio de aceite associado a uma historia.",
+      "required": [
+        "historia",
+        "criterio_de_aceite",
+        "tipo",
+        "cenario",
+        "observacoes"
+      ],
+      "properties": {
+        "historia": {
+          "type": "string",
+          "title": "Historia",
+          "description": "Referencia textual ou ID da historia correspondente.",
+          "minLength": 1
+        },
+        "criterio_de_aceite": {
+          "type": "string",
+          "title": "Criterio de Aceite",
+          "description": "Criterio objetivo de validacao.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do criterio de aceite, como funcional, permissao, validacao, UX, UI, acessibilidade, seguranca, dados, integracao, IA, billing, auditoria, performance ou responsividade.",
+          "minLength": 1
+        },
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Cenario descritivo do comportamento esperado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o criterio.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "BacklogItem": {
+      "type": "object",
+      "title": "Item de Backlog",
+      "description": "Registro detalhado de backlog para desenvolvimento e QA.",
+      "required": [
+        "id",
+        "tipo",
+        "epico",
+        "feature",
+        "item_de_backlog",
+        "descricao",
+        "prioridade",
+        "esforco_estimado",
+        "dependencias",
+        "release",
+        "observacoes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do item de backlog.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo do item de backlog, como historia, tarefa tecnica, bug conhecido, melhoria, spike, pesquisa, prototipo, teste, infraestrutura, documentacao, seguranca, integracao, IA, dados ou UX/UI.",
+          "minLength": 1
+        },
+        "epico": {
+          "type": "string",
+          "title": "Epico",
+          "description": "Epico ao qual o item pertence.",
+          "minLength": 1
+        },
+        "feature": {
+          "type": "string",
+          "title": "Feature",
+          "description": "Feature ou assunto associado ao item.",
+          "minLength": 1
+        },
+        "item_de_backlog": {
+          "type": "string",
+          "title": "Item de Backlog",
+          "description": "Resumo curto do item de backlog.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada do item.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade do item de backlog.",
+          "minLength": 1
+        },
+        "esforco_estimado": {
+          "type": "string",
+          "title": "Esforco Estimado",
+          "description": "Estimativa de esforço, como PP, P, M, G, GG ou pontos relativos.",
+          "minLength": 1
+        },
+        "dependencias": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "release": {
+          "type": "string",
+          "title": "Release",
+          "description": "Release sugerida para o item.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o item de backlog.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "PriorizacaoItem": {
+      "type": "object",
+      "title": "Priorizacao",
+      "description": "Registro da analise de priorizacao de um item.",
+      "required": [
+        "item",
+        "valor",
+        "urgencia",
+        "risco",
+        "esforco",
+        "prioridade_final",
+        "justificativa"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Item analisado para priorizacao.",
+          "minLength": 1
+        },
+        "valor": {
+          "type": "string",
+          "title": "Valor",
+          "description": "Valor percebido pelo usuario ou negocio.",
+          "minLength": 1
+        },
+        "urgencia": {
+          "type": "string",
+          "title": "Urgencia",
+          "description": "Urgencia associada ao item.",
+          "minLength": 1
+        },
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Risco reduzido ou gerado pelo item.",
+          "minLength": 1
+        },
+        "esforco": {
+          "type": "string",
+          "title": "Esforco",
+          "description": "Esforco estimado para entrega.",
+          "minLength": 1
+        },
+        "prioridade_final": {
+          "type": "string",
+          "title": "Prioridade Final",
+          "description": "Resultado final da priorizacao.",
+          "minLength": 1
+        },
+        "justificativa": {
+          "type": "string",
+          "title": "Justificativa",
+          "description": "Justificativa da prioridade final.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DependenciaItem": {
+      "type": "object",
+      "title": "Dependencia",
+      "description": "Registro de uma dependencia entre itens do plano.",
+      "required": [
+        "item_dependente",
+        "depende_de",
+        "tipo_de_dependencia",
+        "impacto",
+        "mitigacao"
+      ],
+      "properties": {
+        "item_dependente": {
+          "type": "string",
+          "title": "Item Dependente",
+          "description": "Item que possui a dependencia.",
+          "minLength": 1
+        },
+        "depende_de": {
+          "type": "string",
+          "title": "Depende de",
+          "description": "Item, decisao ou sistema do qual depende.",
+          "minLength": 1
+        },
+        "tipo_de_dependencia": {
+          "type": "string",
+          "title": "Tipo de Dependencia",
+          "description": "Tipo da dependencia, como funcional, tecnico, dados, UX, integracao, permissao, billing, IA, seguranca, negocio ou decisao externa.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da dependencia no plano ou na entrega.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Acao de mitigacao ou tratamento da dependencia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RequisitoTecnico": {
+      "type": "object",
+      "title": "Requisito Tecnico",
+      "description": "Registro de requisito tecnico candidato para implementacao.",
+      "required": [
+        "requisito_tecnico",
+        "categoria",
+        "origem",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "requisito_tecnico": {
+          "type": "string",
+          "title": "Requisito Tecnico",
+          "description": "Descricao objetiva do requisito tecnico.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria tecnica do requisito, como frontend, backend, banco de dados, autenticacao, autorizacao, multi tenant, seguranca, performance, escalabilidade, observabilidade, integracao, IA, billing, arquivos, notificacoes, infraestrutura, CI/CD ou testes.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem da necessidade tecnica.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado no produto ou na entrega.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade atribuida ao requisito tecnico.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o requisito tecnico.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "SprintItem": {
+      "type": "object",
+      "title": "Sprint",
+      "description": "Registro de uma sprint proposta no plano de implementacao.",
+      "required": [
+        "sprint",
+        "objetivo",
+        "itens_previstos",
+        "dependencias",
+        "criterio_de_sucesso",
+        "observacoes"
+      ],
+      "properties": {
+        "sprint": {
+          "type": "string",
+          "title": "Sprint",
+          "description": "Identificador ou nome da sprint.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo principal da sprint.",
+          "minLength": 1
+        },
+        "itens_previstos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "dependencias": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "criterio_de_sucesso": {
+          "type": "string",
+          "title": "Criterio de Sucesso",
+          "description": "Criterio que indica o sucesso da sprint.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a sprint.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CriterioPronto": {
+      "type": "object",
+      "title": "Criterio de Pronto",
+      "description": "Criterio de pronto para entrada ou saida de trabalho.",
+      "required": [
+        "criterio",
+        "descricao",
+        "obrigatorio"
+      ],
+      "properties": {
+        "criterio": {
+          "type": "string",
+          "title": "Criterio",
+          "description": "Nome curto do criterio.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada do criterio.",
+          "minLength": 1
+        },
+        "obrigatorio": {
+          "type": "boolean",
+          "title": "Obrigatorio",
+          "description": "Indica se o criterio e obrigatorio.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "QAItem": {
+      "type": "object",
+      "title": "Plano de QA",
+      "description": "Registro de estrategia de qualidade por area.",
+      "required": [
+        "area",
+        "estrategia_de_qa",
+        "tipos_de_teste",
+        "ferramentas_sugeridas",
+        "observacoes"
+      ],
+      "properties": {
+        "area": {
+          "type": "string",
+          "title": "Area",
+          "description": "Area de qualidade tratada.",
+          "minLength": 1
+        },
+        "estrategia_de_qa": {
+          "type": "string",
+          "title": "Estrategia de QA",
+          "description": "Estratégia de validacao para a area.",
+          "minLength": 1
+        },
+        "tipos_de_teste": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "ferramentas_sugeridas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a area de QA.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "CasoTeste": {
+      "type": "object",
+      "title": "Caso de Teste",
+      "description": "Cenario de teste para validacao funcional, de integracao ou de UX.",
+      "required": [
+        "id",
+        "funcionalidade",
+        "cenario",
+        "pre_condicoes",
+        "passos",
+        "resultado_esperado",
+        "prioridade"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel do caso de teste.",
+          "minLength": 1
+        },
+        "funcionalidade": {
+          "type": "string",
+          "title": "Funcionalidade",
+          "description": "Funcionalidade alvo do teste.",
+          "minLength": 1
+        },
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Descricao do cenario a ser testado.",
+          "minLength": 1
+        },
+        "pre_condicoes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "passos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado ao executar o teste.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade do caso de teste.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TestePermissao": {
+      "type": "object",
+      "title": "Teste de Permissao",
+      "description": "Cenario de validacao de acesso por perfil.",
+      "required": [
+        "perfil",
+        "tela_ou_funcionalidade",
+        "acesso_esperado",
+        "acao_permitida",
+        "acao_bloqueada",
+        "resultado_esperado"
+      ],
+      "properties": {
+        "perfil": {
+          "type": "string",
+          "title": "Perfil",
+          "description": "Perfil usado no teste.",
+          "minLength": 1
+        },
+        "tela_ou_funcionalidade": {
+          "type": "string",
+          "title": "Tela ou Funcionalidade",
+          "description": "Tela ou funcionalidade validada.",
+          "minLength": 1
+        },
+        "acesso_esperado": {
+          "type": "string",
+          "title": "Acesso Esperado",
+          "description": "Nivel de acesso esperado.",
+          "minLength": 1
+        },
+        "acao_permitida": {
+          "type": "string",
+          "title": "Acao Permitida",
+          "description": "Acao permitida para o perfil.",
+          "minLength": 1
+        },
+        "acao_bloqueada": {
+          "type": "string",
+          "title": "Acao Bloqueada",
+          "description": "Acao que deve ser bloqueada.",
+          "minLength": 1
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado do teste.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TesteUXUI": {
+      "type": "object",
+      "title": "Teste de UX/UI",
+      "description": "Cenario de validacao visual e de experiencia.",
+      "required": [
+        "tela_ou_fluxo",
+        "criterio_visual_ux",
+        "como_testar",
+        "resultado_esperado",
+        "observacoes"
+      ],
+      "properties": {
+        "tela_ou_fluxo": {
+          "type": "string",
+          "title": "Tela ou Fluxo",
+          "description": "Tela ou fluxo sob teste.",
+          "minLength": 1
+        },
+        "criterio_visual_ux": {
+          "type": "string",
+          "title": "Criterio Visual UX",
+          "description": "Criterio visual ou de experiencia a ser validado.",
+          "minLength": 1
+        },
+        "como_testar": {
+          "type": "string",
+          "title": "Como Testar",
+          "description": "Modo de executar a validacao.",
+          "minLength": 1
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado da validacao.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o teste.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TesteIntegracao": {
+      "type": "object",
+      "title": "Teste de Integracao",
+      "description": "Cenario de validacao de integracao com sistema externo ou interno.",
+      "required": [
+        "integracao",
+        "cenario",
+        "entrada",
+        "resultado_esperado",
+        "falha_esperada",
+        "recuperacao"
+      ],
+      "properties": {
+        "integracao": {
+          "type": "string",
+          "title": "Integracao",
+          "description": "Nome da integracao sob teste.",
+          "minLength": 1
+        },
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Descricao do cenario de integracao.",
+          "minLength": 1
+        },
+        "entrada": {
+          "type": "string",
+          "title": "Entrada",
+          "description": "Entrada ou payload utilizado.",
+          "minLength": 1
+        },
+        "resultado_esperado": {
+          "type": "string",
+          "title": "Resultado Esperado",
+          "description": "Resultado esperado da integracao.",
+          "minLength": 1
+        },
+        "falha_esperada": {
+          "type": "string",
+          "title": "Falha Esperada",
+          "description": "Falha que deve ser simulada ou observada.",
+          "minLength": 1
+        },
+        "recuperacao": {
+          "type": "string",
+          "title": "Recuperacao",
+          "description": "Comportamento de recuperacao esperado.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "TesteDadosAuditoria": {
+      "type": "object",
+      "title": "Teste de Dados e Auditoria",
+      "description": "Cenario de validacao de dados e trilha de auditoria.",
+      "required": [
+        "entidade_ou_evento",
+        "cenario",
+        "validacao_de_dados",
+        "auditoria_esperada",
+        "observacoes"
+      ],
+      "properties": {
+        "entidade_ou_evento": {
+          "type": "string",
+          "title": "Entidade ou Evento",
+          "description": "Entidade ou evento verificado.",
+          "minLength": 1
+        },
+        "cenario": {
+          "type": "string",
+          "title": "Cenario",
+          "description": "Cenario de validacao.",
+          "minLength": 1
+        },
+        "validacao_de_dados": {
+          "type": "string",
+          "title": "Validacao de Dados",
+          "description": "Regra ou aspecto de dados que deve ser validado.",
+          "minLength": 1
+        },
+        "auditoria_esperada": {
+          "type": "string",
+          "title": "Auditoria Esperada",
+          "description": "Registro de auditoria esperado.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre dados ou auditoria.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RiscoItem": {
+      "type": "object",
+      "title": "Risco de Implementacao",
+      "description": "Registro de um risco identificado durante a planejamento.",
+      "required": [
+        "risco",
+        "categoria",
+        "probabilidade",
+        "impacto",
+        "sinal_de_alerta",
+        "mitigacao"
+      ],
+      "properties": {
+        "risco": {
+          "type": "string",
+          "title": "Risco",
+          "description": "Nome ou resumo do risco.",
+          "minLength": 1
+        },
+        "categoria": {
+          "type": "string",
+          "title": "Categoria",
+          "description": "Categoria do risco, como produto, UX, tecnico, dados, seguranca, integracao, IA, billing, performance, operacao, prazo, equipe, escopo ou compliance.",
+          "minLength": 1
+        },
+        "probabilidade": {
+          "type": "string",
+          "title": "Probabilidade",
+          "description": "Estimativa qualitativa de probabilidade.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado caso o risco se concretize.",
+          "minLength": 1
+        },
+        "sinal_de_alerta": {
+          "type": "string",
+          "title": "Sinal de Alerta",
+          "description": "Sinal que pode indicar a materializacao do risco.",
+          "minLength": 1
+        },
+        "mitigacao": {
+          "type": "string",
+          "title": "Mitigacao",
+          "description": "Acao sugerida para mitigar o risco.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "MetricaItem": {
+      "type": "object",
+      "title": "Metrica de Entrega e Qualidade",
+      "description": "Registro de uma metrica a ser acompanhada durante a entrega.",
+      "required": [
+        "metrica",
+        "objetivo",
+        "como_medir",
+        "frequencia",
+        "observacoes"
+      ],
+      "properties": {
+        "metrica": {
+          "type": "string",
+          "title": "Metrica",
+          "description": "Nome da metrica.",
+          "minLength": 1
+        },
+        "objetivo": {
+          "type": "string",
+          "title": "Objetivo",
+          "description": "Objetivo da metrica.",
+          "minLength": 1
+        },
+        "como_medir": {
+          "type": "string",
+          "title": "Como Medir",
+          "description": "Forma de medir a metrica.",
+          "minLength": 1
+        },
+        "frequencia": {
+          "type": "string",
+          "title": "Frequencia",
+          "description": "Frequencia de acompanhamento.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a metrica.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "HandoffItem": {
+      "type": "object",
+      "title": "Handoff para Desenvolvimento",
+      "description": "Item do checklist de handoff para desenvolvimento.",
+      "required": [
+        "item",
+        "descricao",
+        "status_esperado",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome do item de handoff.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao do item que precisa ser entregue.",
+          "minLength": 1
+        },
+        "status_esperado": {
+          "type": "string",
+          "title": "Status Esperado",
+          "description": "Status esperado antes do handoff.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o item.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "LacunaPendencia": {
+      "type": "object",
+      "title": "Lacuna ou Pendencia",
+      "description": "Registro de uma lacuna, decisao pendente ou informacao faltante na consolidacao.",
+      "required": [
+        "item",
+        "tipo",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "item": {
+          "type": "string",
+          "title": "Item",
+          "description": "Nome resumido da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo da pendencia, como decisao, validacao, evidencia, dependencia, risco ou bloqueio.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao detalhada da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto da lacuna na consolidacao ou na implementacao.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade para resolucao da lacuna ou pendencia.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a pendencia.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "DiretrizesUXUI": {
+      "type": "object",
+      "title": "Diretrizes de UX/UI",
+      "description": "Diretrizes visuais e de experiencia derivadas do arquivo estetico oficial ou de uma diretriz provisoria quando a referencia nao estiver disponivel.",
+      "required": [
+        "arquivo_referencia",
+        "status_arquivo_estetico",
+        "principios_aplicados",
+        "diretrizes_de_layout",
+        "diretrizes_de_componentes",
+        "diretrizes_de_densidade",
+        "diretrizes_de_responsividade",
+        "diretrizes_de_acessibilidade",
+        "diretrizes_de_microcopy",
+        "padroes_proibidos",
+        "observacoes"
+      ],
+      "properties": {
+        "arquivo_referencia": {
+          "type": "string",
+          "title": "Arquivo de Referencia",
+          "description": "Arquivo estetico que orienta as decisoes de UX/UI.",
+          "const": "0-estetica-inicial.md"
+        },
+        "status_arquivo_estetico": {
+          "type": "string",
+          "title": "Status do Arquivo Estetico",
+          "description": "Status de disponibilidade do arquivo estetico.",
+          "enum": [
+            "fornecido",
+            "ausente",
+            "provisorio"
+          ]
+        },
+        "principios_aplicados": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_layout": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_componentes": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_densidade": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_responsividade": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_acessibilidade": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "diretrizes_de_microcopy": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "padroes_proibidos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a aplicacao visual e suas restricoes.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "RecomendacaoEtapa9": {
+      "type": "object",
+      "title": "Recomendacao para a Etapa 9",
+      "description": "Recomendacao para a proxima etapa do fluxo de produto.",
+      "required": [
+        "foco",
+        "descricao",
+        "impacto",
+        "prioridade",
+        "observacoes"
+      ],
+      "properties": {
+        "foco": {
+          "type": "string",
+          "title": "Foco",
+          "description": "Area ou assunto que deve ser tratado na proxima etapa.",
+          "minLength": 1
+        },
+        "descricao": {
+          "type": "string",
+          "title": "Descricao",
+          "description": "Descricao objetiva da recomendacao.",
+          "minLength": 1
+        },
+        "impacto": {
+          "type": "string",
+          "title": "Impacto",
+          "description": "Impacto esperado da recomendacao no produto ou na continuidade do trabalho.",
+          "minLength": 1
+        },
+        "prioridade": {
+          "type": "string",
+          "title": "Prioridade",
+          "description": "Prioridade sugerida para executar a recomendacao.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre a recomendacao.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "FonteReferencia": {
+      "type": "object",
+      "title": "Fonte e Referencia",
+      "description": "Registro rastreavel de uma fonte, documento ou referencia usada na consolidacao.",
+      "required": [
+        "id",
+        "tipo",
+        "titulo",
+        "origem",
+        "documento_ou_url",
+        "usado_em",
+        "observacao"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID",
+          "description": "Identificador estavel da fonte.",
+          "minLength": 1
+        },
+        "tipo": {
+          "type": "string",
+          "title": "Tipo",
+          "description": "Tipo de fonte, como documento, arquivo local, pesquisa, benchmark, site oficial ou observacao.",
+          "minLength": 1
+        },
+        "titulo": {
+          "type": "string",
+          "title": "Titulo",
+          "description": "Titulo ou nome da fonte consultada.",
+          "minLength": 1
+        },
+        "origem": {
+          "type": "string",
+          "title": "Origem",
+          "description": "Origem ou organizacao responsavel pela fonte.",
+          "minLength": 1
+        },
+        "documento_ou_url": {
+          "type": "string",
+          "title": "Documento ou URL",
+          "description": "URL, caminho de arquivo ou referencia documental usada como fonte.",
+          "minLength": 1
+        },
+        "usado_em": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacao": {
+          "type": "string",
+          "title": "Observacao",
+          "description": "Observacao adicional sobre a qualidade, confianca ou limitacao da fonte.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProximosPassos": {
+      "type": "object",
+      "title": "Proximos Passos",
+      "description": "Sintese final das acoes imediatas recomendadas apos a consolidacao da etapa.",
+      "required": [
+        "acoes_imediatas",
+        "prioridades",
+        "riscos_a_monitorar",
+        "questoes_em_aberto",
+        "observacoes"
+      ],
+      "properties": {
+        "acoes_imediatas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "prioridades": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "riscos_a_monitorar": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "questoes_em_aberto": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes finais sobre continuidade e sequenciamento.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Interatividade": {
+      "type": "object",
+      "title": "Interatividade",
+      "description": "Recursos interativos e comportamentos esperados no dashboard HTML.",
+      "required": [
+        "alternar_tema",
+        "expandir_recolher_secoes",
+        "filtros",
+        "busca_textual",
+        "copiar_resumo_executivo",
+        "copiar_backlog_detalhado",
+        "copiar_historias_de_usuario",
+        "copiar_criterios_de_aceite",
+        "copiar_plano_de_qa",
+        "copiar_casos_de_teste",
+        "exportar_markdown",
+        "imprimir_ou_pdf",
+        "mostrar_progresso_visual",
+        "destacar_itens_essenciais",
+        "destacar_riscos_altos",
+        "destacar_dependencias_criticas",
+        "destacar_itens_bloqueados",
+        "destacar_itens_transversais",
+        "navegar_por_ancoras_internas"
+      ],
+      "properties": {
+        "alternar_tema": {
+          "type": "object",
+          "title": "Alternar Tema",
+          "description": "Configuracao da possibilidade de alternar tema claro e escuro, quando compativel com a estetica oficial.",
+          "required": [
+            "disponivel",
+            "tema_padrao",
+            "justificativa"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a alternancia de tema esta disponivel no dashboard.",
+              "default": false
+            },
+            "tema_padrao": {
+              "type": "string",
+              "title": "Tema Padrao",
+              "description": "Tema padrao escolhido para a interface.",
+              "minLength": 1
+            },
+            "justificativa": {
+              "type": "string",
+              "title": "Justificativa",
+              "description": "Justificativa para a decisao sobre tema.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "expandir_recolher_secoes": {
+          "type": "boolean",
+          "title": "Expandir e Recolher Secoes",
+          "description": "Indica se as secoes podem ser expandidas e recolhidas.",
+          "default": true
+        },
+        "filtros": {
+          "type": "object",
+          "title": "Filtros",
+          "description": "Conjunto de filtros globais disponiveis no dashboard.",
+          "required": [
+            "backlog_por_release",
+            "backlog_por_epico",
+            "backlog_por_prioridade",
+            "backlog_por_tipo",
+            "historias_por_perfil",
+            "criterios_por_tipo",
+            "testes_por_funcionalidade",
+            "testes_por_prioridade",
+            "riscos_por_categoria_ou_impacto",
+            "dependencias_por_tipo"
+          ],
+          "properties": {
+            "backlog_por_release": {
+              "type": "boolean",
+              "title": "Backlog por Release",
+              "description": "Permite filtrar o backlog por release.",
+              "default": true
+            },
+            "backlog_por_epico": {
+              "type": "boolean",
+              "title": "Backlog por Epico",
+              "description": "Permite filtrar o backlog por epico.",
+              "default": true
+            },
+            "backlog_por_prioridade": {
+              "type": "boolean",
+              "title": "Backlog por Prioridade",
+              "description": "Permite filtrar o backlog por prioridade.",
+              "default": true
+            },
+            "backlog_por_tipo": {
+              "type": "boolean",
+              "title": "Backlog por Tipo",
+              "description": "Permite filtrar o backlog por tipo.",
+              "default": true
+            },
+            "historias_por_perfil": {
+              "type": "boolean",
+              "title": "Historias por Perfil",
+              "description": "Permite filtrar historias por perfil.",
+              "default": true
+            },
+            "criterios_por_tipo": {
+              "type": "boolean",
+              "title": "Criterios por Tipo",
+              "description": "Permite filtrar criterios por tipo.",
+              "default": true
+            },
+            "testes_por_funcionalidade": {
+              "type": "boolean",
+              "title": "Testes por Funcionalidade",
+              "description": "Permite filtrar testes por funcionalidade.",
+              "default": true
+            },
+            "testes_por_prioridade": {
+              "type": "boolean",
+              "title": "Testes por Prioridade",
+              "description": "Permite filtrar testes por prioridade.",
+              "default": true
+            },
+            "riscos_por_categoria_ou_impacto": {
+              "type": "boolean",
+              "title": "Riscos por Categoria ou Impacto",
+              "description": "Permite filtrar riscos por categoria ou impacto.",
+              "default": true
+            },
+            "dependencias_por_tipo": {
+              "type": "boolean",
+              "title": "Dependencias por Tipo",
+              "description": "Permite filtrar dependencias por tipo.",
+              "default": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "busca_textual": {
+          "type": "object",
+          "title": "Busca Textual",
+          "description": "Configuracao da busca livre em todo o dashboard.",
+          "required": [
+            "disponivel",
+            "escopo",
+            "comportamento"
+          ],
+          "properties": {
+            "disponivel": {
+              "type": "boolean",
+              "title": "Disponivel",
+              "description": "Indica se a busca textual global esta disponivel.",
+              "default": true
+            },
+            "escopo": {
+              "type": "string",
+              "title": "Escopo",
+              "description": "Escopo da busca textual dentro do dashboard.",
+              "minLength": 1
+            },
+            "comportamento": {
+              "type": "string",
+              "title": "Comportamento",
+              "description": "Descricao de como a busca deve localizar e destacar resultados.",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "copiar_resumo_executivo": {
+          "type": "boolean",
+          "title": "Copiar Resumo Executivo",
+          "description": "Indica se o usuario pode copiar o resumo executivo.",
+          "default": true
+        },
+        "copiar_backlog_detalhado": {
+          "type": "boolean",
+          "title": "Copiar Backlog Detalhado",
+          "description": "Indica se o usuario pode copiar o backlog detalhado.",
+          "default": true
+        },
+        "copiar_historias_de_usuario": {
+          "type": "boolean",
+          "title": "Copiar Historias de Usuario",
+          "description": "Indica se o usuario pode copiar as historias de usuario.",
+          "default": true
+        },
+        "copiar_criterios_de_aceite": {
+          "type": "boolean",
+          "title": "Copiar Criterios de Aceite",
+          "description": "Indica se o usuario pode copiar os criterios de aceite.",
+          "default": true
+        },
+        "copiar_plano_de_qa": {
+          "type": "boolean",
+          "title": "Copiar Plano de QA",
+          "description": "Indica se o usuario pode copiar o plano de QA.",
+          "default": true
+        },
+        "copiar_casos_de_teste": {
+          "type": "boolean",
+          "title": "Copiar Casos de Teste",
+          "description": "Indica se o usuario pode copiar os casos de teste.",
+          "default": true
+        },
+        "exportar_markdown": {
+          "type": "boolean",
+          "title": "Exportar Markdown",
+          "description": "Indica se o dashboard permite exportacao em Markdown.",
+          "default": true
+        },
+        "imprimir_ou_pdf": {
+          "type": "boolean",
+          "title": "Imprimir ou PDF",
+          "description": "Indica se o dashboard permite impressao ou salvamento em PDF.",
+          "default": true
+        },
+        "mostrar_progresso_visual": {
+          "type": "boolean",
+          "title": "Mostrar Progresso Visual",
+          "description": "Indica se a interface exibe progresso visual da etapa.",
+          "default": true
+        },
+        "destacar_itens_essenciais": {
+          "type": "boolean",
+          "title": "Destacar Itens Essenciais",
+          "description": "Indica se os itens essenciais devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_riscos_altos": {
+          "type": "boolean",
+          "title": "Destacar Riscos Altos",
+          "description": "Indica se os riscos altos devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_dependencias_criticas": {
+          "type": "boolean",
+          "title": "Destacar Dependencias Criticas",
+          "description": "Indica se as dependencias criticas devem ser destacadas visualmente.",
+          "default": true
+        },
+        "destacar_itens_bloqueados": {
+          "type": "boolean",
+          "title": "Destacar Itens Bloqueados",
+          "description": "Indica se os itens bloqueados devem ser destacados visualmente.",
+          "default": true
+        },
+        "destacar_itens_transversais": {
+          "type": "boolean",
+          "title": "Destacar Itens Transversais",
+          "description": "Indica se os itens relacionados a multi tenant, billing, permissoes, integracoes, auditoria e IA devem ser destacados.",
+          "default": true
+        },
+        "navegar_por_ancoras_internas": {
+          "type": "boolean",
+          "title": "Navegar por Ancoras Internas",
+          "description": "Indica se o dashboard permite navegar por ancoras internas entre blocos.",
+          "default": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ProgressoVisual": {
+      "type": "object",
+      "title": "Progresso Visual",
+      "description": "Indicadores visuais de progresso e maturidade da etapa.",
+      "required": [
+        "percentual_conclusao",
+        "status",
+        "marcos",
+        "indicadores",
+        "proxima_etapa_recomendada",
+        "observacoes"
+      ],
+      "properties": {
+        "percentual_conclusao": {
+          "type": "integer",
+          "title": "Percentual de Conclusao",
+          "description": "Percentual visual de completude da etapa.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "status": {
+          "type": "string",
+          "title": "Status",
+          "description": "Status sintetico do progresso.",
+          "enum": [
+            "nao_iniciado",
+            "em_andamento",
+            "parcial",
+            "concluido"
+          ]
+        },
+        "marcos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "indicadores": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "proxima_etapa_recomendada": {
+          "type": "string",
+          "title": "Proxima Etapa Recomendada",
+          "description": "Nome da proxima etapa recomendada.",
+          "minLength": 1
+        },
+        "observacoes": {
+          "type": "string",
+          "title": "Observacoes",
+          "description": "Observacoes adicionais sobre o progresso visual.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "Destaques": {
+      "type": "object",
+      "title": "Destaques",
+      "description": "Itens que devem receber destaque visual no dashboard.",
+      "required": [
+        "itens_essenciais",
+        "riscos_altos",
+        "dependencias_criticas",
+        "itens_bloqueados",
+        "itens_transversais"
+      ],
+      "properties": {
+        "itens_essenciais": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "riscos_altos": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "dependencias_criticas": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "itens_bloqueados": {
+          "$ref": "#/$defs/ListaTexto"
+        },
+        "itens_transversais": {
+          "$ref": "#/$defs/ListaTexto"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Contadores": {
+      "type": "object",
+      "title": "Contadores",
+      "description": "Indicadores numericos resumidos do dashboard.",
+      "required": [
+        "documentos_entrada",
+        "releases",
+        "epicos",
+        "features",
+        "historias",
+        "criterios",
+        "backlog_itens",
+        "dependencias",
+        "requisitos_tecnicos",
+        "sprints",
+        "casos_teste",
+        "riscos",
+        "metricas",
+        "secoes",
+        "nivel_maturidade_do_dashboard"
+      ],
+      "properties": {
+        "documentos_entrada": {
+          "type": "integer",
+          "title": "Documentos de Entrada",
+          "description": "Quantidade de documentos de entrada considerados.",
+          "minimum": 0
+        },
+        "releases": {
+          "type": "integer",
+          "title": "Releases",
+          "description": "Quantidade de releases consideradas.",
+          "minimum": 0
+        },
+        "epicos": {
+          "type": "integer",
+          "title": "Epicos",
+          "description": "Quantidade de epicos mapeados.",
+          "minimum": 0
+        },
+        "features": {
+          "type": "integer",
+          "title": "Features",
+          "description": "Quantidade de features mapeadas.",
+          "minimum": 0
+        },
+        "historias": {
+          "type": "integer",
+          "title": "Historias",
+          "description": "Quantidade de historias de usuario mapeadas.",
+          "minimum": 0
+        },
+        "criterios": {
+          "type": "integer",
+          "title": "Criterios",
+          "description": "Quantidade de criterios de aceite consolidados.",
+          "minimum": 0
+        },
+        "backlog_itens": {
+          "type": "integer",
+          "title": "Itens de Backlog",
+          "description": "Quantidade de itens de backlog detalhados.",
+          "minimum": 0
+        },
+        "dependencias": {
+          "type": "integer",
+          "title": "Dependencias",
+          "description": "Quantidade de dependencias mapeadas.",
+          "minimum": 0
+        },
+        "requisitos_tecnicos": {
+          "type": "integer",
+          "title": "Requisitos Tecnicos",
+          "description": "Quantidade de requisitos tecnicos candidatos.",
+          "minimum": 0
+        },
+        "sprints": {
+          "type": "integer",
+          "title": "Sprints",
+          "description": "Quantidade de sprints sugeridas.",
+          "minimum": 0
+        },
+        "casos_teste": {
+          "type": "integer",
+          "title": "Casos de Teste",
+          "description": "Quantidade de casos de teste consolidados.",
+          "minimum": 0
+        },
+        "riscos": {
+          "type": "integer",
+          "title": "Riscos",
+          "description": "Quantidade de riscos identificados.",
+          "minimum": 0
+        },
+        "metricas": {
+          "type": "integer",
+          "title": "Metricas",
+          "description": "Quantidade de metricas de entrega e qualidade.",
+          "minimum": 0
+        },
+        "secoes": {
+          "type": "integer",
+          "title": "Secoes",
+          "description": "Quantidade de secoes principais do dashboard.",
+          "minimum": 0
+        },
+        "nivel_maturidade_do_dashboard": {
+          "type": "string",
+          "title": "Nivel de Maturidade do Dashboard",
+          "description": "Leitura sintetica do nivel de maturidade do dashboard da Etapa 8.",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
